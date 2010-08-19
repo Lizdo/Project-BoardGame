@@ -79,7 +79,7 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 //	t.state = TileStateAvailable;
 //	return [t autorelease];
 	Tile * t = [[Tile alloc ]initWithType:aType andPosition:p];
-	return t;
+	return [t autorelease];
 }
 
 //Info:

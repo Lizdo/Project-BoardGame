@@ -36,6 +36,7 @@
 		[board addSubview:mmv.view];
 		mmv.view.frame = board.bounds;
 		[mmv setValue:game forKey:@"game"];
+        [mmv release];
 	}
 }
 

@@ -152,7 +152,7 @@ static int rumbleInfo[30][4] = {
 			break;
 		}
 	}
-	return t;
+	return [t autorelease];
 }
 
 // info:
