@@ -36,9 +36,10 @@
 
         endTurnButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 		[self addSubview:endTurnButton];
-		endTurnButton.frame = CGRectMake(450, 130, 40, 40);		
 		//endTurnButton.center = CGPointMake(100,100);
 		[endTurnButton setImage:[UIImage imageNamed:@"EndTurn.png"] forState:UIControlStateNormal];
+        
+        endTurnButton.frame = CGRectMake(390, 70, 100, 100);		
 		[endTurnButton addTarget:self action:@selector(endTurnButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 		
 		toggleAIButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
@@ -46,7 +47,11 @@
 		toggleAIButton.frame = CGRectMake(470, 150, 100, 50);
 		[toggleAIButton addTarget:self action:@selector(toggleAIButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 		
-
+        currentPlayerMark = [[UIImageView alloc] init];
+        [self addSubview:currentPlayerMark];
+        [currentPlayerMark setImage:[UIImage imageNamed:@"CurrentProducer.png"]];
+        currentPlayerMark.frame = CGRectMake(300, 30, 50, 50);
+        currentPlayerMark.hidden = YES;
 		
 		rvc = [[RuleViewController alloc] initWithNibName:@"RuleView" bundle:nil];
 		[self addSubview:rvc.view];
@@ -69,8 +74,6 @@
 	[self setToggleAIButtonImage];
 	self.allowEndTurn = NO;
 }
-
-
 
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type{
 	UIImageView * icon = [[UIImageView alloc] initWithImage:[GameVisual imageForRumbleType:type andPlayerID:player.ID]];
@@ -193,6 +196,12 @@
 		svc.player = self.player;
 	}
 	[svc update];
+    
+    if (gameLogic.currentPlayer == player){
+        currentPlayerMark.hidden = NO;
+    }else{
+        currentPlayerMark.hidden = YES;
+    }
 
 }
 

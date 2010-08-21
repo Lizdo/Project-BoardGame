@@ -293,7 +293,7 @@ static int tileInfos[18][8] = {
 		currentPlayerID = 0;
 	[board disableEndTurnButton];
 	turn.selectedTile = nil;
-
+    [board update];
 }
 
 

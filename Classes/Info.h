@@ -20,7 +20,8 @@
 @interface Info : ContainerView {
 	UIButton * endTurnButton;
 	UIButton * toggleAIButton;
-
+    UIImageView * currentPlayerMark;
+    
 	GameLogic * gameLogic;
 	Player * player;
 	

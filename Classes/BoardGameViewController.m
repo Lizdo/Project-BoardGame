@@ -32,11 +32,10 @@
 	game = [[Game alloc] init];
 	
 	if (!SkipMenu) {
-		MainMenuViewController * mmv = [[MainMenuViewController alloc]initWithNibName:@"MainMenu" bundle:nil];
+		mmv = [[MainMenuViewController alloc]initWithNibName:@"MainMenu" bundle:nil];
 		[board addSubview:mmv.view];
 		mmv.view.frame = board.bounds;
 		[mmv setValue:game forKey:@"game"];
-        [mmv release];
 	}
 }
 
@@ -82,6 +81,7 @@
 
 
 - (void)dealloc {
+    [mmv release];
 	[menu release];
 	[game release];
     [super dealloc];

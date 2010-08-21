@@ -1,7 +1,7 @@
 TBoardGame
 v7
 r0
-t303923342.879568
+t304095490.838457
 cCheck dependencies
 cCpResource build/Debug-iphoneos/BoardGame.app/ResourceRules.plist /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist
 cProcessInfoPlistFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Info.plist BoardGame-Info.plist
@@ -40,6 +40,7 @@ cCopyPNGFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGam
 cCopyPNGFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Postit_Rumble.png Postit_Rumble.png
 cCompileXIB /Users/Liz/Dropbox/Projects/BoardGame/Classes/MainMenu.xib
 cCopyPNGFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Icon-72.png Icon-72.png
+cCopyPNGFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/CurrentProducer.png CurrentProducer.png
 cProcessPCH /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch.gch BoardGame_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/main.o /Users/Liz/Dropbox/Projects/BoardGame/main.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 cCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameAppDelegate.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m normal armv7 objective-c com.apple.compilers.gcc.4_2
@@ -160,8 +161,8 @@ s1225
 i"NoteView.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.h
-c000000004C56DF7C00000000000003CD
-t1280761724
+c000000004C6FE3CC00000000000003CD
+t1282401228
 s973
 i<UIKit/UIKit.h>
 i"GameVisual.h"
@@ -172,8 +173,8 @@ i"Info.h"
 i"ContainerView.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m
-c000000004C5CD3440000000000001335
-t1281151812
+c000000004C6FE9190000000000001335
+t1282402585
 s4917
 i"Board.h"
 i"GameLogic.h"
@@ -205,9 +206,9 @@ i"MainMenuViewController.h"
 i"TypeDef.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m
-c000000004C6D490300000000000008F7
-t1282230531
-s2295
+c000000004C6FE9360000000000000912
+t1282402614
+s2322
 i"BoardGameViewController.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/ContainerView.h
@@ -238,8 +239,8 @@ i"GameLogic.h"
 i"Tile.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.h
-c000000004C4A838900000000000008DD
-t1279951753
+c000000004C6FE90F00000000000008DD
+t1282402575
 s2269
 i<Foundation/Foundation.h>
 i"Game.h"
@@ -250,9 +251,9 @@ i"TypeDef.h"
 i"RumbleTarget.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m
-c000000004C4A83A60000000000003358
-t1279951782
-s13144
+c000000004C6FE8E4000000000000336B
+t1282402532
+s13163
 i"GameLogic.h"
 i"Tile.h"
 i"Board.h"
@@ -276,9 +277,9 @@ i"Board.h"
 i"Token.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.h
-c000000004C5AC3C300000000000002FC
-t1281016771
-s764
+c000000004C6FE4950000000000000325
+t1282401429
+s805
 i<UIKit/UIKit.h>
 i"GameVisual.h"
 i"TypeDef.h"
@@ -289,9 +290,9 @@ i"NoteView.h"
 i"ContainerView.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m
-c000000004C49B6400000000000001743
-t1279899200
-s5955
+c000000004C6FE49B00000000000018F0
+t1282401435
+s6384
 i"Info.h"
 i"GameLogic.h"
 
@@ -314,9 +315,9 @@ s2004
 i"MainMenuViewController.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.h
-c000000004C45A2F000000000000005B2
-t1279632112
-s1458
+c000000004C6FE90800000000000005B1
+t1282402568
+s1457
 i<Foundation/Foundation.h>
 i"TypeDef.h"
 i"Token.h"
@@ -438,9 +439,9 @@ i"Rumble.h"
 i"TokenPlaceholder.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m
-c000000004C3F16BF0000000000001EAE
-t1279203007
-s7854
+c000000004C6D788C0000000000001EBC
+t1282242700
+s7868
 i"RumbleTarget.h"
 i"RumbleInfo.h"
 i"Player.h"
@@ -475,9 +476,9 @@ i"TypeDef.h"
 i"Player.h"
 
 N/Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m
-c000000004C4A836C0000000000002BFD
-t1279951724
-s11261
+c000000004C6FE84E0000000000002C0B
+t1282402382
+s11275
 i"Tile.h"
 i"GameLogic.h"
 i"Board.h"
@@ -541,6 +542,11 @@ c000000004C5CD24A00000000000002EC
 t1281151562
 s748
 i<QuartzCore/QuartzCore.h>
+
+N/Users/Liz/Dropbox/Projects/BoardGame/CurrentProducer.png
+c000000004C6FE00D0000000000001CBA
+t1282400269
+s7354
 
 N/Users/Liz/Dropbox/Projects/BoardGame/EndTurn.png
 c000000004C2B4F6F0000000000000C8A
@@ -696,12 +702,12 @@ t1277521020
 s3034
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent
-t1282230207
+t1282401597
 s392
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Board.o
-t1282230536
-s58196
+t1282402687
+s58224
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGame.LinkFileList
 c000000004C6D3F150000000000000C45
@@ -709,32 +715,32 @@ t1282227989
 s3141
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameAppDelegate.o
-t1282230536
+t1282402687
 s49796
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameViewController.o
-t1282230536
-s46676
+t1282402687
+s46720
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ContainerView.o
 t1282228081
 s9864
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Game.o
-t1282230537
+t1282402687
 s25100
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameLogic.o
-t1282230538
-s69204
+t1282402688
+s69284
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameVisual.o
-t1282230537
+t1282402688
 s31316
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Info.o
-t1282230537
-s54284
+t1282402687
+s55524
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/MainMenuViewController.o
 t1282230539
@@ -745,7 +751,7 @@ t1282230539
 s16256
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Player.o
-t1282230538
+t1282402688
 s44540
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Resource.o
@@ -753,7 +759,7 @@ t1282228078
 s9100
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Round.o
-t1282230537
+t1282402687
 s26200
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RuleViewController.o
@@ -761,39 +767,39 @@ t1282230539
 s37084
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Rumble.o
-t1282230537
+t1282402688
 s24132
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleBoard.o
-t1282230538
+t1282402688
 s36580
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleInfo.o
-t1282230538
+t1282402688
 s40752
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleTarget.o
-t1282230538
-s42320
+t1282402688
+s42392
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ScoreViewController.o
-t1282230538
+t1282402688
 s45192
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Tile.o
-t1282230537
-s46888
+t1282402687
+s46956
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Token.o
-t1282230537
+t1282402687
 s34760
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/TokenPlaceholder.o
-t1282230538
+t1282402688
 s20044
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Turn.o
-t1282230537
+t1282402688
 s27828
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/UIView+SaveAnimation.o
@@ -805,11 +811,11 @@ t1282228076
 s6420
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app
-t1282230542
-s1496
+t1282402690
+s1530
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app.dSYM
-t1282230540
+t1282402689
 s102
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/AI.png
@@ -821,12 +827,16 @@ t1282228039
 s1406
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame
-t1282230540
-s204420
+t1282402689
+s204516
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGameViewController.nib
 t1282228032
 s764
+
+N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/CurrentProducer.png
+t1282401592
+s8708
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/EndTurn.png
 t1282228039
@@ -837,8 +847,8 @@ t1282230075
 s4183
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Info.plist
-t1282230207
-s1021
+t1282401590
+s1158
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/MainMenu.nib
 t1282228068
@@ -849,7 +859,7 @@ t1282228032
 s1127
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/PkgInfo
-t1282230207
+t1282401590
 s8
 
 N/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Player.png
@@ -988,25 +998,25 @@ t1282228076
 s9421460
 
 NBoardGame-Info.plist
-c000000004C6D47BD0000000000000552
-t1282230205
-s1362
+c000000004C6FDCD900000000000005DF
+t1282399449
+s1503
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies303923335#303923335#0(0"0(0#1#0"8622496416#0"0#
+lSLF07#2@18"Check dependencies304095486#304095486#0(0"0(0#1#0"3343187568374212096#0"0#
 
 CCodeSign /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app
-s303923340.807534
-e303923342.879465
+s304095489.826297
+e304095490.838194
 r1
 xCodeSign
 x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app
-lSLF07#2@43"CodeSign build/Debug-iphoneos/BoardGame.app303923340#303923342#0(0"0(0#0#72"/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app8618133536#717"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    setenv _CODESIGN_ALLOCATE_ /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    /usr/bin/codesign -f -s "iPhone Developer: Feng Zhi Yuan (XS4S49TAH7)" --resource-rules=/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/ResourceRules.plist --entitlements /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app0#
+lSLF07#2@43"CodeSign build/Debug-iphoneos/BoardGame.app304095489#304095490#0(0"0(0#0#72"/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app8604668896#717"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    setenv _CODESIGN_ALLOCATE_ /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate    /usr/bin/codesign -f -s "iPhone Developer: Feng Zhi Yuan (XS4S49TAH7)" --resource-rules=/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/ResourceRules.plist --entitlements /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Board.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923336.081314
-e303923336.849477
+s304095487.234653
+e304095487.510317
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Board.o
@@ -1015,11 +1025,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@61"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m303923336#303923336#0(0"0(0#0#53"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m7939128661845044224#1825"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Board.o0#
+lSLF07#2@61"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m304095487#304095487#0(0"0(0#0#53"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m8604933408#1825"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Board.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Board.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameAppDelegate.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923335.332635
-e303923336.080957
+s304095486.663455
+e304095487.234358
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameAppDelegate.o
@@ -1028,11 +1038,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@76"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m303923335#303923336#0(0"0(0#0#68"/Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m8617442976#1855"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameAppDelegate.o0#
+lSLF07#2@76"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m304095486#304095487#0(0"0(0#0#68"/Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m4769157474129636352#1855"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameAppDelegate.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameAppDelegate.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameViewController.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923335.333887
-e303923336.588009
+s304095486.689245
+e304095487.234551
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameViewController.o
@@ -1041,7 +1051,7 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@79"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m303923335#303923336#0(0"0(0#0#71"/Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m8614307488#1861"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameViewController.o0#
+lSLF07#2@79"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m304095486#304095487#0(0"0(0#0#71"/Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m8605877344#1861"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/BoardGameViewController.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGameViewController.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ContainerView.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/ContainerView.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 s303920880.922943
@@ -1057,8 +1067,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@69"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/ContainerView.m303920880#303920881#0(0"0(0#0#61"/Users/Liz/Dropbox/Projects/BoardGame/Classes/ContainerView.m8610897600#1841"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/ContainerView.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ContainerView.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Game.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Game.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.192589
-e303923337.427712
+s304095487.717172
+e304095487.876023
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Game.o
@@ -1067,11 +1077,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Game.m303923337#303923337#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Game.m8621444192#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Game.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Game.o0#
+lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Game.m304095487#304095487#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Game.m8605876160#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Game.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Game.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameLogic.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.923246
-e303923338.596633
+s304095488.352443
+e304095488.687059
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameLogic.o
@@ -1080,11 +1090,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@65"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m303923337#303923338#0(0"0(0#0#57"/Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m8621925440#1833"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameLogic.o0#
+lSLF07#2@65"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m304095488#304095488#0(0"0(0#0#57"/Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m8607938784#1833"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameLogic.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameLogic.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameVisual.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameVisual.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.765721
-e303923337.923131
+s304095488.126068
+e304095488.352256
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameVisual.o
@@ -1093,11 +1103,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@66"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameVisual.m303923337#303923337#0(0"0(0#0#58"/Users/Liz/Dropbox/Projects/BoardGame/Classes/GameVisual.m8618712864#1835"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameVisual.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameVisual.o0#
+lSLF07#2@66"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameVisual.m304095488#304095488#0(0"0(0#0#58"/Users/Liz/Dropbox/Projects/BoardGame/Classes/GameVisual.m8605545760#1835"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/GameVisual.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/GameVisual.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Info.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923336.849636
-e303923337.191021
+s304095487.510421
+e304095487.716962
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Info.o
@@ -1106,7 +1116,7 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m303923336#303923337#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m8618140032#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Info.o0#
+lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m304095487#304095487#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m8608061024#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Info.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Info.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/MainMenuViewController.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/MainMenuViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 s303923339.059048
@@ -1135,8 +1145,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@67"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/../NoteView.m303923338#303923339#0(0"0(0#0#59"/Users/Liz/Dropbox/Projects/BoardGame/Classes/../NoteView.m8617256640#1834"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/../NoteView.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/NoteView.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Player.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.699795
-e303923338.114999
+s304095488.040576
+e304095488.387706
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Player.o
@@ -1145,7 +1155,7 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@62"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.m303923337#303923338#0(0"0(0#0#54"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.m8620769632#1827"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Player.o0#
+lSLF07#2@62"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.m304095488#304095488#0(0"0(0#0#54"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.m8605908192#1827"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Player.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Player.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Resource.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Resource.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 s303920878.248510
@@ -1161,8 +1171,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@64"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Resource.m303920878#303920878#0(0"0(0#0#56"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Resource.m8610174272#1831"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Resource.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Resource.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Round.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Round.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.427821
-e303923337.581258
+s304095487.781431
+e304095487.990157
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Round.o
@@ -1171,7 +1181,7 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@61"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Round.m303923337#303923337#0(0"0(0#0#53"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Round.m8619467616#1825"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Round.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Round.o0#
+lSLF07#2@61"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Round.m304095487#304095487#0(0"0(0#0#53"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Round.m8605635168#1825"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Round.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Round.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RuleViewController.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/RuleViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 s303923338.924161
@@ -1187,8 +1197,8 @@ xcom.apple.compilers.gcc.4_2
 lSLF07#2@74"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/RuleViewController.m303923338#303923339#0(0"0(0#0#66"/Users/Liz/Dropbox/Projects/BoardGame/Classes/RuleViewController.m8620833824#1851"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/RuleViewController.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RuleViewController.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Rumble.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Rumble.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.581360
-e303923337.765621
+s304095487.990250
+e304095488.125967
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Rumble.o
@@ -1197,11 +1207,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@62"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Rumble.m303923337#303923337#0(0"0(0#0#54"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Rumble.m8611657408#1827"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Rumble.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Rumble.o0#
+lSLF07#2@62"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Rumble.m304095487#304095488#0(0"0(0#0#54"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Rumble.m8604972064#1827"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Rumble.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Rumble.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleBoard.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleBoard.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923338.245803
-e303923338.631655
+s304095488.493245
+e304095488.636996
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleBoard.o
@@ -1210,11 +1220,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@67"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleBoard.m303923338#303923338#0(0"0(0#0#59"/Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleBoard.m8610970464#1837"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleBoard.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleBoard.o0#
+lSLF07#2@67"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleBoard.m304095488#304095488#0(0"0(0#0#59"/Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleBoard.m8604383424#1837"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleBoard.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleBoard.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleInfo.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleInfo.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923338.756484
-e303923338.965267
+s304095488.799691
+e304095488.956612
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleInfo.o
@@ -1223,11 +1233,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@66"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleInfo.m303923338#303923339#0(0"0(0#0#58"/Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleInfo.m8611166112#1835"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleInfo.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleInfo.o0#
+lSLF07#2@66"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleInfo.m304095488#304095488#0(0"0(0#0#58"/Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleInfo.m8605738496#1835"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleInfo.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleInfo.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleTarget.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923338.596863
-e303923338.924041
+s304095488.637181
+e304095488.855019
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleTarget.o
@@ -1236,11 +1246,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@68"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m303923338#303923338#0(0"0(0#0#60"/Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m8619757760#1839"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleTarget.o0#
+lSLF07#2@68"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m304095488#304095488#0(0"0(0#0#60"/Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m8606558464#1839"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/RumbleTarget.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/RumbleTarget.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ScoreViewController.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/ScoreViewController.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923338.115201
-e303923338.245688
+s304095488.387808
+e304095488.493063
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ScoreViewController.o
@@ -1249,11 +1259,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@75"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/ScoreViewController.m303923338#303923338#0(0"0(0#0#67"/Users/Liz/Dropbox/Projects/BoardGame/Classes/ScoreViewController.m8619344384#1853"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/ScoreViewController.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ScoreViewController.o0#
+lSLF07#2@75"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/ScoreViewController.m304095488#304095488#0(0"0(0#0#67"/Users/Liz/Dropbox/Projects/BoardGame/Classes/ScoreViewController.m8606129440#1853"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/ScoreViewController.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/ScoreViewController.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Tile.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923336.588125
-e303923337.191207
+s304095487.235638
+e304095487.605650
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Tile.o
@@ -1262,11 +1272,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m303923336#303923337#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m8619028096#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Tile.o0#
+lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m304095487#304095487#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m8608003520#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Tile.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Tile.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Token.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Token.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.191299
-e303923337.511413
+s304095487.605757
+e304095487.781330
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Token.o
@@ -1275,11 +1285,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@61"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Token.m303923337#303923337#0(0"0(0#0#53"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Token.m8620617792#1825"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Token.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Token.o0#
+lSLF07#2@61"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Token.m304095487#304095487#0(0"0(0#0#53"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Token.m8604975040#1825"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Token.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Token.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/TokenPlaceholder.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/TokenPlaceholder.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923338.631761
-e303923338.756381
+s304095488.687161
+e304095488.799584
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/TokenPlaceholder.o
@@ -1288,11 +1298,11 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@72"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/TokenPlaceholder.m303923338#303923338#0(0"0(0#0#64"/Users/Liz/Dropbox/Projects/BoardGame/Classes/TokenPlaceholder.m8619068384#1847"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/TokenPlaceholder.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/TokenPlaceholder.o0#
+lSLF07#2@72"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/TokenPlaceholder.m304095488#304095488#0(0"0(0#0#64"/Users/Liz/Dropbox/Projects/BoardGame/Classes/TokenPlaceholder.m8606357728#1847"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/TokenPlaceholder.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/TokenPlaceholder.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Turn.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/Turn.m normal armv7 objective-c com.apple.compilers.gcc.4_2
-s303923337.511510
-e303923337.699646
+s304095487.876133
+e304095488.040482
 r1
 xCompileC
 xbuild/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Turn.o
@@ -1301,7 +1311,7 @@ xnormal
 xarmv7
 xobjective-c
 xcom.apple.compilers.gcc.4_2
-lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Turn.m303923337#303923337#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Turn.m8615002720#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Turn.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Turn.o0#
+lSLF07#2@60"Compile /Users/Liz/Dropbox/Projects/BoardGame/Classes/Turn.m304095487#304095488#0(0"0(0#0#52"/Users/Liz/Dropbox/Projects/BoardGame/Classes/Turn.m8605385152#1823"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv LANG en_US.US-ASCII    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -x objective-c -arch armv7 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=3.2 -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-generated-files.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-own-target-headers.hmap -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-all-target-headers.hmap -iquote /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame-project-headers.hmap -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -I/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/include -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources/armv7 -I/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/DerivedSources -include /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch -c /Users/Liz/Dropbox/Projects/BoardGame/Classes/Turn.m -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/Turn.o0#
 
 CCompileC build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/UIView+SaveAnimation.o /Users/Liz/Dropbox/Projects/BoardGame/Classes/UIView+SaveAnimation.m normal armv7 objective-c com.apple.compilers.gcc.4_2
 s303920881.171615
@@ -1391,6 +1401,15 @@ xCopyPNGFile
 x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Arrow.png
 xArrow.png
 lSLF07#2@66"CopyPNGFile build/Debug-iphoneos/BoardGame.app/Arrow.png Arrow.png303920839#303920839#0(0"0(0#0#47"/Users/Liz/Dropbox/Projects/BoardGame/Arrow.png8610178112#619"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/Liz/Dropbox/Projects/BoardGame/Arrow.png /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Arrow.png0#
+
+CCopyPNGFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/CurrentProducer.png CurrentProducer.png
+s304094390.803333
+e304094392.122792
+r1
+xCopyPNGFile
+x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/CurrentProducer.png
+xCurrentProducer.png
+lSLF07#2@86"CopyPNGFile build/Debug-iphoneos/BoardGame.app/CurrentProducer.png CurrentProducer.png304094390#304094392#0(0"0(0#0#57"/Users/Liz/Dropbox/Projects/BoardGame/CurrentProducer.png8595533792#639"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv COPY_COMMAND /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    "/Developer/Platforms/iPhoneOS.platform/Developer/Library/Xcode/Plug-ins/iPhoneOS Build System Support.xcplugin/Contents/Resources/copypng" -compress "" /Users/Liz/Dropbox/Projects/BoardGame/CurrentProducer.png /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/CurrentProducer.png0#
 
 CCopyPNGFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/EndTurn.png EndTurn.png
 s303920839.505161
@@ -1654,32 +1673,32 @@ x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceR
 lSLF07#2@94"Copy /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist303920790#303920790#0(0"0(0#0#89"/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist8307809061684012032#542"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -resolve-src-symlinks /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/ResourceRules.plist /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app0#
 
 CGenerateDSYMFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app.dSYM /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame
-s303923340.443508
-e303923340.804214
+s304095489.607486
+e304095489.822364
 r1
 xGenerateDSYMFile
 x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app.dSYM
 x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame
-lSLF07#2@101"GenerateDSYMFile build/Debug-iphoneos/BoardGame.app.dSYM build/Debug-iphoneos/BoardGame.app/BoardGame303923340#303923340#0(0"0(0#0#82"/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame8619283456#427"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/usr/bin/dsymutil /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame -o /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app.dSYM0#
+lSLF07#2@101"GenerateDSYMFile build/Debug-iphoneos/BoardGame.app.dSYM build/Debug-iphoneos/BoardGame.app/BoardGame304095489#304095489#0(0"0(0#0#82"/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame8605359168#427"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/usr/bin/dsymutil /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame -o /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app.dSYM0#
 
 CLd /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame normal armv7
-s303923339.186511
-e303923340.443339
+s304095488.956702
+e304095489.607381
 r1
 xLd
 x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame
 xnormal
 xarmv7
-lSLF07#2@87"Link /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame303923339#303923340#0(0"0(0#0#0"8620906112#911"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv IPHONEOS_DEPLOYMENT_TARGET 3.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -arch armv7 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -L/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -filelist /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGame.LinkFileList -dead_strip -miphoneos-version-min=3.2 -framework Foundation -framework UIKit -framework CoreGraphics -framework QuartzCore -o /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame0#
+lSLF07#2@87"Link /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame304095488#304095489#0(0"0(0#0#0"8606052736#911"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv IPHONEOS_DEPLOYMENT_TARGET 3.2    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2 -arch armv7 -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk -L/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -F/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos -filelist /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/Objects-normal/armv7/BoardGame.LinkFileList -dead_strip -miphoneos-version-min=3.2 -framework Foundation -framework UIKit -framework CoreGraphics -framework QuartzCore -o /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/BoardGame0#
 
 CProcessInfoPlistFile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Info.plist BoardGame-Info.plist
-s303923007.317908
-e303923007.326961
+s304094390.698760
+e304094390.786740
 r1
 xProcessInfoPlistFile
 x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Info.plist
 xBoardGame-Info.plist
-lSLF07#2@28"Process BoardGame-Info.plist303923007#303923007#0(0"0(0#0#58"/Users/Liz/Dropbox/Projects/BoardGame/BoardGame-Info.plist8617549152#628"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    builtin-infoPlistUtility BoardGame-Info.plist -genpkginfo /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/ResourceRules.plist -o /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Info.plist0#
+lSLF07#2@28"Process BoardGame-Info.plist304094390#304094390#0(0"0(0#0#58"/Users/Liz/Dropbox/Projects/BoardGame/BoardGame-Info.plist30962724186357872#628"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    builtin-infoPlistUtility BoardGame-Info.plist -genpkginfo /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/PkgInfo -expandbuildsettings -format binary -platform iphoneos -resourcerulesfile /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/ResourceRules.plist -o /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/Info.plist0#
 
 CProcessPCH /var/folders/-L/-L2BBULjEd0HZPUe8u8WAk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/BoardGame_Prefix-bygolqwuwngnsgaypmrkmsdrpcyj/BoardGame_Prefix.pch.gch BoardGame_Prefix.pch normal armv7 objective-c com.apple.compilers.gcc.4_2
 s303920869.226976
@@ -1704,19 +1723,19 @@ x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/embedd
 lSLF07#2@192"ProcessProductPackaging "/Users/Liz/Library/MobileDevice/Provisioning Profiles/D908D2A0-20D1-4491-8767-BB8035210847.mobileprovision" build/Debug-iphoneos/BoardGame.app/embedded.mobileprovision303920882#303920882#0(0"0(0#0#97"/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/embedded.mobileprovision8610402240#483"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    <com.apple.tools.product-pkg-utility> "/Users/Liz/Library/MobileDevice/Provisioning Profiles/D908D2A0-20D1-4491-8767-BB8035210847.mobileprovision" -o /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app/embedded.mobileprovision0#
 
 CProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent
-s303923007.343308
-e303923007.406218
+s304094397.088510
+e304094397.128262
 r1
 xProcessProductPackaging
 x/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist
 x/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent
-lSLF07#2@181"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent303923007#303923007#0(0"0(0#0#106"/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent8617608576#498"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist -entitlements -format xml -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent0#
+lSLF07#2@181"ProcessProductPackaging /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent304094397#304094397#0(0"0(0#0#106"/Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent8595650560#498"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    <com.apple.tools.product-pkg-utility> /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/Entitlements.plist -entitlements -format xml -o /Users/Liz/Dropbox/Projects/BoardGame/build/BoardGame.build/Debug-iphoneos/BoardGame.build/BoardGame.xcent0#
 
 CTouch /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app
-s303923340.804409
-e303923340.807299
+s304095489.822571
+e304095489.826103
 r1
 xTouch
 x/Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app
-lSLF07#2@78"Touch /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app303923340#303923340#0(0"0(0#0#0"8619028480#326"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /usr/bin/touch -c /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app0#
+lSLF07#2@78"Touch /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app304095489#304095489#0(0"0(0#0#0"8604980256#326"    cd /Users/Liz/Dropbox/Projects/BoardGame    setenv PATH "/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/local/bin:/usr/local/git/bin"    /usr/bin/touch -c /Users/Liz/Dropbox/Projects/BoardGame/build/Debug-iphoneos/BoardGame.app0#
 

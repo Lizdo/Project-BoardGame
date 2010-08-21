@@ -20,6 +20,7 @@
 		6E1BFBE211E2211A0017B9A9 /* Postit_Rumble.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BFBE111E2211A0017B9A9 /* Postit_Rumble.png */; };
 		6E1C898F119C5B960084EEAB /* RumbleTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1C898E119C5B960084EEAB /* RumbleTarget.m */; };
 		6E1C8992119C5C620084EEAB /* TokenPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E1C8991119C5C620084EEAB /* TokenPlaceholder.m */; };
+		6E224415122017C7005EB3A1 /* CurrentProducer.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E224414122017C7005EB3A1 /* CurrentProducer.png */; };
 		6E278FF91196F20F00A9A243 /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E278FF71196F20F00A9A243 /* ScoreViewController.m */; };
 		6E278FFA1196F20F00A9A243 /* ScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E278FF81196F20F00A9A243 /* ScoreView.xib */; };
 		6E279061119AEFF600A9A243 /* RumbleBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E279060119AEFF600A9A243 /* RumbleBoard.m */; };
@@ -93,6 +94,7 @@
 		6E1C898E119C5B960084EEAB /* RumbleTarget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RumbleTarget.m; sourceTree = "<group>"; };
 		6E1C8990119C5C620084EEAB /* TokenPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokenPlaceholder.h; sourceTree = "<group>"; };
 		6E1C8991119C5C620084EEAB /* TokenPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenPlaceholder.m; sourceTree = "<group>"; };
+		6E224414122017C7005EB3A1 /* CurrentProducer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CurrentProducer.png; sourceTree = "<group>"; };
 		6E278FF61196F20F00A9A243 /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
 		6E278FF71196F20F00A9A243 /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 		6E278FF81196F20F00A9A243 /* ScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreView.xib; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				6E224414122017C7005EB3A1 /* CurrentProducer.png */,
 				6EF892EF121D7E8100802E68 /* Icon-72.png */,
 				6E1BFBE111E2211A0017B9A9 /* Postit_Rumble.png */,
 				6EC837F511DB918D00DA26A6 /* RuleSheet_01.png */,
@@ -364,6 +367,9 @@
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BoardGame" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,6 +419,7 @@
 				6E1BFBE211E2211A0017B9A9 /* Postit_Rumble.png in Resources */,
 				6E5E4C8111F17F8300690673 /* MainMenu.xib in Resources */,
 				6EF892F0121D7E8100802E68 /* Icon-72.png in Resources */,
+				6E224415122017C7005EB3A1 /* CurrentProducer.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

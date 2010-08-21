@@ -16,6 +16,8 @@
 	Board * board;
 	Game * game;
 	UIView * menu;
+    
+    MainMenuViewController * mmv;
 }
 
 @end

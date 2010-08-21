@@ -56,11 +56,25 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Classes/Board.m"
-         timestampString = "302844522.263163"
+         timestampString = "304095421.925735"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "161"
          endingLineNumber = "161">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Classes/MainMenuViewController.m"
+         timestampString = "304092435.851342"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-startGameWithPlayerNumber:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
