@@ -20,14 +20,26 @@
 #define TileBackgroundStyleCount 3
 #define TilePositionRandomness 5
 
-// Times
-#define MoveAnimationTime 0.5
-#define WaitTime 0.5
-#define RumbleWaitTime 30
-#define HighlightTime 0.4
+#define DebugMode 1
 
-#define RumbleTime 20.0
-#define SlideOutTime 0.5
+// Times
+#if DebugMode
+    #define MoveAnimationTime 0.1
+    #define WaitTime 0.2
+    #define RumbleWaitTime 5
+    #define HighlightTime 0.4
+
+    #define RumbleTime 5.0
+    #define SlideOutTime 0.5
+#else
+    #define MoveAnimationTime 0.5
+    #define WaitTime 0.5
+    #define RumbleWaitTime 30
+    #define HighlightTime 0.4
+
+    #define RumbleTime 5.0
+    #define SlideOutTime 0.5
+#endif
 
 
 // Size & Position

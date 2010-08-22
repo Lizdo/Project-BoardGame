@@ -82,7 +82,12 @@
 
 - (void)enterRumble{
 	rumble = gameLogic.rumble;
-	countDown.center = self.center;
+    if(allRumble){
+        countDown.center = self.center;
+    }
+    else{
+        countDown.center = CGPointMake(self.center.x, self.center.y + 200);
+    }
 	[self insertSubview:countDown atIndex:0];
 }
 

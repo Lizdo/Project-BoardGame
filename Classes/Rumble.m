@@ -21,7 +21,7 @@
 @implementation Rumble
 
 - (float)timeRemaining{
-	float time = RumbleTime + [startingTime timeIntervalSinceNow];
+	float time = abs(RumbleTime + [startingTime timeIntervalSinceNow]);
 	//DebugLog(@"remaining Time:%2.0f", time);
 	return time;
 }

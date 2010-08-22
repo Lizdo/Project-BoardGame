@@ -54,7 +54,7 @@
 	NSMutableArray * iconArray = [NSMutableArray arrayWithCapacity:0];
 	
 	for (int i = 0; i<3; i++) {
-		CGPoint p = CGPointMake(15, 150+i*50);
+		CGPoint p = CGPointMake(15, 25 + i*50);
 		[iconArray addObject:[self initRumbleIconAt:p withType:typeArray[i]]]; 
 	}
 	robotIcon = [iconArray objectAtIndex:0];
@@ -65,7 +65,7 @@
 	NSMutableArray * countArray = [NSMutableArray arrayWithCapacity:0];
 	
 	for (int i = 0; i<3; i++) {
-		CGRect r = CGRectMake(25, 125 + 50*i, 100, 50);
+		CGRect r = CGRectMake(25, 50*i, 100, 50);
 		[countArray addObject:[self initRumbleCountAt:r]]; 
 	}
 	robotCount = [countArray objectAtIndex:0];
