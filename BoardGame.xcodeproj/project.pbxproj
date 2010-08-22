@@ -32,6 +32,9 @@
 		6E4D96B7118FBDE000EDE583 /* Square.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D96B3118FBDE000EDE583 /* Square.png */; };
 		6E4D96D4118FC38100EDE583 /* GameVisual.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D96D3118FC38100EDE583 /* GameVisual.m */; };
 		6E4D98B81190099900EDE583 /* Arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E4D98B71190099900EDE583 /* Arrow.png */; };
+		6E5B27D61221435700CF850F /* Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B27D51221435700CF850F /* Badge.m */; };
+		6E5B27DA1221496300CF850F /* BadgeInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5B27D91221496300CF850F /* BadgeInfoView.xib */; };
+		6E5B27E012214BB700CF850F /* BadgeInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5B27DF12214BB700CF850F /* BadgeInfoViewController.m */; };
 		6E5E4C8111F17F8300690673 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E5E4C8011F17F8300690673 /* MainMenu.xib */; };
 		6E5E4CA011F181D000690673 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5E4C9F11F181D000690673 /* MainMenuViewController.m */; };
 		6E66D7CD11AABB99007A8EB7 /* Rumble_Palace.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E66D7CA11AABB99007A8EB7 /* Rumble_Palace.png */; };
@@ -111,6 +114,11 @@
 		6E4D96D3118FC38100EDE583 /* GameVisual.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameVisual.m; sourceTree = "<group>"; };
 		6E4D9727118FD94000EDE583 /* TypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeDef.h; sourceTree = "<group>"; };
 		6E4D98B71190099900EDE583 /* Arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arrow.png; sourceTree = "<group>"; };
+		6E5B27D41221435700CF850F /* Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Badge.h; sourceTree = "<group>"; };
+		6E5B27D51221435700CF850F /* Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Badge.m; sourceTree = "<group>"; };
+		6E5B27D91221496300CF850F /* BadgeInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BadgeInfoView.xib; sourceTree = "<group>"; };
+		6E5B27DE12214BB700CF850F /* BadgeInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeInfoViewController.h; sourceTree = "<group>"; };
+		6E5B27DF12214BB700CF850F /* BadgeInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeInfoViewController.m; sourceTree = "<group>"; };
 		6E5E4C8011F17F8300690673 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		6E5E4C9E11F181D000690673 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		6E5E4C9F11F181D000690673 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
@@ -283,6 +291,11 @@
 		6EDEB1B8118BC54100B5E0C5 /* Visual */ = {
 			isa = PBXGroup;
 			children = (
+				6E5B27D41221435700CF850F /* Badge.h */,
+				6E5B27D51221435700CF850F /* Badge.m */,
+				6E5B27D91221496300CF850F /* BadgeInfoView.xib */,
+				6E5B27DE12214BB700CF850F /* BadgeInfoViewController.h */,
+				6E5B27DF12214BB700CF850F /* BadgeInfoViewController.m */,
 				6E3D691011E61A1200DD0357 /* ContainerView.h */,
 				6E3D691111E61A1200DD0357 /* ContainerView.m */,
 				6EC8381A11DB96AB00DA26A6 /* NoteView.h */,
@@ -420,6 +433,7 @@
 				6E5E4C8111F17F8300690673 /* MainMenu.xib in Resources */,
 				6EF892F0121D7E8100802E68 /* Icon-72.png in Resources */,
 				6E224415122017C7005EB3A1 /* CurrentProducer.png in Resources */,
+				6E5B27DA1221496300CF850F /* BadgeInfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +469,8 @@
 				6E3D691211E61A1200DD0357 /* ContainerView.m in Sources */,
 				6E5E4CA011F181D000690673 /* MainMenuViewController.m in Sources */,
 				6E09010B120D09AF00D7F512 /* UIView+SaveAnimation.m in Sources */,
+				6E5B27D61221435700CF850F /* Badge.m in Sources */,
+				6E5B27E012214BB700CF850F /* BadgeInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

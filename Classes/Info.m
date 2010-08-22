@@ -66,6 +66,7 @@
 		self.clipsToBounds = YES;
 
 
+		
 	}
     return self;
 }
@@ -73,6 +74,10 @@
 - (void)initGame{
 	[self setToggleAIButtonImage];
 	self.allowEndTurn = NO;
+	
+	Badge * badge = [Badge badgeWithType:BadgeTypeMostRect];
+	[self addSubview:badge];
+	badge.player = player;
 }
 
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type{

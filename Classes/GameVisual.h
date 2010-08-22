@@ -30,6 +30,7 @@
 + (UIImage *)imageForResourceType:(ResourceType)aType;
 + (UIImage *)imageForRumbleType:(RumbleTargetType)aType andPlayerID:(int)anOwnerID;
 
++ (UIImage *)imageForBadgeType: (BadgeType)aType;
 
 + (UIImage *)colorizeImage:(UIImage *)baseImage color:(UIColor *)theColor;
 

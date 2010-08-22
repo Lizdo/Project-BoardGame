@@ -14,6 +14,7 @@
 #import "RuleViewController.h"
 #import "NoteView.h"
 #import "ContainerView.h"
+#import "Badge.h"
 
 @class GameLogic;
 
@@ -27,7 +28,6 @@
 	
 	BOOL allowEndTurn;
 
-	
 	ScoreViewController * svc;
 	RuleViewController * rvc;
 	

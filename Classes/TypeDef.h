@@ -44,6 +44,7 @@
 
 // Size & Position
 #define TokenSize 22.5	//Radius
+#define BadgeSize 30
 
 //	Info
 #define InfoWidth 568
@@ -114,7 +115,10 @@ typedef enum{
 	RumbleTargetTypePalace = 2,	
 }RumbleTargetType;
 
-
+typedef enum{
+	BadgeTypeMostRound,
+	BadgeTypeMostRect,
+}BadgeType;
 
 
 

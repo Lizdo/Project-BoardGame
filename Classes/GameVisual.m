@@ -196,6 +196,10 @@
 	return [UIImage imageNamed:imageName];
 }
 
++ (UIImage *)imageForBadgeType: (BadgeType)aType{
+	return [UIImage imageNamed:@"EndTurn.png"];
+}
+
 
 + (UIImage *)colorizeImage:(UIImage *)baseImage color:(UIColor *)theColor {
     UIGraphicsBeginImageContext(baseImage.size);
