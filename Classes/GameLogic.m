@@ -232,7 +232,9 @@ static int tileInfos[18][8] = {
 
 - (void)exitTurn{
 	[board disableEndTurnButton];
+	[board removeAllBadges];
 	[self calculateScore];
+	[board addBadges];
 	[board update];
 
 }
@@ -392,14 +394,19 @@ static int tileInfos[18][8] = {
 - (void)calculateScore{
 	for (int i = 0; i<4; i++){
 		Player * p = [self playerWithID:i];
+		[p removeAllBadges];
+		
 		p.resourceScore = 0;
 		p.resourceScore += p.roundAmount + p.rectAmount * 3 + p.squareAmount * 5;
-		p.resourceScore += p.roundAmount > 10 ? 4 : 0;
-		p.resourceScore += p.roundAmount > 5 ? 3 : 0;
-		p.resourceScore += p.rectAmount > 8 ? 6 : 0;
-		p.resourceScore += p.rectAmount > 4 ? 5 : 0;
-		p.resourceScore += p.squareAmount > 6 ? 8 : 0;
-		p.resourceScore += p.squareAmount > 3 ? 7 : 0;
+//		p.resourceScore += p.roundAmount > 10 ? 4 : 0;
+//		p.resourceScore += p.roundAmount > 5 ? 3 : 0;
+//		p.resourceScore += p.rectAmount > 8 ? 6 : 0;
+//		p.resourceScore += p.rectAmount > 4 ? 5 : 0;
+//		p.resourceScore += p.squareAmount > 6 ? 8 : 0;
+//		p.resourceScore += p.squareAmount > 3 ? 7 : 0;
+		p.roundAmount > 10 ? [p addBadgeWithType:BadgeTypeEnoughRound]:0;
+		p.rectAmount > 8 ? [p addBadgeWithType:BadgeTypeEnoughRect]:0;
+		p.squareAmount > 6 ? [p addBadgeWithType:BadgeTypeEnoughSquare]:0;		
 		
 		p.buildScore = 0;
 		p.buildScore += p.robotAmount * 5 + p.snakeAmount * 7 + p.palaceAmount * 9;
@@ -415,13 +422,20 @@ static int tileInfos[18][8] = {
 	for (int i=0; i<3; i++) {
 		NSArray * array = [self playersWithMaximumResource:ResourceTypes[i]];
 		for (Player * p in array){
-			p.resourceScore += 7;
+			//p.resourceScore += 7;
+			[p addMaximumResourceBadgeWithType:ResourceTypes[i]];
 		}
 	}
 	
 	for (int i = 0; i<4; i++){
 		Player * p = [self playerWithID:i];
-		p.score = p.buildScore + p.resourceScore;
+
+		p.badgeScore = 0;
+		for (Badge * b in [p badges]) {
+			p.badgeScore += [b score];
+		}
+		
+		p.score = p.buildScore + p.resourceScore + p.badgeScore;
 	}
 	
 }
@@ -496,6 +510,77 @@ static int tileInfos[18][8] = {
 	return CGRectMake(newOrigin.x, newOrigin.y, rect.size.height, rect.size.width);
 	
 }
+
++ (int)scoreForBadgeType:(BadgeType)type{
+	switch (type) {
+		case BadgeTypeMostRound:
+			return 7;
+			break;
+		case BadgeTypeMostRect:
+			return 7;
+			break;
+		case BadgeTypeMostSquare:
+			return 7;
+			break;
+		case BadgeTypeMostRobot:
+			return 7;
+			break;
+		case BadgeTypeMostSnake:
+			return 7;
+			break;
+		case BadgeTypeMostPalace:
+			return 7;
+			break;
+		case BadgeTypeEnoughRound:
+			return 4;
+			break;
+		case BadgeTypeEnoughRect:
+			return 6;
+			break;
+		case BadgeTypeEnoughSquare:
+			return 8;
+			break;			
+		default:
+			break;
+	}
+	return 0;
+}
+
++ (NSString *)descriptionForBadgeType:(BadgeType)type{
+	switch (type) {
+		case BadgeTypeMostRound:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeMostRect:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeMostSquare:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeMostRobot:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeMostSnake:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeMostPalace:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeEnoughRound:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeEnoughRect:
+			return @"You have the most artists";
+			break;
+		case BadgeTypeEnoughSquare:
+			return @"You have the most artists";
+			break;			
+		default:
+			break;
+	}
+	return @"";
+}
+
 
 #pragma mark -
 #pragma mark Singleton methods

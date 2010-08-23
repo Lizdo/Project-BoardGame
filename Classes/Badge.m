@@ -29,12 +29,58 @@
 	return [b autorelease];
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-	BadgeInfoViewController * content = [[BadgeInfoViewController alloc] init];
-	content.view.transform = [self superview].transform;
++ (Badge *)maximumResourceBadgeWithType:(ResourceType)t{
+	switch (t) {
+		case ResourceTypeRect:
+			return [Badge badgeWithType:BadgeTypeMostRect];
+			break;
+		case ResourceTypeRound:
+			return [Badge badgeWithType:BadgeTypeMostRound];
+			break;
+		case ResourceTypeSquare:
+			return [Badge badgeWithType:BadgeTypeMostSquare];
+			break;			
+		default:
+			break;
+	}
+	return nil;
+}
 
-	self.popoverController = [[UIPopoverController alloc]
-									 initWithContentViewController:content];
++ (BadgeType)maximumBadgeTypeForResource:(ResourceType)t{
+	switch (t) {
+		case ResourceTypeRect:
+			return BadgeTypeMostRect;
+			break;
+		case ResourceTypeRound:
+			return BadgeTypeMostRound;
+			break;
+		case ResourceTypeSquare:
+			return BadgeTypeMostSquare;
+			break;			
+		default:
+			break;
+	}
+	return 1000;
+}
+
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+	BadgeInfoViewController * content;
+	if (!popoverController) {
+		content = [[BadgeInfoViewController alloc] init];
+		content.view.transform = [self superview].transform;
+		
+		self.popoverController = [[UIPopoverController alloc]
+								  initWithContentViewController:content];
+		[content release];
+	}else {
+		content = (BadgeInfoViewController *)popoverController.contentViewController;
+	}
+
+	content.type = self.type;
+
+	
 	if (player.ID == 0 || player.ID == 2) {
 		popoverController.popoverContentSize = CGSizeMake(200, 75);
 	}else {
@@ -59,10 +105,22 @@
 	}
 
 	//aPopover.delegate = self;
-	[content release];
 	[popoverController presentPopoverFromRect:self.bounds inView:self.superview permittedArrowDirections:direction animated:YES];
 }
 
+
+- (NSComparisonResult)compare:(Badge *)b{
+	return [[NSNumber numberWithInt:self.type] compare:[NSNumber numberWithInt:b.type]];
+}
+
+
+- (int)score{
+	return [GameLogic scoreForBadgeType:type];
+}
+
+- (NSString *)description{
+	return [GameLogic descriptionForBadgeType:type];
+}
 
 - (void)dealloc {
 	self.popoverController = nil;

@@ -10,6 +10,7 @@
 #import "BadgeInfoViewController.h"
 #import "TypeDef.h"
 #import "GameVisual.h"
+#import "GameLogic.h"
 #import "Player.h"
 
 @interface Badge : UIImageView {
@@ -23,5 +24,10 @@
 @property (nonatomic, assign) Player * player;
 
 + (Badge *)badgeWithType:(BadgeType)t;
++ (Badge *)maximumResourceBadgeWithType:(ResourceType)t;
++ (BadgeType)maximumBadgeTypeForResource:(ResourceType)t;
+
+- (int)score;
+- (NSString *)description;
 
 @end

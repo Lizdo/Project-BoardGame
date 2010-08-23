@@ -114,6 +114,18 @@
 	[rumbleBoard update];
 }
 
+- (void)removeAllBadges{
+	for (Info * info in infos) {
+		[info removeAllBadges];
+	}
+}
+
+- (void)addBadges{
+	for (Info * info in infos) {
+		[info addBadges];
+	}
+}
+
 - (void)enterRumble{
 	rumbleBoard.frame = self.bounds;
 	[rumbleBoard enterRumble];

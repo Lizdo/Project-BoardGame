@@ -43,6 +43,8 @@
 
 - (void)initGame;
 - (void)update;
+- (void)removeAllBadges;
+- (void)addBadges;
 
 - (void)disableAnimations;
 - (void)enableAnimations;

@@ -7,9 +7,20 @@
 //
 
 #import "BadgeInfoViewController.h"
+#import "GameLogic.h"
 
 
 @implementation BadgeInfoViewController
+
+@synthesize type;
+
+- (void)setType:(BadgeType)newType{
+	type = newType;
+	badgeScoreLabel.text = [NSString stringWithFormat:@"+%d",[GameLogic scoreForBadgeType:type]];
+	badgeInfoLabel.text = [GameLogic descriptionForBadgeType:type];
+}
+
+
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.

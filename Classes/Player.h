@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TypeDef.h"
 #import "Token.h"
+#import "Badge.h"
 
 @class Board;
 @class GameLogic;
@@ -29,6 +30,7 @@
 	int snakeAmount;
 	int palaceAmount;
 	
+	int badgeScore;	
 	int resourceScore;
 	int buildScore;
 	
@@ -39,7 +41,9 @@
 	
 	BOOL roundAmountUpdated;
 	BOOL rectAmountUpdated;
-	BOOL squareAmountUpdated;	
+	BOOL squareAmountUpdated;
+	
+	NSMutableArray * badges;
 }
 
 @property BOOL isHuman;
@@ -57,6 +61,7 @@
 @property int palaceAmount;
 @property int resourceScore;
 @property int buildScore;
+@property int badgeScore;
 @property int score;
 
 
@@ -74,5 +79,10 @@
 - (void)randomWait:(SEL)selector andDelay:(float)delay;
 
 - (void)rumbleAI;
+
+- (void)removeAllBadges;
+- (void)addBadgeWithType:(BadgeType)type;
+- (void)addMaximumResourceBadgeWithType:(ResourceType)type;
+- (NSArray *)badges;
 
 @end

@@ -93,6 +93,9 @@
 - (CGPoint)convertedPoint:(CGPoint)point;
 - (CGRect)convertedRect:(CGRect)rect;
 
++ (int)scoreForBadgeType:(BadgeType)type;
++ (NSString *)descriptionForBadgeType:(BadgeType)type;
+
 //- (Player *)currentPlayer;
 
 @end

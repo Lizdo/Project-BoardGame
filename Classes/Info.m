@@ -14,6 +14,7 @@
 
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type;
 - (UILabel *)initRumbleCountAt:(CGRect)r;
+- (CGPoint)badgePositionForID:(int)i;
 
 @end
 
@@ -74,10 +75,6 @@
 - (void)initGame{
 	[self setToggleAIButtonImage];
 	self.allowEndTurn = NO;
-	
-	Badge * badge = [Badge badgeWithType:BadgeTypeMostRect];
-	[self addSubview:badge];
-	badge.player = player;
 }
 
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type{
@@ -207,9 +204,32 @@
     }else{
         currentPlayerMark.hidden = YES;
     }
-
 }
 
+- (void)removeAllBadges{
+	for (UIView * view in self.subviews) {
+		if ([view isKindOfClass:[Badge class]]) {
+			[view removeFromSuperview];
+		}
+	}
+}
+
+- (void)addBadges{
+	for (int i = 0; i<[player badges].count; i++) {
+		Badge * b = [[player badges] objectAtIndex:i];
+		[self addSubview:b];
+		b.center = [self badgePositionForID:i];
+	}
+}
+
+- (CGPoint)badgePositionForID:(int)i{
+	float interval = BadgeSize * 2 + BadgeInterval;
+	int rows = InfoHeight/interval;
+	int row = i%rows;
+	int colomn = (i-row)/rows;
+	
+	return CGPointMake(BadgeSize + interval*colomn, BadgeSize + interval*row);
+}
 
 - (void)dealloc {
 	[svc release];

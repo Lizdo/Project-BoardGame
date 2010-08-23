@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TypeDef.h"
+#import "Badge.h"
 
 @interface BadgeInfoViewController : UIViewController {
 	IBOutlet UILabel * badgeScoreLabel;
 	IBOutlet UILabel * badgeInfoLabel;
+	
+	BadgeType type;
 }
+
+@property (nonatomic, assign) BadgeType type;
 
 @end

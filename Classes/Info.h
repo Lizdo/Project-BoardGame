@@ -43,5 +43,8 @@
 - (void)setToggleAIButtonImage;
 
 - (void)update;
+- (void)removeAllBadges;
+- (void)addBadges;
+
 
 @end

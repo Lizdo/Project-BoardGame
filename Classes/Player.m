@@ -20,7 +20,7 @@
 @implementation Player
 
 @synthesize isHuman,token,ID,initialTokenPosition,roundAmount,squareAmount,rectAmount;
-@synthesize robotAmount,snakeAmount,palaceAmount,aiProcessInProgress,score,buildScore,resourceScore;
+@synthesize robotAmount,snakeAmount,palaceAmount,aiProcessInProgress,score,buildScore,resourceScore,badgeScore;
 @synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated;
 
 #pragma mark -
@@ -214,6 +214,34 @@
 }
 
 
+- (void)removeAllBadges{
+	if(badges){
+		[badges removeAllObjects];
+	}else {
+		badges = [NSMutableArray arrayWithCapacity:0];
+		[badges retain];
+	}
+}
+
+- (void)addBadgeWithType:(BadgeType)type{
+	if (badges == nil) {
+		[self removeAllBadges];
+	}
+	Badge * b = [Badge badgeWithType:type];
+	b.player = self;
+	[badges addObject:b];
+	[badges sortUsingSelector:@selector(compare:)];
+}
+
+- (void)addMaximumResourceBadgeWithType:(ResourceType)type{
+	[self addBadgeWithType:[Badge maximumBadgeTypeForResource:type]];
+}
+
+- (NSArray *)badges{
+	return badges;
+}
+
+
 #pragma mark -
 #pragma mark Serialization
 
@@ -252,5 +280,9 @@
     return self;
 }
 
+- (void)dealloc{
+	[badges release];
+	[super dealloc];
+}
 
 @end

@@ -45,6 +45,8 @@
 // Size & Position
 #define TokenSize 22.5	//Radius
 #define BadgeSize 30
+#define BadgeInterval 10
+
 
 //	Info
 #define InfoWidth 568
@@ -118,6 +120,13 @@ typedef enum{
 typedef enum{
 	BadgeTypeMostRound,
 	BadgeTypeMostRect,
+	BadgeTypeMostSquare,
+	BadgeTypeMostRobot,
+	BadgeTypeMostSnake,
+	BadgeTypeMostPalace,
+	BadgeTypeEnoughRound,
+	BadgeTypeEnoughRect,
+	BadgeTypeEnoughSquare,	
 }BadgeType;
 
 
