@@ -11,8 +11,10 @@
 #import "Game.h"
 #import "MainMenuViewController.h"
 #import "TypeDef.h"
+#import "BoardGameView.h"
 
 @interface BoardGameViewController : UIViewController {
+	BoardGameView * bgv;
 	Board * board;
 	Game * game;
 	UIView * menu;

@@ -12,6 +12,7 @@
 @class GameLogic;
 @class Player;
 @class Tile;
+@class Round;
 @class Rumble;
 
 typedef enum{
@@ -28,6 +29,8 @@ typedef enum{
 	TurnState state;
 	Player * player;
 	Tile * selectedTile;
+	
+	Round * round;
 	Rumble * rumble;
 	
 	BOOL allowTurnEnd;
@@ -37,6 +40,9 @@ typedef enum{
 @property (nonatomic, assign) TurnState state;
 @property (nonatomic, assign) Player * player;
 @property (nonatomic, assign) Tile * selectedTile;
+
++ (Turn*)sharedInstance;
+- (void)initGame;
 
 - (void) enterTurn;
 - (void) exitTurn;

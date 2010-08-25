@@ -48,7 +48,7 @@
 }
 
 - (void)initGameWithID:(int)playerID{
-	board = gameLogic.board;
+	board = [Board sharedInstance];
 	
 	//int position[] = {100,924,100,100,668,100,668,924};
 	////initialTokenPosition = CGPointMake(position[playerID*2], position[playerID*2+1]);
@@ -168,7 +168,7 @@
 	do {
 		tile = [gameLogic randomTile];
 	} while (tile.state == TileStateSelected || ![tile availableForPlayer:self]);
-	[token moveTo:CGPointMake(tile.center.x + 20, tile.center.y + 10) byAI:YES inState:gameLogic.round.state];
+	[token moveTo:CGPointMake(tile.center.x + 20, tile.center.y + 10) byAI:YES inState:[Round sharedInstance].state];
 }
 
 - (void)AImoveComplete{
@@ -195,7 +195,7 @@
 - (void)rumbleMove{
 	//Check if still in rumble
 	
-	if (gameLogic.round.state != RoundStateRumble && gameLogic.turn.state != TurnStateBuild) {
+	if ([Round sharedInstance].state != RoundStateRumble && [Turn sharedInstance].state != TurnStateBuild) {
 		return;
 	}
 	

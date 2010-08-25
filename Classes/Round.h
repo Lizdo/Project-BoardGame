@@ -28,6 +28,9 @@
 @property (nonatomic,assign) int count;
 @property (nonatomic,assign) RoundState state;
 
++ (Round*)sharedInstance;
+- (void)initGame;
+
 //Called by Game Object
 - (void)enterRound;
 - (void)exitRound;

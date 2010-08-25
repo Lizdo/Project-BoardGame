@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TypeDef.h"
 @class GameLogic;
+@class Round;
 
 @interface Rumble : NSObject <NSCoding>{
 	GameLogic * gameLogic;
@@ -17,7 +18,14 @@
 	NSTimer * timer;
 	
 	BOOL build;
+	
+	Round * round;
 }
+
+@property (nonatomic,assign) BOOL build;
+
++ (Rumble*)sharedInstance;
+- (void)initGame;
 
 - (void)enterRumble;
 - (void)exitRumble;

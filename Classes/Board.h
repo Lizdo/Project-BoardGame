@@ -15,11 +15,13 @@
 #import "Info.h"
 
 #import "ContainerView.h"
+#import "BoardGameView.h"
 
 
 @class RumbleBoard;
 @class GameLogic;
 @class BoardGameViewController;
+@class BoardGameView;
 
 @interface Board : UIView {
 	NSMutableArray * tiles;
@@ -33,8 +35,11 @@
 	ContainerView * tileView;
 	ContainerView * tokenView;
 	BoardGameViewController * controller;
+	BoardGameView * bgv;
+	
 }
 
++ (Board*)sharedInstance;
 
 - (void)enableEndTurnButton;
 - (void)disableEndTurnButton;
@@ -54,7 +59,5 @@
 - (void)updateRumble;
 
 - (UIInterfaceOrientation)interfaceOrientation;
-
-- (RumbleBoard *)rumbleBoard;
 
 @end

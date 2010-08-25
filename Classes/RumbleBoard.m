@@ -20,10 +20,14 @@
 
 @implementation RumbleBoard
 
+static RumbleBoard *sharedInstance = nil;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
+		
+		sharedInstance = self;
+		
 		gameLogic = [GameLogic sharedInstance];
 		self.backgroundColor = [GameVisual boardBackgroundColor];
 		
@@ -48,7 +52,8 @@
 		
 		self.clipsToBounds = YES;
 
-		
+		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;			
+
     }
     return self;
 }
@@ -84,7 +89,7 @@
 */
 
 - (void)enterRumble{
-	rumble = gameLogic.rumble;
+	rumble = [Rumble sharedInstance];
     if(allRumble){
         countDown.center = self.center;
     }
@@ -200,6 +205,52 @@
 	[rumbleInfos release];
     [super dealloc];
 }
+
+#pragma mark -
+#pragma mark Singleton methods
+
++ (RumbleBoard*)sharedInstance
+{
+	NSAssert(sharedInstance != nil, @"RumbleBoard need to initialize with initWithFrame:");
+//    @synchronized(self)
+//    {
+//        if (sharedInstance == nil)
+//			sharedInstance = [[RumbleBoard alloc] init];
+//    }
+    return sharedInstance;
+}
+
++ (id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedInstance == nil) {
+            sharedInstance = [super allocWithZone:zone];
+            return sharedInstance;  // assignment and return on first allocation
+        }
+    }
+    return nil; // on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain {
+    return self;
+}
+
+- (unsigned)retainCount {
+    return UINT_MAX;  // denotes an object that cannot be released
+}
+
+- (void)release {
+    //do nothing
+}
+
+- (id)autorelease {
+    return self;
+}
+
 
 
 @end

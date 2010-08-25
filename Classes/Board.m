@@ -20,12 +20,15 @@
 
 @implementation Board
 
+static Board *sharedInstance = nil;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
 		gameLogic = [GameLogic sharedInstance];
 		gameLogic.board = self;
+		
+		sharedInstance = self;
 		
 		tileView = [[ContainerView alloc]initWithFrame:self.bounds];
 		tileView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -37,10 +40,7 @@
 		
 		infoView = [[ContainerView alloc]initWithFrame:self.bounds];
 		infoView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
-		[self addSubview:infoView];			
-		
-		rumbleBoard = [[RumbleBoard alloc]initWithFrame:self.bounds];
-		rumbleBoard.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
+		[self addSubview:infoView];				
 	
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.clipsToBounds = YES;
@@ -59,6 +59,7 @@
 */
 
 - (void)initGame{
+	self.backgroundColor = [GameVisual boardBackgroundColor];
 	//init info
 	infos = [NSMutableArray arrayWithCapacity:0];
 	[infos retain];
@@ -80,7 +81,7 @@
 		[info initGame];
 		
 	}
-	
+	rumbleBoard = [RumbleBoard sharedInstance];
 //	ScoreSheetView * scoreSheet = [[ScoreSheetView alloc] initWithNibName:@"ScoreSheetView" bundle:nil];
 //	[self addSubview:scoreSheet];
 
@@ -127,29 +128,31 @@
 }
 
 - (void)enterRumble{
-	rumbleBoard.frame = self.bounds;
-	[rumbleBoard enterRumble];
-	
-	[UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationBeginsFromCurrentState:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
-	[UIView setAnimationDelegate:rumbleBoard];
-	[UIView setAnimationDidStopSelector:@selector(enterRumbleAnimDidStop)];
-	
-    [self addSubview:rumbleBoard];
-    [UIView commitAnimations];
+	[bgv enterRumble];
+//	rumbleBoard.frame = self.bounds;
+//	[rumbleBoard enterRumble];
+//	
+//	[UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:0.5];
+//    [UIView setAnimationBeginsFromCurrentState:NO];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
+//	[UIView setAnimationDelegate:rumbleBoard];
+//	[UIView setAnimationDidStopSelector:@selector(enterRumbleAnimDidStop)];
+//	
+//    [self addSubview:rumbleBoard];
+//    [UIView commitAnimations];
 }
 
 - (void)exitRumble{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationBeginsFromCurrentState:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
-	
-    [rumbleBoard removeFromSuperview];
-    [UIView commitAnimations];	
-	[rumbleBoard exitRumble];	
+	[bgv exitRumble];
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:0.5];
+//    [UIView setAnimationBeginsFromCurrentState:NO];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
+//	
+//    [rumbleBoard removeFromSuperview];
+//    [UIView commitAnimations];	
+//	[rumbleBoard exitRumble];	
 }
 
 - (void)updateRumble{
@@ -204,8 +207,51 @@
     [super dealloc];
 }
 
-- (RumbleBoard *)rumbleBoard{
-	return rumbleBoard;
+#pragma mark -
+#pragma mark Singleton methods
+
++ (Board*)sharedInstance
+{
+		NSAssert(sharedInstance != nil, @"Board need to initialize with initWithFrame:");
+//		@synchronized(self)
+//    {
+//        if (sharedInstance == nil)
+//			DebugLog(@"Board need to initialize with initWithFrame:");
+//			sharedInstance = [[Board alloc] init];
+//    }
+    return sharedInstance;
 }
+
++ (id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedInstance == nil) {
+            sharedInstance = [super allocWithZone:zone];
+            return sharedInstance;  // assignment and return on first allocation
+        }
+    }
+    return nil; // on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain {
+    return self;
+}
+
+- (unsigned)retainCount {
+    return UINT_MAX;  // denotes an object that cannot be released
+}
+
+- (void)release {
+    //do nothing
+}
+
+- (id)autorelease {
+    return self;
+}
+
 
 @end

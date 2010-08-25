@@ -28,15 +28,24 @@
 
 @synthesize count, state, player, selectedTile;
 
+static Turn *sharedInstance = nil;
+
 - (Player *)player{
 	return [gameLogic currentPlayer];
 }
 
 - (id)init{
 	if (self = [super init]){
-		gameLogic = [GameLogic sharedInstance];
+
 	}
 	return self;
+}
+
+- (void)initGame{
+	gameLogic = [GameLogic sharedInstance];
+	gameLogic.turn = self;
+	round = [Round sharedInstance];
+	rumble = [Rumble sharedInstance];
 }
 
 #pragma mark -
@@ -55,7 +64,6 @@
 	//TODO:play some anim. wait until finish then call gotoNextState
 	[gameLogic updateNewTurn];
 	[self gotoNextState];
-	rumble = gameLogic.rumble;
 }
 
 - (void)gotoNextState{
@@ -128,9 +136,52 @@
 - (void) exitTurn{
 	DebugLog(@"Exiting Turn %d...", count);
 	[gameLogic exitTurn];
-	[gameLogic.round turnComplete]; 
+	[round turnComplete]; 
 }
 
+#pragma mark -
+#pragma mark Singleton methods
+
++ (Turn*)sharedInstance
+{
+    @synchronized(self)
+    {
+        if (sharedInstance == nil)
+			sharedInstance = [[Turn alloc] init];
+    }
+    return sharedInstance;
+}
+
++ (id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedInstance == nil) {
+            sharedInstance = [super allocWithZone:zone];
+            return sharedInstance;  // assignment and return on first allocation
+        }
+    }
+    return nil; // on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain {
+    return self;
+}
+
+- (unsigned)retainCount {
+    return UINT_MAX;  // denotes an object that cannot be released
+}
+
+- (void)release {
+    //do nothing
+}
+
+- (id)autorelease {
+    return self;
+}
 
 
 #pragma mark -
@@ -143,12 +194,13 @@
 
 
 - (id)initWithCoder:(NSCoder *)coder {
-	self = [[Turn alloc]init];
+	sharedInstance = [[Turn alloc]init];
 	
-    count = [coder decodeIntForKey:@"count"];
-    state = [coder decodeIntForKey:@"state"];
+    sharedInstance.count = [coder decodeIntForKey:@"count"];
+    sharedInstance.state = [coder decodeIntForKey:@"state"];
 	
-    return self;
+	
+    return sharedInstance;
 }
 
 

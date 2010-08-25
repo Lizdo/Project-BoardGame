@@ -24,17 +24,25 @@
 
 @synthesize count,state;
 
+static Round *sharedInstance = nil;
+
+
 - (id)init{
 	if (self = [super init]){
-		//[self initPlayers];
 		count = -1;
-		gameLogic = [GameLogic sharedInstance];
 	}
 	return self;
 }
 
 #pragma mark -
 #pragma mark Round Logic
+
+- (void)initGame{
+	gameLogic = [GameLogic sharedInstance];
+	gameLogic.round = self;
+	turn = [Turn sharedInstance];
+	rumble = [Rumble sharedInstance];		
+}
 
 
 - (void)enterRound{
@@ -78,11 +86,9 @@
 }
 
 - (void)resume{
-	turn = gameLogic.turn;
-	rumble = gameLogic.rumble;
 	switch (state) {
 		case RoundStateInit:
-			[self turnStart];
+			[self gotoNextState];
 			break;
 		case RoundStateNormal:
 			[turn resume];
@@ -99,7 +105,6 @@
 }
 
 - (void)startRumble{
-	rumble = gameLogic.rumble;
 	[rumble enterRumble];
 }
 
@@ -125,7 +130,6 @@
 
 //Start Turn here
 - (void)turnStart{
-	turn = gameLogic.turn;
 	//allocat the player, turn ID
 	turn.count = 0;
 	[turn enterTurn];
@@ -148,6 +152,51 @@
 }
 
 #pragma mark -
+#pragma mark Singleton methods
+
++ (Round*)sharedInstance
+{
+    @synchronized(self)
+    {
+        if (sharedInstance == nil)
+			sharedInstance = [[Round alloc] init];
+    }
+    return sharedInstance;
+}
+
++ (id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedInstance == nil) {
+            sharedInstance = [super allocWithZone:zone];
+            return sharedInstance;  // assignment and return on first allocation
+        }
+    }
+    return nil; // on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain {
+    return self;
+}
+
+- (unsigned)retainCount {
+    return UINT_MAX;  // denotes an object that cannot be released
+}
+
+- (void)release {
+    //do nothing
+}
+
+- (id)autorelease {
+    return self;
+}
+
+
+#pragma mark -
 #pragma mark Serialization
 
 - (void)encodeWithCoder:(NSCoder *)coder {
@@ -157,12 +206,13 @@
 
 
 - (id)initWithCoder:(NSCoder *)coder {
-	self = [[Round alloc]init];
+	sharedInstance = [[Round alloc]init];
+
+    sharedInstance.count = [coder decodeIntForKey:@"count"];
+    sharedInstance.state = [coder decodeIntForKey:@"state"];
 	
-    count = [coder decodeIntForKey:@"count"];
-    state = [coder decodeIntForKey:@"state"];
 	
-    return self;
+    return sharedInstance;
 }
 
 

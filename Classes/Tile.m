@@ -366,7 +366,7 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 	//additional inits
 	gameLogic = [GameLogic sharedInstance];
 	
-	[gameLogic.board addView:self];
+	[[Board sharedInstance] addView:self];
 	//[gameLogic.tiles addObject:self];
 	
     return self;

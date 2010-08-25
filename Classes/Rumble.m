@@ -20,6 +20,10 @@
 
 @implementation Rumble
 
+@synthesize build;
+
+static Rumble *sharedInstance = nil;
+
 - (float)timeRemaining{
 	float time = abs(RumbleTime + [startingTime timeIntervalSinceNow]);
 	//DebugLog(@"remaining Time:%2.0f", time);
@@ -28,9 +32,15 @@
 
 - (id)init{
 	if (self = [super init]){
-		gameLogic = [GameLogic sharedInstance];
+
 	}
 	return self;
+}
+
+- (void)initGame{
+	gameLogic = [GameLogic sharedInstance];
+	gameLogic.rumble = self;
+	round = [Round sharedInstance];
 }
 
 - (void)startRumble{
@@ -65,7 +75,7 @@
 }
 
 - (void)exitRumble{
-	[gameLogic.round rumbleComplete]; 	
+	[round rumbleComplete]; 	
 }
 
 - (void)resume{
@@ -79,18 +89,63 @@
 }
 
 - (void)exitBuild{
-	[gameLogic.turn buildComplete];
+	[[Turn sharedInstance] buildComplete];
 }
 
 
 - (void)update{
-	[gameLogic.board updateRumble];
+	[[Board sharedInstance] updateRumble];
 }
 
 - (void)dealloc{
 	[startingTime release];
 	[super dealloc];
 }
+
+#pragma mark -
+#pragma mark Singleton methods
+
++ (Rumble*)sharedInstance
+{
+    @synchronized(self)
+    {
+        if (sharedInstance == nil)
+			sharedInstance = [[Rumble alloc] init];
+    }
+    return sharedInstance;
+}
+
++ (id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedInstance == nil) {
+            sharedInstance = [super allocWithZone:zone];
+            return sharedInstance;  // assignment and return on first allocation
+        }
+    }
+    return nil; // on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain {
+    return self;
+}
+
+- (unsigned)retainCount {
+    return UINT_MAX;  // denotes an object that cannot be released
+}
+
+- (void)release {
+    //do nothing
+}
+
+- (id)autorelease {
+    return self;
+}
+
 
 #pragma mark -
 #pragma mark Serialization
@@ -101,9 +156,10 @@
 
 
 - (id)initWithCoder:(NSCoder *)coder {
-	self = [[Rumble alloc]init];
-    build = [coder decodeBoolForKey:@"build"];	
-    return self;
+	sharedInstance = [[Rumble alloc]init];
+    sharedInstance.build = [coder decodeBoolForKey:@"build"];	
+	
+    return sharedInstance;
 }
 
 @end

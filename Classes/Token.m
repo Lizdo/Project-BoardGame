@@ -87,7 +87,7 @@
 	 
 - (void)AImoveComplete{
 	[gameLogic triggerEvent:TokenEventDroppedDown withToken:self atPosition:self.center];
-	if (roundState == RoundStateRumble || gameLogic.turn.state == TurnStateBuild) {
+	if (roundState == RoundStateRumble || [Turn sharedInstance].state == TurnStateBuild) {
 		return;
 	}
 	if (!gameLogic.currentPlayer.isHuman) {

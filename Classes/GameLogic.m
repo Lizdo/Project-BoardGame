@@ -121,7 +121,7 @@ static int tileInfos[18][8] = {
 	[self initPlayers:playerNumber];
 	
 	[board initGame];
-	rumbleBoard = [board rumbleBoard];
+	rumbleBoard = [RumbleBoard sharedInstance];
 	[rumbleBoard initGame];
 	
 }
@@ -129,7 +129,7 @@ static int tileInfos[18][8] = {
 - (void)resumeGame{
 	//Player & Tile has already been restored.
 	[board initGame];
-	rumbleBoard = [board rumbleBoard];
+	rumbleBoard = [RumbleBoard sharedInstance];
 	[rumbleBoard initGame];
 }
 

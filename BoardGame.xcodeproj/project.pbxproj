@@ -15,6 +15,7 @@
 		2899E5220DE3E06400AC0155 /* BoardGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* BoardGameViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* BoardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* BoardGameViewController.m */; };
+		6E02EC0D12257133001256CD /* BoardGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E02EC0C12257133001256CD /* BoardGameView.m */; };
 		6E09010B120D09AF00D7F512 /* UIView+SaveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E09010A120D09AF00D7F512 /* UIView+SaveAnimation.m */; };
 		6E12DBE511D8E175007529A9 /* ScoreSheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E12DBE411D8E175007529A9 /* ScoreSheet.png */; };
 		6E1BFBE211E2211A0017B9A9 /* Postit_Rumble.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BFBE111E2211A0017B9A9 /* Postit_Rumble.png */; };
@@ -90,6 +91,8 @@
 		28D7ACF70DDB3853001CB0EB /* BoardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardGameViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* BoardGame_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardGame_Prefix.pch; sourceTree = "<group>"; };
+		6E02EC0B12257133001256CD /* BoardGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardGameView.h; sourceTree = "<group>"; };
+		6E02EC0C12257133001256CD /* BoardGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardGameView.m; sourceTree = "<group>"; };
 		6E09010A120D09AF00D7F512 /* UIView+SaveAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SaveAnimation.m"; sourceTree = "<group>"; };
 		6E12DBE411D8E175007529A9 /* ScoreSheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ScoreSheet.png; sourceTree = "<group>"; };
 		6E1BFBE111E2211A0017B9A9 /* Postit_Rumble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Postit_Rumble.png; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				28D7ACF70DDB3853001CB0EB /* BoardGameViewController.m */,
 				6E5E4C9E11F181D000690673 /* MainMenuViewController.h */,
 				6E5E4C9F11F181D000690673 /* MainMenuViewController.m */,
+				6E02EC0B12257133001256CD /* BoardGameView.h */,
+				6E02EC0C12257133001256CD /* BoardGameView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 				6E09010B120D09AF00D7F512 /* UIView+SaveAnimation.m in Sources */,
 				6E5B27D61221435700CF850F /* Badge.m in Sources */,
 				6E5B27E012214BB700CF850F /* BadgeInfoViewController.m in Sources */,
+				6E02EC0D12257133001256CD /* BoardGameView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

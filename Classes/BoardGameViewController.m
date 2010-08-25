@@ -24,17 +24,21 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
+
+	game = [Game sharedInstance];
+	
 	CGRect applicationFrame = [[UIScreen mainScreen] applicationFrame];
-	board = [[[Board alloc] initWithFrame:applicationFrame] autorelease];
-	board.backgroundColor = [GameVisual boardBackgroundColor];
-	self.view = board;
-	[board setValue:self forKey:@"controller"];
-	game = [[Game alloc] init];
+	bgv = [[BoardGameView alloc] initWithFrame:applicationFrame];
+	self.view = bgv;
+	[bgv setValue:self forKey:@"controller"];
+
+	[bgv initGame];
+	
 	
 	if (!SkipMenu) {
 		mmv = [[MainMenuViewController alloc]initWithNibName:@"MainMenu" bundle:nil];
-		[board addSubview:mmv.view];
-		mmv.view.frame = board.bounds;
+		[bgv addSubview:mmv.view];
+		mmv.view.frame = applicationFrame;
 		[mmv setValue:game forKey:@"game"];
 	}
 }

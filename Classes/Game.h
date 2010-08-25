@@ -20,6 +20,8 @@
 	GameLogic * gameLogic;
 }
 
++ (Game*)sharedInstance;
+
 - (void)start;
 
 - (void)resume;

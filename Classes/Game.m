@@ -12,12 +12,12 @@
 
 @implementation Game
 
+static Game *sharedInstance = nil;
+
 - (id)init{
 	if (self = [super init]) {
 		gameLogic = [GameLogic sharedInstance];
 		gameLogic.game = self;
-		
-
 	}
 	return self;
 }
@@ -40,16 +40,20 @@
 	
 	gameLogic.round = [unarchiver decodeObjectForKey:@"Round"];
 	gameLogic.turn = [unarchiver decodeObjectForKey:@"Turn"];
-	gameLogic.rumble = [unarchiver decodeObjectForKey:@"Rumble"];	
+	gameLogic.rumble = [unarchiver decodeObjectForKey:@"Rumble"];
 	gameLogic.players = [unarchiver decodeObjectForKey:@"Players"];	
 	gameLogic.tiles = [unarchiver decodeObjectForKey:@"Tiles"];	
+	
+	[[Round sharedInstance] initGame];
+	[[Turn sharedInstance] initGame];
+	[[Rumble sharedInstance] initGame];	
 	
 	[unarchiver finishDecoding];
 	[unarchiver release];
 	
 	[gameLogic resumeGame];
 	
-	[gameLogic.round resume];
+	[[Round sharedInstance] resume];
 	
 	
 }
@@ -66,9 +70,9 @@
 	data = [NSMutableData data];
 	archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
 	// Customize archiver here
-	[archiver encodeObject:gameLogic.round forKey:@"Round"];
-	[archiver encodeObject:gameLogic.turn forKey:@"Turn"];
-	[archiver encodeObject:gameLogic.rumble forKey:@"Rumble"];
+	[archiver encodeObject:[Round sharedInstance] forKey:@"Round"];
+	[archiver encodeObject:[Turn sharedInstance] forKey:@"Turn"];
+	[archiver encodeObject:[Rumble sharedInstance] forKey:@"Rumble"];
 	[archiver encodeObject:gameLogic.players forKey:@"Players"];
 	[archiver encodeObject:gameLogic.tiles forKey:@"Tiles"];
 	
@@ -84,12 +88,61 @@
 
 	
 	[gameLogic initGameWithPlayerNumber:number];
-	gameLogic.round = [[[Round alloc]init]autorelease];
-	gameLogic.turn = [[[Turn alloc]init]autorelease];
-	gameLogic.rumble = [[[Rumble alloc]init] autorelease];	
+	gameLogic.round = [Round sharedInstance];
+	gameLogic.turn = [Turn sharedInstance];
+	gameLogic.rumble = [Rumble sharedInstance];	
+	
+	[[Round sharedInstance] initGame];
+	[[Turn sharedInstance] initGame];
+	[[Rumble sharedInstance] initGame];		
 	
 	//TODO: Game Init Logic
 	[gameLogic.round enterRound];	
 }
+
+#pragma mark -
+#pragma mark Singleton methods
+
++ (Game*)sharedInstance
+{
+    @synchronized(self)
+    {
+        if (sharedInstance == nil)
+			sharedInstance = [[Game alloc] init];
+    }
+    return sharedInstance;
+}
+
++ (id)allocWithZone:(NSZone *)zone {
+    @synchronized(self) {
+        if (sharedInstance == nil) {
+            sharedInstance = [super allocWithZone:zone];
+            return sharedInstance;  // assignment and return on first allocation
+        }
+    }
+    return nil; // on subsequent allocation attempts return nil
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    return self;
+}
+
+- (id)retain {
+    return self;
+}
+
+- (unsigned)retainCount {
+    return UINT_MAX;  // denotes an object that cannot be released
+}
+
+- (void)release {
+    //do nothing
+}
+
+- (id)autorelease {
+    return self;
+}
+
 
 @end

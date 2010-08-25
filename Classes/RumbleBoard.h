@@ -16,6 +16,8 @@
 #define RBRandomSeedsNeeded 20
 
 @class GameLogic;
+@class BoardGameViewController;
+@class BoardGameView;
 
 @interface RumbleBoard : UIView {
 	GameLogic * gameLogic;
@@ -33,7 +35,12 @@
 	
 	BOOL allRumble;
 	int rumbleID;
+	
+	BoardGameViewController * controller;
+	BoardGameView * bgv;
 }
+
++ (RumbleBoard*)sharedInstance;
 
 - (void)initGame;
 
