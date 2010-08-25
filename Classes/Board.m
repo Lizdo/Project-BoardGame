@@ -43,7 +43,7 @@
 		rumbleBoard.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
 	
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-
+		self.clipsToBounds = YES;
 		
 		
 	}

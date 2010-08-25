@@ -17,9 +17,6 @@
 #define PrimaryFontName @"Thonburi"
 #define PrimaryFont "Thonburi"
 
-#define TileBackgroundStyleCount 3
-#define TilePositionRandomness 5
-
 #define DebugMode 1
 
 // Times
@@ -61,6 +58,13 @@
 
 //	Tiles
 //		Tile Starting Position/Spacing/Tilted Position
+#define TileStartingX 200
+#define TileStartingY 200
+#define TileWidth 123
+#define TileHeight 105
+#define TileInterval 2
+#define TileBackgroundStyleCount 3
+#define TilePositionRandomness 0  //5
 
 //	Board
 //		Tile Area, Rumble Random Token Area

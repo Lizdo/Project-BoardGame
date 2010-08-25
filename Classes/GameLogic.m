@@ -97,8 +97,8 @@ static int tileInfos[18][8] = {
 	//init tiles
 	for (int i=0;i<6;i++){
 		for (int j=0; j<3;j++) {
-			int x = 200 + j * 123 + 61 + rand()%(TilePositionRandomness*2) - TilePositionRandomness;
-			int y = 200 + i * 105 + 52 + rand()%(TilePositionRandomness*2) - TilePositionRandomness;
+			int x = TileStartingX + j * (TileWidth+TileInterval) + TileWidth/2;
+			int y = TileStartingY + i * (TileHeight+TileInterval) + TileHeight/2;
 			//  [Type, x, y, sourceType, sourceAmount, targetType, targetAmount, accumulateRate]
 			int * tileInfo = tileInfos[i*3+j];
 			tileInfo[1] = x;

@@ -46,6 +46,9 @@
 		countDown.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin
 		|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
 		
+		self.clipsToBounds = YES;
+
+		
     }
     return self;
 }
