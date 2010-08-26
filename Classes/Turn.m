@@ -194,13 +194,13 @@ static Turn *sharedInstance = nil;
 
 
 - (id)initWithCoder:(NSCoder *)coder {
-	sharedInstance = [[Turn alloc]init];
+	self = [Turn sharedInstance];
 	
-    sharedInstance.count = [coder decodeIntForKey:@"count"];
-    sharedInstance.state = [coder decodeIntForKey:@"state"];
+    self.count = [coder decodeIntForKey:@"count"];
+    self.state = [coder decodeIntForKey:@"state"];
 	
 	
-    return sharedInstance;
+    return self;
 }
 
 

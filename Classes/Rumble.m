@@ -156,10 +156,10 @@ static Rumble *sharedInstance = nil;
 
 
 - (id)initWithCoder:(NSCoder *)coder {
-	sharedInstance = [[Rumble alloc]init];
-    sharedInstance.build = [coder decodeBoolForKey:@"build"];	
+	self = [Rumble sharedInstance];
+    self.build = [coder decodeBoolForKey:@"build"];	
 	
-    return sharedInstance;
+    return self;
 }
 
 @end

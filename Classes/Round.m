@@ -57,6 +57,8 @@ static Round *sharedInstance = nil;
 	[self performSelector:@selector(roundInit) withObject:self afterDelay:WaitTime*2];
 }
 
+
+
 - (void)roundInit{
 	//TODO:play some anim. wait until finish then call gotoNextState
 	[self gotoNextState];
@@ -206,13 +208,11 @@ static Round *sharedInstance = nil;
 
 
 - (id)initWithCoder:(NSCoder *)coder {
-	sharedInstance = [[Round alloc]init];
-
-    sharedInstance.count = [coder decodeIntForKey:@"count"];
-    sharedInstance.state = [coder decodeIntForKey:@"state"];
+	self = [Round sharedInstance];
+    self.count = [coder decodeIntForKey:@"count"];
+    self.state = [coder decodeIntForKey:@"state"];
 	
-	
-    return sharedInstance;
+    return self;
 }
 
 
