@@ -9,7 +9,22 @@
 #import "BoardGameView.h"
 
 
+@interface BoardGameView (Private)
+
+- (void)enterRumbleZoomOut;
+- (void)enterRumblePan;
+- (void)enterRumbleZoomIn;
+- (void)enterRumbleZoomInComplete;
+
+- (void)exitRumbleZoomOut;
+- (void)exitRumblePan;
+- (void)exitRumbleZoomIn;
+- (void)exitRumbleZoomInComplete;
+
+@end
+
 @implementation BoardGameView
+
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -17,6 +32,7 @@
         // Initialization code
 		board = [[Board alloc] initWithFrame:self.bounds];
 		rumbleBoard = [[RumbleBoard alloc]initWithFrame:self.bounds];
+		self.backgroundColor = [UIColor grayColor];
     }
     return self;
 }
@@ -30,34 +46,102 @@
 
 }
 
+// Switch:
+//  ZoomOut, Pan, ZoomIn
+
+#define ZoomOutScale 0.8
+#define ZoomOutInterval 20
+#define ZoomOutTime 0.5
+#define PanDistance 1000
+
 - (void)enterRumble{
-	rumbleBoard.frame = self.bounds;
+	[self enterRumbleZoomOut];
+}
+
+- (void)enterRumbleZoomOut{
 	[rumbleBoard enterRumble];
 	
-//	[UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:0.5];
-//    [UIView setAnimationBeginsFromCurrentState:NO];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
-//	[UIView setAnimationDelegate:rumbleBoard];
-//	[UIView setAnimationDidStopSelector:@selector(enterRumbleAnimDidStop)];
-//	
-//    [self addSubview:rumbleBoard];
-//    [UIView commitAnimations];
+	rumbleBoard.transform = CGAffineTransformMakeScale(ZoomOutScale,ZoomOutScale);
+	rumbleBoard.center = CGPointMake(self.center.x + PanDistance, self.center.y);
 	
-    [self addSubview:rumbleBoard];
+	[self addSubview:rumbleBoard];
+	
+	[UIView beginAnimations:@"ZoomOut" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(enterRumblePan)];	
+	board.transform = CGAffineTransformMakeScale(ZoomOutScale,ZoomOutScale);
+	[UIView commitAnimations];
+	
+}
+
+- (void)enterRumblePan{
+	[UIView beginAnimations:@"Pan" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(enterRumbleZoomIn)];	
+	board.center = CGPointMake(self.center.x - PanDistance, self.center.y);
+	rumbleBoard.center = self.center;
+	[UIView commitAnimations];
+}
+
+- (void)enterRumbleZoomIn{
+	[UIView beginAnimations:@"ZoomIn" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(enterRumbleZoomInComplete)];
+	rumbleBoard.transform = CGAffineTransformMakeScale(1, 1);
+	rumbleBoard.frame = self.bounds;
+	[UIView commitAnimations];
+}
+
+- (void)enterRumbleZoomInComplete{
 	[rumbleBoard enterRumbleAnimDidStop];
 }
 
+
 - (void)exitRumble{
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:0.5];
-//    [UIView setAnimationBeginsFromCurrentState:NO];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
-//	
-//    [rumbleBoard removeFromSuperview];
-//    [UIView commitAnimations];	
+	[self exitRumbleZoomOut];
+}
+
+- (void)exitRumbleZoomOut{
+	board.transform = CGAffineTransformMakeScale(ZoomOutScale,ZoomOutScale);
+	board.center = CGPointMake(self.center.x - PanDistance, self.center.y);
+	
+	[UIView beginAnimations:@"ZoomOut" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(exitRumblePan)];	
+	rumbleBoard.transform = CGAffineTransformMakeScale(ZoomOutScale,ZoomOutScale);
+	[UIView commitAnimations];
+	
+}
+
+- (void)exitRumblePan{
+	[UIView beginAnimations:@"Pan" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(exitRumbleZoomIn)];	
+	rumbleBoard.center = CGPointMake(self.center.x + PanDistance, self.center.y);
+	board.center = self.center;
+	[UIView commitAnimations];
+}
+
+- (void)exitRumbleZoomIn{
 	[rumbleBoard removeFromSuperview];
-	[rumbleBoard exitRumble];	
+
+	[UIView beginAnimations:@"ZoomIn" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(exitRumbleZoomInComplete)];
+	board.transform = CGAffineTransformMakeScale(1, 1);
+	board.frame = self.bounds;
+	[UIView commitAnimations];
+}
+
+- (void)exitRumbleZoomInComplete{
+	[rumbleBoard exitRumble];
+	[rumbleBoard exitRumbleAnimDidStop];
 }
 
 /*

@@ -28,7 +28,10 @@
 - (void)initGame;
 
 - (void)enterRumble;
+- (void)enterRumbleAnimDidStop;
 - (void)exitRumble;
+- (void)exitRumbleAnimDidStop;
+
 - (void)resume;
 
 - (void)enterBuild;

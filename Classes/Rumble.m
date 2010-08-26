@@ -44,9 +44,11 @@ static Rumble *sharedInstance = nil;
 }
 
 - (void)startRumble{
-	startingTime =  [[NSDate date] retain];	
-	//RUmble logic here...
 	[gameLogic enterRumbleToBuild:build];
+}
+
+- (void)enterRumbleAnimDidStop{
+	startingTime =  [[NSDate date] retain];	
 	[self performSelector:@selector(stopRumble) withObject:self afterDelay:RumbleTime];
 	timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(update) userInfo:nil repeats:YES];
 	[timer retain];
@@ -60,12 +62,15 @@ static Rumble *sharedInstance = nil;
 	//remove all temp tokens
 	[gameLogic exitRumble];	
 	
+
+
+}
+- (void)exitRumbleAnimDidStop{
 	if (build) {
 		[self exitBuild];
 	}else {
 		[self exitRumble];
 	}
-
 }
 
 

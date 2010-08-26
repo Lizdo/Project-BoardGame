@@ -36,6 +36,7 @@
 	int currentPlayerID;
 	
 	Player * currentPlayer;
+	BOOL toBuild;
 }
 
 @property (nonatomic, retain) NSMutableArray * players;
@@ -71,7 +72,9 @@
 - (void)exitRound;
 
 - (void)enterRumbleToBuild:(BOOL)tobuld;
+- (void)enterRumbleAnimDidStop;
 - (void)exitRumble;
+- (void)exitRumbleAnimDidStop;
 
 //Events
 - (void)endTurnButtonClicked;

@@ -53,5 +53,7 @@
 - (void)addSharedTokens;
 
 - (void)enterRumbleAnimDidStop;
+- (void)exitRumbleAnimDidStop;
+
 
 @end

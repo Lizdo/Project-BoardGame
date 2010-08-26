@@ -38,7 +38,7 @@
 	if (!SkipMenu) {
 		mmv = [[MainMenuViewController alloc]initWithNibName:@"MainMenu" bundle:nil];
 		[bgv addSubview:mmv.view];
-		mmv.view.frame = applicationFrame;
+		mmv.view.frame = bgv.bounds;
 		[mmv setValue:game forKey:@"game"];
 	}
 }

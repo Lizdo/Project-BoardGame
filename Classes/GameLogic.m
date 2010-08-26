@@ -253,23 +253,39 @@ static int tileInfos[18][8] = {
 
 
 - (void)enterRumbleToBuild:(BOOL)tobuild{
-	if (tobuild) {
+	toBuild = tobuild;
+	if (toBuild) {
 		[rumbleBoard rumbleWithPlayerID:currentPlayerID];	
-		if (!currentPlayer.isHuman) {
-			[currentPlayer rumbleAI];
-		}
 	}else {
 		[rumbleBoard allRumble];
-		for (Player * p in players) {
-			if (!p.isHuman) {
-				[p rumbleAI];
-			}
-		}		
 	}
 
 	[board enterRumble];
 
 
+}
+
+- (void)enterRumbleAnimDidStop{
+	[rumble enterRumbleAnimDidStop];
+	if (toBuild) {
+		if (!currentPlayer.isHuman) {
+			[currentPlayer rumbleAI];
+		}
+	}else {
+		for (Player * p in players) {
+			if (!p.isHuman) {
+				[p rumbleAI];
+			}
+		}
+	}
+}
+
+- (void)exitRumbleAnimDidStop{
+	for (Token * t in rumbleTokens) {
+		[t removeFromSuperview];
+	}
+	[rumbleTokens removeAllObjects];
+	[rumble exitRumbleAnimDidStop];
 }
 
 - (void)exitRumble{
@@ -280,10 +296,7 @@ static int tileInfos[18][8] = {
 //	[rumbleTargets removeAllObjects];
 //	[rumbleTargets release];
 
-	for (Token * t in rumbleTokens) {
-		[t removeFromSuperview];
-	}
-	[rumbleTokens removeAllObjects];
+
 	
 }
 

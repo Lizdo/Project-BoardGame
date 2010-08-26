@@ -76,6 +76,7 @@ static RumbleBoard *sharedInstance = nil;
 		[rumbleInfo release];
 		[rumbleInfo initGame];
 	}
+	rumble = [Rumble sharedInstance];
 	
 }
 
@@ -89,14 +90,7 @@ static RumbleBoard *sharedInstance = nil;
 */
 
 - (void)enterRumble{
-	rumble = [Rumble sharedInstance];
-    if(allRumble){
-        countDown.center = self.center;
-    }
-    else{
-        countDown.center = CGPointMake(self.center.x, self.center.y + 200);
-    }
-	[self insertSubview:countDown atIndex:0];
+
 }
 
 
@@ -131,6 +125,7 @@ static RumbleBoard *sharedInstance = nil;
 }
 
 - (void)enterRumbleAnimDidStop{
+	[gameLogic enterRumbleAnimDidStop];
 	for (RumbleInfo * info in rumbleInfos){
 		if (allRumble) {
 			[info enterRumbleAnimDidStop];
@@ -138,8 +133,21 @@ static RumbleBoard *sharedInstance = nil;
 			[info enterRumbleAnimDidStop];
 		}
 	}
+	
+    if(allRumble){
+        countDown.center = self.center;
+    }
+    else{
+        countDown.center = CGPointMake(self.center.x, self.center.y + 200);
+    }
+	[self insertSubview:countDown atIndex:0];
+	[self update];
 }
 
+
+- (void)exitRumbleAnimDidStop{
+	[gameLogic exitRumbleAnimDidStop];
+}
 
 - (void)addSharedTokens{
 	
