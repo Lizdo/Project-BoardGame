@@ -17,17 +17,19 @@
 #define PrimaryFontName @"Thonburi"
 #define PrimaryFont "Thonburi"
 
-#define DebugMode 1
+#define DebugMode 0
 
 // Times
 #if DebugMode
     #define MoveAnimationTime 0.1
     #define WaitTime 0.2
-    #define RumbleWaitTime 5
+    #define RumbleWaitTime 2
     #define HighlightTime 0.4
 
     #define RumbleTime 5.0
     #define SlideOutTime 0.5
+	#define ZoomOutTime 0.1
+
 #else
     #define MoveAnimationTime 0.5
     #define WaitTime 0.5
@@ -36,6 +38,8 @@
 
     #define RumbleTime 5.0
     #define SlideOutTime 0.5
+	#define ZoomOutTime 0.5
+
 #endif
 
 
@@ -70,6 +74,10 @@
 //		Tile Area, Rumble Random Token Area
 
 #define PI 3.1415
+
+#define ZoomOutScale 0.8
+#define ZoomOutInterval 20
+#define PanDistance 1000
 
 
 typedef enum{

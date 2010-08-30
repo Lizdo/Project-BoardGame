@@ -199,6 +199,10 @@ static Board *sharedInstance = nil;
 	return ((BoardGameViewController*)controller).interfaceOrientation;
 }
 
+- (void)enterConclusion{
+	[controller enterConclusion];
+}
+
 - (void)dealloc {
 	[infoView release];
 	[tileView release];

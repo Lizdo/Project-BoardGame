@@ -54,7 +54,11 @@
 	}
 }
 
-
+- (void)enterConclusion{
+	cvc = [[ConclusionViewController alloc] initWithNibName:@"ConclusionView" bundle:nil];
+	[cvc setValue:self forKey:@"bgvc"];
+	[self.view addSubview:cvc.view];
+}
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -85,6 +89,7 @@
 
 
 - (void)dealloc {
+	[cvc release];
     [mmv release];
 	[menu release];
 	[game release];

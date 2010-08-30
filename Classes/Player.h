@@ -44,6 +44,8 @@
 	BOOL squareAmountUpdated;
 	
 	NSMutableArray * badges;
+	
+	NSString * name;
 }
 
 @property BOOL isHuman;
@@ -52,6 +54,7 @@
 @property int ID;
 @property (nonatomic,retain) Token * token;
 @property (nonatomic,assign) CGPoint initialTokenPosition;
+@property (nonatomic,copy) NSString * name;
 
 @property int roundAmount;
 @property int rectAmount;

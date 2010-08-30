@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Board.h"
 #import "RumbleBoard.h"
+#import "TypeDef.h"
 
 @class BoardGameViewController;
 
