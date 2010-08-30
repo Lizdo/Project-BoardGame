@@ -12,6 +12,7 @@
 #import "MainMenuViewController.h"
 #import "TypeDef.h"
 #import "BoardGameView.h"
+#import "ConclusionViewController.h"
 
 @interface BoardGameViewController : UIViewController {
 	BoardGameView * bgv;
@@ -20,7 +21,12 @@
 	UIView * menu;
     
     MainMenuViewController * mmv;
+	ConclusionViewController * cvc;
+
 }
+
+- (void)enterConclusion;
+
 
 @end
 

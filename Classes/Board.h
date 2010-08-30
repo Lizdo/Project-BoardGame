@@ -36,7 +36,7 @@
 	ContainerView * tokenView;
 	BoardGameViewController * controller;
 	BoardGameView * bgv;
-	
+		
 }
 
 + (Board*)sharedInstance;
@@ -57,6 +57,8 @@
 - (void)enterRumble;
 - (void)exitRumble;
 - (void)updateRumble;
+
+- (void)enterConclusion;
 
 - (UIInterfaceOrientation)interfaceOrientation;
 

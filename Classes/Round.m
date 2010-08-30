@@ -9,6 +9,7 @@
 #import "Round.h"
 #import "GameLogic.h"
 #import "Turn.h"
+#import "Board.h"
 
 
 @interface Round (Private)
@@ -123,8 +124,11 @@ static Round *sharedInstance = nil;
 - (void)exitRound{
 	DebugLog(@"Exiting Round %d...", count);
 	[gameLogic exitRound];
-	if (count <= MAX_ROUNDS)
+	if (count < MAX_ROUNDS-1){
 		[self enterRound];
+	}else{
+		[[Board sharedInstance] enterConclusion];
+	}
 }
 
 #pragma mark -

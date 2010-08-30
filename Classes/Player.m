@@ -21,7 +21,7 @@
 
 @synthesize isHuman,token,ID,initialTokenPosition,roundAmount,squareAmount,rectAmount;
 @synthesize robotAmount,snakeAmount,palaceAmount,aiProcessInProgress,score,buildScore,resourceScore,badgeScore;
-@synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated;
+@synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated, name;
 
 #pragma mark -
 #pragma mark Common
@@ -56,7 +56,7 @@
 	self.token = [Token tokenWithType:TokenTypePlayer andPosition:initialTokenPosition];
 	ID = playerID;
 	token.player = self;
-	
+	self.name = [NSString stringWithFormat:@"Player %d", playerID]; 
 	[board addView:token];
 	
 }
@@ -241,6 +241,10 @@
 	return badges;
 }
 
+- (NSComparisonResult)compare:(Player *)p{
+	return [[NSNumber numberWithInt:self.score] compare:[NSNumber numberWithInt:p.score]];
+}
+
 
 #pragma mark -
 #pragma mark Serialization
@@ -255,6 +259,9 @@
     [coder encodeInt:robotAmount forKey:@"robotAmount"];	
     [coder encodeInt:snakeAmount forKey:@"snakeAmount"];	
     [coder encodeInt:palaceAmount forKey:@"palaceAmount"];
+    [coder encodeObject:name forKey:@"name"];
+	
+	
 }
 
 
@@ -272,6 +279,7 @@
     snakeAmount = [coder decodeIntForKey:@"snakeAmount"];
     palaceAmount = [coder decodeIntForKey:@"palaceAmount"];	
 	
+	name = [coder decodeObjectForKey:@"name"];
 	//additional inits
 	gameLogic = [GameLogic sharedInstance];
 	
@@ -279,6 +287,8 @@
 	
     return self;
 }
+
+
 
 - (void)dealloc{
 	[badges release];
