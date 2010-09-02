@@ -258,6 +258,30 @@
 	return CGPointZero;
 }
 
++ (CGPoint)positionForPlayerID:(int)theID withOffsetFromInfoCenter:(CGSize)offset{
+	CGPoint infoCenter = [GameVisual infoCenterForPlayerID:theID];
+	switch (theID) {
+		case 1:
+			return CGPointMake(infoCenter.x - offset.height, infoCenter.y + offset.width);				
+			break;
+		case 2:
+			return CGPointMake(infoCenter.x - offset.width, infoCenter.y - offset.height);				
+			break;
+		case 3:
+			return CGPointMake(infoCenter.x + offset.height, infoCenter.y - offset.width);				
+			break;
+		case 0:
+			return CGPointMake(infoCenter.x + offset.width, infoCenter.y + offset.height);				
+			break;				
+		default:
+			break;
+	}
+	return CGPointZero;
+}
+
++ (CGAffineTransform)transformForPlayerID:(int)theID{
+	return CGAffineTransformMakeRotation(90*theID*PI/180);
+}
 
 + (CGPoint)boardCenter{
 	float boardWidth = [GameLogic sharedInstance].board.bounds.size.width;

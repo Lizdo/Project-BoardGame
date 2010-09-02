@@ -34,6 +34,9 @@ static Board *sharedInstance = nil;
 		tileView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		[self addSubview:tileView];
 
+		currentPlayerMark = [[CurrentPlayerMark alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+		[self addSubview:currentPlayerMark];
+		
 		tokenView = [[ContainerView alloc]initWithFrame:self.bounds];
 		tokenView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
 		[self addSubview:tokenView];			
@@ -66,9 +69,9 @@ static Board *sharedInstance = nil;
 	for (int i=0; i<4; i++) {
 		Info * info = [[Info alloc] initWithFrame:CGRectMake(0, 0, 568, 200)];
 		info.player = [gameLogic playerWithID:i];
-		CGAffineTransform t = info.transform;
-		info.transform = CGAffineTransformRotate(t,90*i*PI/180);
-		
+//		CGAffineTransform t = info.transform;
+//		info.transform = CGAffineTransformRotate(t,90*i*PI/180);
+		info.transform = [GameVisual transformForPlayerID:i];		
 		info.center = [GameVisual infoCenterForPlayerID:i];
 		info.autoresizingMask = [GameVisual infoResizingMaskForPlayerID:i];
 
@@ -81,9 +84,12 @@ static Board *sharedInstance = nil;
 		[info initGame];
 		
 	}
+	
+	//Move to player 0 because the player is not initialized yet
+	[currentPlayerMark moveToPlayerWithID:0 withAnim:NO];
+	
 	rumbleBoard = [RumbleBoard sharedInstance];
-//	ScoreSheetView * scoreSheet = [[ScoreSheetView alloc] initWithNibName:@"ScoreSheetView" bundle:nil];
-//	[self addSubview:scoreSheet];
+
 
 }
 
@@ -126,6 +132,15 @@ static Board *sharedInstance = nil;
 		[info addBadges];
 	}
 }
+
+- (void)enterRound{
+	[currentPlayerMark moveToPlayerWithID:gameLogic.currentPlayer.ID withAnim:YES];
+}
+
+- (void)enterTurn{
+	[currentPlayerMark moveToPlayerWithID:gameLogic.currentPlayer.ID withAnim:YES];
+}
+
 
 - (void)enterRumble{
 	[bgv enterRumble];

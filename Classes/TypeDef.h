@@ -79,6 +79,7 @@
 #define ZoomOutInterval 20
 #define PanDistance 1000
 
+#define CurrentPlayerMarkOffset CGSizeMake(-100, 0)
 
 typedef enum{
 	RoundStateInit,

@@ -64,9 +64,8 @@ static RumbleBoard *sharedInstance = nil;
 		RumbleInfo * rumbleInfo = [[RumbleInfo alloc] initWithFrame:CGRectMake(0, 0, 568, 200)];
 		[gameLogic.rumbleInfos addObject:rumbleInfo];
 		rumbleInfo.player = [gameLogic playerWithID:i];
-		CGAffineTransform t = rumbleInfo.transform;
-		rumbleInfo.transform = CGAffineTransformRotate(t,90*i*PI/180);
-		
+		//CGAffineTransform t = rumbleInfo.transform;
+		rumbleInfo.transform = [GameVisual transformForPlayerID:i];
 		rumbleInfo.center = [GameVisual infoCenterForPlayerID:i];
 		rumbleInfo.autoresizingMask = [GameVisual infoResizingMaskForPlayerID:i];		
 	

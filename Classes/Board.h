@@ -16,6 +16,7 @@
 
 #import "ContainerView.h"
 #import "BoardGameView.h"
+#import "CurrentPlayerMark.h"
 
 
 @class RumbleBoard;
@@ -36,6 +37,8 @@
 	ContainerView * tokenView;
 	BoardGameViewController * controller;
 	BoardGameView * bgv;
+	
+	CurrentPlayerMark * currentPlayerMark;
 		
 }
 
@@ -53,6 +56,10 @@
 
 - (void)disableAnimations;
 - (void)enableAnimations;
+
+- (void)enterRound;
+- (void)enterTurn;
+
 
 - (void)enterRumble;
 - (void)exitRumble;

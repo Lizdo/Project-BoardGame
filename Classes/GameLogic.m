@@ -227,7 +227,7 @@ static int tileInfos[18][8] = {
 	if (currentPlayerID>=4)
 		currentPlayerID = 0;
 	
-
+	//[board enterRound];
 }
 
 - (void)exitTurn{
@@ -309,6 +309,7 @@ static int tileInfos[18][8] = {
 	[board disableEndTurnButton];
 	turn.selectedTile = nil;
     [board update];
+	[board enterTurn];
 }
 
 

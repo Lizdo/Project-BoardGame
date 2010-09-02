@@ -48,11 +48,12 @@
 		toggleAIButton.frame = CGRectMake(470, 150, 100, 50);
 		[toggleAIButton addTarget:self action:@selector(toggleAIButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 		
-        currentPlayerMark = [[UIImageView alloc] init];
-        [self addSubview:currentPlayerMark];
-        [currentPlayerMark setImage:[UIImage imageNamed:@"CurrentProducer.png"]];
-        currentPlayerMark.frame = CGRectMake(300, 30, 50, 50);
-        currentPlayerMark.hidden = YES;
+//        currentPlayerMark = [[UIImageView alloc] init];
+//        [self addSubview:currentPlayerMark];
+//        [currentPlayerMark setImage:[UIImage imageNamed:@"CurrentProducer.png"]];
+//        currentPlayerMark.frame = CGRectMake(300, 30, 50, 50);
+//        currentPlayerMark.hidden = YES;
+		
 		
 		rvc = [[RuleViewController alloc] initWithNibName:@"RuleView" bundle:nil];
 		[self addSubview:rvc.view];
@@ -198,12 +199,12 @@
 		svc.player = self.player;
 	}
 	[svc update];
-    
-    if (gameLogic.currentPlayer == player){
-        currentPlayerMark.hidden = NO;
-    }else{
-        currentPlayerMark.hidden = YES;
-    }
+//    
+//    if (gameLogic.currentPlayer == player){
+//        currentPlayerMark.hidden = NO;
+//    }else{
+//        currentPlayerMark.hidden = YES;
+//    }
 }
 
 - (void)removeAllBadges{

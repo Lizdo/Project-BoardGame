@@ -38,6 +38,10 @@
 + (UIColor *)colorWithHex:(int)hex;
 
 + (CGPoint)infoCenterForPlayerID:(int)theID;
+
++ (CGPoint)positionForPlayerID:(int)theID withOffsetFromInfoCenter:(CGSize)offset;
+
++ (CGAffineTransform)transformForPlayerID:(int)theID;
 + (UIViewAutoresizing)infoResizingMaskForPlayerID:(int)theID;
 
 + (CGPoint)boardCenter;
