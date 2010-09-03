@@ -194,7 +194,7 @@ static int tileInfos[18][8] = {
 		}
 
 		for (RumbleTarget * rt in rumbleTargetsToCheck){
-			CGPoint pointInRT = [rt convertPoint:point fromView:board];
+			CGPoint pointInRT = [rt convertPoint:point fromView:rumbleBoard];
 			if (CGRectContainsPoint(rt.bounds, pointInRT)){
 				[rt triggerEvent:event withToken:token atPosition:pointInRT];
 			}

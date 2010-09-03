@@ -12,7 +12,7 @@
 @class GameLogic;
 @class Turn;
 
-#define MAX_ROUNDS 3
+#define MAX_ROUNDS 15
 
 
 

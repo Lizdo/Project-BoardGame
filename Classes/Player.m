@@ -194,7 +194,6 @@
 
 - (void)rumbleMove{
 	//Check if still in rumble
-	
 	if ([Round sharedInstance].state != RoundStateRumble && [Turn sharedInstance].state != TurnStateBuild) {
 		return;
 	}

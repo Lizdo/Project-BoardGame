@@ -10,6 +10,7 @@
 #import "RumbleInfo.h"
 
 #import "Player.h"
+#import "Board.h"
 
 @interface RumbleTarget (Private) 
 - (void)Token:(Token *)t droppedAtPosition:(CGPoint)p;
@@ -197,7 +198,7 @@ static const int DistanceTolerance = 30;
 			placeholder.hasMatch = YES;
 			placeholder.matchedToken = t;
 			t.center = [self convertPoint:placeholder.center toView:self.superview.superview];
-			t.transform = CGAffineTransformConcat(self.superview.transform,placeholder.transform);
+			t.transform = CGAffineTransformConcat(self.superview.transform, placeholder.transform);
 			//Change the draw order to avoid mistakes
 			[t.superview insertSubview:t aboveSubview:self];
 			[self updateAllMatchedStatus];			
@@ -233,8 +234,12 @@ static const int DistanceTolerance = 30;
 
 - (CGPoint)emptyPointForToken:(Token *)t{
 	for (TokenPlaceholder * placeholder in tokenPlaceholders) {
-		if (!placeholder.hasMatch && placeholder.type == t.type)
-			return [self convertPoint:placeholder.center toView:self.superview.superview];
+		if (!placeholder.hasMatch && placeholder.type == t.type){
+			CGPoint point = [self convertPoint:placeholder.center toView:(UIView *)[RumbleBoard sharedInstance]];
+			DebugLog(@"Original Point: %f, %f\nConverted Point: %f, %f", 
+					 placeholder.center.x, placeholder.center.y, point.x, point.y);
+			return point;
+		}
 	}
 	return CGPointZero;
 }

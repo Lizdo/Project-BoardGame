@@ -21,24 +21,26 @@
 
 // Times
 #if DebugMode
-    #define MoveAnimationTime 0.1
-    #define WaitTime 0.2
-    #define RumbleWaitTime 2
-    #define HighlightTime 0.4
 
-    #define RumbleTime 5.0
-    #define SlideOutTime 0.5
-	#define ZoomOutTime 0.1
+#define MoveAnimationTime 0.1
+#define WaitTime 0.2
+#define RumbleWaitTime 2
+#define HighlightTime 0.4
+
+#define RumbleTime 5.0
+#define SlideOutTime 0.5
+#define ZoomOutTime 0.1
 
 #else
-    #define MoveAnimationTime 0.5
-    #define WaitTime 0.5
-    #define RumbleWaitTime 30
-    #define HighlightTime 0.4
 
-    #define RumbleTime 5.0
-    #define SlideOutTime 0.5
-	#define ZoomOutTime 0.5
+#define MoveAnimationTime 0.5
+#define WaitTime 0.5
+#define RumbleWaitTime 2
+#define HighlightTime 0.4
+
+#define RumbleTime 30.0
+#define SlideOutTime 0.5
+#define ZoomOutTime 0.5
 
 #endif
 
