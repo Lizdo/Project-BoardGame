@@ -278,7 +278,7 @@
     snakeAmount = [coder decodeIntForKey:@"snakeAmount"];
     palaceAmount = [coder decodeIntForKey:@"palaceAmount"];	
 	
-	name = [coder decodeObjectForKey:@"name"];
+	self.name = [coder decodeObjectForKey:@"name"];
 	//additional inits
 	gameLogic = [GameLogic sharedInstance];
 	
