@@ -504,6 +504,35 @@ static int tileInfos[18][8] = {
 }
 
 
+- (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p{
+	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
+	int rtTokens[5] = {0,0,0,0,0};
+	for (Token * t in rt.tokenPlaceholders) {
+		rtTokens[t.type]++;
+	}
+	
+	int numTokens[5] = {0,0,0,0,0};
+	for (Token * t in rumbleTokens) {
+		if (t.player == p || t.shared) {
+			numTokens[t.type]++;
+		}
+	}
+	
+	for (int i=1;i<4;i++) {
+		if (numTokens[i] < rtTokens[i]) {
+			return NO;
+		}
+	}
+	
+	return YES;
+}
+
+- (void)swapRumbleTargetForPlayer:(Player *)p{
+	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
+	[rt.info swapRumbleTarget:YES];
+
+}
+
 - (CGPoint)convertedPoint:(CGPoint)point{
 	UIInterfaceOrientation interfaceOrientation = [board interfaceOrientation];
 	if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {

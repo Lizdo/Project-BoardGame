@@ -92,6 +92,8 @@
 
 - (Token *)randomRumbleTokenForPlayer:(Player *)p;
 - (CGPoint)randomRumblePositionForPlayer:(Player *)p withToken:(Token *)t;
+- (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p;
+- (void)swapRumbleTargetForPlayer:(Player *)p;
 
 - (CGPoint)convertedPoint:(CGPoint)point;
 - (CGRect)convertedRect:(CGRect)rect;

@@ -14,6 +14,7 @@
 @interface Player (Private)
 
 - (void)highlightComplete;
+- (void)swapRumbleTarget;
 
 @end
 
@@ -184,12 +185,24 @@
 #pragma mark -
 #pragma mark Rumble AI
 
-// Wait for a random delay
-// Find a random token to move
-// Move to a random position
+// If current Rumble Target is useless, switch after a delay
+// Else
+//   Wait for a random delay
+//   Find a random token to move
+//   Move to a random position
 
 - (void)rumbleAI{
-	[self randomWait:@selector(rumbleMove) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
+	//Check if is useless
+	if (![gameLogic rumbleTargetIsUsableForPlayer:self]) {
+		[self randomWait:@selector(swapRumbleTarget) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
+	}else {
+		[self randomWait:@selector(rumbleMove) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
+
+	}
+}
+
+- (void)swapRumbleTarget{
+	[gameLogic swapRumbleTargetForPlayer:self];
 }
 
 - (void)rumbleMove{
