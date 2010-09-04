@@ -120,7 +120,8 @@ static RumbleBoard *sharedInstance = nil;
 		}
 
 	}
-	[self addSharedTokens];
+	//Don't add shared token for builds
+	//[self addSharedTokens];
 }
 
 - (void)enterRumbleAnimDidStop{

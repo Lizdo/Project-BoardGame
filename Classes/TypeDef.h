@@ -17,7 +17,7 @@
 #define PrimaryFontName @"Thonburi"
 #define PrimaryFont "Thonburi"
 
-#define DebugMode 0
+#define DebugMode 1
 
 // Times
 #if DebugMode

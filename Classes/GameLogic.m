@@ -507,14 +507,18 @@ static int tileInfos[18][8] = {
 - (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p{
 	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
 	int rtTokens[5] = {0,0,0,0,0};
-	for (Token * t in rt.tokenPlaceholders) {
-		rtTokens[t.type]++;
+	for (TokenPlaceholder * t in rt.tokenPlaceholders) {
+		if (!t.hasMatch) {
+			rtTokens[t.type]++;
+		}
 	}
 	
 	int numTokens[5] = {0,0,0,0,0};
 	for (Token * t in rumbleTokens) {
 		if (t.player == p || t.shared) {
-			numTokens[t.type]++;
+			if (!t.isMatched) {
+				numTokens[t.type]++;
+			}
 		}
 	}
 	
