@@ -265,8 +265,8 @@ static const int DistanceTolerance = 30;
 //	}
 	
 	//Add project here
-	//Project * p = [[Project alloc] initWithRumbleTarget:self];
-	//[player addProject:p];
+	Project * p = [[Project alloc] initWithRumbleTarget:self];
+	[player addProject:p];
 	
 	[self reset];
 	

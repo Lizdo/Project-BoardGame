@@ -21,6 +21,6 @@
 - (void)modifyAmountForIndex:(int)index by:(int)value;
 
 - (void)substractAmount:(AmountContainer *)ac;
-- (void)sddAmount:(AmountContainer *)ac;
+- (void)addAmount:(AmountContainer *)ac;
 
 @end

@@ -55,7 +55,7 @@
 	}
 }
 
-- (void)sddAmount:(AmountContainer *)ac{
+- (void)addAmount:(AmountContainer *)ac{
 	for (int i=0; i< MAX(NumberOfTokenTypes, NumberOfRumbleTargetTypes); i++) {
 		[self modifyAmountForIndex:i by:[ac amountForIndex:i]];
 	}

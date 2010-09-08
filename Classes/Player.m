@@ -21,7 +21,7 @@
 
 @implementation Player
 
-@synthesize isHuman,token,ID,initialTokenPosition, tokenAmounts, rumbleTargetAmounts;
+@synthesize isHuman,token,ID,initialTokenPosition, tokenAmounts, rumbleTargetAmounts, lockedAmounts;
 @synthesize aiProcessInProgress,score,buildScore,resourceScore,badgeScore;
 @synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated, name, projects;
 
@@ -44,6 +44,7 @@
 		
 		self.tokenAmounts = [AmountContainer emptyAmountContainer];
 		self.rumbleTargetAmounts = [AmountContainer emptyAmountContainer];
+		self.lockedAmounts = [AmountContainer emptyAmountContainer];
 		
 		rectAmountUpdated = NO;
 		roundAmountUpdated = NO;
@@ -122,6 +123,10 @@
 
 - (int)amountOfResource:(ResourceType)type{
 	return [tokenAmounts amountForIndex:type];
+}
+
+- (int)amountOfUsableResource:(ResourceType)type{
+	return [tokenAmounts amountForIndex:type] - [lockedAmounts amountForIndex:type];
 }
 
 - (void)modifyResource:(ResourceType)type by:(int)value{
@@ -246,13 +251,21 @@
 	for (Project * p in projects){
 		[p enterRound];
 	}
+	
+	self.lockedAmounts = [AmountContainer emptyAmountContainer];
+	
+	for (Project * p in projects){
+		if (!p.isCompleted) {
+			[lockedAmounts addAmount:p.lockedResource];
+		}
+	}
+	
 }
 
 - (void)addProject:(Project *)p{
 	if ([projects indexOfObject:p] == NSNotFound) {
 		[projects addObject:p];
-		//update locked resource
-		
+		[rumbleTargetAmounts modifyAmountForIndex:p.type by:1];
 	}
 }
 

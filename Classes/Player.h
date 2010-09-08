@@ -26,6 +26,8 @@
 	
 	AmountContainer * tokenAmounts;
 	AmountContainer * rumbleTargetAmounts;
+	
+	AmountContainer * lockedAmounts;
 //	int roundAmount;
 //	int rectAmount;	
 //	int squareAmount;
@@ -70,6 +72,8 @@
 @property (nonatomic,retain) AmountContainer * tokenAmounts;
 @property (nonatomic,retain) AmountContainer * rumbleTargetAmounts;
 
+@property (nonatomic,retain) AmountContainer * lockedAmounts;
+
 //@property int roundAmount;
 //@property int rectAmount;
 //@property int squareAmount;
@@ -90,6 +94,7 @@
 
 - (int)amountOfResource:(ResourceType)type;
 - (void)modifyResource:(ResourceType)type by:(int)value;
+- (int)amountOfUsableResource:(ResourceType)type;
 
 - (int)amountOfRumbleTarget:(RumbleTargetType)type;
 

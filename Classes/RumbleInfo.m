@@ -115,7 +115,7 @@
 	currentPosition = CGPointMake(-RandomPositionInterval, 0);
 	//add some random tokens
 	for (int i=0; i<NumberOfTokenTypes; i++) {
-		int amount = [player amountOfResource:i];
+		int amount = [player amountOfUsableResource:i];
 		for (int j=0; j<amount; j++) {
 			[self addRandomTokenWithType:i];
 		}
