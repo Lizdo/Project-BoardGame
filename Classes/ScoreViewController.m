@@ -22,12 +22,12 @@
 	resourceScoreLabel.text = [NSString stringWithFormat:@"%d",player.resourceScore];
 	buildScoreLabel.text = [NSString stringWithFormat:@"%d",player.buildScore];
 	
-	roundScoreLabel.text = [NSString stringWithFormat:@"%d",player.roundAmount];
-	rectScoreLabel.text = [NSString stringWithFormat:@"%d",player.rectAmount];
-	squareScoreLabel.text = [NSString stringWithFormat:@"%d",player.squareAmount];
-	robotScoreLabel.text = [NSString stringWithFormat:@"%d",player.robotAmount];
-	snakeScoreLabel.text = [NSString stringWithFormat:@"%d",player.snakeAmount];
-	palaceScoreLabel.text = [NSString stringWithFormat:@"%d",player.palaceAmount];
+	roundScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfResource:TokenTypeRound]];
+	rectScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfResource:TokenTypeRect]];
+	squareScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfResource:TokenTypeSquare]];
+	robotScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfRumbleTarget:RumbleTargetTypeRobot]];
+	snakeScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfRumbleTarget:RumbleTargetTypeSnake]];
+	palaceScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfRumbleTarget:RumbleTargetTypePalace]];
 
 	
 }

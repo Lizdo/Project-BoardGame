@@ -10,6 +10,7 @@
 #import "GameLogic.h"
 #import "Tile.h"
 #import "Board.h"
+#import "Project.h"
 
 @interface Player (Private)
 
@@ -20,9 +21,9 @@
 
 @implementation Player
 
-@synthesize isHuman,token,ID,initialTokenPosition,roundAmount,squareAmount,rectAmount;
-@synthesize robotAmount,snakeAmount,palaceAmount,aiProcessInProgress,score,buildScore,resourceScore,badgeScore;
-@synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated, name;
+@synthesize isHuman,token,ID,initialTokenPosition, tokenAmounts, rumbleTargetAmounts;
+@synthesize aiProcessInProgress,score,buildScore,resourceScore,badgeScore;
+@synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated, name, projects;
 
 #pragma mark -
 #pragma mark Common
@@ -34,16 +35,21 @@
 - (id)init{
 	if (self = [super init]){
 		gameLogic = [GameLogic sharedInstance];
-		roundAmount = 0;
-		squareAmount = 0;
-		rectAmount = 0;
-		robotAmount = 0;
-		snakeAmount = 0;
-		palaceAmount = 0;
+//		roundAmount = 0;
+//		squareAmount = 0;
+//		rectAmount = 0;
+//		robotAmount = 0;
+//		snakeAmount = 0;
+//		palaceAmount = 0;
+		
+		self.tokenAmounts = [AmountContainer emptyAmountContainer];
+		self.rumbleTargetAmounts = [AmountContainer emptyAmountContainer];
 		
 		rectAmountUpdated = NO;
 		roundAmountUpdated = NO;
 		squareAmountUpdated = NO;
+		
+		self.projects = [NSMutableArray arrayWithCapacity:0];
 	}
 	return self;
 }
@@ -63,20 +69,20 @@
 }
 
 
-- (void)setRobotAmount:(int)newAmount{
-	robotAmount = newAmount;
-	[board update];
-}
-
-- (void)setSnakeAmount:(int)newAmount{
-	snakeAmount = newAmount;
-	[board update];
-}
-
-- (void)setPalaceAmount:(int)newAmount{
-	palaceAmount = newAmount;
-	[board update];
-}
+//- (void)setRobotAmount:(int)newAmount{
+//	robotAmount = newAmount;
+//	[board update];
+//}
+//
+//- (void)setSnakeAmount:(int)newAmount{
+//	snakeAmount = newAmount;
+//	[board update];
+//}
+//
+//- (void)setPalaceAmount:(int)newAmount{
+//	palaceAmount = newAmount;
+//	[board update];
+//}
 
 - (void)setToken:(Token *)newToken{
 	newToken.player = self;
@@ -85,68 +91,46 @@
 	[newToken retain];
 }
 
-
-- (void)setRectAmount:(int)newAmount{
-	rectAmount = newAmount;
-	rectAmountUpdated = YES;
-	[board update];	
-	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
-}
-
-- (void)setRoundAmount:(int)newAmount{
-	roundAmount = newAmount;
-	roundAmountUpdated = YES;
-	[board update];	
-	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
-}
-
-- (void)setSqareAmount:(int)newAmount{
-	squareAmount = newAmount;
-	squareAmountUpdated = YES;
-	[board update];	
-	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
-}
-
-- (void)highlightComplete{
-	rectAmountUpdated = NO;
-	roundAmountUpdated = NO;
-	squareAmountUpdated = NO;
-	[board update];		
-}
+//
+//- (void)setRectAmount:(int)newAmount{
+//	rectAmount = newAmount;
+//	rectAmountUpdated = YES;
+//	[board update];	
+//	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
+//}
+//
+//- (void)setRoundAmount:(int)newAmount{
+//	roundAmount = newAmount;
+//	roundAmountUpdated = YES;
+//	[board update];	
+//	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
+//}
+//
+//- (void)setSqareAmount:(int)newAmount{
+//	squareAmount = newAmount;
+//	squareAmountUpdated = YES;
+//	[board update];	
+//	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
+//}
+//
+//- (void)highlightComplete{
+//	rectAmountUpdated = NO;
+//	roundAmountUpdated = NO;
+//	squareAmountUpdated = NO;
+//	[board update];		
+//}
 
 - (int)amountOfResource:(ResourceType)type{
-	switch (type) {
-		case ResourceTypeRect:
-			return rectAmount;
-			break;
-		case ResourceTypeRound:
-			return roundAmount;
-			break;
-		case ResourceTypeSquare:
-			return squareAmount;
-			break;
-		default:
-			return 0;
-			break;
-	}
+	return [tokenAmounts amountForIndex:type];
 }
 
-- (BOOL)modifyResource:(ResourceType)type by:(int)value{
-	switch (type) {
-		case ResourceTypeRect:
-			self.rectAmount+=value;
-			break;
-		case ResourceTypeRound:
-			self.roundAmount+=value;
-			break;
-		case ResourceTypeSquare:
-			self.squareAmount+=value;
-			break;
-		default:
-			return NO;
-			break;
-	}	
-	return YES;
+- (void)modifyResource:(ResourceType)type by:(int)value{
+	[tokenAmounts modifyAmountForIndex:type by:value];
+}
+
+- (int)amountOfRumbleTarget:(RumbleTargetType)type{
+	return [rumbleTargetAmounts amountForIndex:type];
+
 }
 
 #pragma mark -
@@ -258,21 +242,46 @@
 }
 
 
+- (void)enterRound{
+	for (Project * p in projects){
+		[p enterRound];
+	}
+}
+
+- (void)addProject:(Project *)p{
+	if ([projects indexOfObject:p] == NSNotFound) {
+		[projects addObject:p];
+		//update locked resource
+		
+	}
+}
+
+
+- (void)projectComplete:(Project *)p{
+	
+}
+
+
 #pragma mark -
 #pragma mark Serialization
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeBool:isHuman forKey:@"isHuman"];
     [coder encodeInt:ID forKey:@"ID"];
-    [coder encodeInt:roundAmount forKey:@"roundAmount"];
-    [coder encodeInt:rectAmount forKey:@"rectAmount"];	
-    [coder encodeInt:squareAmount forKey:@"squareAmount"];
+//    [coder encodeInt:roundAmount forKey:@"roundAmount"];
+//    [coder encodeInt:rectAmount forKey:@"rectAmount"];	
+//    [coder encodeInt:squareAmount forKey:@"squareAmount"];
+//	
+//    [coder encodeInt:robotAmount forKey:@"robotAmount"];	
+//    [coder encodeInt:snakeAmount forKey:@"snakeAmount"];	
+//    [coder encodeInt:palaceAmount forKey:@"palaceAmount"];
 	
-    [coder encodeInt:robotAmount forKey:@"robotAmount"];	
-    [coder encodeInt:snakeAmount forKey:@"snakeAmount"];	
-    [coder encodeInt:palaceAmount forKey:@"palaceAmount"];
+	[coder encodeObject:tokenAmounts forKey:@"tokenAmounts"];
+	[coder encodeObject:rumbleTargetAmounts forKey:@"rumbleTargetAmounts"];
+	
     [coder encodeObject:name forKey:@"name"];
-	
+	[coder encodeObject:projects forKey:@"projects"];
+
 	
 }
 
@@ -283,15 +292,20 @@
     isHuman = [coder decodeBoolForKey:@"isHuman"];
     ID = [coder decodeIntForKey:@"ID"];
 	
-    roundAmount = [coder decodeIntForKey:@"roundAmount"];
-    rectAmount = [coder decodeIntForKey:@"rectAmount"];
-    squareAmount = [coder decodeIntForKey:@"squareAmount"];
-
-    robotAmount = [coder decodeIntForKey:@"robotAmount"];
-    snakeAmount = [coder decodeIntForKey:@"snakeAmount"];
-    palaceAmount = [coder decodeIntForKey:@"palaceAmount"];	
+//    roundAmount = [coder decodeIntForKey:@"roundAmount"];
+//    rectAmount = [coder decodeIntForKey:@"rectAmount"];
+//    squareAmount = [coder decodeIntForKey:@"squareAmount"];
+//
+//    robotAmount = [coder decodeIntForKey:@"robotAmount"];
+//    snakeAmount = [coder decodeIntForKey:@"snakeAmount"];
+//    palaceAmount = [coder decodeIntForKey:@"palaceAmount"];
+	
+	self.tokenAmounts = [coder decodeObjectForKey:@"tokenAmounts"];
+	self.rumbleTargetAmounts = [coder decodeObjectForKey:@"rumbleTargetAmounts"];
 	
 	self.name = [coder decodeObjectForKey:@"name"];
+	self.projects = [coder decodeObjectForKey:@"projects"];
+
 	//additional inits
 	gameLogic = [GameLogic sharedInstance];
 	

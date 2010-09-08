@@ -39,7 +39,7 @@
 }
 
 - (void)initGame{
-	for (int i=0; i<3; i++) {
+	for (int i=0; i<NumberOfRumbleTargetTypes; i++) {
 		RumbleTarget * rt = [RumbleTarget rumbleTargetWithType:i];
 		rt.player = self.player;
 		rt.info = self;
@@ -47,15 +47,12 @@
 		[rumbleTargets addObject:rt];
 		//[self addSubview:rt];
 	}
-		
-	int typeArray[3] = {
-		RumbleTargetTypeRobot, RumbleTargetTypeSnake, RumbleTargetTypePalace
-	};
+	
 	NSMutableArray * iconArray = [NSMutableArray arrayWithCapacity:0];
 	
-	for (int i = 0; i<3; i++) {
+	for (int i = 0; i<NumberOfRumbleTargetTypes; i++) {
 		CGPoint p = CGPointMake(15, 25 + i*50);
-		[iconArray addObject:[self initRumbleIconAt:p withType:typeArray[i]]]; 
+		[iconArray addObject:[self initRumbleIconAt:p withType:i]]; 
 	}
 	robotIcon = [iconArray objectAtIndex:0];
 	snakeIcon = [iconArray objectAtIndex:1];
@@ -116,16 +113,14 @@
 	
 	//DebugLog(@"Center: %f, %f", self.center.x, self.center.y);
 	currentPosition = CGPointMake(-RandomPositionInterval, 0);
-	//add some random tokens		
-	for (int i=0; i<player.rectAmount; i++) {
-		[self addRandomTokenWithType:TokenTypeRect];
+	//add some random tokens
+	for (int i=0; i<NumberOfTokenTypes; i++) {
+		int amount = [player amountOfResource:i];
+		for (int j=0; j<amount; j++) {
+			[self addRandomTokenWithType:i];
+		}
 	}
-	for (int i=0; i<player.roundAmount; i++) {
-		[self addRandomTokenWithType:TokenTypeRound];
-	}
-	for (int i=0; i<player.squareAmount; i++) {
-		[self addRandomTokenWithType:TokenTypeSquare];
-	}	
+	
 }
 
 - (void)enterRumbleAnimDidStop{
@@ -202,32 +197,33 @@
 }
 
 - (void)update{
-	if (player.robotAmount > 0) {
-		robotIcon.hidden = NO;
-		if (player.robotAmount > 1) {
-			robotCount.text = [NSString stringWithFormat:@"x%d",player.robotAmount];
-		}
-	}else {
-		robotCount.text = @"";
-	}
-
-
-	if (player.snakeAmount > 0) {
-		snakeIcon.hidden = NO;
-		if (player.snakeAmount > 1) {
-			snakeCount.text = [NSString stringWithFormat:@"x%d",player.snakeAmount];
-		}
-	}else {
-		snakeCount.text = @"";
-	}
-	if (player.palaceAmount > 0) {
-		palaceIcon.hidden = NO;
-		if (player.palaceAmount > 1) {
-			palaceCount.text = [NSString stringWithFormat:@"x%d",player.palaceAmount];
-		}
-	}else {
-		palaceCount.text = @"";
-	}
+	//TODO: New Rumble Count
+//	if (player.robotAmount > 0) {
+//		robotIcon.hidden = NO;
+//		if (player.robotAmount > 1) {
+//			robotCount.text = [NSString stringWithFormat:@"x%d",player.robotAmount];
+//		}
+//	}else {
+//		robotCount.text = @"";
+//	}
+//
+//
+//	if (player.snakeAmount > 0) {
+//		snakeIcon.hidden = NO;
+//		if (player.snakeAmount > 1) {
+//			snakeCount.text = [NSString stringWithFormat:@"x%d",player.snakeAmount];
+//		}
+//	}else {
+//		snakeCount.text = @"";
+//	}
+//	if (player.palaceAmount > 0) {
+//		palaceIcon.hidden = NO;
+//		if (player.palaceAmount > 1) {
+//			palaceCount.text = [NSString stringWithFormat:@"x%d",player.palaceAmount];
+//		}
+//	}else {
+//		palaceCount.text = @"";
+//	}
 }
 
 

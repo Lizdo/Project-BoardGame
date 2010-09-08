@@ -11,6 +11,8 @@
 
 #import "Player.h"
 #import "Board.h"
+#import "Project.h"
+
 
 @interface RumbleTarget (Private) 
 - (void)Token:(Token *)t droppedAtPosition:(CGPoint)p;
@@ -82,6 +84,8 @@ float distance(CGPoint p1, CGPoint p2){
 }
 */
 
+
+//Must follow the order defined in RumbleTargetType
 static int rumbleInfo[30][4] = {
 	//Robot
 	{TokenTypeSquare,  76,  76,   0},
@@ -91,10 +95,10 @@ static int rumbleInfo[30][4] = {
 	{TokenTypeRect, 112,  82, -30},
 	{TokenTypeRect,  40,  82,  30},	
 	
-	{0,0,0,0},
-	{0,0,0,0},
-	{0,0,0,0},
-	{0,0,0,0},	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
 	
 	//Snake
 	{TokenTypeRound, 108,  26,   0},
@@ -106,9 +110,9 @@ static int rumbleInfo[30][4] = {
 	{TokenTypeRect,  88, 120,  60},
 	
 	
-	{0,0,0,0},
-	{0,0,0,0},
-	{0,0,0,0},	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
 	
 	//Palace
 	{TokenTypeRect,  32, 117,   0},
@@ -119,8 +123,8 @@ static int rumbleInfo[30][4] = {
 	{TokenTypeRect, 102,  75,   0},
 	{TokenTypeRect, 120, 118,   0},
 	{TokenTypeSquare,  92, 122,   0},
-	{0,0,0,0},
-	{0,0,0,0},	
+	{-1,0,0,0},
+	{-1,0,0,0},
 };
 
 
@@ -129,24 +133,10 @@ static int rumbleInfo[30][4] = {
 	CGRect r = CGRectMake(0, 0, 150, 200);
 	RumbleTarget * t = [[RumbleTarget alloc]initWithFrame:r];
 	t.type = aType;
-	int startingIndex = 0;
-	switch (aType) {
-		case RumbleTargetTypeRobot:
-			startingIndex = 0;
-			break;
-		case RumbleTargetTypeSnake:
-			startingIndex = 10;
-			break;
-		case RumbleTargetTypePalace:
-			startingIndex = 20;
-			break;			
-		default:
-			break;
-	}
-
+	int startingIndex = aType*10;
 	t.tokenPlaceholders = [NSMutableArray arrayWithCapacity:0];
 	for (int i=0; i<10; i++) {
-		if (rumbleInfo[startingIndex + i][0] != 0) {
+		if (rumbleInfo[startingIndex + i][0] != -1) {
 			int * info = rumbleInfo[startingIndex + i];
 			[t addTokenPlaceholderWithInfo:info];
 		}else{
@@ -259,19 +249,24 @@ static const int DistanceTolerance = 30;
 	self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
 	DebugLog(@"All Matched");
 	
-	switch (type) {
-		case RumbleTargetTypeRobot:
-			player.robotAmount++;
-			break;
-		case RumbleTargetTypeSnake:
-			player.snakeAmount++;
-			break;
-		case RumbleTargetTypePalace:
-			player.palaceAmount++;
-			break;			
-		default:
-			break;
-	}
+	
+//	switch (type) {
+//		case RumbleTargetTypeRobot:
+//			player.robotAmount++;
+//			break;
+//		case RumbleTargetTypeSnake:
+//			player.snakeAmount++;
+//			break;
+//		case RumbleTargetTypePalace:
+//			player.palaceAmount++;
+//			break;			
+//		default:
+//			break;
+//	}
+	
+	//Add project here
+	//Project * p = [[Project alloc] initWithRumbleTarget:self];
+	//[player addProject:p];
 	
 	[self reset];
 	

@@ -227,6 +227,9 @@ static int tileInfos[18][8] = {
 	if (currentPlayerID>=4)
 		currentPlayerID = 0;
 	
+	for (Player * p in players) {
+		[p enterRound];
+	}
 	//[board enterRound];
 }
 
@@ -353,8 +356,7 @@ static int tileInfos[18][8] = {
 }
 
 - (TokenType)randomTokenType{
-	//valid token type is 1-3
-	int i = rand()%3 + 1;
+	int i = rand()%NumberOfTokenTypes;
 	return i;
 }
 
@@ -411,33 +413,26 @@ static int tileInfos[18][8] = {
 		[p removeAllBadges];
 		
 		p.resourceScore = 0;
-		p.resourceScore += p.roundAmount + p.rectAmount * 3 + p.squareAmount * 5;
-//		p.resourceScore += p.roundAmount > 10 ? 4 : 0;
-//		p.resourceScore += p.roundAmount > 5 ? 3 : 0;
-//		p.resourceScore += p.rectAmount > 8 ? 6 : 0;
-//		p.resourceScore += p.rectAmount > 4 ? 5 : 0;
-//		p.resourceScore += p.squareAmount > 6 ? 8 : 0;
-//		p.resourceScore += p.squareAmount > 3 ? 7 : 0;
-		p.roundAmount > 10 ? [p addBadgeWithType:BadgeTypeEnoughRound]:0;
-		p.rectAmount > 8 ? [p addBadgeWithType:BadgeTypeEnoughRect]:0;
-		p.squareAmount > 6 ? [p addBadgeWithType:BadgeTypeEnoughSquare]:0;		
+		for (int j=0; j<NumberOfTokenTypes; j++) {
+			p.resourceScore += [p amountOfResource:j]*TokenScoreModifier[j];
+		}
+		
+		//TODO: Refactor Badge Interface
+//		p.roundAmount > 10 ? [p addBadgeWithType:BadgeTypeEnoughRound]:0;
+//		p.rectAmount > 8 ? [p addBadgeWithType:BadgeTypeEnoughRect]:0;
+//		p.squareAmount > 6 ? [p addBadgeWithType:BadgeTypeEnoughSquare]:0;		
 		
 		p.buildScore = 0;
-		p.buildScore += p.robotAmount * 5 + p.snakeAmount * 7 + p.palaceAmount * 9;
-		
+		for (int j=0; j<NumberOfRumbleTargetTypes; j++) {
+			p.buildScore += [p amountOfRumbleTarget:j]*RumbleTargetScoreModifier[j];
+		}
 	}
 	
-	int ResourceTypes[] = {
-		ResourceTypeRound,
-		ResourceTypeRect,
-		ResourceTypeSquare
-	};
 	
-	for (int i=0; i<3; i++) {
-		NSArray * array = [self playersWithMaximumResource:ResourceTypes[i]];
+	for (int i=0; i<NumberOfTokenTypes; i++) {
+		NSArray * array = [self playersWithMaximumResource:i];
 		for (Player * p in array){
-			//p.resourceScore += 7;
-			[p addMaximumResourceBadgeWithType:ResourceTypes[i]];
+			[p addMaximumResourceBadgeWithType:i];
 		}
 	}
 	

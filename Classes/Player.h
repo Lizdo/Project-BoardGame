@@ -10,7 +10,9 @@
 #import "TypeDef.h"
 #import "Token.h"
 #import "Badge.h"
+#import "AmountContainer.h"
 
+@class Project;
 @class Board;
 @class GameLogic;
 
@@ -22,14 +24,18 @@
 	
 	GameLogic * gameLogic;
 	
-	int roundAmount;
-	int rectAmount;	
-	int squareAmount;
+	AmountContainer * tokenAmounts;
+	AmountContainer * rumbleTargetAmounts;
+//	int roundAmount;
+//	int rectAmount;	
+//	int squareAmount;
+//	
+//	int robotAmount;
+//	int snakeAmount;
+//	int palaceAmount;
 	
-	int robotAmount;
-	int snakeAmount;
-	int palaceAmount;
 	
+		
 	int badgeScore;	
 	int resourceScore;
 	int buildScore;
@@ -44,8 +50,10 @@
 	BOOL squareAmountUpdated;
 	
 	NSMutableArray * badges;
+	NSMutableArray * projects;
 	
 	NSString * name;
+	
 }
 
 @property BOOL isHuman;
@@ -53,15 +61,21 @@
 
 @property int ID;
 @property (nonatomic,retain) Token * token;
+@property (nonatomic,retain) NSMutableArray * projects;
+
 @property (nonatomic,assign) CGPoint initialTokenPosition;
 @property (nonatomic,copy) NSString * name;
 
-@property int roundAmount;
-@property int rectAmount;
-@property int squareAmount;
-@property int robotAmount;
-@property int snakeAmount;
-@property int palaceAmount;
+
+@property (nonatomic,retain) AmountContainer * tokenAmounts;
+@property (nonatomic,retain) AmountContainer * rumbleTargetAmounts;
+
+//@property int roundAmount;
+//@property int rectAmount;
+//@property int squareAmount;
+//@property int robotAmount;
+//@property int snakeAmount;
+//@property int palaceAmount;
 @property int resourceScore;
 @property int buildScore;
 @property int badgeScore;
@@ -75,7 +89,9 @@
 - (void)initGameWithID:(int)playerID;
 
 - (int)amountOfResource:(ResourceType)type;
-- (BOOL)modifyResource:(ResourceType)type by:(int)value;
+- (void)modifyResource:(ResourceType)type by:(int)value;
+
+- (int)amountOfRumbleTarget:(RumbleTargetType)type;
 
 - (void)processAI;
 - (void)AImoveComplete;
@@ -87,5 +103,10 @@
 - (void)addBadgeWithType:(BadgeType)type;
 - (void)addMaximumResourceBadgeWithType:(ResourceType)type;
 - (NSArray *)badges;
+
+- (void)enterRound;
+
+- (void)addProject:(Project *)p;
+- (void)projectComplete:(Project *)p;
 
 @end

@@ -11,8 +11,10 @@
 #import "TypeDef.h"
 #import "Rumble.h"
 #import "TokenPlaceholder.h"
+
 @class GameLogic;
 @class RumbleInfo;
+@class Project;
 
 @interface RumbleTarget : UIView {
 	BOOL allMatched;
@@ -26,6 +28,7 @@
 	UISwipeGestureRecognizer * recognizerDown;	
 	
 	UILabel * nameLabel;
+		
 }
 
 @property (nonatomic,assign) Player * player;

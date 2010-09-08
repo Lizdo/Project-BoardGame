@@ -112,19 +112,28 @@ typedef enum{
 	TileStateHidden,
 }TileState;
 
+#define NumberOfTokenTypes 3
+
+extern const int TokenScoreModifier[NumberOfTokenTypes];
+
 typedef enum{
-	TokenTypePlayer = 0,
-	TokenTypeRound = 1,
-	TokenTypeRect = 2,
-	TokenTypeSquare = 3,
-	TokenTypeUnknown= 4,
+	TokenTypeRound = 0,
+	TokenTypeRect = 1,
+	TokenTypeSquare = 2,
+	TokenTypePlayer = 3,	
 }TokenType;
+
 
 typedef enum{
 	TokenEventPickedUp,
 	TokenEventHover,
 	TokenEventDroppedDown
 }TokenEvent;
+
+#define NumberOfRumbleTargetTypes 3
+
+extern const int RumbleTargetScoreModifier[NumberOfTokenTypes];
+
 
 typedef enum{
 	RumbleTargetTypeRobot = 0,
