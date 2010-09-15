@@ -317,6 +317,17 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 	
 }
 
+- (NSString *)title{
+	//TODO:Replace with real title
+	return @"Title";
+}
+
+
+- (NSString *)description{
+	return @"This is a description";
+}
+
+
 - (void)dealloc {
     [super dealloc];
 }

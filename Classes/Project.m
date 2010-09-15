@@ -10,7 +10,6 @@
 #import "TokenPlaceholder.h"
 
 @interface Project (Private)
-+ (int)timeNeededForRumbleTargetType:(RumbleTargetType)aType;
 @end
 
 @implementation Project
@@ -20,7 +19,7 @@
 - (id)initWithRumbleTarget:(RumbleTarget *)rt{
 	
 	if (self = [super init]) {
-		lockedResource = [AmountContainer emptyAmountContainer];
+		self.lockedResource = [AmountContainer emptyAmountContainer];
 		
 		type = rt.type;
 		for (TokenPlaceholder * t in rt.tokenPlaceholders) {
@@ -94,6 +93,15 @@
 	self.lockedResource = [coder decodeObjectForKey:@"lockedResource"];
 	
     return self;
+}
+
+- (NSString *)description{
+	if (isCompleted) {
+		return @"Completed";
+	}else {
+		return [NSString stringWithFormat:@"%d Weeks Remaining", timeRemaining];
+	}
+
 }
 
 - (void)dealloc{

@@ -35,4 +35,6 @@
 - (void)enterRound;
 - (void)complete;
 
++ (int)timeNeededForRumbleTargetType:(RumbleTargetType)aType;
+
 @end

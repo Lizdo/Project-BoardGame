@@ -28,6 +28,8 @@
 	UISwipeGestureRecognizer * recognizerDown;	
 	
 	UILabel * nameLabel;
+	
+	UILabel * timeLabel;
 		
 }
 

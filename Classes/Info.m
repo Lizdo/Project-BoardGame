@@ -65,6 +65,12 @@
 		svc.view.center = CGPointMake(svc.view.center.x + 80, svc.view.center.y);
 		((NoteView *)svc.view).hasSlidedOut = NO;		
 		
+		
+		pvc = [[ProjectProgressViewController alloc]initWithNibName:@"ProjectProgressView" bundle:nil];
+		[self addSubview:pvc.view];
+		pvc.view.center = CGPointMake(pvc.view.center.x + 200, pvc.view.center.y);
+		((NoteView *)pvc.view).hasSlidedOut = NO;		
+		
 		self.clipsToBounds = YES;
 
 
@@ -199,12 +205,12 @@
 		svc.player = self.player;
 	}
 	[svc update];
-//    
-//    if (gameLogic.currentPlayer == player){
-//        currentPlayerMark.hidden = NO;
-//    }else{
-//        currentPlayerMark.hidden = YES;
-//    }
+	
+	if (pvc.player == nil) {
+		pvc.player = self.player;
+	}
+	[pvc update];	
+
 }
 
 - (void)removeAllBadges{

@@ -58,4 +58,7 @@
 
 - (void)flipIn;
 
+- (NSString *)title;
+- (NSString *)description;
+
 @end

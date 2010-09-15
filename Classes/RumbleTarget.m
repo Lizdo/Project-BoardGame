@@ -51,12 +51,22 @@ float distance(CGPoint p1, CGPoint p2){
 		nameLabel.textAlignment = UITextAlignmentCenter;
 		nameLabel.textColor = [GameVisual colorWithHex:0x585858];
 		[self addSubview:nameLabel];	
+		
+		timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-10, 30)];
+		timeLabel.font = [UIFont fontWithName:PrimaryFontName size:20];
+		timeLabel.opaque = NO;
+		timeLabel.backgroundColor = nil;
+		timeLabel.textAlignment = UITextAlignmentLeft;
+		timeLabel.textColor = [GameVisual colorWithHex:0x585858];
+		[self addSubview:timeLabel];	
+
     }
     return self;
 }
 
 - (void)activate{
 	nameLabel.text = [self description];
+	timeLabel.text = [NSString stringWithFormat:@"%dWeeks",[Project timeNeededForRumbleTargetType:type]];
 	recognizerUp.enabled = YES;	
 	recognizerDown.enabled = YES;
 }
@@ -248,21 +258,6 @@ static const int DistanceTolerance = 30;
 	//allMatched = YES;
 	self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
 	DebugLog(@"All Matched");
-	
-	
-//	switch (type) {
-//		case RumbleTargetTypeRobot:
-//			player.robotAmount++;
-//			break;
-//		case RumbleTargetTypeSnake:
-//			player.snakeAmount++;
-//			break;
-//		case RumbleTargetTypePalace:
-//			player.palaceAmount++;
-//			break;			
-//		default:
-//			break;
-//	}
 	
 	//Add project here
 	Project * p = [[Project alloc] initWithRumbleTarget:self];

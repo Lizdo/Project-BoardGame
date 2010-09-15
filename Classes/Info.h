@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "ScoreViewController.h"
 #import "RuleViewController.h"
+#import "ProjectProgressViewController.h"
 #import "NoteView.h"
 #import "ContainerView.h"
 #import "Badge.h"
@@ -29,6 +30,7 @@
 
 	ScoreViewController * svc;
 	RuleViewController * rvc;
+	ProjectProgressViewController * pvc;
 	
 }
 
