@@ -83,6 +83,11 @@
 
 #define CurrentPlayerMarkOffset CGSizeMake(-100, 0)
 
+//  Popup
+#define PopupWidth 200
+#define PopupHeight 75
+
+
 typedef enum{
 	RoundStateInit,
 	RoundStateNormal,

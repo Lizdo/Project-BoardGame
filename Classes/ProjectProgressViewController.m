@@ -75,8 +75,9 @@
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		Project * p = [player.projects objectAtIndex:indexPath.row];
+		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:25];
 		cell.textLabel.text = [p description];
-		cell.imageView.image = [UIImage imageNamed:@"Round.png"];
+		cell.imageView.image = [GameVisual imageForRumbleType:p.type andPlayerID:player.ID];
     }
     
 	// Configure the cell.

@@ -35,6 +35,8 @@
 	ContainerView * infoView;
 	ContainerView * tileView;
 	ContainerView * tokenView;
+	ContainerView * popupView;
+	
 	BoardGameViewController * controller;
 	BoardGameView * bgv;
 	
@@ -60,12 +62,15 @@
 - (void)enterRound;
 - (void)enterTurn;
 
-
 - (void)enterRumble;
 - (void)exitRumble;
 - (void)updateRumble;
 
 - (void)enterConclusion;
+
+- (void)addPopup:(UIView *)popup;
+- (void)removePopup:(UIView *)popup;
+- (void)removeAllPopups;
 
 - (UIInterfaceOrientation)interfaceOrientation;
 

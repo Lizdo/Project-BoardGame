@@ -43,7 +43,11 @@ static Board *sharedInstance = nil;
 		
 		infoView = [[ContainerView alloc]initWithFrame:self.bounds];
 		infoView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
-		[self addSubview:infoView];				
+		[self addSubview:infoView];	
+		
+		popupView = [[ContainerView alloc]initWithFrame:self.bounds];
+		popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
+		[self addSubview:popupView];				
 	
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.clipsToBounds = YES;
@@ -217,6 +221,25 @@ static Board *sharedInstance = nil;
 - (void)enterConclusion{
 	[controller enterConclusion];
 }
+
+#pragma mark -
+#pragma mark Popup methods
+
+
+- (void)addPopup:(UIView *)popup{
+	[popupView addSubview:popup];
+}
+
+- (void)removePopup:(UIView *)popup{
+	[popup removeFromSuperview];
+}
+
+- (void)removeAllPopups{
+	for (UIView * view in popupView.subviews){
+		[view removeFromSuperview];
+	}
+}
+
 
 - (void)dealloc {
 	[infoView release];

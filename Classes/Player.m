@@ -264,7 +264,7 @@
 
 - (void)addProject:(Project *)p{
 	if ([projects indexOfObject:p] == NSNotFound) {
-		[projects addObject:p];
+		[projects insertObject:p atIndex:0];
 		[rumbleTargetAmounts modifyAmountForIndex:p.type by:1];
 	}
 }
