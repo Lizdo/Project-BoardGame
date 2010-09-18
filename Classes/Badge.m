@@ -17,6 +17,9 @@
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
         self.userInteractionEnabled = YES;
+		
+		recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
+		[self addGestureRecognizer:recognizer];		
     }
     return self;
 }
@@ -64,48 +67,32 @@
 }
 
 
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-	BadgeInfoViewController * content;
-	if (!popoverController) {
-		content = [[BadgeInfoViewController alloc] init];
-		content.view.transform = [self superview].transform;
-		
-		self.popoverController = [[UIPopoverController alloc]
-								  initWithContentViewController:content];
-		[content release];
-	}else {
-		content = (BadgeInfoViewController *)popoverController.contentViewController;
+- (void)addPopup{
+	if (popupController == nil) {
+		popupController = [[[BGPopupController alloc]initWithSourceObject:self]retain];
 	}
-
-	content.type = self.type;
-
+	[popupController presentPopup];
 	
-	if (player.ID == 0 || player.ID == 2) {
-		popoverController.popoverContentSize = CGSizeMake(200, 75);
-	}else {
-		popoverController.popoverContentSize = CGSizeMake(75, 200);
+}
+
+- (void)handleTap{
+	if (popupController && popupController.popupPresent) {
+		[self removePopup];
+	}else{
+		[self addPopup];
 	}
 	
-	UIPopoverArrowDirection direction;
-	
-	switch (player.ID) {
-		case 0:
-			direction = UIPopoverArrowDirectionLeft;
-			break;
-		case 1:
-			direction = UIPopoverArrowDirectionUp;
-			break;
-		case 2:
-			direction = UIPopoverArrowDirectionRight;
-			break;
-		case 3:
-			direction = UIPopoverArrowDirectionDown;
-			break;
-	}
+}
 
-	//aPopover.delegate = self;
-	[popoverController presentPopoverFromRect:self.bounds inView:self.superview permittedArrowDirections:direction animated:YES];
+
+- (void)removePopup{
+	if (popupController) {
+		[popupController dismissPopup];
+	}
+}
+
+- (NSString *)title{
+	return [NSString stringWithFormat:@"+%d", [self score]];
 }
 
 

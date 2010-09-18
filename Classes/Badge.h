@@ -12,11 +12,16 @@
 #import "GameVisual.h"
 #import "GameLogic.h"
 #import "Player.h"
+#import "BGPopupController.h"
 
-@interface Badge : UIImageView {
+@interface Badge : UIImageView <BGPopup>{
     BadgeType type;
-	UIPopoverController * popoverController;
+	//UIPopoverController * popoverController;
+	
+	BGPopupController * popupController;
 	Player * player;
+	
+	UITapGestureRecognizer * recognizer;
 }
 
 @property (nonatomic, assign) BadgeType type;

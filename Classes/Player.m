@@ -66,7 +66,7 @@
 	token.player = self;
 	self.name = [NSString stringWithFormat:@"Player %d", playerID]; 
 	[board addView:token];
-	
+		
 }
 
 

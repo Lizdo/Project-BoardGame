@@ -41,7 +41,10 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 		tileBackgroundStyle = rand()%TileBackgroundStyleCount;
 		self.backgroundColor = [GameVisual boardBackgroundColor];
 		self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin
-		|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;		
+		|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
+		
+		recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
+		[self addGestureRecognizer:recognizer];
     }
     return self;
 }
@@ -317,6 +320,35 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 	
 }
 
+- (void)handleTap{
+	if (popupController && popupController.popupPresent) {
+		[self removePopup];
+	}else if (self.state != TileStateHidden) {
+		[self addPopup];
+	}
+
+}
+
+- (void)addPopup{
+	if (popupController == nil) {
+		popupController = [[[BGPopupController alloc]initWithSourceObject:self]retain];
+	}
+	[popupController presentPopup];
+	
+}
+
+
+- (void)removePopup{
+	if (popupController) {
+		[popupController dismissPopup];
+	}
+}
+
+- (Player *)player{
+	return [gameLogic playerWithID:0];
+}
+
+
 - (NSString *)title{
 	//TODO:Replace with real title
 	return @"Title";
@@ -329,6 +361,7 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 
 
 - (void)dealloc {
+	[popupController release];
     [super dealloc];
 }
 

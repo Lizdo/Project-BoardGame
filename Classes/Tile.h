@@ -11,9 +11,10 @@
 #import "GameLogic.h"
 #import "TypeDef.h"
 #import "Player.h"
+#import "BGPopupController.h"
 
 
-@interface Tile : UIView <NSCoding>{
+@interface Tile : UIView <NSCoding, BGPopup>{
 	TileType type;
 	TileState state;
 
@@ -31,6 +32,9 @@
 	BOOL amountModifyHightlight;
 	
 	int tileBackgroundStyle;
+	
+	BGPopupController * popupController;
+	UITapGestureRecognizer * recognizer;
 	
 }
 
@@ -60,5 +64,7 @@
 
 - (NSString *)title;
 - (NSString *)description;
+
+- (void)handleTap;
 
 @end

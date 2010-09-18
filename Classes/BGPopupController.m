@@ -8,9 +8,19 @@
 
 #import "BGPopupController.h"
 #import "Board.h"
+#import "Player.h"
+
+
+@interface BGPopupController(Private)
+
+- (void)setAnchorPoint;
+
+@end
 
 
 @implementation BGPopupController
+
+@synthesize popupPresent;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -32,19 +42,43 @@
 - (id)initWithSourceObject:(id)object{
 	self = [[BGPopupController alloc] initWithNibName:@"BGPopupController" bundle:nil];
 	sourceObject = object;
+	popupPresent = NO;
 	return self;
 }
 
-- (void)presentPopupAt:(CGPoint)p{
+- (void)presentPopup{
 	Board * board = [Board sharedInstance];
-	self.view.center = CGPointMake(p.x + PopupWidth/2, p.y);
-	titleLabel.text = [sourceObject valueForKey:@"title"];
-	descriptionTextView.text = [sourceObject valueForKey:@"description"];
+	[self setAnchorPoint];
+	titleLabel.text = [sourceObject title];
+	descriptionTextView.text = [sourceObject description];
 	[board addPopup:self.view];
+	popupPresent = YES;
+}
+
+- (void)setAnchorPoint{
+	CGPoint p = [[Board sharedInstance] convertPoint:sourceObject.center fromView:sourceObject.superview];
+	self.view.transform = [GameVisual transformForPlayerID:[sourceObject player].ID];
+	switch ([sourceObject player].ID) {
+		case 0:
+			self.view.center = CGPointMake(p.x + sourceObject.bounds.size.width/2 + PopupWidth/2, p.y);
+			break;
+		case 1:
+			self.view.center = CGPointMake(p.x, p.y + sourceObject.bounds.size.height/2 + PopupWidth/2);
+			break;
+		case 2:
+			self.view.center = CGPointMake(p.x - sourceObject.bounds.size.width/2 - PopupWidth/2, p.y);
+			break;
+		case 3:
+			self.view.center = CGPointMake(p.x, p.y - sourceObject.bounds.size.height/2 - PopupWidth/2);
+			break;			
+		default:
+			break;
+	}
 }
 
 - (void)dismissPopup{
 	[[Board sharedInstance] removePopup:self.view];
+	popupPresent = NO;
 }
 
 

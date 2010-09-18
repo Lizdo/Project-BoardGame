@@ -8,17 +8,35 @@
 
 #import <UIKit/UIKit.h>
 
+@class Player;
+
+@protocol BGPopup
+
+- (void)addPopup;
+- (void)removePopup;
+- (NSString *)title;
+- (NSString *)description;
+- (Player *)player;
+
+@end
+
 
 @interface BGPopupController : UIViewController {
-	id sourceObject;
+	UIView <BGPopup> *  sourceObject;
 	
 	IBOutlet UILabel * titleLabel;
-	IBOutlet UITextView * descriptionTextView;	
+	IBOutlet UITextView * descriptionTextView;
+	
+	BOOL popupPresent;
 }
+
+@property (assign) BOOL popupPresent;
 
 - (id)initWithSourceObject:(id)object;
 
-- (void)presentPopupAt:(CGPoint)p;
+- (void)presentPopup;
 - (void)dismissPopup;
 
 @end
+
+

@@ -230,12 +230,12 @@ static int tileInfos[18][8] = {
 	for (Player * p in players) {
 		[p enterRound];
 	}
-	//[board enterRound];
+	[board enterRound];
 }
 
 - (void)exitTurn{
 	[board disableEndTurnButton];
-	[board removeAllBadges];
+	//[board removeAllBadges];
 	[self calculateScore];
 	[board addBadges];
 	[board update];
