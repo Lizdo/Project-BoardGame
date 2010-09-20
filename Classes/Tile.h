@@ -14,7 +14,7 @@
 #import "BGPopupController.h"
 
 
-@interface Tile : UIView <NSCoding, BGPopup>{
+@interface Tile : BGViewWithPopup <NSCoding>{
 	TileType type;
 	TileState state;
 
@@ -32,10 +32,7 @@
 	BOOL amountModifyHightlight;
 	
 	int tileBackgroundStyle;
-	
-	BGPopupController * popupController;
-	UITapGestureRecognizer * recognizer;
-	
+		
 }
 
 @property (nonatomic, assign) int ID;
@@ -62,9 +59,5 @@
 
 - (void)flipIn;
 
-- (NSString *)title;
-- (NSString *)description;
-
-- (void)handleTap;
 
 @end

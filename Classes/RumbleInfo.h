@@ -24,14 +24,6 @@
 	GameLogic * gameLogic;
 	NSMutableArray * rumbleTargets;
 	
-	UIImageView * robotIcon;
-	UIImageView * snakeIcon;
-	UIImageView * palaceIcon;
-	
-	UILabel * robotCount;
-	UILabel * snakeCount;
-	UILabel * palaceCount;	
-	
 	RumbleTarget * currentRumbleTarget;
 	RumbleTarget * nextRumbleTarget;
 	

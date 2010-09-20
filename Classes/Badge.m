@@ -11,15 +11,12 @@
 
 @implementation Badge
 
-@synthesize type, popoverController, player;
+@synthesize type, player, image;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
         self.userInteractionEnabled = YES;
-		
-		recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
-		[self addGestureRecognizer:recognizer];		
     }
     return self;
 }
@@ -30,6 +27,12 @@
 	b.type = t;
 	b.image = [GameVisual imageForBadgeType:t];
 	return [b autorelease];
+}
+
+- (void)drawRect:(CGRect)rect{
+	if (image) {
+		[image drawInRect:rect];
+	}
 }
 
 + (Badge *)maximumResourceBadgeWithType:(ResourceType)t{
@@ -67,30 +70,6 @@
 }
 
 
-- (void)addPopup{
-	if (popupController == nil) {
-		popupController = [[[BGPopupController alloc]initWithSourceObject:self]retain];
-	}
-	[popupController presentPopup];
-	
-}
-
-- (void)handleTap{
-	if (popupController && popupController.popupPresent) {
-		[self removePopup];
-	}else{
-		[self addPopup];
-	}
-	
-}
-
-
-- (void)removePopup{
-	if (popupController) {
-		[popupController dismissPopup];
-	}
-}
-
 - (NSString *)title{
 	return [NSString stringWithFormat:@"+%d", [self score]];
 }
@@ -110,7 +89,6 @@
 }
 
 - (void)dealloc {
-	self.popoverController = nil;
     [super dealloc];
 }
 

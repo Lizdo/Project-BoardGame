@@ -258,6 +258,30 @@
 	return CGPointZero;
 }
 
+
++ (CGPoint)rumbleInfoCenterForPlayerID:(int)i{
+	float boardWidth = [GameLogic sharedInstance].board.bounds.size.width;
+	float boardHeight = [GameLogic sharedInstance].board.bounds.size.height;
+	switch (i) {
+		case 1:
+			return CGPointMake(RumbleInfoHeight/2, boardHeight - RumbleInfoWidth/2);								
+			break;
+		case 2:
+			return CGPointMake(RumbleInfoWidth/2, RumbleInfoHeight/2);				
+			break;
+		case 3:
+			return CGPointMake(boardWidth - RumbleInfoHeight/2, RumbleInfoWidth/2);
+			break;
+		case 0:
+			return CGPointMake(boardWidth - RumbleInfoWidth/2, boardHeight - RumbleInfoHeight/2);				
+			break;				
+		default:
+			break;
+	}
+	return CGPointZero;
+}
+
+
 + (CGPoint)positionForPlayerID:(int)theID withOffsetFromInfoCenter:(CGSize)offset{
 	CGPoint infoCenter = [GameVisual infoCenterForPlayerID:theID];
 	switch (theID) {

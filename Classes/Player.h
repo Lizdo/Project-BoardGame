@@ -28,15 +28,6 @@
 	AmountContainer * rumbleTargetAmounts;
 	
 	AmountContainer * lockedAmounts;
-//	int roundAmount;
-//	int rectAmount;	
-//	int squareAmount;
-//	
-//	int robotAmount;
-//	int snakeAmount;
-//	int palaceAmount;
-	
-	
 		
 	int badgeScore;	
 	int resourceScore;

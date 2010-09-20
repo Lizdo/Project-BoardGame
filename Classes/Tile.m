@@ -43,8 +43,6 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 		self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin
 		|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
 		
-		recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
-		[self addGestureRecognizer:recognizer];
     }
     return self;
 }
@@ -74,13 +72,6 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 
 
 + (id)tileWithType:(TileType)aType andPosition:(CGPoint)p{
-//	int sizeX = 61;
-//	int sizeY = 52;
-//	CGRect r = CGRectMake(p.x - sizeX, p.y - sizeY, sizeX*2, sizeY*2);
-//	Tile * t = [[Tile alloc] initWithFrame:r];
-//	t.type = aType;
-//	t.state = TileStateAvailable;
-//	return [t autorelease];
 	Tile * t = [[Tile alloc ]initWithType:aType andPosition:p];
 	return [t autorelease];
 }
@@ -320,29 +311,6 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 	
 }
 
-- (void)handleTap{
-	if (popupController && popupController.popupPresent) {
-		[self removePopup];
-	}else if (self.state != TileStateHidden) {
-		[self addPopup];
-	}
-
-}
-
-- (void)addPopup{
-	if (popupController == nil) {
-		popupController = [[[BGPopupController alloc]initWithSourceObject:self]retain];
-	}
-	[popupController presentPopup];
-	
-}
-
-
-- (void)removePopup{
-	if (popupController) {
-		[popupController dismissPopup];
-	}
-}
 
 - (Player *)player{
 	return [gameLogic playerWithID:0];
@@ -361,7 +329,6 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 
 
 - (void)dealloc {
-	[popupController release];
     [super dealloc];
 }
 

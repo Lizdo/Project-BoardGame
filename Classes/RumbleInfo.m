@@ -48,26 +48,26 @@
 		//[self addSubview:rt];
 	}
 	
-	NSMutableArray * iconArray = [NSMutableArray arrayWithCapacity:0];
-	
-	for (int i = 0; i<NumberOfRumbleTargetTypes; i++) {
-		CGPoint p = CGPointMake(15, 25 + i*50);
-		[iconArray addObject:[self initRumbleIconAt:p withType:i]]; 
-	}
-	robotIcon = [iconArray objectAtIndex:0];
-	snakeIcon = [iconArray objectAtIndex:1];
-	palaceIcon = [iconArray objectAtIndex:2];	
+//	NSMutableArray * iconArray = [NSMutableArray arrayWithCapacity:0];
+//	
+//	for (int i = 0; i<NumberOfRumbleTargetTypes; i++) {
+//		CGPoint p = CGPointMake(15, 25 + i*50);
+//		[iconArray addObject:[self initRumbleIconAt:p withType:i]]; 
+//	}
+//	robotIcon = [iconArray objectAtIndex:0];
+//	snakeIcon = [iconArray objectAtIndex:1];
+//	palaceIcon = [iconArray objectAtIndex:2];	
 
 	
-	NSMutableArray * countArray = [NSMutableArray arrayWithCapacity:0];
-	
-	for (int i = 0; i<3; i++) {
-		CGRect r = CGRectMake(25, 50*i, 100, 50);
-		[countArray addObject:[self initRumbleCountAt:r]]; 
-	}
-	robotCount = [countArray objectAtIndex:0];
-	snakeCount = [countArray objectAtIndex:1];
-	palaceCount = [countArray objectAtIndex:2];			
+//	NSMutableArray * countArray = [NSMutableArray arrayWithCapacity:0];
+//	
+//	for (int i = 0; i<3; i++) {
+//		CGRect r = CGRectMake(25, 50*i, 100, 50);
+//		[countArray addObject:[self initRumbleCountAt:r]]; 
+//	}
+//	robotCount = [countArray objectAtIndex:0];
+//	snakeCount = [countArray objectAtIndex:1];
+//	palaceCount = [countArray objectAtIndex:2];			
 
 }
 
@@ -108,7 +108,7 @@
 
 - (void)enterRumble{
 	//Add Tokens
-	self.center = [GameVisual infoCenterForPlayerID:player.ID];
+	self.center = [GameVisual rumbleInfoCenterForPlayerID:player.ID];
 	self.autoresizingMask = [GameVisual infoResizingMaskForPlayerID:player.ID];
 	
 	//DebugLog(@"Center: %f, %f", self.center.x, self.center.y);
@@ -145,13 +145,15 @@
 	currentRumbleTarget = [rumbleTargets objectAtIndex:type];
 	//DebugLog(@"Current RumbleTarget Type: %d", currentRumbleTarget.type);
 
-	currentRumbleTarget.center = CGPointMake(150+(150+5), 400);	
+	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2, RumbleInfoHeight/2 + RumbleInfoHeight);	
+	currentRumbleTarget.alpha = 0.0;
 	[self addSubview:currentRumbleTarget];
 	
 	
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:SlideOutTime]; 
-	currentRumbleTarget.center = CGPointMake(150+(150+5), 120);
+	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2, RumbleInfoHeight/2);
+	currentRumbleTarget.alpha = 1.0;	
 	[UIView commitAnimations];	
 	
 	[currentRumbleTarget activate];
@@ -197,33 +199,7 @@
 }
 
 - (void)update{
-	//TODO: New Rumble Count
-//	if (player.robotAmount > 0) {
-//		robotIcon.hidden = NO;
-//		if (player.robotAmount > 1) {
-//			robotCount.text = [NSString stringWithFormat:@"x%d",player.robotAmount];
-//		}
-//	}else {
-//		robotCount.text = @"";
-//	}
-//
-//
-//	if (player.snakeAmount > 0) {
-//		snakeIcon.hidden = NO;
-//		if (player.snakeAmount > 1) {
-//			snakeCount.text = [NSString stringWithFormat:@"x%d",player.snakeAmount];
-//		}
-//	}else {
-//		snakeCount.text = @"";
-//	}
-//	if (player.palaceAmount > 0) {
-//		palaceIcon.hidden = NO;
-//		if (player.palaceAmount > 1) {
-//			palaceCount.text = [NSString stringWithFormat:@"x%d",player.palaceAmount];
-//		}
-//	}else {
-//		palaceCount.text = @"";
-//	}
+
 }
 
 

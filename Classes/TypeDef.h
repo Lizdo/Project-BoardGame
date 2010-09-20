@@ -57,10 +57,10 @@
 
 //	RumbleInfo
 #define RumbleInfoWidth 568
-#define RumbleInfoHeight 200
+#define RumbleInfoHeight 250
 
 #define RandomPositionInterval 40
-#define RandomPositionBoundWidth 200
+#define RandomPositionBoundWidth 720 - InfoHeight * 2
 
 //	Tiles
 //		Tile Starting Position/Spacing/Tilted Position
@@ -143,19 +143,26 @@ extern const int RumbleTargetScoreModifier[NumberOfTokenTypes];
 typedef enum{
 	RumbleTargetTypeRobot = 0,
 	RumbleTargetTypeSnake = 1,
-	RumbleTargetTypePalace = 2,	
+	RumbleTargetTypePalace = 2,
 }RumbleTargetType;
 
 typedef enum{
-	BadgeTypeMostRound,
-	BadgeTypeMostRect,
-	BadgeTypeMostSquare,
-	BadgeTypeMostRobot,
-	BadgeTypeMostSnake,
-	BadgeTypeMostPalace,
-	BadgeTypeEnoughRound,
-	BadgeTypeEnoughRect,
-	BadgeTypeEnoughSquare,	
+	BadgeTypeMostRound = 0,
+	BadgeTypeMostRect = 1,
+	BadgeTypeMostSquare = 2,
+
+	BadgeTypeMostRobot = 10,
+	BadgeTypeMostSnake = 11,
+	BadgeTypeMostPalace = 12,
+
+	BadgeTypeEnoughRound = 20,
+	BadgeTypeEnoughRect = 21,
+	BadgeTypeEnoughSquare = 22,
+	
+	BadgeTypeHasRobot = 30,
+	BadgeTypeHasSnake = 31,
+	BadgeTypeHasPalace = 32,
+	
 }BadgeType;
 
 

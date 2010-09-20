@@ -61,12 +61,12 @@ static RumbleBoard *sharedInstance = nil;
 - (void)initGame{	
 	rumbleInfos = [[NSMutableArray arrayWithCapacity:0]retain];
 	for (int i=0; i<4; i++) {
-		RumbleInfo * rumbleInfo = [[RumbleInfo alloc] initWithFrame:CGRectMake(0, 0, 568, 200)];
+		RumbleInfo * rumbleInfo = [[RumbleInfo alloc] initWithFrame:CGRectMake(0, 0, RumbleInfoWidth, RumbleInfoHeight)];
 		[gameLogic.rumbleInfos addObject:rumbleInfo];
 		rumbleInfo.player = [gameLogic playerWithID:i];
-		//CGAffineTransform t = rumbleInfo.transform;
+
 		rumbleInfo.transform = [GameVisual transformForPlayerID:i];
-		rumbleInfo.center = [GameVisual infoCenterForPlayerID:i];
+		rumbleInfo.center = [GameVisual rumbleInfoCenterForPlayerID:i];
 		rumbleInfo.autoresizingMask = [GameVisual infoResizingMaskForPlayerID:i];		
 	
 		

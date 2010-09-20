@@ -12,21 +12,21 @@
 #import "GameVisual.h"
 #import "GameLogic.h"
 #import "Player.h"
+#import "BGViewWithPopup.h"
 #import "BGPopupController.h"
 
-@interface Badge : UIImageView <BGPopup>{
+
+@interface Badge : BGViewWithPopup {
     BadgeType type;
-	//UIPopoverController * popoverController;
-	
-	BGPopupController * popupController;
 	Player * player;
 	
-	UITapGestureRecognizer * recognizer;
+	UIImage * image;
 }
 
 @property (nonatomic, assign) BadgeType type;
-@property (nonatomic, retain) UIPopoverController * popoverController;
 @property (nonatomic, assign) Player * player;
+@property (nonatomic, assign) UIImage * image;
+
 
 + (Badge *)badgeWithType:(BadgeType)t;
 + (Badge *)maximumResourceBadgeWithType:(ResourceType)t;

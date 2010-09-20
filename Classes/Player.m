@@ -35,12 +35,6 @@
 - (id)init{
 	if (self = [super init]){
 		gameLogic = [GameLogic sharedInstance];
-//		roundAmount = 0;
-//		squareAmount = 0;
-//		rectAmount = 0;
-//		robotAmount = 0;
-//		snakeAmount = 0;
-//		palaceAmount = 0;
 		
 		self.tokenAmounts = [AmountContainer emptyAmountContainer];
 		self.rumbleTargetAmounts = [AmountContainer emptyAmountContainer];
@@ -70,56 +64,12 @@
 }
 
 
-//- (void)setRobotAmount:(int)newAmount{
-//	robotAmount = newAmount;
-//	[board update];
-//}
-//
-//- (void)setSnakeAmount:(int)newAmount{
-//	snakeAmount = newAmount;
-//	[board update];
-//}
-//
-//- (void)setPalaceAmount:(int)newAmount{
-//	palaceAmount = newAmount;
-//	[board update];
-//}
-
 - (void)setToken:(Token *)newToken{
 	newToken.player = self;
 	[token release];
 	token = newToken;
 	[newToken retain];
 }
-
-//
-//- (void)setRectAmount:(int)newAmount{
-//	rectAmount = newAmount;
-//	rectAmountUpdated = YES;
-//	[board update];	
-//	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
-//}
-//
-//- (void)setRoundAmount:(int)newAmount{
-//	roundAmount = newAmount;
-//	roundAmountUpdated = YES;
-//	[board update];	
-//	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
-//}
-//
-//- (void)setSqareAmount:(int)newAmount{
-//	squareAmount = newAmount;
-//	squareAmountUpdated = YES;
-//	[board update];	
-//	[self performSelector:@selector(highlightComplete) withObject:self afterDelay:HighlightTime];
-//}
-//
-//- (void)highlightComplete{
-//	rectAmountUpdated = NO;
-//	roundAmountUpdated = NO;
-//	squareAmountUpdated = NO;
-//	[board update];		
-//}
 
 - (int)amountOfResource:(ResourceType)type{
 	return [tokenAmounts amountForIndex:type];
@@ -281,13 +231,6 @@
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeBool:isHuman forKey:@"isHuman"];
     [coder encodeInt:ID forKey:@"ID"];
-//    [coder encodeInt:roundAmount forKey:@"roundAmount"];
-//    [coder encodeInt:rectAmount forKey:@"rectAmount"];	
-//    [coder encodeInt:squareAmount forKey:@"squareAmount"];
-//	
-//    [coder encodeInt:robotAmount forKey:@"robotAmount"];	
-//    [coder encodeInt:snakeAmount forKey:@"snakeAmount"];	
-//    [coder encodeInt:palaceAmount forKey:@"palaceAmount"];
 	
 	[coder encodeObject:tokenAmounts forKey:@"tokenAmounts"];
 	[coder encodeObject:rumbleTargetAmounts forKey:@"rumbleTargetAmounts"];
@@ -304,14 +247,6 @@
 	
     isHuman = [coder decodeBoolForKey:@"isHuman"];
     ID = [coder decodeIntForKey:@"ID"];
-	
-//    roundAmount = [coder decodeIntForKey:@"roundAmount"];
-//    rectAmount = [coder decodeIntForKey:@"rectAmount"];
-//    squareAmount = [coder decodeIntForKey:@"squareAmount"];
-//
-//    robotAmount = [coder decodeIntForKey:@"robotAmount"];
-//    snakeAmount = [coder decodeIntForKey:@"snakeAmount"];
-//    palaceAmount = [coder decodeIntForKey:@"palaceAmount"];
 	
 	self.tokenAmounts = [coder decodeObjectForKey:@"tokenAmounts"];
 	self.rumbleTargetAmounts = [coder decodeObjectForKey:@"rumbleTargetAmounts"];

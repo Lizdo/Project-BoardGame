@@ -38,6 +38,8 @@
 + (UIColor *)colorWithHex:(int)hex;
 
 + (CGPoint)infoCenterForPlayerID:(int)theID;
++ (CGPoint)rumbleInfoCenterForPlayerID:(int)i;
+
 
 + (CGPoint)positionForPlayerID:(int)theID withOffsetFromInfoCenter:(CGSize)offset;
 
