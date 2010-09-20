@@ -155,7 +155,7 @@ static int tileInfos[18][8] = {
 
 - (void)triggerEvent:(TokenEvent)event withToken:(Token *)token atPosition:(CGPoint)point{
 	//Process Tiles in Normal State
-	if (round.state == RoundStateNormal && turn.state != TurnStateBuild) {
+	if (![self isInRumble]) {
 		if (token.player != self.currentPlayer || token.type != TokenTypePlayer)
 			return;
 		// For Tile we don't care about the event type
@@ -181,7 +181,7 @@ static int tileInfos[18][8] = {
 	}
 	
 	//Process RumbleTargets in Rumble State
-	if (round.state == RoundStateRumble || turn.state == TurnStateBuild) {
+	if ([self isInRumble]) {
 		//check which player
 		NSArray * rumbleTargetsToCheck;
 		if (turn.state == TurnStateBuild) {
@@ -292,6 +292,7 @@ static int tileInfos[18][8] = {
 }
 
 - (void)exitRumble{
+	[rumbleBoard removeAllPopups];
 	[board exitRumble];	
 //	for (RumbleTarget * rt in rumbleTargets) {
 //		[rt removeFromSuperview];
@@ -551,6 +552,13 @@ static int tileInfos[18][8] = {
 	CGPoint newOrigin = [self convertedPoint:rect.origin];
 	return CGRectMake(newOrigin.x, newOrigin.y, rect.size.height, rect.size.width);
 	
+}
+
+- (BOOL)isInRumble{
+	if ([Round sharedInstance].state == RoundStateRumble || [Turn sharedInstance].state == TurnStateBuild) {
+		return YES;
+	}
+	return NO;
 }
 
 + (int)scoreForBadgeType:(BadgeType)type{

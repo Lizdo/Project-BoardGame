@@ -59,7 +59,7 @@
 }
 
 - (NSString *)description{
-	return @"Title Empty";
+	return @"Description Empty";
 }
 
 - (Player *)player{

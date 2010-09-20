@@ -52,7 +52,12 @@ static RumbleBoard *sharedInstance = nil;
 		
 		self.clipsToBounds = YES;
 
-		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;			
+		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;	
+		
+		
+		popupView = [[ContainerView alloc]initWithFrame:self.bounds];
+		popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
+		[self addSubview:popupView];		
 
     }
     return self;
@@ -96,7 +101,7 @@ static RumbleBoard *sharedInstance = nil;
 - (void)exitRumble{
 	for (RumbleInfo * info in rumbleInfos){
 		[info exitRumble];
-	}	
+	}
 }
 
 - (void)allRumble{
@@ -208,6 +213,25 @@ static RumbleBoard *sharedInstance = nil;
 		[info update];
 	}
 }
+
+#pragma mark -
+#pragma mark Popup methods
+
+
+- (void)addPopup:(UIView *)popup{
+	[popupView addSubview:popup];
+}
+
+- (void)removePopup:(UIView *)popup{
+	[popup removeFromSuperview];
+}
+
+- (void)removeAllPopups{
+	for (UIView * view in popupView.subviews){
+		[view removeFromSuperview];
+	}
+}
+
 
 - (void)dealloc {
 	[rumbleInfos release];

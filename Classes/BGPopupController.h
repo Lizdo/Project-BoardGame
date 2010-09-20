@@ -21,6 +21,14 @@
 @end
 
 
+@protocol BGPopupBoard
+
+- (void)addPopup:(UIView *)popup;
+- (void)removePopup:(UIView *)popup;
+- (void)removeAllPopups;
+
+@end
+
 @interface BGPopupController : UIViewController {
 	UIView <BGPopup> *  sourceObject;
 	
@@ -28,6 +36,8 @@
 	IBOutlet UITextView * descriptionTextView;
 	
 	BOOL popupPresent;
+	
+	UIView <BGPopupBoard> * board;
 }
 
 @property (assign) BOOL popupPresent;

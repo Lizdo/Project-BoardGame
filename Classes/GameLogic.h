@@ -101,6 +101,8 @@
 + (int)scoreForBadgeType:(BadgeType)type;
 + (NSString *)descriptionForBadgeType:(BadgeType)type;
 
+- (BOOL)isInRumble;
+
 //- (Player *)currentPlayer;
 
 @end

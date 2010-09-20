@@ -24,7 +24,7 @@
 @class BoardGameViewController;
 @class BoardGameView;
 
-@interface Board : UIView {
+@interface Board : UIView <BGPopupBoard>{
 	NSMutableArray * tiles;
 	NSMutableArray * infos;
 	NSMutableArray * tokens;
@@ -68,9 +68,6 @@
 
 - (void)enterConclusion;
 
-- (void)addPopup:(UIView *)popup;
-- (void)removePopup:(UIView *)popup;
-- (void)removeAllPopups;
 
 - (UIInterfaceOrientation)interfaceOrientation;
 

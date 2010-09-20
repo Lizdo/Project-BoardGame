@@ -11,12 +11,13 @@
 #import "TypeDef.h"
 #import "Rumble.h"
 #import "TokenPlaceholder.h"
+#import "BGViewWithPopup.h"
 
 @class GameLogic;
 @class RumbleInfo;
 @class Project;
 
-@interface RumbleTarget : UIView {
+@interface RumbleTarget : BGViewWithPopup {
 	BOOL allMatched;
 	GameLogic * gameLogic;
 	Player * player;

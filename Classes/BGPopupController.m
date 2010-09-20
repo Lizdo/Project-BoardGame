@@ -47,16 +47,24 @@
 }
 
 - (void)presentPopup{
-	Board * board = [Board sharedInstance];
+	if ([[GameLogic sharedInstance] isInRumble]) {
+		board = [RumbleBoard sharedInstance];
+	}else {
+		board = [Board sharedInstance];
+	}
+
 	[self setAnchorPoint];
 	titleLabel.text = [sourceObject title];
 	descriptionTextView.text = [sourceObject description];
+	
 	[board addPopup:self.view];
+
 	popupPresent = YES;
 }
 
 - (void)setAnchorPoint{
-	CGPoint p = [[Board sharedInstance] convertPoint:sourceObject.center fromView:sourceObject.superview];
+	//need to use cached board as it can be Board or RumbleBoard
+	CGPoint p = [board convertPoint:sourceObject.center fromView:sourceObject.superview];
 	self.view.transform = [GameVisual transformForPlayerID:[sourceObject player].ID];
 	switch ([sourceObject player].ID) {
 		case 0:

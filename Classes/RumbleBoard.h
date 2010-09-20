@@ -11,6 +11,7 @@
 #import "TypeDef.h"
 #import "Rumble.h"
 #import "RumbleInfo.h"
+#import "ContainerView.h"
 
 #define RBRandomSlices 6
 #define RBRandomSeedsNeeded 20
@@ -19,7 +20,7 @@
 @class BoardGameViewController;
 @class BoardGameView;
 
-@interface RumbleBoard : UIView {
+@interface RumbleBoard : UIView <BGPopupBoard>{
 	GameLogic * gameLogic;
 	
 	Rumble * rumble;
@@ -38,6 +39,8 @@
 	
 	BoardGameViewController * controller;
 	BoardGameView * bgv;
+	
+	ContainerView * popupView;
 }
 
 + (RumbleBoard*)sharedInstance;
@@ -54,6 +57,7 @@
 
 - (void)enterRumbleAnimDidStop;
 - (void)exitRumbleAnimDidStop;
+
 
 
 @end

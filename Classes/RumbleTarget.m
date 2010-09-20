@@ -65,7 +65,7 @@ float distance(CGPoint p1, CGPoint p2){
 }
 
 - (void)activate{
-	nameLabel.text = [self description];
+	nameLabel.text = [self title];
 	timeLabel.text = [NSString stringWithFormat:@"%dWeeks",[Project timeNeededForRumbleTargetType:type]];
 	recognizerUp.enabled = YES;	
 	recognizerDown.enabled = YES;
@@ -285,18 +285,35 @@ static const int DistanceTolerance = 30;
 	[self updateAllMatchedStatus];
 }
 
+- (NSString *)title{
+	switch (type) {
+		case RumbleTargetTypeRobot:
+			return @"Roboty";
+			break;
+		case RumbleTargetTypeSnake:
+			return @"Sporty";
+			break;
+		case RumbleTargetTypePalace:
+			return @"RPGee";
+			break;			
+		default:
+			return @"";
+			break;
+	}
+}
+
 
 
 - (NSString *)description{
 	switch (type) {
 		case RumbleTargetTypeRobot:
-			return @"Robot";
+			return @"Awesome shooter designer for the casual market. Quick and easy.";
 			break;
 		case RumbleTargetTypeSnake:
-			return @"Snake";
+			return @"Remake of the original 90 series.";
 			break;
 		case RumbleTargetTypePalace:
-			return @"Palace";
+			return @"Long term project that will change the way we know today about gaming, forever.";
 			break;			
 		default:
 			return @"";

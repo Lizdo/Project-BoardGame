@@ -147,6 +147,7 @@ static Board *sharedInstance = nil;
 
 
 - (void)enterRumble{
+	[self removeAllPopups];
 	[bgv enterRumble];
 //	rumbleBoard.frame = self.bounds;
 //	[rumbleBoard enterRumble];
