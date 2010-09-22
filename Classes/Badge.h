@@ -30,7 +30,6 @@
 
 + (Badge *)badgeWithType:(BadgeType)t;
 + (Badge *)maximumResourceBadgeWithType:(ResourceType)t;
-+ (BadgeType)maximumBadgeTypeForResource:(ResourceType)t;
 
 - (int)score;
 - (NSString *)description;

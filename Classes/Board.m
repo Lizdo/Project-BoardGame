@@ -34,7 +34,7 @@ static Board *sharedInstance = nil;
 		tileView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		[self addSubview:tileView];
 
-		currentPlayerMark = [[CurrentPlayerMark alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+		currentPlayerMark = [[CurrentPlayerMark alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
 		[self addSubview:currentPlayerMark];
 		
 		tokenView = [[ContainerView alloc]initWithFrame:self.bounds];

@@ -175,9 +175,14 @@
 }
 
 - (void)addBadgeWithType:(BadgeType)type{
+	if ([self hasBadgeWithType:type]) {
+		return;
+	}
+	
 	if (badges == nil) {
 		[self removeAllBadges];
 	}
+
 	Badge * b = [Badge badgeWithType:type];
 	b.player = self;
 	[badges addObject:b];
@@ -185,7 +190,27 @@
 }
 
 - (void)addMaximumResourceBadgeWithType:(ResourceType)type{
-	[self addBadgeWithType:[Badge maximumBadgeTypeForResource:type]];
+	[self addBadgeWithType:type+10];
+}
+
+- (void)addHasRumbleTargetBadgeWithType:(RumbleTargetType)type{
+	[self addBadgeWithType:type+30];
+}
+
+- (void)addEnoughResourceBadgeWithType:(ResourceType)type{
+	[self addBadgeWithType:type+20];
+}
+
+- (BOOL)hasBadgeWithType:(BadgeType)type{
+	if (!badges) {
+		return NO;
+	}
+	for (Badge * b in badges) {
+		if (b.type == type) {
+			return YES;
+		}
+	}
+	return NO;
 }
 
 - (NSArray *)badges{

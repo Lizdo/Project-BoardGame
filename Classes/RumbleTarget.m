@@ -140,7 +140,7 @@ static int rumbleInfo[30][4] = {
 
 
 + (RumbleTarget *)rumbleTargetWithType:(RumbleTargetType)aType{
-	CGRect r = CGRectMake(0, 0, 150, 200);
+	CGRect r = CGRectMake(0, 0, RumbleTargetWidth, RumbleTargetHeight);
 	RumbleTarget * t = [[RumbleTarget alloc]initWithFrame:r];
 	t.type = aType;
 	int startingIndex = aType*10;
@@ -160,7 +160,8 @@ static int rumbleInfo[30][4] = {
 //  [Type, x, y, rotation]
 - (void)addTokenPlaceholderWithInfo:(int *)newInfo{
 	TokenPlaceholder * token = [TokenPlaceholder tokenPlaceholderWithType:newInfo[0] 
-											   andPosition:CGPointMake(newInfo[1], newInfo[2])];
+											   andPosition:CGPointMake(newInfo[1] + 25, newInfo[2] + 40)]; 
+	//Offset because InfoSize - RTSize = 50
 	CGAffineTransform t = token.transform;
 	token.transform = CGAffineTransformRotate(t, newInfo[3]* PI/180);
 	token.player = player;

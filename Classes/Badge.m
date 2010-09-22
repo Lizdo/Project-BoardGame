@@ -13,10 +13,12 @@
 
 @synthesize type, player, image;
 
+
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
         self.userInteractionEnabled = YES;
+		self.backgroundColor = [GameVisual boardBackgroundColor];
     }
     return self;
 }
@@ -30,8 +32,11 @@
 }
 
 - (void)drawRect:(CGRect)rect{
+	CGContextRef c = UIGraphicsGetCurrentContext();
+
 	if (image) {
-		[image drawInRect:rect];
+		CGImageRef cgImage = image.CGImage;
+		CGContextDrawImageInverted(c,rect,cgImage);
 	}
 }
 
@@ -50,23 +55,6 @@
 			break;
 	}
 	return nil;
-}
-
-+ (BadgeType)maximumBadgeTypeForResource:(ResourceType)t{
-	switch (t) {
-		case ResourceTypeRect:
-			return BadgeTypeMostRect;
-			break;
-		case ResourceTypeRound:
-			return BadgeTypeMostRound;
-			break;
-		case ResourceTypeSquare:
-			return BadgeTypeMostSquare;
-			break;			
-		default:
-			break;
-	}
-	return 1000;
 }
 
 

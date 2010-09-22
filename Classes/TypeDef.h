@@ -47,7 +47,7 @@
 
 // Size & Position
 #define TokenSize 22.5	//Radius
-#define BadgeSize 30
+#define BadgeSize 20
 #define BadgeInterval 10
 
 
@@ -56,18 +56,22 @@
 #define InfoHeight 200
 
 //	RumbleInfo
-#define RumbleInfoWidth 568
+#define RumbleInfoWidth 518
 #define RumbleInfoHeight 250
 
 #define RandomPositionInterval 40
-#define RandomPositionBoundWidth 720 - InfoHeight * 2
+#define RandomPositionBoundWidth (RumbleInfoWidth - RumbleTargetWidth) / 2
+
+//	RumbleTarget
+#define RumbleTargetWidth 200
+#define RumbleTargetHeight 250
 
 //	Tiles
 //		Tile Starting Position/Spacing/Tilted Position
 #define TileStartingX 200
 #define TileStartingY 200
 #define TileWidth 123
-#define TileHeight 105
+#define TileHeight 100//105
 #define TileInterval 2
 #define TileBackgroundStyleCount 3
 #define TilePositionRandomness 0  //5
@@ -138,7 +142,7 @@ typedef enum{
 #define NumberOfRumbleTargetTypes 3
 
 extern const int RumbleTargetScoreModifier[NumberOfTokenTypes];
-
+extern const int EnoughResource[NumberOfTokenTypes];
 
 typedef enum{
 	RumbleTargetTypeRobot = 0,
@@ -165,6 +169,7 @@ typedef enum{
 	
 }BadgeType;
 
+void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);
 
 
 

@@ -197,7 +197,7 @@
 }
 
 + (UIImage *)imageForBadgeType: (BadgeType)aType{
-	return [UIImage imageNamed:@"EndTurn.png"];
+	return [UIImage imageNamed:@"BadgeTypeMostRound.png"];
 }
 
 

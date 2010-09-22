@@ -68,7 +68,7 @@
 
 - (id)initWithCoder:(NSCoder *)coder {
 	self = [[AmountContainer alloc]init];
-	amounts = [coder decodeObjectForKey:@"amounts"];
+	amounts = [[coder decodeObjectForKey:@"amounts"]retain];
 	return self;
 }
 

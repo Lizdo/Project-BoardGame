@@ -218,7 +218,7 @@
 		if ([view isKindOfClass:[Badge class]]) {
 			[view removeFromSuperview];
 		}
-	}
+	}	
 }
 
 - (void)addBadges{

@@ -12,3 +12,17 @@ const int TokenScoreModifier[NumberOfTokenTypes]={1,3,5};
 
 const int RumbleTargetScoreModifier[NumberOfTokenTypes]={5,7,9};
 
+const int EnoughResource[NumberOfTokenTypes]={10,8,6};
+
+
+void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
+	CGContextSaveGState(c);
+	CGContextScaleCTM(c, 1, -1);
+	r.size.height *= -1;
+	r.origin.y *= -1;
+	CGContextDrawImage(c, r, image);
+	r.size.height *= -1;
+	r.origin.y *= -1;
+	CGContextRestoreGState(c);
+	
+}

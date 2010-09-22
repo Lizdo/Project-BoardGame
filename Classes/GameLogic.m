@@ -416,16 +416,17 @@ static int tileInfos[18][8] = {
 		p.resourceScore = 0;
 		for (int j=0; j<NumberOfTokenTypes; j++) {
 			p.resourceScore += [p amountOfResource:j]*TokenScoreModifier[j];
+			if ([p amountOfResource:j] >= EnoughResource[j]) {
+				[p addEnoughResourceBadgeWithType:j];
+			}
 		}
-		
-		//TODO: Refactor Badge Interface
-//		p.roundAmount > 10 ? [p addBadgeWithType:BadgeTypeEnoughRound]:0;
-//		p.rectAmount > 8 ? [p addBadgeWithType:BadgeTypeEnoughRect]:0;
-//		p.squareAmount > 6 ? [p addBadgeWithType:BadgeTypeEnoughSquare]:0;		
 		
 		p.buildScore = 0;
 		for (int j=0; j<NumberOfRumbleTargetTypes; j++) {
 			p.buildScore += [p amountOfRumbleTarget:j]*RumbleTargetScoreModifier[j];
+			if ([p amountOfRumbleTarget:j] > 0) {
+				[p addHasRumbleTargetBadgeWithType:j];
+			}
 		}
 	}
 	
@@ -589,6 +590,15 @@ static int tileInfos[18][8] = {
 			break;
 		case BadgeTypeEnoughSquare:
 			return 8;
+			break;
+		case BadgeTypeHasRobot:
+			return 3;
+			break;
+		case BadgeTypeHasSnake:
+			return 5;
+			break;
+		case BadgeTypeHasPalace:
+			return 7;
 			break;			
 		default:
 			break;
@@ -599,31 +609,40 @@ static int tileInfos[18][8] = {
 + (NSString *)descriptionForBadgeType:(BadgeType)type{
 	switch (type) {
 		case BadgeTypeMostRound:
-			return @"You have the most artists";
+			return @"You have the most designers in your team.";
 			break;
 		case BadgeTypeMostRect:
-			return @"You have the most artists";
+			return @"You have the most artists in your team.";
 			break;
 		case BadgeTypeMostSquare:
-			return @"You have the most artists";
+			return @"You have the most coders in your team.";
 			break;
 		case BadgeTypeMostRobot:
-			return @"You have the most artists";
+			return @"You are the action game star producer.";
 			break;
 		case BadgeTypeMostSnake:
-			return @"You have the most artists";
+			return @"You are the sport genre star producer.";
 			break;
 		case BadgeTypeMostPalace:
-			return @"You have the most artists";
+			return @"You are the RPGee star producer.";
 			break;
 		case BadgeTypeEnoughRound:
-			return @"You have the most artists";
+			return @"You have a fair amount of designers now.";
 			break;
 		case BadgeTypeEnoughRect:
-			return @"You have the most artists";
+			return @"You have a fair amount of artists now.";
 			break;
 		case BadgeTypeEnoughSquare:
-			return @"You have the most artists";
+			return @"You have a fair amount of coders now.";
+			break;
+		case BadgeTypeHasRobot:
+			return @"Your first action game.";
+			break;
+		case BadgeTypeHasSnake:
+			return @"Your first sport game.";
+			break;
+		case BadgeTypeHasPalace:
+			return @"Your first AAA RPGee project completed.";
 			break;			
 		default:
 			break;

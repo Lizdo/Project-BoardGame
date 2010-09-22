@@ -20,18 +20,6 @@
 @synthesize ID,type,state,sourceType,sourceAmount,targetType,targetAmount,accumulateRate,isSpecial;
 
 
-void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
-	CGContextSaveGState(c);
-	CGContextScaleCTM(c, 1, -1);
-	r.size.height *= -1;
-	r.origin.y *= -1;
-	CGContextDrawImage(c, r, image);
-	r.size.height *= -1;
-	r.origin.y *= -1;
-	CGContextRestoreGState(c);
-
-}
-
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {

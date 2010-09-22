@@ -98,6 +98,11 @@
 - (void)removeAllBadges;
 - (void)addBadgeWithType:(BadgeType)type;
 - (void)addMaximumResourceBadgeWithType:(ResourceType)type;
+- (void)addEnoughResourceBadgeWithType:(ResourceType)type;
+- (void)addHasRumbleTargetBadgeWithType:(RumbleTargetType)type;
+
+- (BOOL)hasBadgeWithType:(BadgeType)type;
+
 - (NSArray *)badges;
 
 - (void)enterRound;
