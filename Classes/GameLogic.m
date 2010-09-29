@@ -664,6 +664,15 @@ static int tileInfos[18][8] = {
 }
 
 
+- (float)buildTime{
+	float buildTime = (round.count/3+1) * 2 + 10;
+	if (round.moreBuildTime) {
+		buildTime *= 2;
+	}
+	return buildTime;
+}
+
+
 #pragma mark -
 #pragma mark Singleton methods
 

@@ -117,6 +117,8 @@
 + (NSString *)descriptionForBadgeType:(BadgeType)type;
 
 - (int)numberOfSharedTokens;
+- (float)buildTime;
+
 
 //- (Player *)currentPlayer;
 

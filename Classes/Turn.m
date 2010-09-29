@@ -106,16 +106,20 @@ static Turn *sharedInstance = nil;
 - (void)turnCleanup{
 	if (selectedTile.type == TileTypeBuild) {
 		[self enterBuild];
+		return;
 	}else if (selectedTile.type == TileTypeLucky) {
 		[self enterLucky];
-	}else if (selectedTile.type == TileTypeOvertime) {
+		return;		
+	}else if (selectedTile.type == TileTypeOutsourcing) {
 		round.moreSharedTokens = YES;
-		[self gotoNextState];
+	}else if (selectedTile.type == TileTypeOvertime) {
+		round.moreBuildTime = YES;
+	}else if (selectedTile.type == TileTypeAnnualParty) {
+		round.skipRumbleTargetUpdate = YES;
 	}
-	else {
-		//play some anim then		
-		[self gotoNextState];	
-	}
+	
+	//play some anim then		
+	[self gotoNextState];
 }
 
 - (void)enterBuild{

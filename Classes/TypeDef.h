@@ -27,7 +27,7 @@
 #define RumbleWaitTime 2
 #define HighlightTime 0.4
 
-#define RumbleTime 5.0
+#define DefaultRumbleTime 5.0
 #define SlideOutTime 0.5
 #define ZoomOutTime 0.1
 
@@ -38,7 +38,7 @@
 #define RumbleWaitTime 2
 #define HighlightTime 0.4
 
-#define RumbleTime 30.0
+#define DefaultRumbleTime 30.0
 #define SlideOutTime 0.5
 #define ZoomOutTime 0.5
 

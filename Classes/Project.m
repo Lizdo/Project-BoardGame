@@ -39,7 +39,7 @@
 
 
 - (void)enterRound{
-	if (timeRemaining > 0) {
+	if (timeRemaining > 0 && [Round sharedInstance]) {
 		timeRemaining--;
 		if (timeRemaining == 0) {
 			isCompleted = YES;

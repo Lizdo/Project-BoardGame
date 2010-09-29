@@ -23,7 +23,7 @@
 
 @implementation Round
 
-@synthesize count,state,moreSharedTokens;
+@synthesize count,state,moreSharedTokens,moreBuildTime,skipProjectUpdate;
 
 static Round *sharedInstance = nil;
 
@@ -51,12 +51,15 @@ static Round *sharedInstance = nil;
 	state = RoundStateInit;
 	DebugLog(@"Entering Round %d...", count);
 	[self performSelector:@selector(enterRoundWaitComplete) withObject:self afterDelay:WaitTime];
-	moreSharedTokens = NO;
 }
 
 - (void)enterRoundWaitComplete{
 	[gameLogic updateNewRound];
 	[self performSelector:@selector(roundInit) withObject:self afterDelay:WaitTime*2];
+	//Reset the flag after Player/Projects are updated
+	moreSharedTokens = NO;
+	skipProjectUpdate = NO;
+	moreBuildTime = NO;	
 }
 
 

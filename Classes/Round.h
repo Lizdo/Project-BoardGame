@@ -25,11 +25,18 @@
 	GameLogic * gameLogic;
 	
 	BOOL moreSharedTokens;
+	BOOL skipRumbleTargetUpdate;
+	BOOL moreBuildTime;
+	
 }
 
 @property (nonatomic,assign) int count;
-@property (nonatomic,assign) BOOL moreSharedTokens;
 @property (nonatomic,assign) RoundState state;
+
+@property (nonatomic,assign) BOOL moreSharedTokens;
+@property (nonatomic,assign) BOOL skipRumbleTargetUpdate;
+@property (nonatomic,assign) BOOL moreBuildTime;
+
 
 + (Round*)sharedInstance;
 - (void)initGame;
