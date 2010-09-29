@@ -58,11 +58,16 @@
 + (GameLogic*)sharedInstance;
 
 
-//Inits
+#pragma mark -
+#pragma mark Inits
+
 - (void)initGameWithPlayerNumber:(int)number;
 - (void)resumeGame;
 
-//Updates
+
+#pragma mark -
+#pragma mark Updates
+
 - (void)triggerEvent:(TokenEvent)e withToken:(Token *)t atPosition:(CGPoint)p;
 
 - (void)updateNewRound;
@@ -76,10 +81,15 @@
 - (void)exitRumble;
 - (void)exitRumbleAnimDidStop;
 
-//Events
+#pragma mark -
+#pragma mark Events
+
 - (void)endTurnButtonClicked;
 
-//Helper Functions
+
+#pragma mark -
+#pragma mark Helper Functions
+
 - (Player *)playerWithID:(int)theID;
 - (Tile *)randomTile;
 - (void)unlockNewTile;
@@ -97,11 +107,16 @@
 
 - (CGPoint)convertedPoint:(CGPoint)point;
 - (CGRect)convertedRect:(CGRect)rect;
+- (BOOL)isInRumble;
+
+
+#pragma mark -
+#pragma mark Tunings
 
 + (int)scoreForBadgeType:(BadgeType)type;
 + (NSString *)descriptionForBadgeType:(BadgeType)type;
 
-- (BOOL)isInRumble;
+- (int)numberOfSharedTokens;
 
 //- (Player *)currentPlayer;
 

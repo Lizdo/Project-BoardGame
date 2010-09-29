@@ -23,9 +23,12 @@
 	Turn * turn;
 	Rumble * rumble;
 	GameLogic * gameLogic;
+	
+	BOOL moreSharedTokens;
 }
 
 @property (nonatomic,assign) int count;
+@property (nonatomic,assign) BOOL moreSharedTokens;
 @property (nonatomic,assign) RoundState state;
 
 + (Round*)sharedInstance;

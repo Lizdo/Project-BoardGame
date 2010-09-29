@@ -23,7 +23,7 @@
 
 @implementation Round
 
-@synthesize count,state;
+@synthesize count,state,moreSharedTokens;
 
 static Round *sharedInstance = nil;
 
@@ -51,6 +51,7 @@ static Round *sharedInstance = nil;
 	state = RoundStateInit;
 	DebugLog(@"Entering Round %d...", count);
 	[self performSelector:@selector(enterRoundWaitComplete) withObject:self afterDelay:WaitTime];
+	moreSharedTokens = NO;
 }
 
 - (void)enterRoundWaitComplete{
@@ -208,6 +209,7 @@ static Round *sharedInstance = nil;
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeInt:count forKey:@"count"];
     [coder encodeInt:state forKey:@"state"];
+    [coder encodeBool:moreSharedTokens forKey:@"moreSharedTokens"];	
 }
 
 
@@ -215,7 +217,7 @@ static Round *sharedInstance = nil;
 	self = [Round sharedInstance];
     self.count = [coder decodeIntForKey:@"count"];
     self.state = [coder decodeIntForKey:@"state"];
-	
+	self.moreSharedTokens = [coder decodeBoolForKey:@"moreSharedTokens"];
     return self;
 }
 

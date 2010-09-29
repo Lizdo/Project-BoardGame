@@ -108,6 +108,9 @@ static Turn *sharedInstance = nil;
 		[self enterBuild];
 	}else if (selectedTile.type == TileTypeLucky) {
 		[self enterLucky];
+	}else if (selectedTile.type == TileTypeOvertime) {
+		round.moreSharedTokens = YES;
+		[self gotoNextState];
 	}
 	else {
 		//play some anim then		

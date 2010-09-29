@@ -166,8 +166,9 @@ static RumbleBoard *sharedInstance = nil;
 	//rect = [self convertRect:rect toView:self.superview];
 	[self initRandomPositions];
 
+	int randomTokensToGenerate = [gameLogic numberOfSharedTokens];
 	
-	for (int i=0; i<10; i++) {
+	for (int i=0; i<randomTokensToGenerate; i++) {
 		Token * t = [Token tokenWithType:[gameLogic randomTokenType] 
 							 andPosition:[self randomPosition]
 					 ];

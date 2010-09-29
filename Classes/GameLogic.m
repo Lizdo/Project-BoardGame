@@ -562,6 +562,10 @@ static int tileInfos[18][8] = {
 	return NO;
 }
 
+#pragma mark -
+#pragma mark Tunings
+
+
 + (int)scoreForBadgeType:(BadgeType)type{
 	switch (type) {
 		case BadgeTypeMostRound:
@@ -648,6 +652,15 @@ static int tileInfos[18][8] = {
 			break;
 	}
 	return @"";
+}
+
+
+- (int)numberOfSharedTokens{
+	int numOfTokens = (round.count/3+1) * 2;
+	if (round.moreSharedTokens) {
+		numOfTokens *= 2;
+	}
+	return numOfTokens;
 }
 
 

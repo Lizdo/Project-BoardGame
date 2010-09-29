@@ -111,6 +111,9 @@ typedef enum{
 	TileTypeAccumulateResource, //Resource Type, accumulated resource
 	TileTypeBuild, //No parameter
 	TileTypeLucky, //No parameter
+	TileTypeOvertime,
+	TileTypeOutsourcing,
+	TileTypeAnnualParty,	
 }TileType;
 
 typedef enum{
