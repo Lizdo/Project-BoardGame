@@ -28,7 +28,7 @@ static GameLogic *sharedInstance = nil;
 
 @implementation GameLogic
 
-@synthesize players,board,game,round,turn,rumble,currentPlayer,tiles,specialTiles,rumbleTargets,rumbleTokens,rumbleInfos;
+@synthesize players,board,game,round,turn,rumble,currentPlayer,tiles,specialTiles,rumbleTargets,rumbleTokens,rumbleInfos,animationInProgress;
 
 #pragma mark -
 #pragma mark Inits

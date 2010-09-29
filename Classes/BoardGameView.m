@@ -52,6 +52,7 @@
 
 - (void)enterRumble{
 	[self enterRumbleZoomOut];
+	[GameLogic sharedInstance].animationInProgress = YES;
 }
 
 - (void)enterRumbleZoomOut{
@@ -92,11 +93,13 @@
 }
 
 - (void)enterRumbleZoomInComplete{
+	[GameLogic sharedInstance].animationInProgress = NO;
 	[rumbleBoard enterRumbleAnimDidStop];
 }
 
 
 - (void)exitRumble{
+	[GameLogic sharedInstance].animationInProgress = YES;	
 	[self exitRumbleZoomOut];
 }
 
@@ -136,6 +139,7 @@
 }
 
 - (void)exitRumbleZoomInComplete{
+	[GameLogic sharedInstance].animationInProgress = NO;	
 	[rumbleBoard exitRumble];
 	[rumbleBoard exitRumbleAnimDidStop];
 }

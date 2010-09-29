@@ -7,7 +7,7 @@
 //
 
 #import "BGViewWithPopup.h"
-
+#import "GameLogic.h"
 
 @implementation BGViewWithPopup
 
@@ -39,6 +39,11 @@
 }
 
 - (void)handleTap{
+	if ([[GameLogic sharedInstance] animationInProgress]) {
+		DebugLog(@"Animation in progress, no tap allowed");
+		return;
+	}
+	
 	if (popupController && popupController.popupPresent) {
 		[self removePopup];
 	}else{

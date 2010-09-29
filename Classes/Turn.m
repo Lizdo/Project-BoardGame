@@ -115,7 +115,7 @@ static Turn *sharedInstance = nil;
 	}else if (selectedTile.type == TileTypeOvertime) {
 		round.moreBuildTime = YES;
 	}else if (selectedTile.type == TileTypeAnnualParty) {
-		round.skipRumbleTargetUpdate = YES;
+		round.skipProjectUpdate = YES;
 	}
 	
 	//play some anim then		

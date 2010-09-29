@@ -25,7 +25,7 @@
 	GameLogic * gameLogic;
 	
 	BOOL moreSharedTokens;
-	BOOL skipRumbleTargetUpdate;
+	BOOL skipProjectUpdate;
 	BOOL moreBuildTime;
 	
 }
@@ -34,7 +34,7 @@
 @property (nonatomic,assign) RoundState state;
 
 @property (nonatomic,assign) BOOL moreSharedTokens;
-@property (nonatomic,assign) BOOL skipRumbleTargetUpdate;
+@property (nonatomic,assign) BOOL skipProjectUpdate;
 @property (nonatomic,assign) BOOL moreBuildTime;
 
 

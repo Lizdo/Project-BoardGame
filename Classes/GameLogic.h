@@ -37,6 +37,8 @@
 	
 	Player * currentPlayer;
 	BOOL toBuild;
+	
+	BOOL animationInProgress;
 }
 
 @property (nonatomic, retain) NSMutableArray * players;
@@ -53,6 +55,8 @@
 @property (nonatomic, retain) NSMutableArray * rumbleTargets;
 @property (nonatomic, retain) NSMutableArray * rumbleTokens;
 @property (nonatomic, retain) NSMutableArray * rumbleInfos;
+
+@property (nonatomic, assign) BOOL animationInProgress;
 
 
 + (GameLogic*)sharedInstance;
