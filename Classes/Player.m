@@ -56,6 +56,7 @@
 	////initialTokenPosition = CGPointMake(position[playerID*2], position[playerID*2+1]);
 	
 	self.token = [Token tokenWithType:TokenTypePlayer andPosition:initialTokenPosition];
+	self.token.transform = [GameVisual transformForPlayerID:playerID];
 	ID = playerID;
 	token.player = self;
 	self.name = [NSString stringWithFormat:@"Player %d", playerID]; 

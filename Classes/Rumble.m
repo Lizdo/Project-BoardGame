@@ -25,7 +25,7 @@
 static Rumble *sharedInstance = nil;
 
 - (float)timeRemaining{	
-	float buildTime = DEBUG_MODE ? DefaultRumbleTime : [gameLogic buildTime];
+	float buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
 	float time = abs(buildTime + [startingTime timeIntervalSinceNow]);
 	//DebugLog(@"remaining Time:%2.0f", time);
 	return time;
@@ -51,7 +51,7 @@ static Rumble *sharedInstance = nil;
 - (void)enterRumbleAnimDidStop{
 	startingTime =  [[NSDate date] retain];	
 	
-	float buildTime = DEBUG_MODE ? DefaultRumbleTime : [gameLogic buildTime];
+	float buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
 	
 	[self performSelector:@selector(stopRumble) withObject:self afterDelay:buildTime];
 	timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(update) userInfo:nil repeats:YES];

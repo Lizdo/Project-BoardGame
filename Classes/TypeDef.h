@@ -14,8 +14,11 @@
 #define NoOwner -1
 #define SkipMenu 0
 
-#define PrimaryFontName @"Thonburi"
-#define PrimaryFont "Thonburi"
+#define PrimaryFontName @"Palatino-Roman"
+#define PrimaryFont "Palatino-Roman"
+
+#define SecondaryFontName @"Thonburi"
+#define SecondaryFont "Thonburi"
 
 #define DebugMode 0
 
@@ -47,6 +50,7 @@
 
 // Size & Position
 #define TokenSize 22.5	//Radius
+#define PlayerTokenSize 50
 #define BadgeSize 20
 #define BadgeInterval 10
 

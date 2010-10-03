@@ -62,7 +62,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [player.projects count];
+    return MAX([player.projects count], 1);
 }
 
 
@@ -74,14 +74,19 @@
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		Project * p = [player.projects objectAtIndex:indexPath.row];
-		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:25];
-		cell.textLabel.text = [p description];
-		cell.imageView.image = [GameVisual imageForRumbleType:p.type andPlayerID:player.ID];
     }
     
 	// Configure the cell.
-	
+	if ([player.projects count] < 1) {
+		cell.textLabel.font = [UIFont fontWithName:SecondaryFontName size:25];
+		cell.textLabel.text = @"No ongoing projects";
+	}else {
+		Project * p = [player.projects objectAtIndex:indexPath.row];
+		cell.textLabel.font = [UIFont fontWithName:SecondaryFontName size:25];
+		cell.textLabel.text = [p description];
+		cell.imageView.image = [GameVisual imageForRumbleType:p.type andPlayerID:player.ID];	
+	}
+
     return cell;
 }
 

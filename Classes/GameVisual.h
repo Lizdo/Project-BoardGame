@@ -19,7 +19,7 @@
 + (UIColor *)tileColorForState:(TileState)state andStyle:(int)style;
 + (UIImage *)tileImageForState:(TileState)state andStyle:(int)style;
 
-+ (UIColor *)rumbleTargetBackgroundColor;
++ (UIImage *)imageForRumbleTarget;
 
 + (UIColor *)colorForPlayerID:(int)theID;
 + (UIImage *)imageForTokenType:(TokenType)aType andPlayerID:(int)anOwnerID placeholder:(BOOL)isPlaceholder;

@@ -16,4 +16,6 @@
 	UITapGestureRecognizer * recognizer;
 }
 
+- (void)handleTap;
+
 @end

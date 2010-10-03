@@ -17,7 +17,7 @@
 
 
 + (UIColor *)boardBackgroundColor{
-	return [GameVisual colorWithHex:0xe5e6f3];
+	return [UIColor whiteColor];
 }
 
 + (UIColor *)tileColorForState:(TileState)state andStyle:(int)style{
@@ -61,15 +61,15 @@
 			return nil;
 		break;
 	}
-	imageName = [imageName stringByAppendingFormat:@"%d.png",style+1];
+	//TODO: remove reference to TileStyle
+	imageName = [imageName stringByAppendingFormat:@".png"];
 	return [UIImage imageNamed:imageName];
 }
 
-
-+ (UIColor *)rumbleTargetBackgroundColor{
-	UIColor * color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Postit_Rumble.png"]];
-	return color;
++ (UIImage *)imageForRumbleTarget{
+	return [UIImage imageNamed:@"Postit_Rumble.png"];
 }
+
 
 + (UIColor *)colorForPlayerID:(int)theID{
 	UIColor * color;
@@ -98,22 +98,28 @@
 	NSString * imageName;
 	switch (aType) {
 		case TokenTypePlayer:
-			imageName = @"Producer.png";
+			imageName = @"Producer";
 			break;
 		case TokenTypeRect:
-			imageName = @"Rect.png";
+			imageName = @"Rect";
 			break;
 		case TokenTypeRound:
-			imageName = @"Round.png";
+			imageName = @"Round";
 			break;
 		case TokenTypeSquare:
-			imageName = @"Square.png";
+			imageName = @"Square";
 			break;			
 		default:
 			//Change to unknown image
-			imageName = @"Square.png";			
+			imageName = @"Square";			
 			break;
 	}
+	if (isPlaceholder) {
+		imageName = [imageName stringByAppendingString:@"_Placeholder"];
+	}
+	
+	imageName = [imageName stringByAppendingString:@".png"];
+	
 	UIImage * image = [GameVisual colorizeImage:[UIImage imageNamed:imageName] color:color];
 	return image;
 }

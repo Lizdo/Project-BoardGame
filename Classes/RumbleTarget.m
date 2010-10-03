@@ -34,7 +34,7 @@ float distance(CGPoint p1, CGPoint p2){
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
 		allMatched = NO;
-		self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
+		self.backgroundColor = [UIColor clearColor];//[GameVisual boardBackgroundColor];
 		
 		recognizerUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
 		[self addGestureRecognizer:recognizerUp];
@@ -62,6 +62,16 @@ float distance(CGPoint p1, CGPoint p2){
 
     }
     return self;
+}
+
+- (void)drawRect:(CGRect)rect{
+	CGRect r = self.bounds;
+	UIImage * uiImage = [GameVisual imageForRumbleTarget];
+	if (uiImage != nil) {
+		CGImageRef image = uiImage.CGImage;
+		CGContextRef c = UIGraphicsGetCurrentContext();
+		CGContextDrawImageInverted(c,r,image);		
+	}
 }
 
 - (void)activate{
@@ -257,7 +267,7 @@ static const int DistanceTolerance = 30;
 	}
 	
 	//allMatched = YES;
-	self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
+	//self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
 	DebugLog(@"All Matched");
 	
 	//Add project here

@@ -133,7 +133,7 @@
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
 				CGContextSetTextDrawingMode(c, kCGTextFill);			
 				//sprintf(buffer, "%d", accumulateRate);
-				CGContextSelectFont(c, PrimaryFont, 40.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 40.0, kCGEncodingMacRoman);
 				CGContextShowTextAtPoint(c, width-margin-50, height/2+12, buffer, strlen(buffer));
 				
 				if (amountModifyHightlight) {
@@ -141,10 +141,10 @@
 				}
 				
 				char buffer2[] = "x";
-				CGContextSelectFont(c, PrimaryFont, 20.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 20.0, kCGEncodingMacRoman);
 				CGContextShowTextAtPoint(c, width/2+10, height/4*3 + 5, buffer2, strlen(buffer2));	
 
-				CGContextSelectFont(c, PrimaryFont, 30.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 30.0, kCGEncodingMacRoman);
 				sprintf(buffer, "%d", targetAmount);
 				CGContextShowTextAtPoint(c, width-margin-20, height/4*3 + 10, buffer, strlen(buffer));	
 				break;
@@ -153,7 +153,7 @@
 			{
 				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
 				char buffer[50] = "Build";
-				CGContextSelectFont(c, PrimaryFont, 30.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 30.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
 				CGContextSetTextDrawingMode(c, kCGTextFill);
 				CGContextShowTextAtPoint(c, margin, height/2+7, buffer, strlen(buffer));
@@ -182,12 +182,12 @@
 				
 				//x1.x2
 				char buffer[50] = "x";
-				CGContextSelectFont(c, PrimaryFont, 30.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 30.0, kCGEncodingMacRoman);
 				
 				CGContextShowTextAtPoint(c, width/2-10, height/4 + 10, buffer, strlen(buffer));
 				CGContextShowTextAtPoint(c, width/2-10, height/4*3 + 5, buffer, strlen(buffer));	
 				
-				CGContextSelectFont(c, PrimaryFont, 40.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 40.0, kCGEncodingMacRoman);
 				
 				//amount
 				sprintf(buffer, "%d", sourceAmount);
@@ -207,13 +207,13 @@
 				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
 				//Accumulate
 				char buffer[50] = "x";
-				CGContextSelectFont(c, PrimaryFont, 30.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 30.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
 				CGContextSetTextDrawingMode(c, kCGTextFill);
 				CGContextShowTextAtPoint(c, width/2-5, height/2+7, buffer, strlen(buffer));
 				
 				sprintf(buffer, "%d", targetAmount);
-				CGContextSelectFont(c, PrimaryFont, 40.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 40.0, kCGEncodingMacRoman);
 				CGContextShowTextAtPoint(c, width-margin-30, height/2+10, buffer, strlen(buffer));		
 				break;
 				
@@ -222,7 +222,7 @@
 			{
 				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
 				char buffer[50] = "Lucky";
-				CGContextSelectFont(c, PrimaryFont, 30.0, kCGEncodingMacRoman);
+				CGContextSelectFont(c, SecondaryFont, 30.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
 				CGContextSetTextDrawingMode(c, kCGTextFill);
 				CGContextShowTextAtPoint(c, margin, height/2+7, buffer, strlen(buffer));
@@ -297,6 +297,13 @@
 	self.center = originalCenter;
 	[UIView commitAnimations];
 	
+}
+
+- (void)handleTap{
+	if (self.state == TileStateHidden) {
+		return;
+	}
+	[super handleTap];
 }
 
 

@@ -57,7 +57,13 @@
 }
 
 + (id)tokenWithType:(TokenType)aType andPosition:(CGPoint)p{
-	CGRect r = CGRectMake(p.x - TokenSize, p.y - TokenSize, TokenSize*2, TokenSize*2);
+	float size;
+	if (aType != TokenTypePlayer) {
+		size = TokenSize;
+	}else {
+		size = PlayerTokenSize;
+	}
+	CGRect r = CGRectMake(p.x - size, p.y - size, size*2, size*2);
 	Token * t = [[Token alloc] initWithFrame:r];
 	t.lastPosition = p;
 	t.type = aType;
