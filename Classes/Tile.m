@@ -348,28 +348,36 @@
 - (NSString *)description{
 	switch (type) {
 		case TileTypeGetResource:
-			return [NSString stringWithFormat:@"Get %d Resources",targetAmount];//TODO: Next
+			return [NSString stringWithFormat:@"Get %d %@.",
+					targetAmount,
+					[GameLogic descriptionForResourceType:targetType]];
 			break;
 		case TileTypeExchangeResource:
-			return @"Let's Talk in Private";
+			return [NSString stringWithFormat:@"Exchange %d %@ for %d %@.",
+					sourceAmount,
+					[GameLogic descriptionForResourceType:sourceType],
+					targetAmount,
+					[GameLogic descriptionForResourceType:targetType]];
 			break;
 		case TileTypeAccumulateResource:
-			return @"HR Resource Pool";
+			return [NSString stringWithFormat:@"Get %d %@ this turn, increasing over time.",
+					targetAmount,
+					[GameLogic descriptionForResourceType:targetType]];;
 			break;			
 		case TileTypeBuild:
-			return @"It's Overtime";
+			return @"Extra project oppotunity, just for you.";
 			break;
 		case TileTypeLucky:
-			return @"Try Your Luck?";
+			return @"Check if you're blessed.";
 			break;
 		case TileTypeOvertime:
-			return @"Crunch Time";
+			return @"Extra time for project oppotunity this turn.";
 			break;
 		case TileTypeOutsourcing:
-			return @"We've Got Some Extra Hands";
+			return @"More temp guys joining this turn.";
 			break;
 		case TileTypeAnnualParty:
-			return @"It's Party Time!";
+			return @"Skip all production. Happens once a year.";
 			break;			
 		default:
 			break;

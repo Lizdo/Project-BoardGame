@@ -119,6 +119,7 @@
 
 + (int)scoreForBadgeType:(BadgeType)type;
 + (NSString *)descriptionForBadgeType:(BadgeType)type;
++ (NSString *)descriptionForResourceType:(ResourceType)type;
 
 - (int)numberOfSharedTokens;
 - (float)buildTime;

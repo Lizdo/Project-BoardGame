@@ -655,6 +655,24 @@ static int tileInfos[18][8] = {
 }
 
 
++ (NSString *)descriptionForResourceType:(ResourceType)type{
+	switch (type) {
+		case ResourceTypeRect:
+			return @"Artist";
+			break;
+		case ResourceTypeRound:
+			return @"Designer";
+			break;
+		case ResourceTypeSquare:
+			return @"Coder";
+			break;			
+		default:
+			break;
+	}
+	return @"";
+}
+
+
 - (int)numberOfSharedTokens{
 	int numOfTokens = (round.count/3+1) * 2;
 	if (round.moreSharedTokens) {
