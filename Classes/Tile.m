@@ -56,6 +56,7 @@
 - (void)setState:(TileState)newState{
 	state = newState;
 	//self.backgroundColor = [GameVisual tileColorForState:state andStyle:tileBackgroundStyle];
+	[self setNeedsDisplay];
 }
 
 
@@ -277,18 +278,6 @@
 
 
 - (void)flipIn{
-//	UIView * blackView = [[UIView alloc]initWithFrame:self.frame];
-//	blackView.backgroundColor = [GameVisual boardBackgroundColor];
-//	
-//	[self addSubview:blackView];
-//	
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:0.5];
-//    [UIView setAnimationBeginsFromCurrentState:NO];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self cache:YES];
-//	
-//    [blackView removeFromSuperview];
-//    [UIView commitAnimations];
 	CGPoint originalCenter = self.center;
 	[self.superview bringSubviewToFront:self];
 	self.center = CGPointMake(1000, 1000);
@@ -312,15 +301,80 @@
 }
 
 
+//typedef enum{
+//	TileTypeGetResource, //Resource
+//	TileTypeExchangeResource, //Source Resource, Target Resource
+//	TileTypeAccumulateResource, //Resource Type, accumulated resource
+//	TileTypeBuild, //No parameter
+//	TileTypeLucky, //No parameter
+//	TileTypeOvertime,
+//	TileTypeOutsourcing,
+//	TileTypeAnnualParty,	
+//}TileType;
+
 - (NSString *)title{
-	//TODO:Replace with real title
-	return @"Title";
+	switch (type) {
+		case TileTypeGetResource:
+			return @"Grab Some People!";
+			break;
+		case TileTypeExchangeResource:
+			return @"Let's Talk in Private";
+			break;
+		case TileTypeAccumulateResource:
+			return @"HR Resource Pool";
+			break;			
+		case TileTypeBuild:
+			return @"It's Overtime";
+			break;
+		case TileTypeLucky:
+			return @"Try Your Luck?";
+			break;
+		case TileTypeOvertime:
+			return @"Crunch Time";
+			break;
+		case TileTypeOutsourcing:
+			return @"We've Got Some Extra Hands";
+			break;
+		case TileTypeAnnualParty:
+			return @"It's Party Time!";
+			break;			
+		default:
+			break;
+	}
+	return @"";
 }
 
 
 - (NSString *)description{
-	return @"This is a description";
-}
+	switch (type) {
+		case TileTypeGetResource:
+			return [NSString stringWithFormat:@"Get %d Resources",targetAmount];//TODO: Next
+			break;
+		case TileTypeExchangeResource:
+			return @"Let's Talk in Private";
+			break;
+		case TileTypeAccumulateResource:
+			return @"HR Resource Pool";
+			break;			
+		case TileTypeBuild:
+			return @"It's Overtime";
+			break;
+		case TileTypeLucky:
+			return @"Try Your Luck?";
+			break;
+		case TileTypeOvertime:
+			return @"Crunch Time";
+			break;
+		case TileTypeOutsourcing:
+			return @"We've Got Some Extra Hands";
+			break;
+		case TileTypeAnnualParty:
+			return @"It's Party Time!";
+			break;			
+		default:
+			break;
+	}
+	return @"";}
 
 
 - (void)dealloc {

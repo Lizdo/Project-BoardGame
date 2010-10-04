@@ -69,7 +69,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<string key="IBUIText">Rules</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Thonburi</string>
+							<string key="NSName">Palatino-Roman</string>
 							<double key="NSSize">24</double>
 							<int key="NSfFlags">16</int>
 						</object>

@@ -29,7 +29,7 @@ static RumbleBoard *sharedInstance = nil;
 		sharedInstance = self;
 		
 		gameLogic = [GameLogic sharedInstance];
-		self.backgroundColor = [GameVisual boardBackgroundImage];
+		self.backgroundColor = [GameVisual rumbleBoardBackgroundImage];
 		
 		
 		int countDownSize = 500;

@@ -60,7 +60,7 @@
 					<object class="IBUILabel" id="73333716">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{15, 3}, {42, 25}}</string>
+						<string key="NSFrame">{{15, 3}, {178, 25}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -73,13 +73,13 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<string key="IBUIText">Title</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Thonburi-Bold</string>
+							<string key="NSName">Palatino-Roman</string>
 							<double key="NSSize">18</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwLjUwMTk2MDgxNCAwLjI1MDk4MDQwNwA</bytes>
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MCAwLjUzNzI1NDkyOTUgMC42MzEzNzI1NzEAA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<string key="IBUIShadowOffset">{1, 1}</string>

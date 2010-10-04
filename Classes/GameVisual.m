@@ -25,6 +25,11 @@
 	return color;
 }
 
++ (UIColor *)rumbleBoardBackgroundImage{
+	UIColor * color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"RumbleBackgroundTile.png"]];
+	return color;
+}
+
 + (UIColor *)tileColorForState:(TileState)state andStyle:(int)style{
 	NSString * imageName;
 	switch (state) {

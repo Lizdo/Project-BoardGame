@@ -45,7 +45,7 @@
 		
 		toggleAIButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 		[self addSubview:toggleAIButton];
-		toggleAIButton.frame = CGRectMake(470, 150, 100, 50);
+		toggleAIButton.frame = CGRectMake(520, 150, 50, 50);
 		[toggleAIButton addTarget:self action:@selector(toggleAIButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 		
 //        currentPlayerMark = [[UIImageView alloc] init];

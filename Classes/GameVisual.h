@@ -17,6 +17,8 @@
 
 + (UIColor *)boardBackgroundColor;
 + (UIColor *)boardBackgroundImage;
++ (UIColor *)rumbleBoardBackgroundImage;
+
 
 + (UIColor *)tileColorForState:(TileState)state andStyle:(int)style;
 + (UIImage *)tileImageForState:(TileState)state andStyle:(int)style;

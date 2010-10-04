@@ -168,6 +168,7 @@
 	}
 	if (currentRumbleTarget) {
 		[currentRumbleTarget remove];		
+		[currentRumbleTarget removePopup];
 		[currentRumbleTarget removeFromSuperview];
 		swapInProgress = YES;
 	}
