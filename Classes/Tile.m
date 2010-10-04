@@ -27,7 +27,7 @@
 		gameLogic = [GameLogic sharedInstance];
 		amountModifyHightlight = NO;
 		tileBackgroundStyle = rand()%TileBackgroundStyleCount;
-		self.backgroundColor = [GameVisual boardBackgroundColor];
+		self.backgroundColor = [UIColor clearColor];
 		self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin
 		|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
 		

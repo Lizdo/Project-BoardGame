@@ -20,6 +20,11 @@
 	return [UIColor whiteColor];
 }
 
++ (UIColor *)boardBackgroundImage{
+	UIColor * color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundTile.png"]];
+	return color;
+}
+
 + (UIColor *)tileColorForState:(TileState)state andStyle:(int)style{
 	NSString * imageName;
 	switch (state) {

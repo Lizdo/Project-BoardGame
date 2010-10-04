@@ -66,7 +66,7 @@ static Board *sharedInstance = nil;
 */
 
 - (void)initGame{
-	self.backgroundColor = [GameVisual boardBackgroundColor];
+	self.backgroundColor = [GameVisual boardBackgroundImage];
 	//init info
 	infos = [NSMutableArray arrayWithCapacity:0];
 	[infos retain];

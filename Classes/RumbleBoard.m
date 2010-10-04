@@ -29,7 +29,7 @@ static RumbleBoard *sharedInstance = nil;
 		sharedInstance = self;
 		
 		gameLogic = [GameLogic sharedInstance];
-		self.backgroundColor = [GameVisual boardBackgroundColor];
+		self.backgroundColor = [GameVisual boardBackgroundImage];
 		
 		
 		int countDownSize = 500;
@@ -94,7 +94,7 @@ static RumbleBoard *sharedInstance = nil;
 */
 
 - (void)enterRumble{
-
+	countDown.text = @"";
 }
 
 
