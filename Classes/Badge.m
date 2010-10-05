@@ -18,7 +18,7 @@
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
         self.userInteractionEnabled = YES;
-		self.backgroundColor = [GameVisual boardBackgroundColor];
+		self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

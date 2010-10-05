@@ -54,10 +54,17 @@ static RumbleBoard *sharedInstance = nil;
 
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;	
 		
+		rumbleView = [[ContainerView alloc]initWithFrame:self.bounds];
+		rumbleView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
+		[self addSubview:rumbleView];
+		
+		tokenView = [[ContainerView alloc]initWithFrame:self.bounds];
+		tokenView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
+		[self addSubview:tokenView];		
 		
 		popupView = [[ContainerView alloc]initWithFrame:self.bounds];
 		popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
-		[self addSubview:popupView];		
+		[self addSubview:popupView];
 
     }
     return self;
@@ -75,7 +82,7 @@ static RumbleBoard *sharedInstance = nil;
 		rumbleInfo.autoresizingMask = [GameVisual infoResizingMaskForPlayerID:i];		
 	
 		
-		[self insertSubview:rumbleInfo atIndex:0];
+		[rumbleView insertSubview:rumbleInfo atIndex:0];
 		[rumbleInfos addObject:rumbleInfo];
 		[rumbleInfo release];
 		[rumbleInfo initGame];
@@ -107,7 +114,7 @@ static RumbleBoard *sharedInstance = nil;
 - (void)allRumble{
 	allRumble = YES;
 	for (RumbleInfo * info in rumbleInfos){
-		[self addSubview:info];
+		[rumbleView addSubview:info];
 		[info enterRumble];
 	}
 	[self addSharedTokens];	
@@ -120,7 +127,7 @@ static RumbleBoard *sharedInstance = nil;
 		if (info.player.ID != playerID) {
 			[info removeFromSuperview];
 		}else {
-			[self addSubview:info];
+			[rumbleView addSubview:info];
 			[info enterRumbleWithPlayerID:playerID];
 		}
 
@@ -174,9 +181,13 @@ static RumbleBoard *sharedInstance = nil;
 					 ];
 		t.shared = YES;
 		//[gameLogic.rumbleBoard addSubview:t];
-		[self addSubview:t];
+		[self addRumbleToken:t];
 		[gameLogic.rumbleTokens addObject:t];
 	}
+}
+
+- (void)addRumbleToken:(Token *)t{
+	[tokenView addSubview:t];
 }
 
 - (BOOL)seedUsed:(int)seed{

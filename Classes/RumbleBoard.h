@@ -40,6 +40,8 @@
 	BoardGameViewController * controller;
 	BoardGameView * bgv;
 	
+	ContainerView * rumbleView;
+	ContainerView * tokenView;
 	ContainerView * popupView;
 }
 
@@ -54,6 +56,7 @@
 - (void)allRumble;
 - (void)rumbleWithPlayerID:(int)playerID;
 - (void)addSharedTokens;
+- (void)addRumbleToken:(Token *)t;
 
 - (void)enterRumbleAnimDidStop;
 - (void)exitRumbleAnimDidStop;

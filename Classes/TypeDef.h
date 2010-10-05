@@ -60,11 +60,12 @@
 #define InfoHeight 200
 
 //	RumbleInfo
-#define RumbleInfoWidth 518
+#define RumbleInfoWidth 700
 #define RumbleInfoHeight 250
+#define RumbleInfoOffset 20
 
 #define RandomPositionInterval 40
-#define RandomPositionBoundWidth (RumbleInfoWidth - RumbleTargetWidth) / 2
+#define RandomPositionBoundWidth (RumbleInfoWidth - RumbleTargetWidth) / 2 + RumbleInfoOffset
 
 //	RumbleTarget
 #define RumbleTargetWidth 200

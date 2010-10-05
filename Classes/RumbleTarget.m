@@ -208,10 +208,11 @@ static const int DistanceTolerance = 30;
 			&& distance(p, placeholder.center) <= DistanceTolerance * DistanceTolerance) {
 			placeholder.hasMatch = YES;
 			placeholder.matchedToken = t;
+			[self insertSubview:placeholder atIndex:0];
 			t.center = [self convertPoint:placeholder.center toView:self.superview.superview];
 			t.transform = CGAffineTransformConcat(self.superview.transform, placeholder.transform);
 			//Change the draw order to avoid mistakes
-			[t.superview insertSubview:t aboveSubview:self];
+			//[t.superview insertSubview:t aboveSubview:self];
 			[self updateAllMatchedStatus];			
 			return;
 		}

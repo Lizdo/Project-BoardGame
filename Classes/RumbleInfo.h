@@ -11,6 +11,7 @@
 #import "TypeDef.h"
 #import "Rumble.h"
 #import "Player.h"
+#import "ContainerView.h"
 
 #define RandomSlices 10
 #define RandomSeedsNeeded 20
@@ -18,7 +19,7 @@
 @class GameLogic;
 @class RumbleTarget;
 
-@interface RumbleInfo : UIView {
+@interface RumbleInfo : ContainerView {
 	Player * player;
 	
 	GameLogic * gameLogic;

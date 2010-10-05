@@ -48,36 +48,37 @@
 
 - (void)presentPopup{
 	if ([[GameLogic sharedInstance] isInRumble]) {
-		board = [RumbleBoard sharedInstance];
+		theBoard = [RumbleBoard sharedInstance];
 	}else {
-		board = [Board sharedInstance];
+		theBoard = [Board sharedInstance];
 	}
 
 	[self setAnchorPoint];
 	titleLabel.text = [sourceObject title];
 	descriptionTextView.text = [sourceObject description];
 	
-	[board addPopup:self.view];
+	[theBoard addPopup:self.view];
 
 	popupPresent = YES;
 }
 
 - (void)setAnchorPoint{
 	//need to use cached board as it can be Board or RumbleBoard
-	CGPoint p = [board convertPoint:sourceObject.center fromView:sourceObject.superview];
+	CGPoint p = [theBoard convertPoint:sourceObject.center fromView:sourceObject.superview];
+	CGRect r = [theBoard convertRect:sourceObject.bounds fromView:sourceObject.superview];
 	self.view.transform = [GameVisual transformForPlayerID:[sourceObject player].ID];
 	switch ([sourceObject player].ID) {
 		case 0:
-			self.view.center = CGPointMake(p.x + sourceObject.bounds.size.width/2 + PopupWidth/2, p.y);
+			self.view.center = CGPointMake(p.x + r.size.width/2 + PopupWidth/2, p.y);
 			break;
 		case 1:
-			self.view.center = CGPointMake(p.x, p.y + sourceObject.bounds.size.height/2 + PopupWidth/2);
+			self.view.center = CGPointMake(p.x, p.y + r.size.height/2 + PopupWidth/2);
 			break;
 		case 2:
-			self.view.center = CGPointMake(p.x - sourceObject.bounds.size.width/2 - PopupWidth/2, p.y);
+			self.view.center = CGPointMake(p.x - r.size.width/2 - PopupWidth/2, p.y);
 			break;
 		case 3:
-			self.view.center = CGPointMake(p.x, p.y - sourceObject.bounds.size.height/2 - PopupWidth/2);
+			self.view.center = CGPointMake(p.x, p.y - r.size.height/2 - PopupWidth/2);
 			break;			
 		default:
 			break;

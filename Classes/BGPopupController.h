@@ -37,7 +37,7 @@
 	
 	BOOL popupPresent;
 	
-	UIView <BGPopupBoard> * board;
+	UIView <BGPopupBoard> * theBoard;
 }
 
 @property (assign) BOOL popupPresent;

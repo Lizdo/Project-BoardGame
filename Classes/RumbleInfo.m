@@ -145,14 +145,14 @@
 	currentRumbleTarget = [rumbleTargets objectAtIndex:type];
 	//DebugLog(@"Current RumbleTarget Type: %d", currentRumbleTarget.type);
 
-	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2, RumbleInfoHeight/2 + RumbleInfoHeight);	
+	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2 + RumbleInfoOffset, RumbleInfoHeight/2 + RumbleInfoHeight);	
 	currentRumbleTarget.alpha = 0.0;
 	[self addSubview:currentRumbleTarget];
 	
 	
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:SlideOutTime]; 
-	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2, RumbleInfoHeight/2);
+	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2 + RumbleInfoOffset, RumbleInfoHeight/2);
 	currentRumbleTarget.alpha = 1.0;	
 	[UIView commitAnimations];	
 	
@@ -195,7 +195,7 @@
 				 ];
 	t.player = self.player;
 	t.transform = self.transform;
-	[self.superview addSubview:t];
+	[[RumbleBoard sharedInstance] addRumbleToken:t];
 	[gameLogic.rumbleTokens addObject:t];
 }
 
