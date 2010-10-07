@@ -154,6 +154,18 @@ static int tileInfos[18][8] = {
 
 
 - (void)triggerEvent:(TokenEvent)event withToken:(Token *)token atPosition:(CGPoint)point{
+	//Play Sound
+	switch (event) {
+		case TokenEventPickedUp:
+			[[SoundManager sharedInstance] clash];
+			break;
+		case TokenEventDroppedDown:
+			[[SoundManager sharedInstance] beep];
+			break;			
+		default:
+			break;
+	}
+	
 	//Process Tiles in Normal State
 	if (![self isInRumble]) {
 		if (token.player != self.currentPlayer || token.type != TokenTypePlayer)

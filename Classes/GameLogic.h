@@ -13,6 +13,7 @@
 #import "Player.h"
 #import "TypeDef.h"
 #import "RumbleTarget.h"
+#import "SoundManager.h"
 
 @class Tile;
 @class Board;
