@@ -158,6 +158,8 @@ typedef enum{
 	RumbleTargetTypePalace = 2,
 }RumbleTargetType;
 
+#define NumberOfBadgeTypes 12
+
 typedef enum{
 	BadgeTypeMostRound = 0,
 	BadgeTypeMostRect = 1,
@@ -176,6 +178,9 @@ typedef enum{
 	BadgeTypeHasPalace = 32,
 	
 }BadgeType;
+
+extern const int BadgeTypes[NumberOfBadgeTypes];
+
 
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);
 

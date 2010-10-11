@@ -32,7 +32,7 @@
 
 - (void)addPopup{
 	if (popupController == nil) {
-		popupController = [[BGPopupController alloc]initWithSourceObject:self];
+		popupController = [[[BGPopupController alloc]initWithSourceObject:self]retain];
 	}
 	[popupController presentPopup];
 	

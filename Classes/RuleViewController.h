@@ -12,6 +12,7 @@
 
 
 @interface RuleViewController : UIViewController {
+	IBOutlet UITableView * tableView;
 }
 
 

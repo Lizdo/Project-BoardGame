@@ -12,6 +12,24 @@ const int TokenScoreModifier[NumberOfTokenTypes]={1,3,5};
 
 const int RumbleTargetScoreModifier[NumberOfTokenTypes]={5,7,9};
 
+const int BadgeTypes[NumberOfBadgeTypes] = {
+	BadgeTypeMostRound,
+	BadgeTypeMostRect,
+	BadgeTypeMostSquare,
+	
+	BadgeTypeMostRobot,
+	BadgeTypeMostSnake,
+	BadgeTypeMostPalace,
+	
+	BadgeTypeEnoughRound,
+	BadgeTypeEnoughRect,
+	BadgeTypeEnoughSquare,
+	
+	BadgeTypeHasRobot,
+	BadgeTypeHasSnake,
+	BadgeTypeHasPalace
+};
+
 const int EnoughResource[NumberOfTokenTypes]={10,8,6};
 
 

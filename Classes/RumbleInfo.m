@@ -206,7 +206,7 @@
 
 - (CGPoint)nextPosition{
 	CGPoint n;
-	if (currentPosition.x + RandomPositionInterval <= RandomPositionBoundWidth) {
+	if (currentPosition.x + RandomPositionInterval * 2 <= RandomPositionBoundWidth) {
 		currentPosition = CGPointMake(currentPosition.x + RandomPositionInterval, currentPosition.y);
 	}else {
 		currentPosition = CGPointMake(0, currentPosition.y+RandomPositionInterval);

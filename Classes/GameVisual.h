@@ -38,7 +38,7 @@
 
 + (UIImage *)colorizeImage:(UIImage *)baseImage color:(UIColor *)theColor;
 
-
++ (UIColor *)scoreColor;
 + (UIColor *)colorWithHex:(int)hex;
 
 + (CGPoint)infoCenterForPlayerID:(int)theID;

@@ -40,7 +40,7 @@
 		//endTurnButton.center = CGPointMake(100,100);
 		[endTurnButton setImage:[UIImage imageNamed:@"EndTurn.png"] forState:UIControlStateNormal];
         
-        endTurnButton.frame = CGRectMake(390, 70, 100, 100);		
+        endTurnButton.frame = CGRectMake(390, 70, 50, 50);
 		[endTurnButton addTarget:self action:@selector(endTurnButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 		
 		toggleAIButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
@@ -235,7 +235,7 @@
 	int row = i%rows;
 	int colomn = (i-row)/rows;
 	
-	return CGPointMake(BadgeSize + interval*colomn, BadgeSize + interval*row);
+	return CGPointMake(BadgeSize + BadgeInterval + interval*colomn, BadgeSize + interval*row);
 }
 
 - (void)dealloc {

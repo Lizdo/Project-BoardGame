@@ -252,6 +252,11 @@
 	return [UIColor colorWithRed:r/255 green:g/255 blue:b/255 alpha:1];
 }
 
++ (UIColor *)scoreColor{
+	return [GameVisual colorWithHex:0x50BAB7];
+}
+
+
 + (CGPoint)infoCenterForPlayerID:(int)i{
 	float boardWidth = [GameLogic sharedInstance].board.bounds.size.width;
 	float boardHeight = [GameLogic sharedInstance].board.bounds.size.height;
