@@ -18,6 +18,7 @@
 #import "BoardGameView.h"
 #import "CurrentPlayerMark.h"
 
+#import "BoardInfoViewController.h"
 
 @class RumbleBoard;
 @class GameLogic;
@@ -39,6 +40,8 @@
 	
 	BoardGameViewController * controller;
 	BoardGameView * bgv;
+	
+	BoardInfoViewController * biv;
 	
 	CurrentPlayerMark * currentPlayerMark;
 		

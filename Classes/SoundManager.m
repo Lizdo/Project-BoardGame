@@ -11,13 +11,17 @@
 
 @implementation SoundManager
 
+@synthesize playSound,playMusic;
+
 static SoundManager *sharedInstance = nil;
 
 - (id)init{
 	if (self = [super init]) {
 		dic = [[NSMutableDictionary dictionaryWithCapacity:0]retain];
 		[self addSystemSoundWithName:@"beep"];
-		[self addSystemSoundWithName:@"clash"];		
+		[self addSystemSoundWithName:@"clash"];
+		playMusic = YES;
+		playSound = YES;
 	}
 	return self;
 }
@@ -37,10 +41,16 @@ static SoundManager *sharedInstance = nil;
 }
 
 - (void)beep{
+	if (!playSound) {
+		return;
+	}
 	AudioServicesPlaySystemSound([[dic objectForKey:@"beep"]intValue]);
 }
 
 - (void)clash{
+	if (!playSound) {
+		return;
+	}	
 	AudioServicesPlaySystemSound([[dic objectForKey:@"clash"]intValue]);
 }
 

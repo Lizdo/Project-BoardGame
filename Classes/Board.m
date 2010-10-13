@@ -49,6 +49,11 @@ static Board *sharedInstance = nil;
 		popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
 		[self addSubview:popupView];				
 	
+		biv = [[BoardInfoViewController alloc] initWithNibName:@"BoardInfo" bundle:nil];
+		biv.view.center = CGPointMake(200/2, 200 + 236/2);
+		[infoView addSubview:biv.view];
+		
+		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.clipsToBounds = YES;
 		
@@ -123,6 +128,7 @@ static Board *sharedInstance = nil;
 	}
 	
 	[rumbleBoard update];
+	[biv update];
 }
 
 - (void)removeAllBadges{
@@ -246,6 +252,7 @@ static Board *sharedInstance = nil;
 	[infoView release];
 	[tileView release];
 	[tokenView release];
+	[biv release];
 	
     [super dealloc];
 }

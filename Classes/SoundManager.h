@@ -12,7 +12,13 @@
 
 @interface SoundManager : NSObject{
 	NSMutableDictionary * dic;
+	
+	BOOL playSound;
+	BOOL playMusic;	
 }
+
+@property (nonatomic,assign) BOOL playSound;
+@property (nonatomic,assign) BOOL playMusic;
 
 + (SoundManager*)sharedInstance;
 
