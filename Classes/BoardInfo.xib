@@ -222,9 +222,9 @@
 						<string key="label">toggleMusic</string>
 						<reference key="source" ref="301054967"/>
 						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">7</int>
+						<int key="IBEventType">1</int>
 					</object>
-					<int key="connectionID">15</int>
+					<int key="connectionID">16</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -241,11 +241,11 @@
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="263523613"/>
 							<reference ref="377399886"/>
 							<reference ref="211167143"/>
 							<reference ref="929877268"/>
 							<reference ref="301054967"/>
+							<reference ref="263523613"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -328,7 +328,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">15</int>
+			<int key="maxID">16</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

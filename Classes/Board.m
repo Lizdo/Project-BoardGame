@@ -51,7 +51,7 @@ static Board *sharedInstance = nil;
 	
 		biv = [[BoardInfoViewController alloc] initWithNibName:@"BoardInfo" bundle:nil];
 		biv.view.center = CGPointMake(200/2, 200 + 236/2);
-		[infoView addSubview:biv.view];
+		[tileView addSubview:biv.view];
 		
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
