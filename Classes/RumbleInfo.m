@@ -16,6 +16,11 @@
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type;
 - (UILabel *)initRumbleCountAt:(CGRect)r;
 
+- (void)activateCurrentRumbleTarget;
+- (void)deactivateCurrentRumbleTarget;
+
+- (CGPoint)positionForRumbleTargetType:(RumbleTargetType)type;
+
 @end
 
 @implementation RumbleInfo
@@ -125,7 +130,7 @@
 
 - (void)enterRumbleAnimDidStop{
 	//TODO: Calculate which one to pop, use a random one for the moment
-	[self activateRumbleTargetWithType:rand()%3];
+	[self activateRumbleTargetWithType:rand()%6];
 }
 
 
@@ -147,17 +152,38 @@
 
 	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2 + RumbleInfoOffset, RumbleInfoHeight/2 + RumbleInfoHeight);	
 	currentRumbleTarget.alpha = 0.0;
+	[self activateCurrentRumbleTarget];
+}
+	
+- (void)activateCurrentRumbleTarget{
 	[self addSubview:currentRumbleTarget];
 	
 	
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:SlideOutTime]; 
+	currentRumbleTarget.transform = CGAffineTransformMakeScale(1,1);		
 	currentRumbleTarget.center = CGPointMake(RumbleInfoWidth/2 + RumbleInfoOffset, RumbleInfoHeight/2);
 	currentRumbleTarget.alpha = 1.0;	
-	[UIView commitAnimations];	
 	
 	[currentRumbleTarget activate];
+	for (RumbleTarget * rt in rumbleTargets) {
+		if (rt != currentRumbleTarget) {
+			[rt deactivate];
+			rt.alpha = 0;
+		}
+	}
 	swapInProgress = NO;
+	
+	[UIView commitAnimations];	
+
+}
+
+
+- (void)deactivateCurrentRumbleTarget{
+	if (currentRumbleTarget) {
+		[currentRumbleTarget remove];		
+		[currentRumbleTarget removePopup];
+	}
 }
 
 
@@ -180,12 +206,62 @@
 	}
 
 	if (currentType < 0) {
-		currentType = 2;
-	}else if (currentType > 2) {
+		currentType = NumberOfRumbleTargetTypes - 1;
+	}else if (currentType > NumberOfRumbleTargetTypes - 1) {
 		currentType = 0;
 	}
 	DebugLog(@"New RumbleTarget Type: %d", currentType);
 	[self activateRumbleTargetWithType:currentType];
+}
+
+- (void)zoomOut{
+	[self deactivateCurrentRumbleTarget];
+	currentRumbleTarget = nil;
+	
+	for (RumbleTarget * rt in rumbleTargets) {
+		[rt enableSelection];
+	}
+	for (int i=0; i<NumberOfRumbleTargetTypes; i++) {
+		RumbleTarget * rt = [rumbleTargets objectAtIndex:i];
+		[self addSubview:rt];
+		if (rt!=currentRumbleTarget) {
+			rt.alpha = 0;
+		}
+		[UIView beginAnimations:nil context:nil]; 
+		[UIView setAnimationDuration:SlideOutTime];
+		rt.center = [self positionForRumbleTargetType:rt.type];
+		rt.transform = CGAffineTransformMakeScale(RumbleTargetZoomOutRatio,RumbleTargetZoomOutRatio);		
+		rt.alpha = 1.0;
+		[UIView commitAnimations];		
+	}
+	
+}
+
+- (CGPoint)positionForRumbleTargetType:(RumbleTargetType)type{
+	CGPoint bottomCenter = CGPointMake(RumbleInfoWidth/2, RumbleInfoHeight);
+	int numberOfColumns = ceil(NumberOfRumbleTargetTypes/RumbleTargetZoomOutRows);
+	float totalWidth = numberOfColumns
+	* (RumbleTargetWidth*RumbleTargetZoomOutRatio + RumbleTargetZoomOutInverval)
+	+ RumbleTargetZoomOutInverval;
+	float totalHeight = RumbleTargetZoomOutRows
+	* (RumbleTargetHeight*RumbleTargetZoomOutRatio + RumbleTargetZoomOutInverval)
+	+ RumbleTargetZoomOutInverval;
+	
+	CGPoint startingPosition = CGPointMake(bottomCenter.x - totalWidth/2, bottomCenter.y - totalHeight);
+	int row = floor(type/numberOfColumns);
+	int column = type%numberOfColumns;
+	
+	return CGPointMake(startingPosition.x
+					   + column * (RumbleTargetWidth*RumbleTargetZoomOutRatio + RumbleTargetZoomOutInverval)
+					   + RumbleTargetZoomOutInverval + RumbleTargetWidth*RumbleTargetZoomOutRatio/2,
+					   startingPosition.y 
+					   + row * (RumbleTargetHeight*RumbleTargetZoomOutRatio + RumbleTargetZoomOutInverval)
+					   + RumbleTargetZoomOutInverval + RumbleTargetHeight*RumbleTargetZoomOutRatio/2);
+}
+
+- (void)selectRumbleTarget:(RumbleTarget *)rt{
+	currentRumbleTarget = rt;
+	[self activateCurrentRumbleTarget];
 }
 
 

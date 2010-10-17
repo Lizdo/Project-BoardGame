@@ -19,6 +19,8 @@
 - (void)Token:(Token *)t pickedUpFromPosition:(CGPoint)p;
 - (void)Token:(Token *)t hoveringAtPosition:(CGPoint)p;
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender;
+- (void)handlePinch:(UIPinchGestureRecognizer *)sender;
+- (void)handleTap:(UITapGestureRecognizer *)sender;
 
 @end
 
@@ -28,6 +30,12 @@
 
 float distance(CGPoint p1, CGPoint p2){
 	return pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2); 
+}
+
+- (void)setType:(RumbleTargetType)t{
+	type = t;
+	nameLabel.text = [self title];
+	timeLabel.text = [NSString stringWithFormat:@"%dWeeks",[Project timeNeededForRumbleTargetType:type]];	
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -44,12 +52,19 @@ float distance(CGPoint p1, CGPoint p2){
 		[self addGestureRecognizer:recognizerDown];
 		recognizerDown.direction = UISwipeGestureRecognizerDirectionDown;
 		
-		nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-60, frame.size.width, 50)];
-		nameLabel.font = [UIFont fontWithName:PrimaryFontName size:30];
+		recognizerPinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinch:)]; 
+		[self addGestureRecognizer:recognizerPinch];
+		
+		recognizerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]; 
+		[self addGestureRecognizer:recognizerTap];
+		
+		nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height-60, frame.size.width-20, 50)];
+		nameLabel.font = [UIFont fontWithName:PrimaryFontName size:28];
 		nameLabel.opaque = NO;
 		nameLabel.backgroundColor = nil;
 		nameLabel.textAlignment = UITextAlignmentCenter;
 		nameLabel.textColor = [GameVisual colorWithHex:0x585858];
+		nameLabel.adjustsFontSizeToFitWidth = YES;
 		[self addSubview:nameLabel];	
 		
 		timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-10, 30)];
@@ -58,8 +73,8 @@ float distance(CGPoint p1, CGPoint p2){
 		timeLabel.backgroundColor = nil;
 		timeLabel.textAlignment = UITextAlignmentLeft;
 		timeLabel.textColor = [GameVisual colorWithHex:0x585858];
-		[self addSubview:timeLabel];	
-
+		[self addSubview:timeLabel];
+		
     }
     return self;
 }
@@ -75,12 +90,19 @@ float distance(CGPoint p1, CGPoint p2){
 }
 
 - (void)activate{
-	nameLabel.text = [self title];
-	timeLabel.text = [NSString stringWithFormat:@"%dWeeks",[Project timeNeededForRumbleTargetType:type]];
+	recognizerTap.enabled = NO;	
 	recognizerUp.enabled = YES;	
 	recognizerDown.enabled = YES;
+	recognizerPinch.enabled = YES;
 }
 
+
+- (void)deactivate{
+	recognizerUp.enabled = NO;	
+	recognizerDown.enabled = NO;
+	recognizerPinch.enabled = NO;
+	recognizerTap.enabled = NO;
+}
 
 - (void)handleSwipe:(UISwipeGestureRecognizer *)sender{
 	if (!sender.enabled) {
@@ -96,6 +118,23 @@ float distance(CGPoint p1, CGPoint p2){
 
 }
 
+- (void)handlePinch:(UIPinchGestureRecognizer *)sender{
+	recognizerUp.enabled = NO;	
+	recognizerDown.enabled = NO;
+	recognizerPinch.enabled = NO;
+	[info zoomOut];
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)sender{
+	[info selectRumbleTarget:self];
+}
+
+
+
+- (void)enableSelection{
+	recognizerTap.enabled = YES;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -106,7 +145,7 @@ float distance(CGPoint p1, CGPoint p2){
 
 
 //Must follow the order defined in RumbleTargetType
-static int rumbleInfo[30][4] = {
+static int rumbleInfo[NumberOfRumbleTargetTypes*10][4] = {
 	//Robot
 	{TokenTypeSquare,  76,  76,   0},
 	{TokenTypeRect,  58, 116,   0},
@@ -129,7 +168,6 @@ static int rumbleInfo[30][4] = {
 	{TokenTypeRound, 124, 102,   0},
 	{TokenTypeRect,  88, 120,  60},
 	
-	
 	{-1,0,0,0},
 	{-1,0,0,0},
 	{-1,0,0,0},
@@ -143,8 +181,50 @@ static int rumbleInfo[30][4] = {
 	{TokenTypeRect, 102,  75,   0},
 	{TokenTypeRect, 120, 118,   0},
 	{TokenTypeSquare,  92, 122,   0},
+	
 	{-1,0,0,0},
 	{-1,0,0,0},
+	
+	//Flash
+	{TokenTypeRect,  88, 110,   0},
+	{TokenTypeRound,  72,  68,   0},
+	{TokenTypeRect,  56, 110,   0},
+	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
+	
+	//XBLA
+	{TokenTypeRect,  72,  90,  90},
+	{TokenTypeSquare,  58,  66,   0},
+	{TokenTypeRound,  48, 122,   0},
+	{TokenTypeRound,  96, 122,   0},
+
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
+	
+	//FPS
+	{TokenTypeSquare,  70,  72,   0},
+	{TokenTypeRound,  44, 128,   0},
+	{TokenTypeRect,  96,  98, -90},
+	{TokenTypeRound,  98, 130,   0},
+	{TokenTypeSquare, 104,  72,   0},
+	{TokenTypeRect,  44,  98,  90},
+	{TokenTypeSquare,  38,  70,   0},
+	{TokenTypeSquare,  51,  42,   0},
+	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	
+	
 };
 
 
@@ -299,14 +379,23 @@ static const int DistanceTolerance = 30;
 
 - (NSString *)title{
 	switch (type) {
+		case RumbleTargetTypeSignal:
+			return @"Let's Count 123";
+			break;
+		case RumbleTargetTypeCart:
+			return @"We Race";
+			break;
+		case RumbleTargetTypeTank:
+			return @"Meat Grinder";
+			break;				
 		case RumbleTargetTypeRobot:
-			return @"Roboty";
+			return @"Little World";
 			break;
 		case RumbleTargetTypeSnake:
-			return @"Sporty";
+			return @"H.P. 2";
 			break;
 		case RumbleTargetTypePalace:
-			return @"RPGee";
+			return @"Theme Prison";
 			break;			
 		default:
 			return @"";
@@ -318,14 +407,23 @@ static const int DistanceTolerance = 30;
 
 - (NSString *)description{
 	switch (type) {
+		case RumbleTargetTypeSignal:
+			return @"Web-based educational minigame. Small yet beautiful.";
+			break;
+		case RumbleTargetTypeCart:
+			return @"Bring racing to the popular social networks.";
+			break;
+		case RumbleTargetTypeTank:
+			return @"Blood & Gore bring you to the WW2.";
+			break;				
 		case RumbleTargetTypeRobot:
-			return @"Awesome shooter designer for the casual market. Quick and easy.";
+			return @"Fantasy world city simulation.";
 			break;
 		case RumbleTargetTypeSnake:
-			return @"Remake of the original 90 series.";
+			return @"Sequel to the successful HP1 series.";
 			break;
 		case RumbleTargetTypePalace:
-			return @"Long term project that will change the way we know today about gaming, forever.";
+			return @"You are the boss. 1st ever prison simulation game.";
 			break;			
 		default:
 			return @"";

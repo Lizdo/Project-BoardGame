@@ -48,6 +48,9 @@
 - (void)swapRumbleTarget:(BOOL)up;
 - (void)enterRumbleAnimDidStop;
 
+- (void)zoomOut;
+- (void)selectRumbleTarget:(RumbleTarget *)rt;
+
 - (void)reset;
 - (void)update;
 

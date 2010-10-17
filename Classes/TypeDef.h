@@ -70,6 +70,9 @@
 //	RumbleTarget
 #define RumbleTargetWidth 200
 #define RumbleTargetHeight 250
+#define RumbleTargetZoomOutRatio 0.6
+#define RumbleTargetZoomOutInverval 10
+#define RumbleTargetZoomOutRows 2
 
 //	Tiles
 //		Tile Starting Position/Spacing/Tilted Position
@@ -147,15 +150,18 @@ typedef enum{
 	TokenEventDroppedDown
 }TokenEvent;
 
-#define NumberOfRumbleTargetTypes 3
-
 extern const int RumbleTargetScoreModifier[NumberOfTokenTypes];
 extern const int EnoughResource[NumberOfTokenTypes];
 
+#define NumberOfRumbleTargetTypes 6
+
 typedef enum{
-	RumbleTargetTypeRobot = 0,
-	RumbleTargetTypeSnake = 1,
-	RumbleTargetTypePalace = 2,
+	RumbleTargetTypeSignal,
+	RumbleTargetTypeCart,	
+	RumbleTargetTypeSnake,	
+	RumbleTargetTypeRobot,
+	RumbleTargetTypePalace,
+	RumbleTargetTypeTank,
 }RumbleTargetType;
 
 #define NumberOfBadgeTypes 12

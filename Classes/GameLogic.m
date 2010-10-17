@@ -505,6 +505,9 @@ static int tileInfos[18][8] = {
 
 - (CGPoint)randomRumblePositionForPlayer:(Player *)p withToken:(Token *)t{
 	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
+	if (!rt) {
+		return CGPointZero;
+	}
 	CGPoint point = [rt emptyPointForToken:t];
 	if (!CGPointEqualToPoint(point,CGPointZero)) {
 		return point;
@@ -515,6 +518,9 @@ static int tileInfos[18][8] = {
 
 - (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p{
 	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
+	if (!rt) {
+		return NO;
+	}	
 	int rtTokens[5] = {0,0,0,0,0};
 	for (TokenPlaceholder * t in rt.tokenPlaceholders) {
 		if (!t.hasMatch) {

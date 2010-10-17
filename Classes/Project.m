@@ -57,11 +57,20 @@
 
 + (int)timeNeededForRumbleTargetType:(RumbleTargetType)aType{
 	switch (aType) {
+		case RumbleTargetTypeSignal:
+			return 2;
+			break;
+		case RumbleTargetTypeCart:
+			return 2;
+			break;
+		case RumbleTargetTypeSnake:
+			return 3;
+			break;			
 		case RumbleTargetTypeRobot:
 			return 3;
 			break;
-		case RumbleTargetTypeSnake:
-			return 2;
+		case RumbleTargetTypeTank:
+			return 4;
 			break;
 		case RumbleTargetTypePalace:
 			return 4;

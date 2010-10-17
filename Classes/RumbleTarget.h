@@ -25,9 +25,13 @@
 	
 	NSMutableArray * tokenPlaceholders;
 	RumbleInfo * info;
-	UISwipeGestureRecognizer * recognizerUp;
-	UISwipeGestureRecognizer * recognizerDown;	
 	
+	UISwipeGestureRecognizer * recognizerUp;
+	UISwipeGestureRecognizer * recognizerDown;
+	
+	UIPinchGestureRecognizer * recognizerPinch;
+	UITapGestureRecognizer * recognizerTap;	
+		
 	UILabel * nameLabel;
 	
 	UILabel * timeLabel;
@@ -47,7 +51,10 @@
 - (void)reset;
 
 - (void)activate;
+- (void)deactivate;
 - (void)remove;
+
+- (void)enableSelection;
 
 #pragma mark -
 #pragma mark AI
