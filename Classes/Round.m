@@ -50,7 +50,8 @@ static Round *sharedInstance = nil;
 	count++;
 	state = RoundStateInit;
 	DebugLog(@"Entering Round %d...", count);
-	[self performSelector:@selector(enterRoundWaitComplete) withObject:self afterDelay:WaitTime];
+	[[Board sharedInstance]addRoundIntro];
+	//[self performSelector:@selector(enterRoundWaitComplete) withObject:self afterDelay:WaitTime];
 }
 
 - (void)enterRoundWaitComplete{

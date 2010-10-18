@@ -45,8 +45,8 @@
 */
 
 - (void)update{
-	currentRoundLabel.text = [NSString stringWithFormat:@"Week %d", round.count];
-	roundRemainingLabel.text = [NSString stringWithFormat:@"%d weeks remaining", MAX_ROUNDS - round.count];	
+	currentRoundLabel.text = [NSString stringWithFormat:@"Week %d", round.count + 1];
+	roundRemainingLabel.text = [NSString stringWithFormat:@"%d weeks remaining", MAX_ROUNDS - round.count - 1];	
 	
 	roundDetailTextView.text = [self roundInfo];
 	

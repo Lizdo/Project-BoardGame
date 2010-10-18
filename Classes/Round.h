@@ -52,4 +52,6 @@
 
 - (void)rumbleComplete;
 
+- (void)enterRoundWaitComplete;
+
 @end

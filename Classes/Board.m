@@ -53,6 +53,8 @@ static Board *sharedInstance = nil;
 		biv.view.center = CGPointMake(200/2, 200 + 236/2);
 		[tileView addSubview:biv.view];
 		
+		riv = [[RoundIntroViewController alloc] initWithNibName:@"RoundIntroView" bundle:nil];
+		riv.view.center = [GameVisual boardCenter];
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.clipsToBounds = YES;
@@ -145,6 +147,13 @@ static Board *sharedInstance = nil;
 
 - (void)enterRound{
 	[currentPlayerMark moveToPlayerWithID:gameLogic.currentPlayer.ID withAnim:YES];
+}
+
+
+- (void)addRoundIntro{
+	[self addSubview:riv.view];
+	[riv show];
+	[self update];
 }
 
 - (void)enterTurn{

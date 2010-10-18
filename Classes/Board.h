@@ -19,6 +19,7 @@
 #import "CurrentPlayerMark.h"
 
 #import "BoardInfoViewController.h"
+#import "RoundIntroViewController.h"
 
 @class RumbleBoard;
 @class GameLogic;
@@ -43,6 +44,8 @@
 	
 	BoardInfoViewController * biv;
 	
+	RoundIntroViewController * riv;
+	
 	CurrentPlayerMark * currentPlayerMark;
 		
 }
@@ -64,6 +67,7 @@
 
 - (void)enterRound;
 - (void)enterTurn;
+- (void)addRoundIntro;
 
 - (void)enterRumble;
 - (void)exitRumble;
