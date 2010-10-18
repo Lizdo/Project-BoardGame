@@ -44,6 +44,8 @@ static RumbleBoard *sharedInstance = nil;
 		countDown.textColor = [GameVisual colorWithHex:0x585858];
 		countDown.textAlignment = UITextAlignmentCenter;
 		countDown.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
+		countDown.shadowColor = [UIColor whiteColor];
+		countDown.shadowOffset = CGSizeMake(1, 2);
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		
