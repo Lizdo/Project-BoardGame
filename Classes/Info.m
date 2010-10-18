@@ -57,19 +57,19 @@
 		
 		rvc = [[RuleViewController alloc] initWithNibName:@"RuleView" bundle:nil];
 		[self addSubview:rvc.view];
-		rvc.view.center = CGPointMake(rvc.view.center.x, rvc.view.center.y);
-		((NoteView *)rvc.view).hasSlidedOut = NO;		
+		rvc.view.center = CGPointMake(NoteViewWidth/2, NoteViewHeight/2 + NoteViewOffset);
+		//((NoteView *)rvc.view).hasSlidedOut = NO;		
 		
 		svc = [[ScoreViewController alloc] initWithNibName:@"ScoreView" bundle:nil];
 		[self addSubview:svc.view];
-		svc.view.center = CGPointMake(svc.view.center.x + 80, svc.view.center.y);
-		((NoteView *)svc.view).hasSlidedOut = NO;		
+		svc.view.center = CGPointMake(NoteViewWidth/2 + 80, NoteViewHeight/2 + NoteViewOffset);
+		//((NoteView *)svc.view).hasSlidedOut = NO;		
 		
 		
 		pvc = [[ProjectProgressViewController alloc]initWithNibName:@"ProjectProgressView" bundle:nil];
 		[self addSubview:pvc.view];
-		pvc.view.center = CGPointMake(pvc.view.center.x + 200, pvc.view.center.y);
-		((NoteView *)pvc.view).hasSlidedOut = NO;		
+		pvc.view.center = CGPointMake(NoteViewWidth/2 + 200, NoteViewHeight/2 + NoteViewOffset);
+		//((NoteView *)pvc.view).hasSlidedOut = NO;		
 		
 		self.clipsToBounds = YES;
 

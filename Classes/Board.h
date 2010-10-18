@@ -20,6 +20,7 @@
 
 #import "BoardInfoViewController.h"
 #import "RoundIntroViewController.h"
+#import "RumbleIntroViewController.h"
 
 @class RumbleBoard;
 @class GameLogic;
@@ -45,7 +46,8 @@
 	BoardInfoViewController * biv;
 	
 	RoundIntroViewController * riv;
-	
+	RumbleIntroViewController * ruiv;
+
 	CurrentPlayerMark * currentPlayerMark;
 		
 }
@@ -68,6 +70,8 @@
 - (void)enterRound;
 - (void)enterTurn;
 - (void)addRoundIntro;
+- (void)addRumbleIntro;
+
 
 - (void)enterRumble;
 - (void)exitRumble;

@@ -29,7 +29,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	((NoteView *)self.view).hasSlidedOut = YES;
+	//((NoteView *)self.view).hasSlidedOut = YES;
 	tableView.allowsSelection = NO;
 }
 

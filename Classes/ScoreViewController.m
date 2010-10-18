@@ -33,9 +33,9 @@
 }
 
 
-- (void)viewDidLoad {
-	((NoteView *)self.view).hasSlidedOut = YES;
-}
+//- (void)viewDidLoad {
+//	((NoteView *)self.view).hasSlidedOut = YES;
+//}
 
 
 

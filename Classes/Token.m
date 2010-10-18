@@ -70,13 +70,16 @@
 	return [t autorelease];
 }
 
-/*
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+//- (void)drawRect:(CGRect)rect {
+//	CGContextRef c = UIGraphicsGetCurrentContext();
+//	CGContextSetAllowsAntialiasing(c, true);
+//	CGContextSetShouldAntialias(c, true);
+//	[super drawRect:rect];
+//}
+
 
 - (void)moveTo:(CGPoint)position byAI:(BOOL)byAI inState:(RoundState)state{
 	[gameLogic triggerEvent:TokenEventPickedUp withToken:self atPosition:self.center];	

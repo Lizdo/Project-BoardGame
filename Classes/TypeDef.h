@@ -53,11 +53,13 @@
 
 
 // Size & Position
-#define TokenSize 22.5	//Radius
+#define TokenSize 25	//Radius
 #define PlayerTokenSize 50
 #define BadgeSize 20
 #define BadgeInterval 10
-
+#define NoteViewWidth 314
+#define NoteViewHeight 200
+#define NoteViewOffset 160
 
 //	Info
 #define InfoWidth 568

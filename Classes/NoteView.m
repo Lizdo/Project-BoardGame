@@ -19,6 +19,15 @@
 
 @synthesize hasSlidedOut;
 
+- (id)initWithFrame:(CGRect)frame {
+    if ((self = [super initWithFrame:frame])) {
+        // Initialization code
+        hasSlidedOut = YES;
+    }
+    return self;
+}
+
+
 - (void)setHasSlidedOut:(BOOL)newBool{
 	if (hasSlidedOut == newBool) {
 		return;
@@ -31,7 +40,7 @@
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:SlideOutTime]; 
 	[UIView setAnimationDelegate:self];
-	self.center = CGPointMake(self.center.x,self.bounds.size.height/2);
+	self.center = CGPointMake(self.center.x, NoteViewHeight/2);
 	[UIView commitAnimations];
 }
 
@@ -39,7 +48,7 @@
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:SlideOutTime]; 
 	[UIView setAnimationDelegate:self];
-	self.center = CGPointMake(self.center.x, self.bounds.size.height+60);
+	self.center = CGPointMake(self.center.x, NoteViewHeight/2 + NoteViewOffset);
 	[UIView commitAnimations];	
 }
 

@@ -56,6 +56,9 @@ static Board *sharedInstance = nil;
 		riv = [[RoundIntroViewController alloc] initWithNibName:@"RoundIntroView" bundle:nil];
 		riv.view.center = [GameVisual boardCenter];
 		
+		ruiv = [[RumbleIntroViewController alloc] initWithNibName:@"RumbleIntroView" bundle:nil];
+		ruiv.view.center = [GameVisual boardCenter];
+		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		self.clipsToBounds = YES;
 		
@@ -156,6 +159,14 @@ static Board *sharedInstance = nil;
 	[self update];
 }
 
+- (void)addRumbleIntro{
+	[self removeAllPopups];	
+	[self addSubview:ruiv.view];
+	[ruiv show];
+	[self update];
+}
+
+
 - (void)enterTurn{
 	[currentPlayerMark moveToPlayerWithID:gameLogic.currentPlayer.ID withAnim:YES];
 }
@@ -179,6 +190,7 @@ static Board *sharedInstance = nil;
 }
 
 - (void)exitRumble{
+	[ruiv.view removeFromSuperview];
 	[bgv exitRumble];
 //    [UIView beginAnimations:nil context:nil];
 //    [UIView setAnimationDuration:0.5];
@@ -262,6 +274,8 @@ static Board *sharedInstance = nil;
 	[tileView release];
 	[tokenView release];
 	[biv release];
+	[riv release];
+	[ruiv release];
 	
     [super dealloc];
 }

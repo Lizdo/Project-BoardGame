@@ -113,6 +113,10 @@ static Round *sharedInstance = nil;
 }
 
 - (void)startRumble{
+	[[Board sharedInstance] addRumbleIntro];
+}
+	 
+- (void)enterRumbleWaitComplete{
 	[rumble enterRumble];
 }
 

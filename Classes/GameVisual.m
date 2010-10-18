@@ -124,9 +124,9 @@
 			imageName = @"Square";			
 			break;
 	}
-	if (isPlaceholder) {
-		imageName = [imageName stringByAppendingString:@"_Placeholder"];
-	}
+//	if (isPlaceholder) {
+//		imageName = [imageName stringByAppendingString:@"_Placeholder"];
+//	}
 	
 	imageName = [imageName stringByAppendingString:@".png"];
 	

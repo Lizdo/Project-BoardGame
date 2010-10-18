@@ -14,7 +14,8 @@
 
 
 - (void)viewDidLoad {
-	((NoteView *)self.view).hasSlidedOut = YES;
+	[super viewDidLoad];
+	tableView.allowsSelection = NO;
 }
 
 

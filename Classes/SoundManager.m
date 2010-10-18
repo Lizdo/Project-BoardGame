@@ -20,8 +20,8 @@ static SoundManager *sharedInstance = nil;
 		dic = [[NSMutableDictionary dictionaryWithCapacity:0]retain];
 		[self addSystemSoundWithName:@"beep"];
 		[self addSystemSoundWithName:@"clash"];
-		playMusic = YES;
-		playSound = YES;
+		playMusic = NO;
+		playSound = NO;
 	}
 	return self;
 }
