@@ -49,7 +49,7 @@
 
 // Round Intro Time
 #define RoundIntroFadeTime 2.0
-#define RoundIntroOnScreenTime 3.0
+#define RoundIntroOnScreenTime 2.0
 
 
 // Size & Position

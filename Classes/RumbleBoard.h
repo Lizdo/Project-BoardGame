@@ -12,6 +12,7 @@
 #import "Rumble.h"
 #import "RumbleInfo.h"
 #import "ContainerView.h"
+#import "AmountContainer.h"
 
 #define RBRandomSlices 6
 #define RBRandomSeedsNeeded 20
@@ -43,7 +44,12 @@
 	ContainerView * rumbleView;
 	ContainerView * tokenView;
 	ContainerView * popupView;
+	
+	AmountContainer * sharedTokenAmount;
 }
+
+@property (retain,nonatomic) AmountContainer * sharedTokenAmount;
+
 
 + (RumbleBoard*)sharedInstance;
 

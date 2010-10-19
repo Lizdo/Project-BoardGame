@@ -61,6 +61,25 @@
 	}
 }
 
+- (BOOL)greaterOrEqualThan:(AmountContainer *)anotherAmountContainer{
+	for (int i=0; i< MAX(NumberOfTokenTypes, NumberOfRumbleTargetTypes); i++) {
+		if ([self amountForIndex:i] < [anotherAmountContainer amountForIndex:i]) {
+			return NO;
+		}
+	}
+	return YES;
+}
+
+
+- (NSString *)description{
+	NSString * str = @"";
+	for (int i=0; i< MAX(NumberOfTokenTypes, NumberOfRumbleTargetTypes); i++) {
+		str = [str stringByAppendingFormat:@"%d ", [self amountForIndex:i]];
+	}
+	return str;
+}
+
+
 - (void)encodeWithCoder:(NSCoder *)coder {
 	[coder encodeObject:amounts forKey:@"amounts"];
 }

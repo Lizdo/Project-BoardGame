@@ -20,6 +20,8 @@
 
 @implementation RumbleBoard
 
+@synthesize sharedTokenAmount;
+
 static RumbleBoard *sharedInstance = nil;
 
 - (id)initWithFrame:(CGRect)frame {
@@ -67,7 +69,6 @@ static RumbleBoard *sharedInstance = nil;
 		popupView = [[ContainerView alloc]initWithFrame:self.bounds];
 		popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
 		[self addSubview:popupView];
-
     }
     return self;
 }
@@ -115,16 +116,17 @@ static RumbleBoard *sharedInstance = nil;
 
 - (void)allRumble{
 	allRumble = YES;
+	[self addSharedTokens];		
 	for (RumbleInfo * info in rumbleInfos){
 		[rumbleView addSubview:info];
 		[info enterRumble];
 	}
-	[self addSharedTokens];	
 }
 
 - (void)rumbleWithPlayerID:(int)playerID{
 	allRumble = NO;
 	rumbleID = playerID;
+	self.sharedTokenAmount = [AmountContainer emptyAmountContainer];	
 	for (RumbleInfo * info in rumbleInfos){
 		if (info.player.ID != playerID) {
 			[info removeFromSuperview];
@@ -163,12 +165,13 @@ static RumbleBoard *sharedInstance = nil;
 	[gameLogic exitRumbleAnimDidStop];
 }
 
-- (void)addSharedTokens{
-	
+- (void)addSharedTokens{	
 	for (int i=0; i<RBRandomSeedsNeeded; i++) {
 		randomSeedUsed[i] = 0;
 	}
 	randomSeedIndex = 0;
+	
+	self.sharedTokenAmount = [AmountContainer emptyAmountContainer];	
 	
 	//add some random tokens	
 	randomTokenRect = CGRectMake(264, 318, 240, 378);
@@ -185,6 +188,7 @@ static RumbleBoard *sharedInstance = nil;
 		//[gameLogic.rumbleBoard addSubview:t];
 		[self addRumbleToken:t];
 		[gameLogic.rumbleTokens addObject:t];
+		[sharedTokenAmount modifyAmountForIndex:t.type by:1];
 	}
 }
 

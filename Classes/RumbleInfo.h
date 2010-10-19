@@ -32,6 +32,7 @@
 	BOOL rumbleAlone;
 
 	CGPoint currentPosition;
+	
 }
 
 @property (nonatomic,assign) Player * player;

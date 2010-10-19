@@ -76,9 +76,14 @@
 	return [UIImage imageNamed:imageName];
 }
 
-+ (UIImage *)imageForRumbleTarget{
-	return [UIImage imageNamed:@"Postit_Rumble.png"];
++ (UIImage *)imageForRumbleTarget:(BOOL)isAvailable{
+	if (isAvailable) {
+		return [UIImage imageNamed:@"Postit_Rumble.png"];
+	}else {
+		return [UIImage imageNamed:@"Postit_Rumble_Unavailable.png"];
+	}
 }
+
 
 
 + (UIColor *)colorForPlayerID:(int)theID{

@@ -12,6 +12,7 @@
 #import "Rumble.h"
 #import "TokenPlaceholder.h"
 #import "BGViewWithPopup.h"
+#import "AmountContainer.h"
 
 @class GameLogic;
 @class RumbleInfo;
@@ -33,15 +34,18 @@
 	UITapGestureRecognizer * recognizerTap;	
 		
 	UILabel * nameLabel;
-	
 	UILabel * timeLabel;
-		
+	
+	BOOL isAvailable;
 }
 
 @property (nonatomic,assign) Player * player;
 @property (nonatomic,assign) RumbleInfo * info;
 @property (nonatomic,assign) RumbleTargetType type;
 @property (nonatomic,retain) NSMutableArray * tokenPlaceholders;
+
+@property (nonatomic,assign) BOOL isAvailable;
+
 
 + (RumbleTarget *)rumbleTargetWithType:(RumbleTargetType)aType;
 - (void)addTokenPlaceholderWithInfo:(int *)info;
@@ -55,6 +59,7 @@
 - (void)remove;
 
 - (void)enableSelection;
+- (AmountContainer *)tokenAmount;
 
 #pragma mark -
 #pragma mark AI

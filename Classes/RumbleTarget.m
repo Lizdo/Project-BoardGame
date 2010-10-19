@@ -26,10 +26,15 @@
 
 @implementation RumbleTarget
 
-@synthesize player,type,tokenPlaceholders,info;
+@synthesize player,type,tokenPlaceholders,info,isAvailable;
 
 float distance(CGPoint p1, CGPoint p2){
 	return pow((p1.x - p2.x),2) + pow((p1.y - p2.y),2); 
+}
+
+- (void)setIsAvailable:(BOOL)b{
+	isAvailable = b;
+	[self setNeedsDisplay];
 }
 
 - (void)setType:(RumbleTargetType)t{
@@ -81,7 +86,7 @@ float distance(CGPoint p1, CGPoint p2){
 
 - (void)drawRect:(CGRect)rect{
 	CGRect r = self.bounds;
-	UIImage * uiImage = [GameVisual imageForRumbleTarget];
+	UIImage * uiImage = [GameVisual imageForRumbleTarget:isAvailable];
 	if (uiImage != nil) {
 		CGImageRef image = uiImage.CGImage;
 		CGContextRef c = UIGraphicsGetCurrentContext();
@@ -429,6 +434,14 @@ static const int DistanceTolerance = 30;
 			return @"";
 			break;
 	}	
+}
+
+- (AmountContainer *)tokenAmount{
+	AmountContainer * ac = [AmountContainer emptyAmountContainer];
+	for (Token * t in tokenPlaceholders) {
+		[ac modifyAmountForIndex:t.type by:1];
+	}
+	return ac;
 }
 
 - (void)dealloc{

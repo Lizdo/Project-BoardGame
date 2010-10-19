@@ -23,4 +23,6 @@
 - (void)substractAmount:(AmountContainer *)ac;
 - (void)addAmount:(AmountContainer *)ac;
 
+- (BOOL)greaterOrEqualThan:(AmountContainer *)anotherAmountContainer;
+
 @end

@@ -23,7 +23,7 @@
 + (UIColor *)tileColorForState:(TileState)state andStyle:(int)style;
 + (UIImage *)tileImageForState:(TileState)state andStyle:(int)style;
 
-+ (UIImage *)imageForRumbleTarget;
++ (UIImage *)imageForRumbleTarget:(BOOL)isAvailable;
 
 + (UIColor *)colorForPlayerID:(int)theID;
 + (UIImage *)imageForTokenType:(TokenType)aType andPlayerID:(int)anOwnerID placeholder:(BOOL)isPlaceholder;
