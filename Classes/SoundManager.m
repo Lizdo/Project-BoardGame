@@ -20,6 +20,9 @@ static SoundManager *sharedInstance = nil;
 		dic = [[NSMutableDictionary dictionaryWithCapacity:0]retain];
 		[self addSystemSoundWithName:@"beep"];
 		[self addSystemSoundWithName:@"clash"];
+		[self addSystemSoundWithName:@"pickup"];
+		[self addSystemSoundWithName:@"dropdown"];		
+		
 		playMusic = NO;
 		playSound = NO;
 	}
@@ -52,6 +55,18 @@ static SoundManager *sharedInstance = nil;
 		return;
 	}	
 	AudioServicesPlaySystemSound([[dic objectForKey:@"clash"]intValue]);
+}
+
+- (void)playSound:(NSString *)name{
+	if (!playSound) {
+		return;
+	}
+	if ([dic objectForKey:name] == nil) {
+		return;
+	}
+	
+	AudioServicesPlaySystemSound([[dic objectForKey:name]intValue]);
+
 }
 
 

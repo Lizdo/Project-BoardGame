@@ -17,6 +17,9 @@
 	BOOL playMusic;	
 }
 
+#define kSoundPickup @"pickup"
+#define kSoundDropdown @"dropdown"
+
 @property (nonatomic,assign) BOOL playSound;
 @property (nonatomic,assign) BOOL playMusic;
 
@@ -26,5 +29,6 @@
 
 - (void)beep;
 - (void)clash;
+- (void)playSound:(NSString *)name;
 
 @end

@@ -157,10 +157,10 @@ static int tileInfos[18][8] = {
 	//Play Sound
 	switch (event) {
 		case TokenEventPickedUp:
-			[[SoundManager sharedInstance] clash];
+			[[SoundManager sharedInstance] playSound:kSoundPickup];
 			break;
 		case TokenEventDroppedDown:
-			[[SoundManager sharedInstance] beep];
+			[[SoundManager sharedInstance] playSound:kSoundDropdown];
 			break;			
 		default:
 			break;
