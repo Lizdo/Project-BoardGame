@@ -129,12 +129,9 @@
 	AmountContainer * currentAmount = [AmountContainer emptyAmountContainer];
 	[currentAmount addAmount:[RumbleBoard sharedInstance].sharedTokenAmount];
 	[currentAmount addAmount:player.tokenAmounts];
-	DebugLog(@"currentAmount %@", [currentAmount description]);
 	
 	for (RumbleTarget * rt in rumbleTargets) {
-		DebugLog(@"TokenAmount %@", [[rt tokenAmount] description]);
 		if ([currentAmount greaterOrEqualThan:[rt tokenAmount]]) {
-			DebugLog(@"%d Avilable!", rt.type);
 			rt.isAvailable = YES;
 		}else {
 			rt.isAvailable = NO;

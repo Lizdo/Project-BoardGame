@@ -170,7 +170,15 @@ typedef enum{
 	RumbleTargetTypeTank,
 }RumbleTargetType;
 
-#define NumberOfBadgeTypes 12
+#define NumberOfBadgeTypes 13
+
+
+// -- Badge Design --
+//  Most Resource
+//  Enough Resource
+//  1st Builder
+//  1/3/5/7 Builds
+//  Fast Builder (Build more than 1 per turn)
 
 typedef enum{
 	BadgeTypeMostRound = 0,
@@ -189,9 +197,14 @@ typedef enum{
 	BadgeTypeHasSnake = 31,
 	BadgeTypeHasPalace = 32,
 	
+	BadgeTypeFirstBuilder = 50,
+	
 }BadgeType;
 
 extern const int BadgeTypes[NumberOfBadgeTypes];
+extern const int ExclusiveBadgeTypes[NumberOfBadgeTypes];
+extern const int PermanentBadgeTypes[NumberOfBadgeTypes];
+
 
 
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);

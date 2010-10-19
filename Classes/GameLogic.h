@@ -114,6 +114,7 @@
 - (CGRect)convertedRect:(CGRect)rect;
 - (BOOL)isInRumble;
 
+- (BOOL)isBadgeTypeUsed:(BadgeType)t;
 
 #pragma mark -
 #pragma mark Tunings

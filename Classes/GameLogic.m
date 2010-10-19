@@ -311,9 +311,9 @@ static int tileInfos[18][8] = {
 //	}
 //	[rumbleTargets removeAllObjects];
 //	[rumbleTargets release];
+	[self calculateScore];
+	[board addBadges];
 
-
-	
 }
 
 
@@ -576,6 +576,17 @@ static int tileInfos[18][8] = {
 - (BOOL)isInRumble{
 	if ([Round sharedInstance].state == RoundStateRumble || [Turn sharedInstance].state == TurnStateBuild) {
 		return YES;
+	}
+	return NO;
+}
+
+- (BOOL)isBadgeTypeUsed:(BadgeType)t{
+	for (Player * p in players) {
+		for (Badge * b in p.badges) {
+			if (b.type == t) {
+				return YES;
+			}
+		}
 	}
 	return NO;
 }

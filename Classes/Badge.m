@@ -57,6 +57,32 @@
 	return nil;
 }
 
+- (BOOL)isExclusive{
+	return [Badge isBadgeTypeExclusive:type];
+}
+
+- (BOOL)isPermanent{
+	return [Badge isBadgeTypePermanent:type];
+}
+
++ (BOOL)isBadgeTypeExclusive:(BadgeType)type{
+	for (int i=0; i<NumberOfBadgeTypes; i++) {
+		if (ExclusiveBadgeTypes[i] == type) {
+			return YES;
+		}
+	}
+	return NO;
+}
+
++ (BOOL)isBadgeTypePermanent:(BadgeType)type{
+	for (int i=0; i<NumberOfBadgeTypes; i++) {
+		if (PermanentBadgeTypes[i] == type) {
+			return YES;
+		}
+	}
+	return NO;
+}
+
 
 - (NSString *)title{
 	return [NSString stringWithFormat:@"+%d", [self score]];

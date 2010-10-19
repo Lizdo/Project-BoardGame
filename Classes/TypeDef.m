@@ -30,6 +30,48 @@ const int BadgeTypes[NumberOfBadgeTypes] = {
 	BadgeTypeHasPalace
 };
 
+const int ExclusiveBadgeTypes[NumberOfBadgeTypes] = {
+	-1,
+	-1,
+	-1,
+	
+	-1,
+	-1,
+	-1,	
+	
+	-1,
+	-1,
+	-1,
+	
+	-1,
+	-1,
+	-1,	
+	
+	BadgeTypeFirstBuilder,
+	
+};
+
+const int PermanentBadgeTypes[NumberOfBadgeTypes] = {
+	-1,
+	-1,
+	-1,
+	
+	-1,
+	-1,
+	-1,	
+	
+	-1,
+	-1,
+	-1,
+	
+	-1,
+	-1,
+	-1,
+	
+	BadgeTypeFirstBuilder,
+	
+};
+
 const int EnoughResource[NumberOfTokenTypes]={10,8,6};
 
 

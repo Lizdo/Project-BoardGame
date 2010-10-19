@@ -23,7 +23,7 @@
 
 @synthesize isHuman,token,ID,initialTokenPosition, tokenAmounts, rumbleTargetAmounts, lockedAmounts;
 @synthesize aiProcessInProgress,score,buildScore,resourceScore,badgeScore;
-@synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated, name, projects;
+@synthesize roundAmountUpdated, rectAmountUpdated, squareAmountUpdated, name, projects, badges;
 
 #pragma mark -
 #pragma mark Common
@@ -167,11 +167,17 @@
 
 
 - (void)removeAllBadges{
-	if(badges){
-		[badges removeAllObjects];
+	if(badges && [badges count] > 0){
+		//[badges removeAllObjects];
+		NSMutableArray * newArray = [NSMutableArray arrayWithCapacity:0];
+		for (Badge * b in badges) {
+			if (!b.isPermanent) {
+				[newArray addObject:b];
+			}
+		}
+		self.badges = newArray;
 	}else {
-		badges = [NSMutableArray arrayWithCapacity:0];
-		[badges retain];
+		self.badges = [NSMutableArray arrayWithCapacity:0];
 	}
 }
 
@@ -180,8 +186,12 @@
 		return;
 	}
 	
+	if ([Badge isBadgeTypeExclusive:type] && [gameLogic isBadgeTypeUsed:type]) {
+		return;
+	}
+	
 	if (badges == nil) {
-		[self removeAllBadges];
+		self.badges = [NSMutableArray arrayWithCapacity:0];
 	}
 
 	Badge * b = [Badge badgeWithType:type];

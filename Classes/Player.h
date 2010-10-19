@@ -55,6 +55,8 @@
 @property int ID;
 @property (nonatomic,retain) Token * token;
 @property (nonatomic,retain) NSMutableArray * projects;
+@property (nonatomic,retain) NSMutableArray * badges;
+
 
 @property (nonatomic,assign) CGPoint initialTokenPosition;
 @property (nonatomic,copy) NSString * name;

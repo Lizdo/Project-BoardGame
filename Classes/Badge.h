@@ -31,6 +31,12 @@
 + (Badge *)badgeWithType:(BadgeType)t;
 + (Badge *)maximumResourceBadgeWithType:(ResourceType)t;
 
+- (BOOL)isExclusive;
+- (BOOL)isPermanent;
+
++ (BOOL)isBadgeTypeExclusive:(BadgeType)type;
++ (BOOL)isBadgeTypePermanent:(BadgeType)type;
+
 - (int)score;
 - (NSString *)description;
 

@@ -355,6 +355,8 @@ static const int DistanceTolerance = 30;
 	//allMatched = YES;
 	//self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
 	DebugLog(@"All Matched");
+	//[Badge]: First Builder
+	[player addBadgeWithType:BadgeTypeFirstBuilder];
 	
 	//Add project here
 	Project * p = [[Project alloc] initWithRumbleTarget:self];
