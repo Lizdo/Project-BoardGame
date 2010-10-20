@@ -49,7 +49,7 @@
 #endif
 
 // Round Intro Time
-#define RoundIntroFadeTime 2.0
+#define RoundIntroFadeTime 1.2
 #define RoundIntroOnScreenTime 2.0
 
 
@@ -71,7 +71,7 @@
 #define RumbleInfoHeight 250
 #define RumbleInfoOffset 20
 
-#define RandomPositionInterval 40
+#define RandomPositionInterval 55
 #define RandomPositionBoundWidth (RumbleInfoWidth - RumbleTargetWidth) / 2 + RumbleInfoOffset
 
 //	RumbleTarget
@@ -87,7 +87,7 @@
 #define TileStartingY 200
 #define TileWidth 123
 #define TileHeight 100//105
-#define TileInterval 2
+#define TileInterval 1
 #define TileBackgroundStyleCount 3
 #define TilePositionRandomness 0  //5
 
@@ -171,7 +171,7 @@ typedef enum{
 	RumbleTargetTypeTank,
 }RumbleTargetType;
 
-#define NumberOfBadgeTypes 13
+#define NumberOfBadgeTypes 18
 
 
 // -- Badge Design --
@@ -199,6 +199,12 @@ typedef enum{
 	BadgeTypeHasPalace = 32,
 	
 	BadgeTypeFirstBuilder = 50,
+	BadgeTypeFastBuilder = 51,
+	
+	BadgeTypeOneProject = 60,
+	BadgeTypeThreeProjects = 61,	
+	BadgeTypeFiveProjects = 62,
+	BadgeTypeSevenProjects = 63,	
 	
 }BadgeType;
 

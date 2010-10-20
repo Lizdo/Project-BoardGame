@@ -10,6 +10,7 @@
 #import "Tile.h"
 #import "Board.h"
 #import "RumbleBoard.h"
+#import "Project.h"
 
 
 @interface GameLogic (Private)
@@ -425,6 +426,7 @@ static int tileInfos[18][8] = {
 		Player * p = [self playerWithID:i];
 		[p removeAllBadges];
 		
+		//Enough Resource Badge
 		p.resourceScore = 0;
 		for (int j=0; j<NumberOfTokenTypes; j++) {
 			p.resourceScore += [p amountOfResource:j]*TokenScoreModifier[j];
@@ -432,7 +434,8 @@ static int tileInfos[18][8] = {
 				[p addEnoughResourceBadgeWithType:j];
 			}
 		}
-		
+
+		//Has Project Badge		
 		p.buildScore = 0;
 		for (int j=0; j<NumberOfRumbleTargetTypes; j++) {
 			p.buildScore += [p amountOfRumbleTarget:j]*RumbleTargetScoreModifier[j];
@@ -440,6 +443,26 @@ static int tileInfos[18][8] = {
 				[p addHasRumbleTargetBadgeWithType:j];
 			}
 		}
+		
+		//Project Number Badge
+		int projectCount = 0;
+		for (Project * pr in p.projects) {
+			if (pr.isCompleted) {
+				projectCount++;
+			}
+		}
+		
+		if (projectCount >= 7) {
+			[p addBadgeWithType:BadgeTypeSevenProjects];
+		}else if (projectCount >= 5) {
+			[p addBadgeWithType:BadgeTypeFiveProjects];
+		}else if (projectCount >= 3) {
+			[p addBadgeWithType:BadgeTypeThreeProjects];
+		}else if (projectCount >=1) {
+			[p addBadgeWithType:BadgeTypeOneProject];
+		}
+
+		
 	}
 	
 	
@@ -459,6 +482,7 @@ static int tileInfos[18][8] = {
 		}
 		
 		p.score = p.buildScore + p.resourceScore + p.badgeScore;
+		
 	}
 	
 }
@@ -632,6 +656,24 @@ static int tileInfos[18][8] = {
 			break;
 		case BadgeTypeHasPalace:
 			return 7;
+			break;
+		case BadgeTypeFirstBuilder:
+			return 7;
+			break;
+		case BadgeTypeFastBuilder:
+			return 7;
+			break;
+		case BadgeTypeOneProject:
+			return 1;
+			break;		
+		case BadgeTypeThreeProjects:
+			return 4;
+			break;		
+		case BadgeTypeFiveProjects:
+			return 9;
+			break;
+		case BadgeTypeSevenProjects:
+			return 16;
 			break;			
 		default:
 			break;
@@ -642,13 +684,13 @@ static int tileInfos[18][8] = {
 + (NSString *)descriptionForBadgeType:(BadgeType)type{
 	switch (type) {
 		case BadgeTypeMostRound:
-			return @"You have the most designers in your team.";
+			return @"Most Designers";
 			break;
 		case BadgeTypeMostRect:
-			return @"You have the most artists in your team.";
+			return @"Most Artists";
 			break;
 		case BadgeTypeMostSquare:
-			return @"You have the most coders in your team.";
+			return @"Most Coders";
 			break;
 		case BadgeTypeMostRobot:
 			return @"You are the action game star producer.";
@@ -676,6 +718,24 @@ static int tileInfos[18][8] = {
 			break;
 		case BadgeTypeHasPalace:
 			return @"Your first AAA RPGee project completed.";
+			break;
+		case BadgeTypeFirstBuilder:
+			return @"First Builder";
+			break;
+		case BadgeTypeFastBuilder:
+			return @"Build 3+ Projects in 1 Week";
+			break;
+		case BadgeTypeOneProject:
+			return @"First Project Built";
+			break;		
+		case BadgeTypeThreeProjects:
+			return @"3 Projects Built";
+			break;		
+		case BadgeTypeFiveProjects:
+			return @"5 Projects Built";
+			break;
+		case BadgeTypeSevenProjects:
+			return @"7 Projects Built";
 			break;			
 		default:
 			break;

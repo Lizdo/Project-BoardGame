@@ -40,9 +40,10 @@
 */
 
 - (id)initWithSourceObject:(id)object{
-	self = [[BGPopupController alloc] initWithNibName:@"BGPopupController" bundle:nil];
-	sourceObject = object;
-	popupPresent = NO;
+	if(self = [[BGPopupController alloc] initWithNibName:@"BGPopupController" bundle:nil]){
+		sourceObject = object;
+		popupPresent = NO;	
+	}
 	return self;
 }
 
