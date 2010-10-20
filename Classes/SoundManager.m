@@ -17,56 +17,43 @@ static SoundManager *sharedInstance = nil;
 
 - (id)init{
 	if (self = [super init]) {
-		dic = [[NSMutableDictionary dictionaryWithCapacity:0]retain];
-		[self addSystemSoundWithName:@"beep"];
-		[self addSystemSoundWithName:@"clash"];
-		[self addSystemSoundWithName:@"pickup"];
-		[self addSystemSoundWithName:@"dropdown"];		
+		sounds = [[NSMutableArray arrayWithCapacity:0]retain];
 		
-		playMusic = NO;
-		playSound = NO;
+		[sounds insertObject:[NSArray arrayWithObjects:@"pickup", nil]
+					 atIndex:SoundTagPickup];
+		
+		[sounds insertObject:[NSArray arrayWithObjects:@"dropdown",@"dropdown2",@"dropdown3", nil]
+						 atIndex:SoundTagDropDown];
+
+		[sounds insertObject:[NSArray arrayWithObjects:@"paperfly", nil]
+					 atIndex:SoundTagPaperFly];
+
+		[sounds insertObject:[NSArray arrayWithObjects:@"papershort", @"papershort2", @"papershort3", nil]
+					 atIndex:SoundTagPaperShort];		
+		
+		playMusic = YES;
+		playSound = YES;
 	}
 	return self;
 }
 
-- (void)addSystemSoundWithName:(NSString *)name{
+
+
+- (void)playSoundWithTag:(SoundTag)tag{
+	if (!playSound) {
+		return;
+	}
+
+	NSString * name = [(NSArray *)[sounds objectAtIndex:tag] randomObject];
 	NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.caf", 
 										 [[NSBundle mainBundle] resourcePath], 
-										 name]];
-
-	SystemSoundID aSoundID;
-	OSStatus error = AudioServicesCreateSystemSoundID((CFURLRef)url, &aSoundID);
-	if (error == kAudioServicesNoError) { // success
-		[dic setObject:[NSNumber numberWithInt:aSoundID] forKey:name];
-	} else {
-		NSLog(@"Error %d loading sound : %@", error, name);
-	}
-}
-
-- (void)beep{
-	if (!playSound) {
-		return;
-	}
-	AudioServicesPlaySystemSound([[dic objectForKey:@"beep"]intValue]);
-}
-
-- (void)clash{
-	if (!playSound) {
-		return;
-	}	
-	AudioServicesPlaySystemSound([[dic objectForKey:@"clash"]intValue]);
-}
-
-- (void)playSound:(NSString *)name{
-	if (!playSound) {
-		return;
-	}
-	if ([dic objectForKey:name] == nil) {
-		return;
-	}
+										 name]];	
 	
-	AudioServicesPlaySystemSound([[dic objectForKey:name]intValue]);
-
+	NSError * error = nil;
+	AVAudioPlayer * p = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+	p.volume = 3.0;
+	[p play];
+	
 }
 
 

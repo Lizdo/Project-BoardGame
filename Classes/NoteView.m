@@ -37,6 +37,7 @@
 }
 
 - (void)slideOut{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagPaperShort];
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:SlideOutTime]; 
 	[UIView setAnimationDelegate:self];
@@ -45,6 +46,7 @@
 }
 
 - (void)slideIn{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagPaperShort];
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:SlideOutTime]; 
 	[UIView setAnimationDelegate:self];

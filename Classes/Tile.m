@@ -278,6 +278,7 @@
 
 
 - (void)flipIn{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagPaperFly];
 	CGPoint originalCenter = self.center;
 	[self.superview bringSubviewToFront:self];
 	self.center = CGPointMake(1000, 1000);

@@ -86,3 +86,6 @@ void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
 	CGContextRestoreGState(c);
 	
 }
+
+
+

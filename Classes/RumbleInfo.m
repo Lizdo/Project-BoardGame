@@ -205,6 +205,9 @@
 	if (swapInProgress) {
 		return;
 	}
+	
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagPaperShort];
+	
 	if (currentRumbleTarget) {
 		[currentRumbleTarget remove];		
 		[currentRumbleTarget removePopup];
@@ -230,6 +233,8 @@
 - (void)zoomOut{
 	[self deactivateCurrentRumbleTarget];
 	currentRumbleTarget = nil;
+	
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagPaperShort];	
 	
 	for (RumbleTarget * rt in rumbleTargets) {
 		[rt enableSelection];
@@ -273,6 +278,7 @@
 }
 
 - (void)selectRumbleTarget:(RumbleTarget *)rt{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagPaperShort];	
 	currentRumbleTarget = rt;
 	[self activateCurrentRumbleTarget];
 }

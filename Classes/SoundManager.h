@@ -8,27 +8,28 @@
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioServices.h>
+#import <AVFoundation/AVAudioPlayer.h>
+#import "TypeDef.h"
 
+typedef enum{
+	SoundTagPickup,
+	SoundTagDropDown,
+	SoundTagPaperFly,
+	SoundTagPaperShort,	
+}SoundTag;
 
 @interface SoundManager : NSObject{
-	NSMutableDictionary * dic;
-	
+	NSMutableArray * sounds;
+
 	BOOL playSound;
 	BOOL playMusic;	
 }
-
-#define kSoundPickup @"pickup"
-#define kSoundDropdown @"dropdown"
 
 @property (nonatomic,assign) BOOL playSound;
 @property (nonatomic,assign) BOOL playMusic;
 
 + (SoundManager*)sharedInstance;
 
-- (void)addSystemSoundWithName:(NSString *)name;
-
-- (void)beep;
-- (void)clash;
-- (void)playSound:(NSString *)name;
+- (void)playSoundWithTag:(SoundTag)tag;
 
 @end

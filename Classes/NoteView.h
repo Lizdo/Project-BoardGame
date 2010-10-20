@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "TypeDef.h"
+#import "SoundManager.h"
 
 @interface NoteView : UIView/* Specify a superclass (eg: NSObject or NSView) */ {
 	BOOL hasSlidedOut;
