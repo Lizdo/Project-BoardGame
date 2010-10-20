@@ -16,6 +16,8 @@
 	UITapGestureRecognizer * recognizer;
 }
 
+@property (retain, nonatomic) BGPopupController * popupController;
+
 - (void)handleTap;
 
 @end

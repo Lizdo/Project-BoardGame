@@ -38,15 +38,11 @@
 		[UIView setAnimationDidStopSelector:@selector(movementComplete)];
 		self.center = [GameVisual positionForPlayerID:playerID withOffsetFromInfoCenter:CurrentPlayerMarkOffset];
 		self.transform = [GameVisual transformForPlayerID:playerID];
-		DebugLog(@"CurrentPlayerMarkPosition: %f, %f", self.center.x, self.center.y);
 		[UIView commitAnimations];
 	}else {
 		self.center = [GameVisual positionForPlayerID:playerID withOffsetFromInfoCenter:CurrentPlayerMarkOffset];
 		self.transform = [GameVisual transformForPlayerID:playerID];				
-		DebugLog(@"CurrentPlayerMarkPosition: %f, %f", self.center.x, self.center.y);		
 	}
-
-
 }
 
 - (void)movementComplete{

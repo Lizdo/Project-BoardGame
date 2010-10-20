@@ -11,6 +11,7 @@
 
 @implementation BGViewWithPopup
 
+@synthesize popupController;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -31,9 +32,7 @@
 
 
 - (void)addPopup{
-	if (popupController == nil) {
-		popupController = [[[BGPopupController alloc]initWithSourceObject:self]retain];
-	}
+	self.popupController = [[BGPopupController alloc]initWithSourceObject:self];
 	[popupController presentPopup];
 	
 }
@@ -73,7 +72,6 @@
 
 - (void)dealloc {
 	[recognizer release];
-	[popupController release];
     [super dealloc];
 }
 
