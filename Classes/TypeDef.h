@@ -71,7 +71,7 @@
 #define RumbleInfoHeight 250
 #define RumbleInfoOffset 20
 
-#define RandomPositionInterval 55
+#define RandomPositionInterval 50
 #define RandomPositionBoundWidth (RumbleInfoWidth - RumbleTargetWidth) / 2 + RumbleInfoOffset
 
 //	RumbleTarget
@@ -171,7 +171,7 @@ typedef enum{
 	RumbleTargetTypeTank,
 }RumbleTargetType;
 
-#define NumberOfBadgeTypes 18
+#define NumberOfBadgeTypes 12
 
 
 // -- Badge Design --
@@ -186,17 +186,9 @@ typedef enum{
 	BadgeTypeMostRect = 1,
 	BadgeTypeMostSquare = 2,
 
-	BadgeTypeMostRobot = 10,
-	BadgeTypeMostSnake = 11,
-	BadgeTypeMostPalace = 12,
-
 	BadgeTypeEnoughRound = 20,
 	BadgeTypeEnoughRect = 21,
 	BadgeTypeEnoughSquare = 22,
-	
-	BadgeTypeHasRobot = 30,
-	BadgeTypeHasSnake = 31,
-	BadgeTypeHasPalace = 32,
 	
 	BadgeTypeFirstBuilder = 50,
 	BadgeTypeFastBuilder = 51,
@@ -204,7 +196,7 @@ typedef enum{
 	BadgeTypeOneProject = 60,
 	BadgeTypeThreeProjects = 61,	
 	BadgeTypeFiveProjects = 62,
-	BadgeTypeSevenProjects = 63,	
+	BadgeTypeSevenProjects = 63,
 	
 }BadgeType;
 
@@ -212,7 +204,12 @@ extern const int BadgeTypes[NumberOfBadgeTypes];
 extern const int ExclusiveBadgeTypes[NumberOfBadgeTypes];
 extern const int PermanentBadgeTypes[NumberOfBadgeTypes];
 
-
+typedef enum{
+	MoveFlagPlayerNormal,
+	MoveFlagPlayerRumble,
+	MoveFlagAINormal,
+	MoveFlagAIRumble
+}MoveFlag;
 
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);
 

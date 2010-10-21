@@ -109,7 +109,7 @@
 	do {
 		tile = [gameLogic randomTile];
 	} while (tile.state == TileStateSelected || ![tile availableForPlayer:self]);
-	[token moveTo:CGPointMake(tile.center.x + 20, tile.center.y + 10) byAI:YES inState:[Round sharedInstance].state];
+	[token moveTo:CGPointMake(tile.center.x + 20, tile.center.y + 10) withMoveFlag:MoveFlagAINormal];
 }
 
 - (void)AImoveComplete{
@@ -159,7 +159,7 @@
 	CGPoint targetPosition = [gameLogic randomRumblePositionForPlayer:self withToken:randomToken];	
 	
 	if (!CGPointEqualToPoint(targetPosition, CGPointZero)) {
-		[randomToken moveTo:targetPosition byAI:YES inState:RoundStateRumble];
+		[randomToken moveTo:targetPosition withMoveFlag:MoveFlagAIRumble];
 	}
 	[self randomWait:@selector(rumbleMove) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
 
@@ -171,7 +171,7 @@
 		//[badges removeAllObjects];
 		NSMutableArray * newArray = [NSMutableArray arrayWithCapacity:0];
 		for (Badge * b in badges) {
-			if (!b.isPermanent) {
+			if (b.isPermanent) {
 				[newArray addObject:b];
 			}
 		}
@@ -187,6 +187,7 @@
 	}
 	
 	if ([Badge isBadgeTypeExclusive:type] && [gameLogic isBadgeTypeUsed:type]) {
+		DebugLog(@"Type @d used", type);
 		return;
 	}
 	

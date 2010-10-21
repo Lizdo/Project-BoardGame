@@ -257,7 +257,7 @@ static int tileInfos[18][8] = {
 
 - (void)exitRound{
 	for (Player * p in players) {
-		[p.token moveTo:p.initialTokenPosition byAI:NO inState:round.state];
+		[p.token moveTo:p.initialTokenPosition withMoveFlag:MoveFlagPlayerNormal];
 		[p.token tokenOnTile:NO];	
 	}	
 	for (Tile * t in tiles) {
@@ -439,9 +439,6 @@ static int tileInfos[18][8] = {
 		p.buildScore = 0;
 		for (int j=0; j<NumberOfRumbleTargetTypes; j++) {
 			p.buildScore += [p amountOfRumbleTarget:j]*RumbleTargetScoreModifier[j];
-			if ([p amountOfRumbleTarget:j] > 0) {
-				[p addHasRumbleTargetBadgeWithType:j];
-			}
 		}
 		
 		//Project Number Badge
@@ -630,15 +627,6 @@ static int tileInfos[18][8] = {
 		case BadgeTypeMostSquare:
 			return 7;
 			break;
-		case BadgeTypeMostRobot:
-			return 7;
-			break;
-		case BadgeTypeMostSnake:
-			return 7;
-			break;
-		case BadgeTypeMostPalace:
-			return 7;
-			break;
 		case BadgeTypeEnoughRound:
 			return 4;
 			break;
@@ -648,17 +636,8 @@ static int tileInfos[18][8] = {
 		case BadgeTypeEnoughSquare:
 			return 8;
 			break;
-		case BadgeTypeHasRobot:
-			return 3;
-			break;
-		case BadgeTypeHasSnake:
-			return 5;
-			break;
-		case BadgeTypeHasPalace:
-			return 7;
-			break;
 		case BadgeTypeFirstBuilder:
-			return 7;
+			return 5;
 			break;
 		case BadgeTypeFastBuilder:
 			return 7;
@@ -692,15 +671,6 @@ static int tileInfos[18][8] = {
 		case BadgeTypeMostSquare:
 			return @"Most Coders";
 			break;
-		case BadgeTypeMostRobot:
-			return @"You are the action game star producer.";
-			break;
-		case BadgeTypeMostSnake:
-			return @"You are the sport genre star producer.";
-			break;
-		case BadgeTypeMostPalace:
-			return @"You are the RPGee star producer.";
-			break;
 		case BadgeTypeEnoughRound:
 			return @"You have a fair amount of designers now.";
 			break;
@@ -709,15 +679,6 @@ static int tileInfos[18][8] = {
 			break;
 		case BadgeTypeEnoughSquare:
 			return @"You have a fair amount of coders now.";
-			break;
-		case BadgeTypeHasRobot:
-			return @"Your first action game.";
-			break;
-		case BadgeTypeHasSnake:
-			return @"Your first sport game.";
-			break;
-		case BadgeTypeHasPalace:
-			return @"Your first AAA RPGee project completed.";
 			break;
 		case BadgeTypeFirstBuilder:
 			return @"First Builder";

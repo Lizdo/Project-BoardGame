@@ -231,7 +231,7 @@
 
 - (CGPoint)badgePositionForID:(int)i{
 	float interval = BadgeSize * 2 + BadgeInterval;
-	int rows = InfoHeight/interval;
+	int rows = 3; //InfoHeight/interval;
 	int row = i%rows;
 	int colomn = (i-row)/rows;
 	

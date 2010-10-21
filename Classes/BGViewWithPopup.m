@@ -33,8 +33,9 @@
 
 - (void)addPopup{
 	self.popupController = [[BGPopupController alloc]initWithSourceObject:self];
-	[popupController presentPopup];
-	
+	if (popupController) {
+		[popupController presentPopup];
+	}
 }
 
 - (void)handleTap{

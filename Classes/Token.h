@@ -30,6 +30,7 @@
 	RoundState roundState;
 	
 	CGPoint lastPosition;
+	MoveFlag moveFlag;
 }
 
 @property (nonatomic, assign) BOOL pickedUp;
@@ -45,7 +46,7 @@
 
 
 + (id)tokenWithType:(TokenType)aType andPosition:(CGPoint)p;
-- (void)moveTo:(CGPoint)position byAI:(BOOL)byAI inState:(RoundState)state;
+- (void)moveTo:(CGPoint)position withMoveFlag:(MoveFlag)flag;
 - (void)moveToLastPosition;
 - (void)AImoveComplete;
 

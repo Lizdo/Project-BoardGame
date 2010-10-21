@@ -152,9 +152,11 @@ static RumbleBoard *sharedInstance = nil;
 	
     if(allRumble){
         countDown.center = self.center;
+		countDown.transform = [GameVisual transformForPlayerID:0];
     }
     else{
         countDown.center = CGPointMake(self.center.x, self.center.y + 200);
+		countDown.transform = [GameVisual transformForPlayerID:rumbleID];		
     }
 	[self insertSubview:countDown atIndex:0];
 	[self update];

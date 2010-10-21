@@ -16,15 +16,6 @@
 @synthesize pickedUp, shared, isMatched,type, boundary, player, lastPosition;
 
 - (void)setType:(TokenType)newType{
-	//set the background pic to the new type
-//	switch (newType) {
-//		case TokenTypePlayer:
-//			//
-//			break;
-//		default:
-//			self.image = [UIImage imageNamed:@"Round.png"];
-//			break;
-//	}
 	type = newType;
 }
 
@@ -71,23 +62,14 @@
 }
 
 
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-//- (void)drawRect:(CGRect)rect {
-//	CGContextRef c = UIGraphicsGetCurrentContext();
-//	CGContextSetAllowsAntialiasing(c, true);
-//	CGContextSetShouldAntialias(c, true);
-//	[super drawRect:rect];
-//}
-
-
-- (void)moveTo:(CGPoint)position byAI:(BOOL)byAI inState:(RoundState)state{
+- (void)moveTo:(CGPoint)position withMoveFlag:(MoveFlag)flag{
 	[gameLogic triggerEvent:TokenEventPickedUp withToken:self atPosition:self.center];	
 	[UIView beginAnimations:nil context:nil]; 
 	[UIView setAnimationDuration:MoveAnimationTime + rand()%100*0.002]; 
 	[UIView setAnimationDelegate:self];
-	roundState = state;
-	if (byAI) {
+	roundState = [Round sharedInstance].state;
+	moveFlag = flag;
+	if (moveFlag == MoveFlagAINormal || moveFlag == MoveFlagAIRumble) {
 		[UIView setAnimationDidStopSelector:@selector(AImoveComplete)];
 	}
 	self.center = position;
@@ -96,10 +78,7 @@
 	 
 - (void)AImoveComplete{
 	[gameLogic triggerEvent:TokenEventDroppedDown withToken:self atPosition:self.center];
-	if ([gameLogic isInRumble]) {
-		return;
-	}
-	if (!gameLogic.currentPlayer.isHuman) {
+	if (!gameLogic.currentPlayer.isHuman && moveFlag == MoveFlagAINormal) {
 		//exit turn
 		[gameLogic.currentPlayer AImoveComplete];
 	}
@@ -114,7 +93,7 @@
 }
 
 - (void)moveToLastPosition{
-	[self moveTo:lastPosition byAI:NO inState:RoundStateRumble];
+	[self moveTo:lastPosition withMoveFlag:MoveFlagPlayerRumble];
 }
 
 #pragma mark -

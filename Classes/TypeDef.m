@@ -17,18 +17,10 @@ const int BadgeTypes[NumberOfBadgeTypes] = {
 	BadgeTypeMostRect,
 	BadgeTypeMostSquare,
 	
-	BadgeTypeMostRobot,
-	BadgeTypeMostSnake,
-	BadgeTypeMostPalace,
-	
 	BadgeTypeEnoughRound,
 	BadgeTypeEnoughRect,
 	BadgeTypeEnoughSquare,
-	
-	BadgeTypeHasRobot,
-	BadgeTypeHasSnake,
-	BadgeTypeHasPalace,
-	
+
 	BadgeTypeFirstBuilder,
 	BadgeTypeFastBuilder,
 	
@@ -39,14 +31,6 @@ const int BadgeTypes[NumberOfBadgeTypes] = {
 };
 
 const int ExclusiveBadgeTypes[NumberOfBadgeTypes] = {
-	-1,
-	-1,
-	-1,
-	
-	-1,
-	-1,
-	-1,	
-	
 	-1,
 	-1,
 	-1,
@@ -66,14 +50,6 @@ const int ExclusiveBadgeTypes[NumberOfBadgeTypes] = {
 };
 
 const int PermanentBadgeTypes[NumberOfBadgeTypes] = {
-	-1,
-	-1,
-	-1,
-	
-	-1,
-	-1,
-	-1,	
-	
 	-1,
 	-1,
 	-1,
