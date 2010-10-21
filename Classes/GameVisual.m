@@ -84,7 +84,15 @@
 	}
 }
 
++ (UIImage *)infoBackgroundForPlayerID:(int)playerID{
+	return [GameVisual colorizeImage:[UIImage imageNamed:@"InfoBackground.png"] 
+							   color:[GameVisual colorForPlayerID:playerID]];
+}
 
++ (UIImage *)rumbleInfoBackgroundForPlayerID:(int)playerID{
+	return [GameVisual colorizeImage:[UIImage imageNamed:@"RumbleInfoBackground.png"] 
+							   color:[GameVisual colorForPlayerID:playerID]];	
+}
 
 + (UIColor *)colorForPlayerID:(int)theID{
 	UIColor * color;

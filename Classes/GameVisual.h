@@ -38,6 +38,9 @@
 
 + (UIImage *)colorizeImage:(UIImage *)baseImage color:(UIColor *)theColor;
 
++ (UIImage *)infoBackgroundForPlayerID:(int)playerID;
++ (UIImage *)rumbleInfoBackgroundForPlayerID:(int)playerID;
+
 + (UIColor *)scoreColor;
 + (UIColor *)colorWithHex:(int)hex;
 

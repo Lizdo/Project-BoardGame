@@ -20,6 +20,8 @@
 @class GameLogic;
 
 @interface Info : ContainerView {
+	UIImageView * backgroundImage;
+	
 	UIButton * endTurnButton;
 	UIButton * toggleAIButton;
     

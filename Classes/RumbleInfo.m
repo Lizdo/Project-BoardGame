@@ -36,6 +36,10 @@
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
 		//self.backgroundColor = [UIColor blueColor];
+		backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(- (768-RumbleInfoWidth)/2
+																		, 0, 768-RumbleInfoHeight, RumbleInfoHeight)];
+		[self addSubview:backgroundImage];		
+		
 		gameLogic = [GameLogic sharedInstance];
 		rumbleTargets = [[NSMutableArray arrayWithCapacity:0]retain];
 		rumbleAlone = NO;
@@ -52,6 +56,9 @@
 		[rumbleTargets addObject:rt];
 		//[self addSubview:rt];
 	}
+	
+	backgroundImage.image = [GameVisual rumbleInfoBackgroundForPlayerID:player.ID];
+
 	
 //	NSMutableArray * iconArray = [NSMutableArray arrayWithCapacity:0];
 //	
@@ -108,6 +115,7 @@
 	[self enterRumble];
 	self.center = [GameVisual boardCenter];
 	rumbleAlone = YES;
+	backgroundImage.hidden = YES;
 }
 
 
@@ -138,7 +146,8 @@
 		}
 
 	}
-
+	
+	backgroundImage.hidden = NO;
 }
 
 - (void)enterRumbleAnimDidStop{
@@ -256,6 +265,12 @@
 }
 
 - (CGPoint)positionForRumbleTargetType:(RumbleTargetType)type{
+	//Need to have an offset to avoid covering player1/3's position
+	float avoidanceOffset = 0;
+	if (player.ID == 0||player.ID == 2) {
+		avoidanceOffset = -60;
+	}
+	
 	CGPoint bottomCenter = CGPointMake(RumbleInfoWidth/2, RumbleInfoHeight);
 	int numberOfColumns = ceil(NumberOfRumbleTargetTypes/RumbleTargetZoomOutRows);
 	float totalWidth = numberOfColumns
@@ -269,7 +284,7 @@
 	int row = floor(type/numberOfColumns);
 	int column = type%numberOfColumns;
 	
-	return CGPointMake(startingPosition.x
+	return CGPointMake(avoidanceOffset + startingPosition.x
 					   + column * (RumbleTargetWidth*RumbleTargetZoomOutRatio + RumbleTargetZoomOutInverval)
 					   + RumbleTargetZoomOutInverval + RumbleTargetWidth*RumbleTargetZoomOutRatio/2,
 					   startingPosition.y 

@@ -34,6 +34,9 @@
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
 		gameLogic = [GameLogic sharedInstance];
+		
+		backgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
+		[self addSubview:backgroundImage];
 
         endTurnButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 		[self addSubview:endTurnButton];
@@ -45,7 +48,7 @@
 		
 		toggleAIButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
 		[self addSubview:toggleAIButton];
-		toggleAIButton.frame = CGRectMake(520, 150, 50, 50);
+		toggleAIButton.frame = CGRectMake(510, 150, 50, 50);
 		[toggleAIButton addTarget:self action:@selector(toggleAIButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 		
 //        currentPlayerMark = [[UIImageView alloc] init];
@@ -82,6 +85,8 @@
 - (void)initGame{
 	[self setToggleAIButtonImage];
 	self.allowEndTurn = NO;
+	
+	backgroundImage.image = [GameVisual infoBackgroundForPlayerID:player.ID];
 }
 
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type{
@@ -209,7 +214,14 @@
 	if (pvc.player == nil) {
 		pvc.player = self.player;
 	}
-	[pvc update];	
+	[pvc update];
+	
+	if (gameLogic.currentPlayer == self.player) {
+		backgroundImage.hidden = NO;
+	}else {
+		backgroundImage.hidden = YES;
+	}
+
 
 }
 
@@ -235,7 +247,7 @@
 	int row = i%rows;
 	int colomn = (i-row)/rows;
 	
-	return CGPointMake(BadgeSize + BadgeInterval + interval*colomn, BadgeSize + interval*row);
+	return CGPointMake(BadgeSize + BadgeInterval + interval*colomn + 10, BadgeSize + interval*row);
 }
 
 - (void)dealloc {

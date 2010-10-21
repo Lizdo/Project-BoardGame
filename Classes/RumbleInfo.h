@@ -20,6 +20,8 @@
 @class RumbleTarget;
 
 @interface RumbleInfo : ContainerView {
+	UIImageView * backgroundImage;	
+	
 	Player * player;
 	
 	GameLogic * gameLogic;
