@@ -10,7 +10,7 @@
 
 const int TokenScoreModifier[NumberOfTokenTypes]={1,3,5};
 
-const int RumbleTargetScoreModifier[NumberOfTokenTypes]={5,7,9};
+const int RumbleTargetScoreModifier[NumberOfRumbleTargetTypes]={5,5,9,9,17,17};
 
 const int BadgeTypes[NumberOfBadgeTypes] = {
 	BadgeTypeMostRound,

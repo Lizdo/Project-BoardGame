@@ -36,13 +36,22 @@
 	
 	
 	if (!SkipMenu) {
+		//Add manu
 		mmv = [[MainMenuViewController alloc]initWithNibName:@"MainMenu" bundle:nil];
 		[bgv addSubview:mmv.view];
 		mmv.view.frame = bgv.bounds;
 		[mmv setValue:game forKey:@"game"];
+		
+		//Add tutorial
+		[self showTutorial];
 	}
 }
 
+- (void)showTutorial{
+	tvc = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
+	[bgv addSubview:tvc.view];
+	tvc.view.center = bgv.center;
+}
 
 
 

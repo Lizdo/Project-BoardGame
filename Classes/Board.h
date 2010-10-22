@@ -72,6 +72,8 @@
 - (void)addRoundIntro;
 - (void)addRumbleIntro;
 
+- (void)showTutorial;
+
 
 - (void)enterRumble;
 - (void)exitRumble;

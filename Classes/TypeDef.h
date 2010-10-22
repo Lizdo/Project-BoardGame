@@ -140,8 +140,10 @@ typedef enum{
 }TileState;
 
 #define NumberOfTokenTypes 3
+#define NumberOfRumbleTargetTypes 6
 
 extern const int TokenScoreModifier[NumberOfTokenTypes];
+extern const int EnoughResource[NumberOfTokenTypes];
 
 typedef enum{
 	TokenTypeRound = 0,
@@ -157,10 +159,8 @@ typedef enum{
 	TokenEventDroppedDown
 }TokenEvent;
 
-extern const int RumbleTargetScoreModifier[NumberOfTokenTypes];
-extern const int EnoughResource[NumberOfTokenTypes];
+extern const int RumbleTargetScoreModifier[NumberOfRumbleTargetTypes];
 
-#define NumberOfRumbleTargetTypes 6
 
 typedef enum{
 	RumbleTargetTypeSignal,

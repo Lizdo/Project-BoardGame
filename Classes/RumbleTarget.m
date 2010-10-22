@@ -40,7 +40,8 @@ float distance(CGPoint p1, CGPoint p2){
 - (void)setType:(RumbleTargetType)t{
 	type = t;
 	nameLabel.text = [self title];
-	timeLabel.text = [NSString stringWithFormat:@"%dWeeks",[Project timeNeededForRumbleTargetType:type]];	
+	timeLabel.text = [NSString stringWithFormat:@"%dWeeks",[Project timeNeededForRumbleTargetType:type]];
+	scoreLabel.text = [NSString stringWithFormat:@"%d",RumbleTargetScoreModifier[t]];
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -62,6 +63,15 @@ float distance(CGPoint p1, CGPoint p2){
 		
 		recognizerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]; 
 		[self addGestureRecognizer:recognizerTap];
+
+		scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20, 110)];
+		scoreLabel.font = [UIFont fontWithName:PrimaryFontName size:100];
+		scoreLabel.opaque = NO;
+		scoreLabel.backgroundColor = nil;
+		scoreLabel.textAlignment = UITextAlignmentRight;
+		scoreLabel.textColor = [GameVisual colorWithHex:0xCCCCCC];
+		scoreLabel.adjustsFontSizeToFitWidth = YES;
+		[self addSubview:scoreLabel];			
 		
 		nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height-60, frame.size.width-20, 50)];
 		nameLabel.font = [UIFont fontWithName:PrimaryFontName size:28];
@@ -79,6 +89,7 @@ float distance(CGPoint p1, CGPoint p2){
 		timeLabel.textAlignment = UITextAlignmentLeft;
 		timeLabel.textColor = [GameVisual colorWithHex:0x585858];
 		[self addSubview:timeLabel];
+		
 		
     }
     return self;

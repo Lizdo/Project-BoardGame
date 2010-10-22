@@ -13,11 +13,15 @@
 #import "TypeDef.h"
 #import "BoardGameView.h"
 #import "ConclusionViewController.h"
+#import "TutorialViewController.h"
 
 @interface BoardGameViewController : UIViewController {
 	BoardGameView * bgv;
 	Board * board;
 	Game * game;
+	
+	TutorialViewController * tvc;
+	
 	UIView * menu;
     
     MainMenuViewController * mmv;
@@ -26,7 +30,7 @@
 }
 
 - (void)enterConclusion;
-
+- (void)showTutorial;
 
 @end
 

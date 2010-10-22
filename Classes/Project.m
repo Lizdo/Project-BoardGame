@@ -81,6 +81,33 @@
 	}
 }
 
+
++ (int)scoreForRumbleTargetType:(RumbleTargetType)aType{
+	switch (aType) {
+		case RumbleTargetTypeSignal:
+			return 5;
+			break;
+		case RumbleTargetTypeCart:
+			return 5;
+			break;
+		case RumbleTargetTypeSnake:
+			return 9;
+			break;			
+		case RumbleTargetTypeRobot:
+			return 9;
+			break;
+		case RumbleTargetTypeTank:
+			return 17;
+			break;
+		case RumbleTargetTypePalace:
+			return 17;
+			break;
+		default:
+			return 0;
+			break;
+	}
+}
+
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeBool:isCompleted forKey:@"isCompleted"];
     [coder encodeInt:type forKey:@"type"];

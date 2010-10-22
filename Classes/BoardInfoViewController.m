@@ -7,7 +7,7 @@
 //
 
 #import "BoardInfoViewController.h"
-
+#import "Board.h"
 
 @implementation BoardInfoViewController
 
@@ -77,6 +77,10 @@
 		[toggleMusicButton setImage:[UIImage imageNamed:@"NoSound.png"] forState:UIControlStateNormal];
 	}
 
+}
+
+- (IBAction)showTutorial{
+	[[Board sharedInstance] showTutorial];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

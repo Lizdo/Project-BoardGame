@@ -35,6 +35,7 @@
 		
 	UILabel * nameLabel;
 	UILabel * timeLabel;
+	UILabel * scoreLabel;
 	
 	BOOL isAvailable;
 }

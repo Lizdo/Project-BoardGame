@@ -36,5 +36,7 @@
 - (void)complete;
 
 + (int)timeNeededForRumbleTargetType:(RumbleTargetType)aType;
++ (int)scoreForRumbleTargetType:(RumbleTargetType)aType;
+
 
 @end

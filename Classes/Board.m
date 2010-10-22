@@ -49,14 +49,14 @@ static Board *sharedInstance = nil;
 		popupView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;		
 		[self addSubview:popupView];				
 	
-		biv = [[BoardInfoViewController alloc] initWithNibName:@"BoardInfo" bundle:nil];
+		biv = [[[BoardInfoViewController alloc] initWithNibName:@"BoardInfo" bundle:nil]retain];
 		biv.view.center = CGPointMake(200/2, 200 + 236/2);
 		[tileView addSubview:biv.view];
 		
-		riv = [[RoundIntroViewController alloc] initWithNibName:@"RoundIntroView" bundle:nil];
+		riv = [[[RoundIntroViewController alloc] initWithNibName:@"RoundIntroView" bundle:nil] retain];
 		riv.view.center = [GameVisual boardCenter];
 		
-		ruiv = [[RumbleIntroViewController alloc] initWithNibName:@"RumbleIntroView" bundle:nil];
+		ruiv = [[[RumbleIntroViewController alloc] initWithNibName:@"RumbleIntroView" bundle:nil]retain];
 		ruiv.view.center = [GameVisual boardCenter];
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -155,6 +155,7 @@ static Board *sharedInstance = nil;
 
 - (void)addRoundIntro{
 	[self addSubview:riv.view];
+	riv.view.center = self.center;
 	[riv show];
 	[self update];
 }
@@ -164,6 +165,16 @@ static Board *sharedInstance = nil;
 	[self addSubview:ruiv.view];
 	[ruiv show];
 	[self update];
+}
+
+
+- (void)showTutorial{
+	if (gameLogic.animationInProgress) {
+		return;
+	}else {
+		[controller showTutorial];
+	}
+
 }
 
 

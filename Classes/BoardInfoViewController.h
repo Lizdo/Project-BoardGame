@@ -27,5 +27,7 @@
 - (void)update;
 - (NSString *)roundInfo;
 - (IBAction)toggleMusic;
+- (IBAction)showTutorial;
+
 
 @end
