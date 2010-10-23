@@ -64,7 +64,6 @@
 
 @property (nonatomic,retain) AmountContainer * tokenAmounts;
 @property (nonatomic,retain) AmountContainer * rumbleTargetAmounts;
-
 @property (nonatomic,retain) AmountContainer * lockedAmounts;
 
 //@property int roundAmount;

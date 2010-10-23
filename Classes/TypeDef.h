@@ -91,6 +91,9 @@
 #define TileBackgroundStyleCount 3
 #define TilePositionRandomness 0  //5
 
+#define BoardTokenOffset  CGSizeMake(-200, -50)
+#define BoardTokenInterval 10
+
 //	Board
 //		Tile Area, Rumble Random Token Area
 

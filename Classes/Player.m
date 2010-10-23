@@ -81,6 +81,22 @@
 }
 
 - (void)modifyResource:(ResourceType)type by:(int)value{
+	//Inform Board to Spawn a new Token
+	if (value > 0) {
+		int num = value;
+		while (num > 0){
+			[board addTokenForPlayerID:ID withType:type];
+			num --;
+		}
+	}else {
+		int num = -value;
+		while (num > 0) {
+			[board removeTokenForPlayerID:ID withType:type];
+			num --;
+		}
+	}
+
+	
 	[tokenAmounts modifyAmountForIndex:type by:value];
 }
 

@@ -16,6 +16,9 @@
 @interface Board (Private)
 - (void)recursiveDisableAnimation:(UIView *)view;
 - (void)recursiveEnableAnimation:(UIView *)view;
+
+- (CGPoint)positionForTokenWithPlayerID:(int)playerID andType:(TokenType)type;
+
 @end
 
 @implementation Board
@@ -78,6 +81,8 @@ static Board *sharedInstance = nil;
 - (void)initGame{
 	self.backgroundColor = [GameVisual boardBackgroundImage];
 	//init info
+	tokens = [[NSMutableArray arrayWithCapacity:0]retain];
+
 	infos = [NSMutableArray arrayWithCapacity:0];
 	[infos retain];
 	for (int i=0; i<4; i++) {
@@ -96,15 +101,11 @@ static Board *sharedInstance = nil;
 		[infos addObject:info];
 		[info release];
 		[info initGame];
-		
 	}
 	
 	//Move to player 0 because the player is not initialized yet
 	[currentPlayerMark moveToPlayerWithID:0 withAnim:NO];
-	
 	rumbleBoard = [RumbleBoard sharedInstance];
-
-
 }
 
 - (void)enableEndTurnButton{
@@ -167,6 +168,82 @@ static Board *sharedInstance = nil;
 	[self update];
 }
 
+
+- (void)resetTokenForPlayerID:(int)playerID{
+	//for all tokens 
+}
+
+- (void)addTokenForPlayerID:(int)playerID withType:(TokenType)type{
+	CGPoint tokenPosition = [self positionForTokenWithPlayerID:playerID andType:type];
+	Token * t = [Token tokenWithType:type andPosition:tokenPosition];
+	t.player = [gameLogic playerWithID:playerID];
+	t.transform = ((Info *)[infos objectAtIndex:playerID]).transform;
+	t.onBoardID = [[gameLogic playerWithID:playerID].tokenAmounts amountForIndex:type] + 1;
+	[tokens addObject:t];
+	[tokenView addSubview:t];
+	
+	//Use Animation to set position
+	
+	
+}
+
+- (void)removeTokenForPlayerID:(int)playerID withType:(TokenType)type{
+	//Find the 
+	NSMutableArray * availableTokenArray = [NSMutableArray arrayWithCapacity:0];
+	for (Token * t in tokens) {
+		if (t.player.ID == playerID && t.type == type && !t.hasMoved) {
+			[availableTokenArray addObject:t];
+		}
+	}
+	
+	if (availableTokenArray.count == 0) {
+		//delete a random one
+		for (Token * t in tokens) {
+			if(t.player.ID == playerID && t.type == type){
+				[tokens removeObject:t];
+				//replace with Anim
+				[t removeFromSuperview];
+			}
+		}
+		//reassign the ID
+		int newOnBoardID = 0;
+		for (Token * t in tokens) {
+			if(t.player.ID == playerID && t.type == type){
+				t.onBoardID = newOnBoardID;
+				newOnBoardID++;
+			}
+		}
+		
+	}else{
+		[availableTokenArray sortUsingSelector:@selector(compare:)];
+		Token *t = [availableTokenArray lastObject];
+		[tokens removeObject:t];
+		[t removeFromSuperview];
+	}
+	
+	
+	
+}
+
+
+
+- (CGPoint)positionForTokenWithPlayerID:(int)playerID andType:(TokenType)type{
+	float verticalOffset = (BoardTokenInterval + TokenSize * 2) * type;
+	float horizontalOffset = BoardTokenInterval * [[gameLogic playerWithID:playerID].tokenAmounts amountForIndex:type];
+	
+	CGPoint position = [GameVisual positionForPlayerID:playerID
+		   withOffsetFromInfoCenter:CGSizeMake(BoardTokenOffset.width + horizontalOffset,
+											   BoardTokenOffset.height + verticalOffset)];
+	
+	return position;
+}
+
+
+- (void)tokenPickedup:(Token *)t{
+	if ([tokens indexOfObject:t] != NSNotFound) {
+		[tokenView insertSubview:t atIndex:[tokenView subviews].count - 1];
+	}
+}
 
 - (void)showTutorial{
 	if (gameLogic.animationInProgress) {

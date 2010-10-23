@@ -13,7 +13,7 @@
 
 @implementation Token
 
-@synthesize pickedUp, shared, isMatched,type, boundary, player, lastPosition;
+@synthesize pickedUp, shared, isMatched,type, boundary, player, lastPosition, locked, hasMoved, onBoardID;
 
 - (void)setType:(TokenType)newType{
 	type = newType;
@@ -38,11 +38,12 @@
 		boundary = CGRectZero;
 		gameLogic = [GameLogic sharedInstance];
 		shared = NO;
+		locked = NO;
+		hasMoved = NO;
 		self.userInteractionEnabled = YES;
 		self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin
 		|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
 
-		
     }
     return self;
 }
@@ -100,6 +101,13 @@
 #pragma mark Control
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+	if (locked) {
+		return;
+	}
+	
+	[[Board sharedInstance] tokenPickedup:self];
+	
+	self.hasMoved = YES;
 	DebugLog(@"input!");
 	if (player.isHuman || DEBUG_MODE) {
 		pickedUp = YES;
@@ -108,6 +116,9 @@
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+	if (locked) {
+		return;
+	}	
 	if (pickedUp){
 		UITouch *touch = [touches anyObject];
 		//TODO: refactor to support multiple bounds
@@ -120,13 +131,23 @@
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+	if (locked) {
+		return;
+	}	
 	[gameLogic triggerEvent:TokenEventDroppedDown withToken:self atPosition:self.center];	
 	pickedUp = NO;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+	if (locked) {
+		return;
+	}	
 	[gameLogic triggerEvent:TokenEventDroppedDown withToken:self atPosition:self.center];	
 	pickedUp = NO;
+}
+
+- (NSComparisonResult)compare:(Token *)t{
+	return [[NSNumber numberWithInt:self.onBoardID] compare:[NSNumber numberWithInt:t.onBoardID]];
 }
 
 - (void)dealloc {

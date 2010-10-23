@@ -19,8 +19,10 @@
 
 @interface Token : UIImageView {
 	BOOL isMatched;
+	BOOL hasMoved;
 	BOOL pickedUp;
 	BOOL shared;
+	BOOL locked;
 	//int ownerID; // Color of the token will be accessed by the ownerID;
 	Player * player;
 	TokenType type;
@@ -31,11 +33,16 @@
 	
 	CGPoint lastPosition;
 	MoveFlag moveFlag;
+	
+	int onBoardID;
 }
 
 @property (nonatomic, assign) BOOL pickedUp;
 @property (nonatomic, assign) BOOL shared;
 @property (nonatomic, assign) BOOL isMatched;
+@property (nonatomic, assign) BOOL locked;
+@property (nonatomic, assign) BOOL hasMoved;
+@property (nonatomic, assign) int onBoardID;
 
 
 @property (nonatomic, assign) TokenType type;

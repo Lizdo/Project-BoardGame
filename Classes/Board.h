@@ -74,6 +74,11 @@
 
 - (void)showTutorial;
 
+- (void)resetTokenForPlayerID:(int)playerID;
+- (void)addTokenForPlayerID:(int)playerID withType:(TokenType)type;
+- (void)removeTokenForPlayerID:(int)playerID withType:(TokenType)type;
+
+- (void)tokenPickedup:(Token *)t;
 
 - (void)enterRumble;
 - (void)exitRumble;

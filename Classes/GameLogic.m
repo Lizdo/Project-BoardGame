@@ -337,7 +337,7 @@ static int tileInfos[18][8] = {
 
 - (void)processTile{
 	[turn.selectedTile processForPlayer:self.currentPlayer];
-	[turn endTurnButtonClicked];	
+	[turn endTurnButtonClicked];
 }
 
 
