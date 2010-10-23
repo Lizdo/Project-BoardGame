@@ -10,6 +10,7 @@
 #import "GameLogic.h"
 #import "GameVisual.h"
 #import "Player.h"
+#import "Board.h"
 
 @implementation Token
 
