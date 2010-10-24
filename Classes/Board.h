@@ -75,8 +75,9 @@
 - (void)showTutorial;
 
 - (void)resetTokenForPlayerID:(int)playerID;
-- (void)addTokenForPlayerID:(int)playerID withType:(TokenType)type;
+- (void)addTokenForPlayerID:(int)playerID withType:(TokenType)type andAnim:(BOOL)withAnim;
 - (void)removeTokenForPlayerID:(int)playerID withType:(TokenType)type;
+- (void)setLockedTokenForPlayerID:(int)playerID;
 
 - (void)tokenPickedup:(Token *)t;
 

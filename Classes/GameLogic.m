@@ -314,6 +314,10 @@ static int tileInfos[18][8] = {
 //	[rumbleTargets release];
 	[self calculateScore];
 	[board addBadges];
+	
+	for (Player * p in players) {
+		[p exitRumble];
+	}
 
 }
 

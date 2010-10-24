@@ -162,44 +162,6 @@ float distance(CGPoint p1, CGPoint p2){
 
 //Must follow the order defined in RumbleTargetType
 static int rumbleInfo[NumberOfRumbleTargetTypes*10][4] = {
-	//Robot
-	{TokenTypeSquare,  76,  76,   0},
-	{TokenTypeRect,  58, 116,   0},
-	{TokenTypeRound,  76,  32,   0},
-	{TokenTypeRect,  92, 116,   0},
-	{TokenTypeRect, 112,  82, -30},
-	{TokenTypeRect,  40,  82,  30},	
-	
-	{-1,0,0,0},
-	{-1,0,0,0},
-	{-1,0,0,0},
-	{-1,0,0,0},
-	
-	//Snake
-	{TokenTypeRound, 108,  26,   0},
-	{TokenTypeRect, 116,  64, -12},
-	{TokenTypeRound,  52, 138,   0},
-	{TokenTypeRect,  70,  38,  70},
-	{TokenTypeRound,  34,  50,   0},
-	{TokenTypeRound, 124, 102,   0},
-	{TokenTypeRect,  88, 120,  60},
-	
-	{-1,0,0,0},
-	{-1,0,0,0},
-	{-1,0,0,0},
-	
-	//Palace
-	{TokenTypeRect,  32, 117,   0},
-	{TokenTypeSquare,  75,  79,   0},
-	{TokenTypeRect,  46,  72,   0},
-	{TokenTypeSquare,  58, 121,   0},
-	{TokenTypeRound,  75,  35,   0},
-	{TokenTypeRect, 102,  75,   0},
-	{TokenTypeRect, 120, 118,   0},
-	{TokenTypeSquare,  92, 122,   0},
-	
-	{-1,0,0,0},
-	{-1,0,0,0},
 	
 	//Flash
 	{TokenTypeRect,  88, 110,   0},
@@ -214,18 +176,61 @@ static int rumbleInfo[NumberOfRumbleTargetTypes*10][4] = {
 	{-1,0,0,0},
 	{-1,0,0,0},
 	
+	
 	//XBLA
 	{TokenTypeRect,  72,  90,  90},
 	{TokenTypeSquare,  58,  66,   0},
 	{TokenTypeRound,  48, 122,   0},
 	{TokenTypeRound,  96, 122,   0},
-
+	
 	{-1,0,0,0},
 	{-1,0,0,0},
 	{-1,0,0,0},	
 	{-1,0,0,0},
 	{-1,0,0,0},
 	{-1,0,0,0},
+	
+	
+	//Snake
+	{TokenTypeRound, 108,  26,   0},
+	{TokenTypeRect, 116,  64, -12},
+	{TokenTypeRound,  52, 138,   0},
+	{TokenTypeRect,  70,  38,  70},
+	{TokenTypeRound,  34,  50,   0},
+	{TokenTypeRound, 124, 102,   0},
+	{TokenTypeRect,  88, 120,  60},
+	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},	
+	
+	//Robot
+	{TokenTypeSquare,  76,  76,   0},
+	{TokenTypeRect,  58, 116,   0},
+	{TokenTypeRound,  76,  32,   0},
+	{TokenTypeRect,  92, 116,   0},
+	{TokenTypeRect, 112,  82, -30},
+	{TokenTypeRect,  40,  82,  30},	
+	
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
+	{-1,0,0,0},
+
+	
+	//Palace
+	{TokenTypeRect,  32, 117,   0},
+	{TokenTypeSquare,  75,  79,   0},
+	{TokenTypeRect,  46,  72,   0},
+	{TokenTypeSquare,  58, 121,   0},
+	{TokenTypeRound,  75,  35,   0},
+	{TokenTypeRect, 102,  75,   0},
+	{TokenTypeRect, 120, 118,   0},
+	{TokenTypeSquare,  92, 122,   0},
+	
+	{-1,0,0,0},
+	{-1,0,0,0},
+
 	
 	//FPS
 	{TokenTypeSquare,  70,  72,   0},

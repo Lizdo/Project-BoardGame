@@ -48,6 +48,9 @@
 
 #endif
 
+#define TokenSpawnInterval 0.2
+
+
 // Round Intro Time
 #define RoundIntroFadeTime 1.2
 #define RoundIntroOnScreenTime 2.0
@@ -93,6 +96,9 @@
 
 #define BoardTokenOffset  CGSizeMake(-200, -50)
 #define BoardTokenInterval 10
+#define BoardTokenLockedOffset TokenSize * 2 + BoardTokenInterval
+
+#define OffBoardPosition CGPointMake(1200, 1200)
 
 //	Board
 //		Tile Area, Rumble Random Token Area

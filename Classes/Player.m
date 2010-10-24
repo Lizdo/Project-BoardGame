@@ -16,6 +16,8 @@
 
 - (void)highlightComplete;
 - (void)swapRumbleTarget;
+- (void)addTokenForBoard:(NSNumber *)info;
+- (void)removeTokenForBoard:(NSNumber *)info;
 
 @end
 
@@ -61,6 +63,13 @@
 	token.player = self;
 	self.name = [NSString stringWithFormat:@"Player %d", playerID]; 
 	[board addView:token];
+	
+	//Give tokens according to token number
+	for (int i = 0; i < NumberOfTokenTypes; i++) {
+		for (int j = 0; j < [tokenAmounts amountForIndex:i]; j++) {
+			[board addTokenForPlayerID:ID withType:i andAnim:NO];
+		}
+	}
 		
 }
 
@@ -85,19 +94,30 @@
 	if (value > 0) {
 		int num = value;
 		while (num > 0){
-			[board addTokenForPlayerID:ID withType:type];
+			NSNumber * info = [NSNumber numberWithInt:type];
+			[self performSelector:@selector(addTokenForBoard:) withObject:info afterDelay:num*TokenSpawnInterval];
 			num --;
 		}
 	}else {
 		int num = -value;
 		while (num > 0) {
-			[board removeTokenForPlayerID:ID withType:type];
+			NSNumber * info = [NSNumber numberWithInt:type];
+			[self performSelector:@selector(removeTokenForBoard:) withObject:info afterDelay:num*TokenSpawnInterval];			
 			num --;
 		}
 	}
-
-	
 	[tokenAmounts modifyAmountForIndex:type by:value];
+}
+							   
+- (void)addTokenForBoard:(NSNumber *)info{
+	int type = [info intValue];
+	[board addTokenForPlayerID:ID withType:type andAnim:YES];
+
+}
+
+- (void)removeTokenForBoard:(NSNumber *)info{
+	int type = [info intValue];	
+	[board removeTokenForPlayerID:ID withType:type];
 }
 
 - (int)amountOfRumbleTarget:(RumbleTargetType)type{
@@ -251,6 +271,9 @@
 
 
 - (void)enterRound{
+}
+
+- (void)exitRumble{
 	for (Project * p in projects){
 		[p enterRound];
 	}
@@ -263,7 +286,10 @@
 		}
 	}
 	
+	//set locked tokens
+	[board setLockedTokenForPlayerID:ID];
 }
+
 
 - (void)addProject:(Project *)p{
 	if ([projects indexOfObject:p] == NSNotFound) {

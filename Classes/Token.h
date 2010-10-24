@@ -58,5 +58,6 @@
 - (void)AImoveComplete;
 
 - (void)tokenOnTile:(BOOL)onTile;
+- (void)removeAnimDidStop;
 
 @end

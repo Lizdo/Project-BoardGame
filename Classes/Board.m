@@ -17,7 +17,10 @@
 - (void)recursiveDisableAnimation:(UIView *)view;
 - (void)recursiveEnableAnimation:(UIView *)view;
 
-- (CGPoint)positionForTokenWithPlayerID:(int)playerID andType:(TokenType)type;
+- (CGPoint)positionForToken:(Token *)t;
+- (void)removeTokenWithAnim:(Token *)t;
+- (void)placeToken:(Token *)t withAnim:(BOOL)withAnim;
+- (int)idForToken:(Token *)token;
 
 @end
 
@@ -169,22 +172,49 @@ static Board *sharedInstance = nil;
 }
 
 
+//TODO: Add a UI Button
 - (void)resetTokenForPlayerID:(int)playerID{
-	//for all tokens 
+	for (Token * t in tokens) {
+		if (t.player.ID == playerID && t.hasMoved) {
+			[self placeToken:t withAnim:YES];
+		}
+	}
 }
 
-- (void)addTokenForPlayerID:(int)playerID withType:(TokenType)type{
-	CGPoint tokenPosition = [self positionForTokenWithPlayerID:playerID andType:type];
-	Token * t = [Token tokenWithType:type andPosition:tokenPosition];
+- (void)addTokenForPlayerID:(int)playerID withType:(TokenType)type andAnim:(BOOL)withAnim{
+	Token * t = [Token tokenWithType:type andPosition:OffBoardPosition];
 	t.player = [gameLogic playerWithID:playerID];
 	t.transform = ((Info *)[infos objectAtIndex:playerID]).transform;
-	t.onBoardID = [[gameLogic playerWithID:playerID].tokenAmounts amountForIndex:type] + 1;
+	t.onBoardID = [self idForToken:t];
 	[tokens addObject:t];
 	[tokenView addSubview:t];
-	
-	//Use Animation to set position
-	
-	
+	if (withAnim) {
+		[self placeToken:t withAnim:YES];
+	}else {
+		t.center = [self positionForToken:t];
+	}
+}
+
+- (int)idForToken:(Token *)token{
+	//new id = count, must assign player/type before this
+	int count = 0;
+	for (Token * t in tokens) {
+		if (t.player == token.player && t.type == token.type) {
+			count++;
+		}
+	}
+	return count;
+}
+
+- (void)placeToken:(Token *)t withAnim:(BOOL)withAnim{
+	if (withAnim) {
+		[UIView beginAnimations:nil context:nil]; 
+		[UIView setAnimationDuration:MoveAnimationTime]; 
+		t.center = [self positionForToken:t];
+		[UIView commitAnimations];
+	}else {
+		t.center = [self positionForToken:t];
+	}
 }
 
 - (void)removeTokenForPlayerID:(int)playerID withType:(TokenType)type{
@@ -200,12 +230,10 @@ static Board *sharedInstance = nil;
 		//delete a random one
 		for (Token * t in tokens) {
 			if(t.player.ID == playerID && t.type == type){
-				[tokens removeObject:t];
-				//replace with Anim
-				[t removeFromSuperview];
+				[self removeTokenWithAnim:t];
 			}
 		}
-		//reassign the ID
+		//reassign the ID, as we have removed one random object
 		int newOnBoardID = 0;
 		for (Token * t in tokens) {
 			if(t.player.ID == playerID && t.type == type){
@@ -217,26 +245,61 @@ static Board *sharedInstance = nil;
 	}else{
 		[availableTokenArray sortUsingSelector:@selector(compare:)];
 		Token *t = [availableTokenArray lastObject];
-		[tokens removeObject:t];
-		[t removeFromSuperview];
+		[self removeTokenWithAnim:t];
 	}
-	
-	
-	
+}
+
+- (void)removeTokenWithAnim:(Token *)t{
+	[tokens removeObject:t];
+	[UIView beginAnimations:nil context:nil]; 
+	[UIView setAnimationDuration:MoveAnimationTime]; 
+	[UIView setAnimationDidStopSelector:@selector(removeAnimDidStop)];
+	[UIView setAnimationDelegate:t];
+	t.center = OffBoardPosition;
+	[UIView commitAnimations];	
+}
+
+
+- (void)setLockedTokenForPlayerID:(int)playerID{
+	//reset all locked tokens
+	for (Token * t in tokens){
+		if (t.player.ID == playerID && t.locked) {
+			t.locked = NO;
+			[self placeToken:t withAnim:NO];
+		}
+	}
+	//find the last tokens according to token locked amount, move to position
+	Player * p = [gameLogic playerWithID:playerID];
+	for (int type = 0; type < NumberOfTokenTypes; type++) {
+		int totalAmount = [p.tokenAmounts amountForIndex:type];
+		int lockedAmount = [p.lockedAmounts amountForIndex:type];
+		for (Token * t in tokens) {
+			if (t.player.ID == playerID && t.type == type 
+				&& t.onBoardID >= totalAmount - lockedAmount) {
+				//lock t
+				t.locked = YES;
+				t.center = [self positionForToken:t];
+			}
+		}
+	}
 }
 
 
 
-- (CGPoint)positionForTokenWithPlayerID:(int)playerID andType:(TokenType)type{
-	float verticalOffset = (BoardTokenInterval + TokenSize * 2) * type;
-	float horizontalOffset = BoardTokenInterval * [[gameLogic playerWithID:playerID].tokenAmounts amountForIndex:type];
+
+- (CGPoint)positionForToken:(Token *)t{
+	float verticalOffset = (BoardTokenInterval + TokenSize * 2) * t.type;
+	float horizontalOffset = BoardTokenInterval * t.onBoardID;
+	float lockedOffset = t.locked ? BoardTokenLockedOffset : 0;
 	
-	CGPoint position = [GameVisual positionForPlayerID:playerID
-		   withOffsetFromInfoCenter:CGSizeMake(BoardTokenOffset.width + horizontalOffset,
+	CGPoint position = [GameVisual positionForPlayerID:t.player.ID
+		   withOffsetFromInfoCenter:CGSizeMake(BoardTokenOffset.width + horizontalOffset + lockedOffset,
 											   BoardTokenOffset.height + verticalOffset)];
 	
 	return position;
 }
+
+
 
 
 - (void)tokenPickedup:(Token *)t{

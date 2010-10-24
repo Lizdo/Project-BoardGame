@@ -107,6 +107,8 @@
 - (NSArray *)badges;
 
 - (void)enterRound;
+- (void)exitRumble;
+
 
 - (void)addProject:(Project *)p;
 - (void)projectComplete:(Project *)p;

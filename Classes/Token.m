@@ -32,15 +32,22 @@
 	}
 }
 
+- (void)setLocked:(BOOL)newBool{
+	locked = newBool;
+	if (locked) {
+		self.image = [GameVisual imageForTokenType:type andPlayerID:player.ID placeholder:YES];
+	}else {
+		self.image = [GameVisual imageForTokenType:type andPlayerID:player.ID placeholder:NO];
+	}
+
+}
+
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
         // Initialization code
 		boundary = CGRectZero;
 		gameLogic = [GameLogic sharedInstance];
-		shared = NO;
-		locked = NO;
-		hasMoved = NO;
 		self.userInteractionEnabled = YES;
 		self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleTopMargin
 		|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin;
@@ -97,6 +104,11 @@
 - (void)moveToLastPosition{
 	[self moveTo:lastPosition withMoveFlag:MoveFlagPlayerRumble];
 }
+
+- (void)removeAnimDidStop{
+	[self removeFromSuperview];
+}
+
 
 #pragma mark -
 #pragma mark Control

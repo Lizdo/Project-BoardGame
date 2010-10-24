@@ -236,7 +236,7 @@
 - (void)addBadges{
 	for (int i = 0; i<[player badges].count; i++) {
 		Badge * b = [[player badges] objectAtIndex:i];
-		[self addSubview:b];
+		[self insertSubview:b atIndex:0];
 		b.center = [self badgePositionForID:i];
 	}
 }
