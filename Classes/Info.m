@@ -236,7 +236,7 @@
 - (void)addBadges{
 	for (int i = 0; i<[player badges].count; i++) {
 		Badge * b = [[player badges] objectAtIndex:i];
-		[self insertSubview:b atIndex:0];
+		[self insertSubview:b aboveSubview:backgroundImage];
 		b.center = [self badgePositionForID:i];
 	}
 }
@@ -247,7 +247,7 @@
 	int row = i%rows;
 	int colomn = (i-row)/rows;
 	
-	return CGPointMake(BadgeSize + BadgeInterval + interval*colomn + 10, BadgeSize + interval*row);
+	return CGPointMake(BadgeSize + BadgeInterval + interval*colomn + 10, BadgeSize + BadgeInterval + interval*row);
 }
 
 - (void)dealloc {

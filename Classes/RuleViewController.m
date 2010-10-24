@@ -56,7 +56,7 @@
 	cell.detailTextLabel.font = [UIFont fontWithName:SecondaryFontName size:15];
 	cell.detailTextLabel.textColor = [UIColor grayColor];
 	cell.detailTextLabel.numberOfLines = 2;
-	cell.detailTextLabel.text = [GameLogic descriptionForBadgeType:type];	
+	cell.detailTextLabel.text = [GameLogic shortDescriptionForBadgeType:type];	
 	
 	cell.imageView.image = [GameVisual imageForBadgeType:type];	
 	

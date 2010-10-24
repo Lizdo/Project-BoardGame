@@ -64,8 +64,8 @@
 - (void)removeAllBadges;
 - (void)addBadges;
 
-- (void)disableAnimations;
-- (void)enableAnimations;
+//- (void)disableAnimations;
+//- (void)enableAnimations;
 
 - (void)enterRound;
 - (void)enterTurn;

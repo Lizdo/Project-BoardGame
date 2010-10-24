@@ -168,7 +168,7 @@ static Rumble *sharedInstance = nil;
 	self = [Rumble sharedInstance];
     self.build = [coder decodeBoolForKey:@"build"];	
 	
-    return self;
+    return [self retain];
 }
 
 @end

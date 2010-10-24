@@ -50,7 +50,7 @@ static SoundManager *sharedInstance = nil;
 										 name]];	
 	
 	NSError * error = nil;
-	AVAudioPlayer * p = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+	AVAudioPlayer * p = [[[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error] autorelease];
 	p.volume = 3.0;
 	[p play];
 	

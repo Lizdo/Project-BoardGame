@@ -36,10 +36,13 @@
 	//Load the pages onto the scrollview
 	for (int i = 0; i<TutorialPageNumber; i++) {
 		UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(TutorialPageWidth*i, 0, TutorialPageWidth, TutorialPageHeight)];
-		imageView.image = [UIImage imageNamed:@"TutorialPage0.png"];
+		[imageView autorelease];
+		NSString * pageName = [NSString stringWithFormat:@"TutorialPage%d.png", i];
+		imageView.image = [UIImage imageNamed:pageName];
 		[scrollView addSubview:imageView];
 	}
-	scrollView.backgroundColor = [GameVisual colorWithHex:0xEEEEEE];
+	self.view.alpha = 1;
+	//scrollView.backgroundColor = [GameVisual colorWithHex:0xEEEEEE];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
@@ -83,7 +86,13 @@
 
 
 - (IBAction)closeTutorial:(id)sender{
-	[self.view removeFromSuperview];
+	[UIView beginAnimations:nil context:nil]; 
+	[UIView setAnimationDuration:RoundIntroFadeTime]; 
+	[UIView setAnimationDidStopSelector:@selector(removeFromSuperview)];
+	[UIView setAnimationDelegate:self.view];
+	self.view.alpha = 0;
+	[UIView commitAnimations];	
+	//[self.view removeFromSuperview];
 }
 
 

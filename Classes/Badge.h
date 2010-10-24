@@ -39,5 +39,6 @@
 
 - (int)score;
 - (NSString *)description;
+- (NSString *)shortDescription;
 
 @end

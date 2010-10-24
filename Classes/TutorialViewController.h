@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define TutorialPageWidth 469
-#define TutorialPageHeight 616
+#define TutorialPageWidth 420
+#define TutorialPageHeight 560
 
 #define TutorialPageNumber 4
 

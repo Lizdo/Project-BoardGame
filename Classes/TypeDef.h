@@ -21,7 +21,7 @@
 #define SecondaryFontName @"Thonburi"
 #define SecondaryFont "Thonburi"
 
-#define DebugMode 0
+#define DebugMode 1
 
 // Times
 #if DebugMode
@@ -35,6 +35,10 @@
 #define SlideOutTime 0.5
 #define ZoomOutTime 0.1
 
+// Round Intro Time
+#define RoundIntroFadeTime 0.2
+#define RoundIntroOnScreenTime 1.0
+
 #else
 
 #define MoveAnimationTime 0.5
@@ -46,14 +50,17 @@
 #define SlideOutTime 0.5
 #define ZoomOutTime 0.5
 
-#endif
-
-#define TokenSpawnInterval 0.2
-
 
 // Round Intro Time
 #define RoundIntroFadeTime 1.2
 #define RoundIntroOnScreenTime 2.0
+
+#endif
+
+#define TurnWaitTime WaitTime * 4
+#define TokenSpawnInterval 0.2
+
+
 
 
 // Size & Position
@@ -94,9 +101,9 @@
 #define TileBackgroundStyleCount 3
 #define TilePositionRandomness 0  //5
 
-#define BoardTokenOffset  CGSizeMake(-200, -50)
+#define BoardTokenOffset  CGSizeMake(-150, -60)
 #define BoardTokenInterval 10
-#define BoardTokenLockedOffset TokenSize * 2 + BoardTokenInterval
+#define BoardTokenLockedOffset TokenSize * 2
 
 #define OffBoardPosition CGPointMake(1200, 1200)
 
@@ -109,7 +116,7 @@
 #define ZoomOutInterval 20
 #define PanDistance 1000
 
-#define CurrentPlayerMarkOffset CGSizeMake(-100, 0)
+#define CurrentPlayerMarkOffset CGSizeMake(250, -70)
 
 //  Popup
 #define PopupWidth 200

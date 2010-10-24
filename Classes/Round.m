@@ -226,7 +226,7 @@ static Round *sharedInstance = nil;
     self.count = [coder decodeIntForKey:@"count"];
     self.state = [coder decodeIntForKey:@"state"];
 	self.moreSharedTokens = [coder decodeBoolForKey:@"moreSharedTokens"];
-    return self;
+    return [self retain];
 }
 
 

@@ -86,14 +86,14 @@
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-	[board disableAnimations];
-}
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-	[board enableAnimations];
-}
+//
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+//	[board disableAnimations];
+//}
+//
+//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+//	[board enableAnimations];
+//}
 
 
 

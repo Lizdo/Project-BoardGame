@@ -14,8 +14,8 @@
 
 
 @interface Board (Private)
-- (void)recursiveDisableAnimation:(UIView *)view;
-- (void)recursiveEnableAnimation:(UIView *)view;
+//- (void)recursiveDisableAnimation:(UIView *)view;
+//- (void)recursiveEnableAnimation:(UIView *)view;
 
 - (CGPoint)positionForToken:(Token *)t;
 - (void)removeTokenWithAnim:(Token *)t;
@@ -231,6 +231,7 @@ static Board *sharedInstance = nil;
 		for (Token * t in tokens) {
 			if(t.player.ID == playerID && t.type == type){
 				[self removeTokenWithAnim:t];
+				break;
 			}
 		}
 		//reassign the ID, as we have removed one random object
@@ -288,7 +289,7 @@ static Board *sharedInstance = nil;
 
 
 - (CGPoint)positionForToken:(Token *)t{
-	float verticalOffset = (BoardTokenInterval + TokenSize * 2) * t.type;
+	float verticalOffset = (TokenSize * 2) * t.type;
 	float horizontalOffset = BoardTokenInterval * t.onBoardID;
 	float lockedOffset = t.locked ? BoardTokenLockedOffset : 0;
 	
@@ -369,28 +370,28 @@ static Board *sharedInstance = nil;
 	}
 
 }
-
-- (void)disableAnimations{
-	[self recursiveDisableAnimation:self];
-}
-
-
-- (void)enableAnimations{
-	[self recursiveEnableAnimation:self];	
-}
-
-- (void)recursiveDisableAnimation:(UIView *)view{
-	[view saveCurrentAnim];
-	 for (UIView * subview in view.subviews) {
-		[self recursiveDisableAnimation:subview];
-	}
-}
-- (void)recursiveEnableAnimation:(UIView *)view{
-	[view restoreCurrentAnim];
-	for (UIView * subview in view.subviews) {
-		[self recursiveEnableAnimation:subview];
-	}
-}
+//
+//- (void)disableAnimations{
+//	[self recursiveDisableAnimation:self];
+//}
+//
+//
+//- (void)enableAnimations{
+//	[self recursiveEnableAnimation:self];	
+//}
+//
+//- (void)recursiveDisableAnimation:(UIView *)view{
+//	[view saveCurrentAnim];
+//	 for (UIView * subview in view.subviews) {
+//		[self recursiveDisableAnimation:subview];
+//	}
+//}
+//- (void)recursiveEnableAnimation:(UIView *)view{
+//	[view restoreCurrentAnim];
+//	for (UIView * subview in view.subviews) {
+//		[self recursiveEnableAnimation:subview];
+//	}
+//}
 
 
 - (UIInterfaceOrientation)interfaceOrientation{

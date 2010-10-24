@@ -247,7 +247,6 @@ static int tileInfos[18][8] = {
 }
 
 - (void)exitTurn{
-	[board disableEndTurnButton];
 	//[board removeAllBadges];
 	[self calculateScore];
 	[board addBadges];
@@ -336,11 +335,12 @@ static int tileInfos[18][8] = {
 
 - (void)endTurnButtonClicked{
 	turn.selectedTile.state = TileStateDisabled;
-	[self performSelector:@selector(processTile) withObject:self afterDelay:WaitTime];
+	[turn.selectedTile processForPlayer:self.currentPlayer];
+	[board disableEndTurnButton];
+	[self performSelector:@selector(processTile) withObject:self afterDelay:TurnWaitTime];
 }
 
 - (void)processTile{
-	[turn.selectedTile processForPlayer:self.currentPlayer];
 	[turn endTurnButtonClicked];
 }
 
@@ -664,7 +664,7 @@ static int tileInfos[18][8] = {
 	return 0;
 }
 
-+ (NSString *)descriptionForBadgeType:(BadgeType)type{
++ (NSString *)shortDescriptionForBadgeType:(BadgeType)type{
 	switch (type) {
 		case BadgeTypeMostRound:
 			return @"Most Designers";
@@ -676,13 +676,13 @@ static int tileInfos[18][8] = {
 			return @"Most Coders";
 			break;
 		case BadgeTypeEnoughRound:
-			return @"You have a fair amount of designers now.";
+			return [NSString stringWithFormat:@"Designers > %d", EnoughResource[ResourceTypeRound] - 1];
 			break;
 		case BadgeTypeEnoughRect:
-			return @"You have a fair amount of artists now.";
+			return [NSString stringWithFormat:@"Artists > %d", EnoughResource[ResourceTypeRect] - 1];
 			break;
 		case BadgeTypeEnoughSquare:
-			return @"You have a fair amount of coders now.";
+			return [NSString stringWithFormat:@"Coders > %d", EnoughResource[ResourceTypeSquare] - 1];
 			break;
 		case BadgeTypeFirstBuilder:
 			return @"First Builder";
@@ -701,6 +701,50 @@ static int tileInfos[18][8] = {
 			break;
 		case BadgeTypeSevenProjects:
 			return @"7 Projects Built";
+			break;			
+		default:
+			break;
+	}
+	return @"";
+}
+
++ (NSString *)descriptionForBadgeType:(BadgeType)type{
+	switch (type) {
+		case BadgeTypeMostRound:
+			return @"You're the master of Designers.";
+			break;
+		case BadgeTypeMostRect:
+			return @"You're the king of Artists.";
+			break;
+		case BadgeTypeMostSquare:
+			return @"Code monkeys at your disposal.";
+			break;
+		case BadgeTypeEnoughRound:
+			return @"You have a fair amount of designers now.";
+			break;
+		case BadgeTypeEnoughRect:
+			return @"You have a fair amount of artists now.";
+			break;
+		case BadgeTypeEnoughSquare:
+			return @"You have a fair amount of coders now.";
+			break;
+		case BadgeTypeFirstBuilder:
+			return @"Early bird gets the job done.";
+			break;
+		case BadgeTypeFastBuilder:
+			return @"You're fast, lightning fast.";
+			break;
+		case BadgeTypeOneProject:
+			return @"First step for everyone.";
+			break;		
+		case BadgeTypeThreeProjects:
+			return @"On the road.";
+			break;		
+		case BadgeTypeFiveProjects:
+			return @"Keep it up.";
+			break;
+		case BadgeTypeSevenProjects:
+			return @"Now that's something.";
 			break;			
 		default:
 			break;

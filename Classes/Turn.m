@@ -207,7 +207,7 @@ static Turn *sharedInstance = nil;
     self.state = [coder decodeIntForKey:@"state"];
 	
 	
-    return self;
+    return [self retain];
 }
 
 

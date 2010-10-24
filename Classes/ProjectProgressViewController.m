@@ -78,12 +78,12 @@
     
 	// Configure the cell.
 	if ([player.projects count] < 1) {
-		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:25];
+		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:16];
 		cell.textLabel.textColor = [UIColor grayColor];
 		cell.textLabel.text = @"No ongoing projects";
 	}else {
 		Project * p = [player.projects objectAtIndex:indexPath.row];
-		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:25];
+		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:16];
 		cell.textLabel.textColor = [UIColor grayColor];		
 		cell.textLabel.text = [p description];
 		cell.imageView.image = [GameVisual imageForRumbleType:p.type andPlayerID:player.ID];	

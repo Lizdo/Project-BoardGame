@@ -375,7 +375,7 @@ static const int DistanceTolerance = 30;
 	[player addBadgeWithType:BadgeTypeFirstBuilder];
 	
 	//Add project here
-	Project * p = [[Project alloc] initWithRumbleTarget:self];
+	Project * p = [[[Project alloc] initWithRumbleTarget:self]autorelease];
 	[player addProject:p];
 	
 	[self reset];

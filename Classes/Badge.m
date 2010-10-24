@@ -85,7 +85,7 @@
 
 
 - (NSString *)title{
-	return [NSString stringWithFormat:@"+%d", [self score]];
+	return [NSString stringWithFormat:@"%@ +%d", [self shortDescription],[self score]];
 }
 
 
@@ -100,6 +100,10 @@
 
 - (NSString *)description{
 	return [GameLogic descriptionForBadgeType:type];
+}
+
+- (NSString *)shortDescription{
+	return [GameLogic shortDescriptionForBadgeType:type];
 }
 
 - (void)dealloc {

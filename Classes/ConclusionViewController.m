@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	NSMutableArray * players = [[[GameLogic sharedInstance] players] mutableCopy];
+	NSMutableArray * players = [[[[GameLogic sharedInstance] players] mutableCopy] autorelease];
 	[players sortUsingSelector:@selector(compare:)];
 	
 	fourthPlaceName.text = [[players objectAtIndex:0] name];
