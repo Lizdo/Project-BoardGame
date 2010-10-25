@@ -23,7 +23,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
         // Custom initialization
-		round = [Round sharedInstance];
     }
     return self;
 }
@@ -41,6 +40,8 @@
 #define LastRoundsRemaingLabelEndPosition CGPointMake(105,107)
 
 - (void)show{
+	round = [Round sharedInstance];
+
 	currentRoundLabel.text = [NSString stringWithFormat:@"Week %d Starts...", round.count + 1];
 	roundsRemaingLabel.text = [NSString stringWithFormat:@"%d", MAX_ROUNDS - (round.count + 1)];
 	lastRoundsRemaingLabel.text = [NSString stringWithFormat:@"%d", MAX_ROUNDS - (round.count + 1) + 1];

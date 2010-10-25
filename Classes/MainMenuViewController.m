@@ -84,7 +84,7 @@
 
 - (IBAction) resumeGame{
 	[self.view removeFromSuperview];		
-	[game resume];
+	[game load];
 }
 
 

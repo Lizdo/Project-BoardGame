@@ -12,12 +12,17 @@
 
 @implementation Game
 
+@synthesize paused, running;
+
 static Game *sharedInstance = nil;
 
 - (id)init{
 	if (self = [super init]) {
 		gameLogic = [GameLogic sharedInstance];
 		gameLogic.game = self;
+		
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillTerminateNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillResignActiveNotification object:nil];			
 	}
 	return self;
 }
@@ -26,7 +31,23 @@ static Game *sharedInstance = nil;
 	[self startWithPlayersNumber:0];
 }
 
+
+//Pause Logic
+//  if Rumble -> Save Rumble remaining time, pause timer
+//  else -> Stop current turn completion
+- (void)pause{
+	paused = YES;
+	[[Round sharedInstance] pause];
+}
+
 - (void)resume{
+	paused = YES;
+	[[Round sharedInstance] resume];
+	paused = NO;
+	running = YES;
+}
+
+- (void)load{
 	//resume in GameLogic, GameLogic decode Players/Tiles
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 
 	NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -53,10 +74,12 @@ static Game *sharedInstance = nil;
 	
 	[gameLogic resumeGame];
 	
-	[[Round sharedInstance] resume];
+	[self resume];
 	
 	
 }
+
+
 
 - (void)save{
 	//Save Round/Turn/Rumble
@@ -83,10 +106,7 @@ static Game *sharedInstance = nil;
 }
 
 - (void)startWithPlayersNumber:(int)number{
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillTerminateNotification object:nil];		
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillResignActiveNotification object:nil];		
 
-	
 	[gameLogic initGameWithPlayerNumber:number];
 	gameLogic.round = [Round sharedInstance];
 	gameLogic.turn = [Turn sharedInstance];
@@ -97,6 +117,7 @@ static Game *sharedInstance = nil;
 	[[Rumble sharedInstance] initGame];		
 	
 	//TODO: Game Init Logic
+	running = YES;
 	[gameLogic.round enterRound];	
 }
 

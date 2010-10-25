@@ -51,7 +51,6 @@ static Round *sharedInstance = nil;
 	state = RoundStateInit;
 	DebugLog(@"Entering Round %d...", count);
 	[[Board sharedInstance]addRoundIntro];
-	//[self performSelector:@selector(enterRoundWaitComplete) withObject:self afterDelay:WaitTime];
 }
 
 - (void)enterRoundWaitComplete{
@@ -109,6 +108,13 @@ static Round *sharedInstance = nil;
 			break;
 		default:
 			break;
+	}
+}
+
+- (void)pause{
+	//Only pause round update at Rumble, 
+	if (state == RoundStateRumble) {
+		[rumble pause];
 	}
 }
 
@@ -218,6 +224,9 @@ static Round *sharedInstance = nil;
     [coder encodeInt:count forKey:@"count"];
     [coder encodeInt:state forKey:@"state"];
     [coder encodeBool:moreSharedTokens forKey:@"moreSharedTokens"];	
+    [coder encodeBool:skipProjectUpdate forKey:@"skipProjectUpdate"];	
+    [coder encodeBool:moreBuildTime forKey:@"moreBuildTime"];	
+	
 }
 
 
@@ -226,6 +235,9 @@ static Round *sharedInstance = nil;
     self.count = [coder decodeIntForKey:@"count"];
     self.state = [coder decodeIntForKey:@"state"];
 	self.moreSharedTokens = [coder decodeBoolForKey:@"moreSharedTokens"];
+	self.skipProjectUpdate = [coder decodeBoolForKey:@"skipProjectUpdate"];
+	self.moreBuildTime = [coder decodeBoolForKey:@"moreBuildTime"];	
+	DebugLog(@"Loaded from Save, Round %d, State %d", count, state);
     return [self retain];
 }
 

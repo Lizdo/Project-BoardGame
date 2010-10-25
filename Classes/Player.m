@@ -153,6 +153,9 @@
 }
 
 - (void)nextTurn{
+	if ([Game sharedInstance].paused) {
+		return;
+	}
 	aiProcessInProgress = NO;
 	[gameLogic endTurnButtonClicked];
 }

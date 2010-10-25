@@ -11,6 +11,8 @@
 @class GameLogic;
 @class Round;
 
+#define RumbleTimeSlice 0.05
+
 @interface Rumble : NSObject <NSCoding>{
 	GameLogic * gameLogic;
 	NSDate * startingTime;
@@ -20,6 +22,9 @@
 	BOOL build;
 	
 	Round * round;
+
+	float buildTime;
+	float currentTime;
 }
 
 @property (nonatomic,assign) BOOL build;
@@ -32,6 +37,7 @@
 - (void)exitRumble;
 - (void)exitRumbleAnimDidStop;
 
+- (void)pause;
 - (void)resume;
 
 - (void)enterBuild;

@@ -8,6 +8,7 @@
 
 #import "TutorialViewController.h"
 #import "GameVisual.h"
+#import "Game.h"
 
 @interface TutorialViewController (Private)
 
@@ -40,8 +41,13 @@
 		NSString * pageName = [NSString stringWithFormat:@"TutorialPage%d.png", i];
 		imageView.image = [UIImage imageNamed:pageName];
 		[scrollView addSubview:imageView];
+
 	}
 	self.view.alpha = 1;
+	
+	if ([Game sharedInstance].running) {
+		[[Game sharedInstance] pause];
+	}	
 	//scrollView.backgroundColor = [GameVisual colorWithHex:0xEEEEEE];
 }
 
@@ -92,7 +98,10 @@
 	[UIView setAnimationDelegate:self.view];
 	self.view.alpha = 0;
 	[UIView commitAnimations];	
-	//[self.view removeFromSuperview];
+	
+	if ([Game sharedInstance].running) {
+		[[Game sharedInstance] resume];
+	}	//[self.view removeFromSuperview];
 }
 
 

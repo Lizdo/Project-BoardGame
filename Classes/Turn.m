@@ -206,6 +206,8 @@ static Turn *sharedInstance = nil;
     self.count = [coder decodeIntForKey:@"count"];
     self.state = [coder decodeIntForKey:@"state"];
 	
+	DebugLog(@"Loaded from Save, Turn %d, State %d", count, state);
+	
 	
     return [self retain];
 }

@@ -44,6 +44,8 @@
 //Called by Game Object
 - (void)enterRound;
 - (void)exitRound;
+
+- (void)pause;
 - (void)resume;
 
 //Called by Turn Object

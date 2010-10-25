@@ -25,9 +25,10 @@
 static Rumble *sharedInstance = nil;
 
 - (float)timeRemaining{	
-	float buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
-	float time = abs(buildTime + [startingTime timeIntervalSinceNow]);
-	//DebugLog(@"remaining Time:%2.0f", time);
+	float time = buildTime - currentTime;
+	if (time < 0) {
+		time = 0;
+	}
 	return time;
 }
 
@@ -46,15 +47,15 @@ static Rumble *sharedInstance = nil;
 
 - (void)startRumble{
 	[gameLogic enterRumbleToBuild:build];
+	if (![[Game sharedInstance] paused]) {
+		buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
+		currentTime = 0;
+	}
+	//if resumed from pause, the buildTime and currentTime should have been recovered
 }
 
-- (void)enterRumbleAnimDidStop{
-	startingTime =  [[NSDate date] retain];	
-	
-	float buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
-	
-	[self performSelector:@selector(stopRumble) withObject:self afterDelay:buildTime];
-	timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(update) userInfo:nil repeats:YES];
+- (void)enterRumbleAnimDidStop{	
+	timer = [NSTimer scheduledTimerWithTimeInterval:RumbleTimeSlice target:self selector:@selector(update) userInfo:nil repeats:YES];
 	[timer retain];
 }
 
@@ -65,10 +66,8 @@ static Rumble *sharedInstance = nil;
 	
 	//remove all temp tokens
 	[gameLogic exitRumble];	
-	
-
-
 }
+
 - (void)exitRumbleAnimDidStop{
 	if (build) {
 		[self exitBuild];
@@ -87,6 +86,14 @@ static Rumble *sharedInstance = nil;
 	[round rumbleComplete]; 	
 }
 
+- (void)pause{
+	if (timer && timer.isValid) {
+		[timer invalidate];
+		[timer release];
+	}
+}
+
+
 - (void)resume{
 	build ? [self enterBuild] : [self enterRumble];
 }
@@ -103,6 +110,10 @@ static Rumble *sharedInstance = nil;
 
 
 - (void)update{
+	currentTime += RumbleTimeSlice;
+	if (currentTime >= buildTime) {
+		[self stopRumble];
+	}
 	[[Board sharedInstance] updateRumble];
 }
 
@@ -161,12 +172,18 @@ static Rumble *sharedInstance = nil;
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeBool:build forKey:@"build"];
+	[coder encodeFloat:currentTime forKey:@"currentTime"];
+	[coder encodeFloat:buildTime forKey:@"buildTime"];	
 }
 
 
 - (id)initWithCoder:(NSCoder *)coder {
 	self = [Rumble sharedInstance];
     self.build = [coder decodeBoolForKey:@"build"];	
+	currentTime = [coder decodeFloatForKey:@"currentTime"];
+	buildTime = [coder decodeFloatForKey:@"buildTime"];
+	
+	DebugLog(@"Loaded from Save, Rumble Time: %f/%f", currentTime, buildTime);
 	
     return [self retain];
 }

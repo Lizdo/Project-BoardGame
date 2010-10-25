@@ -18,7 +18,6 @@
         // Custom initialization
 
 		
-		round = [Round sharedInstance];
 		gameLogic = [GameLogic sharedInstance];
 		soundManager = [SoundManager sharedInstance];
 						
@@ -45,6 +44,8 @@
 */
 
 - (void)update{
+	round = [Round sharedInstance];
+
 	currentRoundLabel.text = [NSString stringWithFormat:@"Week %d", round.count + 1];
 	roundRemainingLabel.text = [NSString stringWithFormat:@"%d weeks remaining", MAX_ROUNDS - round.count - 1];	
 	

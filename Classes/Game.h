@@ -18,14 +18,23 @@
 
 @interface Game : NSObject {
 	GameLogic * gameLogic;
+	BOOL paused;
+	BOOL running;
 }
+
+@property (readonly) BOOL paused;  //Whether the game is paused
+@property (readonly) BOOL running;  //Whether the game has started (Not in menu)
 
 + (Game*)sharedInstance;
 
 - (void)start;
+
+- (void)pause;
 - (void)resume;
+
 - (void)startWithPlayersNumber:(int)number;
 
 - (void)save;
+- (void)load;
 
 @end
