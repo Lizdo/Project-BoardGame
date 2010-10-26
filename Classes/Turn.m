@@ -85,8 +85,17 @@ static Turn *sharedInstance = nil;
 	
 }
 
+- (void)pause{
+	if (state == TurnStateWaitForInput && selectedTile) {
+		selectedTile.state == TileStateAvailable;
+		selectedTile = nil;
+	}
+}
+
 - (void)resume{
-	[self enterTurn];
+	if (state == TurnStateWaitForInput) {
+		[self waitForInput];
+	}
 }
 
 

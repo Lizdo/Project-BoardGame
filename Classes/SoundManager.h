@@ -20,7 +20,8 @@ typedef enum{
 
 @interface SoundManager : NSObject{
 	NSMutableArray * sounds;
-
+	NSMutableSet * audioPlayers;
+	
 	BOOL playSound;
 	BOOL playMusic;	
 }

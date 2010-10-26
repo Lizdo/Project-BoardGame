@@ -43,7 +43,9 @@
 		[mmv setValue:game forKey:@"game"];
 		
 		//Add tutorial
-		[self showTutorial];
+		if (!SkipTutorial) {
+			[self showTutorial];
+		}
 	}
 }
 

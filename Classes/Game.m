@@ -10,6 +10,13 @@
 #import "GameLogic.h"
 #import "Tile.h"
 
+@interface Game (Private)
+
+- (void)deviceLocked;
+- (void)deviceUnlocked;
+
+@end
+
 @implementation Game
 
 @synthesize paused, running;
@@ -22,10 +29,25 @@ static Game *sharedInstance = nil;
 		gameLogic.game = self;
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillTerminateNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillResignActiveNotification object:nil];			
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceLocked) name:UIApplicationWillResignActiveNotification object:nil];	
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceUnlocked) name:UIApplicationDidBecomeActiveNotification object:nil];			
+		
+
 	}
 	return self;
 }
+
+- (void)deviceLocked{
+	[self save];
+	[self pause];
+}
+
+- (void)deviceUnlocked{
+	if (self.running) {
+		[self resume];
+	}
+}
+
 
 - (void)start{
 	[self startWithPlayersNumber:0];

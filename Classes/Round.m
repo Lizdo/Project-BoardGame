@@ -115,7 +115,10 @@ static Round *sharedInstance = nil;
 	//Only pause round update at Rumble, 
 	if (state == RoundStateRumble) {
 		[rumble pause];
+	}else {
+		[turn pause];
 	}
+
 }
 
 - (void)startRumble{

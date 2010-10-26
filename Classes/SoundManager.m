@@ -9,6 +9,13 @@
 #import "SoundManager.h"
 
 
+@interface SoundManager (Private)
+
+- (void)cleanUp;
+
+@end
+
+
 @implementation SoundManager
 
 @synthesize playSound,playMusic;
@@ -18,6 +25,7 @@ static SoundManager *sharedInstance = nil;
 - (id)init{
 	if (self = [super init]) {
 		sounds = [[NSMutableArray arrayWithCapacity:0]retain];
+		audioPlayers = [[NSMutableSet setWithCapacity:0]retain];
 		
 		[sounds insertObject:[NSArray arrayWithObjects:@"pickup", nil]
 					 atIndex:SoundTagPickup];
@@ -33,6 +41,7 @@ static SoundManager *sharedInstance = nil;
 		
 		playMusic = YES;
 		playSound = YES;
+		
 	}
 	return self;
 }
@@ -50,11 +59,28 @@ static SoundManager *sharedInstance = nil;
 										 name]];	
 	
 	NSError * error = nil;
-	AVAudioPlayer * p = [[[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error] autorelease];
+	AVAudioPlayer * p = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
 	p.volume = 3.0;
 	[p play];
 	
+	[audioPlayers addObject:p];
+	[self cleanUp];
+
 }
+
+- (void)cleanUp{
+	//sounds are no longer playing gets dealloced here.
+	NSMutableSet * playersToDelete = [NSMutableSet setWithCapacity:0];
+	for (AVAudioPlayer * p in audioPlayers) {
+		if (!p.playing) {
+			[p release];
+			[playersToDelete addObject:p];
+		}
+	}
+	
+	[audioPlayers minusSet:playersToDelete];
+}
+
 
 
 #pragma mark -

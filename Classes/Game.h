@@ -14,8 +14,6 @@
 @class Turn;
 @class Rumble;
 
-
-
 @interface Game : NSObject {
 	GameLogic * gameLogic;
 	BOOL paused;

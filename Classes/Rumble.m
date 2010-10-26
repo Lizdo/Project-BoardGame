@@ -61,8 +61,11 @@ static Rumble *sharedInstance = nil;
 
 - (void)stopRumble{
 	DebugLog(@"Exiting rumble...");
-	[timer invalidate];
-	[timer release];
+	if (timer) {
+		[timer invalidate];
+		[timer release];
+	}
+
 	
 	//remove all temp tokens
 	[gameLogic exitRumble];	
@@ -110,6 +113,9 @@ static Rumble *sharedInstance = nil;
 
 
 - (void)update{
+	if ([Game sharedInstance].paused) {
+		return;
+	}
 	currentTime += RumbleTimeSlice;
 	if (currentTime >= buildTime) {
 		[self stopRumble];

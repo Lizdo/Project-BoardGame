@@ -46,6 +46,8 @@ typedef enum{
 
 - (void) enterTurn;
 - (void) exitTurn;
+
+- (void)pause;
 - (void)resume;
 
 - (void)endTurnButtonClicked;
