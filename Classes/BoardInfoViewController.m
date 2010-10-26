@@ -8,6 +8,8 @@
 
 #import "BoardInfoViewController.h"
 #import "Board.h"
+#import "GameLogic.h"
+
 
 @implementation BoardInfoViewController
 
@@ -81,7 +83,9 @@
 }
 
 - (IBAction)showTutorial{
-	[[Board sharedInstance] showTutorial];
+	if (![GameLogic sharedInstance].animationInProgress) {
+		[[Board sharedInstance] showTutorial];
+	}
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

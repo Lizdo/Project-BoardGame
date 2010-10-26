@@ -154,6 +154,7 @@
 
 - (void)nextTurn{
 	if ([Game sharedInstance].paused) {
+		[self AImoveComplete];
 		return;
 	}
 	aiProcessInProgress = NO;
