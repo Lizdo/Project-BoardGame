@@ -35,7 +35,7 @@
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
 	<key>UIInterfaceOrientation</key>
-	<string>UIInterfaceOrientationLandscapeLeft</string>
+	<string>UIInterfaceOrientationPortrait</string>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarStyle</key>

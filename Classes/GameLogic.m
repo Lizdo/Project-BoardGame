@@ -623,28 +623,28 @@ static int tileInfos[18][8] = {
 + (int)scoreForBadgeType:(BadgeType)type{
 	switch (type) {
 		case BadgeTypeMostRound:
-			return 7;
+			return 4;
 			break;
 		case BadgeTypeMostRect:
-			return 7;
+			return 4;
 			break;
 		case BadgeTypeMostSquare:
-			return 7;
+			return 4;
 			break;
 		case BadgeTypeEnoughRound:
 			return 4;
 			break;
 		case BadgeTypeEnoughRect:
-			return 6;
+			return 9;
 			break;
 		case BadgeTypeEnoughSquare:
-			return 8;
+			return 16;
 			break;
 		case BadgeTypeFirstBuilder:
-			return 5;
+			return 4;
 			break;
 		case BadgeTypeFastBuilder:
-			return 7;
+			return 9;
 			break;
 		case BadgeTypeOneProject:
 			return 1;
@@ -657,7 +657,7 @@ static int tileInfos[18][8] = {
 			break;
 		case BadgeTypeSevenProjects:
 			return 16;
-			break;			
+			break;
 		default:
 			break;
 	}

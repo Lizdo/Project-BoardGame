@@ -67,7 +67,7 @@ const int PermanentBadgeTypes[NumberOfBadgeTypes] = {
 	-1,
 };
 
-const int EnoughResource[NumberOfTokenTypes]={10,8,6};
+const int EnoughResource[NumberOfTokenTypes]={10,10,10};
 
 
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image){
