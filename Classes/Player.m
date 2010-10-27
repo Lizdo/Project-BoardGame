@@ -187,7 +187,7 @@
 
 - (void)rumbleMove{
 	//Check if still in rumble
-	if (![gameLogic isInRumble]) {
+	if (![gameLogic isInRumble] || [Game sharedInstance].paused) {
 		return;
 	}
 	

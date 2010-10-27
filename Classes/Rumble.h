@@ -13,6 +13,13 @@
 
 #define RumbleTimeSlice 0.05
 
+typedef enum{
+	RumbleStateInit,
+	RumbleStateInProgress,
+	RumbleStateCompleted,	
+}RumbleState;
+
+
 @interface Rumble : NSObject <NSCoding>{
 	GameLogic * gameLogic;
 	NSDate * startingTime;
@@ -25,6 +32,8 @@
 
 	float buildTime;
 	float currentTime;
+	
+	RumbleState state;
 }
 
 @property (nonatomic,assign) BOOL build;

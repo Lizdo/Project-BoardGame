@@ -51,22 +51,27 @@ static Rumble *sharedInstance = nil;
 		buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
 		currentTime = 0;
 	}
+	state = RumbleStateInit;
 	//if resumed from pause, the buildTime and currentTime should have been recovered
 }
 
-- (void)enterRumbleAnimDidStop{	
+- (void)enterRumbleAnimDidStop{
+	if ([Game sharedInstance].paused) {
+		return;
+	}
+	state = RumbleStateInProgress;	
 	timer = [NSTimer scheduledTimerWithTimeInterval:RumbleTimeSlice target:self selector:@selector(update) userInfo:nil repeats:YES];
 	[timer retain];
 }
 
 - (void)stopRumble{
+	state = RumbleStateCompleted;	
 	DebugLog(@"Exiting rumble...");
 	if (timer) {
 		[timer invalidate];
 		[timer release];
+		timer = nil;		
 	}
-
-	
 	//remove all temp tokens
 	[gameLogic exitRumble];	
 }
@@ -90,9 +95,27 @@ static Rumble *sharedInstance = nil;
 }
 
 - (void)pause{
-	if (timer && timer.isValid) {
+	if (timer && [timer isValid]) {
 		[timer invalidate];
 		[timer release];
+	}
+	
+	switch (state) {
+		case RumbleStateInit:
+			//Need to save build time for resume
+			buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
+			currentTime = 0;
+			break;
+		case RumbleStateInProgress:
+
+			break;
+		case RumbleStateCompleted:
+			buildTime = DebugMode ? DefaultRumbleTime : [gameLogic buildTime];
+			currentTime = buildTime;
+			break;
+
+		default:
+			break;
 	}
 }
 
@@ -117,7 +140,7 @@ static Rumble *sharedInstance = nil;
 		return;
 	}
 	currentTime += RumbleTimeSlice;
-	if (currentTime >= buildTime) {
+	if (currentTime >= buildTime && state == RumbleStateInProgress) {
 		[self stopRumble];
 	}
 	[[Board sharedInstance] updateRumble];
@@ -180,6 +203,7 @@ static Rumble *sharedInstance = nil;
     [coder encodeBool:build forKey:@"build"];
 	[coder encodeFloat:currentTime forKey:@"currentTime"];
 	[coder encodeFloat:buildTime forKey:@"buildTime"];	
+	[coder encodeInt:state forKey:@"state"];		
 }
 
 
@@ -188,7 +212,8 @@ static Rumble *sharedInstance = nil;
     self.build = [coder decodeBoolForKey:@"build"];	
 	currentTime = [coder decodeFloatForKey:@"currentTime"];
 	buildTime = [coder decodeFloatForKey:@"buildTime"];
-	
+	state = [coder decodeFloatForKey:@"state"];
+
 	DebugLog(@"Loaded from Save, Rumble Time: %f/%f", currentTime, buildTime);
 	
     return [self retain];
