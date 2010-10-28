@@ -184,6 +184,12 @@
 + (UIImage *)imageForRumbleType:(RumbleTargetType)aType andPlayerID:(int)anOwnerID{
 	//UIColor * color = [GameVisual colorForPlayerID:anOwnerID];
 	UIColor * color = [UIColor grayColor];
+	UIImage * image = [GameVisual colorizeImage:[UIImage imageNamed:[GameVisual imageNameForRumbleType:aType]] 
+										  color:color];
+	return image;	
+}
+
++ (NSString *)imageNameForRumbleType:(RumbleTargetType)aType{
 	NSString * imageName;
 	switch (aType) {
 		case RumbleTargetTypeRobot:
@@ -209,8 +215,7 @@
 			imageName = @"Rumble_Robot.png";
 			break;
 	}
-	UIImage * image = [GameVisual colorizeImage:[UIImage imageNamed:imageName] color:color];
-	return image;	
+	return imageName;
 }
 
 
@@ -235,49 +240,53 @@
 }
 
 + (UIImage *)imageForBadgeType: (BadgeType)aType{
+	return [UIImage imageNamed:[GameVisual imageNameForBadgeType:aType]];
+}
+
++ (NSString *)imageNameForBadgeType:(BadgeType)aType{
 	switch (aType) {
 		case BadgeTypeMostRound:
-			return [UIImage imageNamed:@"BadgeMostDesigner.png"];
+			return @"BadgeMostDesigner.png";
 			break;
 		case BadgeTypeMostRect:
-			return [UIImage imageNamed:@"BadgeMostArtist.png"];
+			return @"BadgeMostArtist.png";
 			break;
 		case BadgeTypeMostSquare:
-			return [UIImage imageNamed:@"BadgeMostCoder.png"];
+			return @"BadgeMostCoder.png";
 			break;
 		case BadgeTypeEnoughRound:
-			return [UIImage imageNamed:@"BadgeEnoughDesigner.png"];
+			return @"BadgeEnoughDesigner.png";
 			break;
 		case BadgeTypeEnoughRect:
-			return [UIImage imageNamed:@"BadgeEnoughArtist.png"];
+			return @"BadgeEnoughArtist.png";
 			break;
 		case BadgeTypeEnoughSquare:
-			return [UIImage imageNamed:@"BadgeEnoughCoder.png"];
+			return @"BadgeEnoughCoder.png";
 			break;
 		case BadgeTypeFirstBuilder:
-			return [UIImage imageNamed:@"BadgeFirstBuilder.png"];
+			return @"BadgeFirstBuilder.png";
 			break;
 		case BadgeTypeFastBuilder:
-			return [UIImage imageNamed:@"BadgeFastBuilder.png"];
+			return @"BadgeFastBuilder.png";
 			break;
 		case BadgeTypeOneProject:
-			return [UIImage imageNamed:@"BadgeFirstProject.png"];
+			return @"BadgeFirstProject.png";
 			break;		
 		case BadgeTypeThreeProjects:
-			return [UIImage imageNamed:@"BadgeThirdProject.png"];
+			return @"BadgeThirdProject.png";
 			break;		
 		case BadgeTypeFiveProjects:
-			return [UIImage imageNamed:@"BadgeFifthProject.png"];
+			return @"BadgeFifthProject.png";
 			break;
 		case BadgeTypeSevenProjects:
-			return [UIImage imageNamed:@"BadgeSeventhProject.png"];
+			return @"BadgeSeventhProject.png";
 			break;			
 		default:
+			return @"BadgeTypeMostRound.png";
 			break;
 	}
-	
-	return [UIImage imageNamed:@"BadgeTypeMostRound.png"];
 }
+
 
 
 + (UIImage *)colorizeImage:(UIImage *)baseImage color:(UIColor *)theColor {

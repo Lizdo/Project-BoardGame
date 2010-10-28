@@ -234,6 +234,7 @@
 }
 
 - (void)addBadges{
+	[self removeAllBadges];
 	for (int i = 0; i<[player badges].count; i++) {
 		Badge * b = [[player badges] objectAtIndex:i];
 		[self insertSubview:b aboveSubview:backgroundImage];

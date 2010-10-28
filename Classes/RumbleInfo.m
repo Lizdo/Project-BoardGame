@@ -152,7 +152,7 @@
 
 - (void)enterRumbleAnimDidStop{
 	//TODO: Calculate which one to pop, use a random one for the moment
-	[self activateRumbleTargetWithType:rand()%6];
+	[self activateRumbleTargetWithType:0];
 }
 
 

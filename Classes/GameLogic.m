@@ -444,20 +444,24 @@ static int tileInfos[18][8] = {
 				[p addEnoughResourceBadgeWithType:j];
 			}
 		}
+		
+		//Project Number Badge
+		p.rumbleTargetAmounts = [AmountContainer emptyAmountContainer];
+		int projectCount = 0;
+		for (Project * pr in p.projects) {
+			if (pr.isCompleted) {
+				projectCount++;
+				[p.rumbleTargetAmounts modifyAmountForIndex:pr.type by:1];
+			}
+		}		
 
-		//Has Project Badge		
+		//Build Score
 		p.buildScore = 0;
 		for (int j=0; j<NumberOfRumbleTargetTypes; j++) {
 			p.buildScore += [p amountOfRumbleTarget:j]*RumbleTargetScoreModifier[j];
 		}
 		
-		//Project Number Badge
-		int projectCount = 0;
-		for (Project * pr in p.projects) {
-			if (pr.isCompleted) {
-				projectCount++;
-			}
-		}
+
 		
 		if (projectCount >= 7) {
 			[p addBadgeWithType:BadgeTypeSevenProjects];
@@ -472,7 +476,7 @@ static int tileInfos[18][8] = {
 		
 	}
 	
-	
+	//Maximum Resource Type
 	for (int i=0; i<NumberOfTokenTypes; i++) {
 		NSArray * array = [self playersWithMaximumResource:i];
 		for (Player * p in array){
@@ -482,12 +486,13 @@ static int tileInfos[18][8] = {
 	
 	for (int i = 0; i<4; i++){
 		Player * p = [self playerWithID:i];
-
+		//Badge Score
 		p.badgeScore = 0;
 		for (Badge * b in [p badges]) {
 			p.badgeScore += [b score];
 		}
 		
+		//Total Score
 		p.score = p.buildScore + p.resourceScore + p.badgeScore;
 		
 	}

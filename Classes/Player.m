@@ -215,6 +215,7 @@
 				[newArray addObject:b];
 			}
 		}
+		[badges removeAllObjects];
 		self.badges = newArray;
 	}else {
 		self.badges = [NSMutableArray arrayWithCapacity:0];
@@ -239,6 +240,7 @@
 	b.player = self;
 	[badges addObject:b];
 	[badges sortUsingSelector:@selector(compare:)];
+	DebugLog(@"Badge Type %@ added for player ID: %d", [GameLogic descriptionForBadgeType:b.type], ID);
 }
 
 - (void)addMaximumResourceBadgeWithType:(ResourceType)type{
@@ -294,7 +296,8 @@
 - (void)addProject:(Project *)p{
 	if ([projects indexOfObject:p] == NSNotFound) {
 		[projects insertObject:p atIndex:0];
-		[rumbleTargetAmounts modifyAmountForIndex:p.type by:1];
+		//[rumbleTargetAmounts modifyAmountForIndex:p.type by:1];
+		//Add amount when project completes
 	}
 }
 
@@ -302,6 +305,39 @@
 - (void)projectComplete:(Project *)p{
 	
 }
+
+- (NSString *)scoreDescription{
+	//header
+	NSString * s = @"";
+	
+	//Resources
+	s = [s stringByAppendingFormat:@"<H2>Resources<span class = 'score'>%d</span></H2>", resourceScore];
+	for (int i = 0; i<NumberOfTokenTypes; i++) {
+		s = [s stringByAppendingFormat:@"<p><strong>%@</strong>: %d x %d<span class = 'score'>%d</span></p>",
+			 [GameLogic descriptionForResourceType:i], 
+			 [self amountOfResource:i], 
+			 TokenScoreModifier[i],
+			 [self amountOfResource:i] * TokenScoreModifier[i]];
+	}
+	
+	//Projects
+	s = [s stringByAppendingFormat:@"<H2>Projects<span class = 'score'>%d</span></H2>", buildScore];
+	for (int i = 0; i<[projects count]; i++) {
+		Project * p = [projects objectAtIndex:i];
+		if (p.isCompleted) {
+			s = [s stringByAppendingFormat:@"<img src = '%@'/>", [GameVisual imageNameForRumbleType:p.type]];
+		}
+	}
+	
+	//Badgess
+	s = [s stringByAppendingFormat:@"<H2>Badges<span class = 'score'>%d</span></H2>", badgeScore];
+	for (int i = 0; i<[badges count]; i++) {
+		Badge * b = [badges objectAtIndex:i];
+		s = [s stringByAppendingFormat:@"<img src = '%@'/>", [GameVisual imageNameForBadgeType:b.type]];
+	}
+	return s;
+}
+
 
 
 #pragma mark -

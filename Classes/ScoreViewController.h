@@ -14,15 +14,7 @@
 @interface ScoreViewController : UIViewController {
 	IBOutlet UILabel * scoreLabel;
 	
-	IBOutlet UILabel * roundScoreLabel;
-	IBOutlet UILabel * rectScoreLabel;
-	IBOutlet UILabel * squareScoreLabel;
-	IBOutlet UILabel * robotScoreLabel;
-	IBOutlet UILabel * snakeScoreLabel;
-	IBOutlet UILabel * palaceScoreLabel;
-	
-	IBOutlet UILabel * resourceScoreLabel;	
-	IBOutlet UILabel * buildScoreLabel;
+	IBOutlet UIWebView * scoreWebView;
 	
 	Player * player;
 }
@@ -30,7 +22,7 @@
 @property (nonatomic,assign) Player * player;
 
 - (void)update;
-
+- (NSString *)scoreDescription;
 
 
 @end

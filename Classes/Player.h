@@ -112,4 +112,6 @@
 - (void)addProject:(Project *)p;
 - (void)projectComplete:(Project *)p;
 
+- (NSString *)scoreDescription;
+
 @end

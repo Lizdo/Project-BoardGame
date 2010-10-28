@@ -7,7 +7,9 @@
 //
 
 #import "ScoreViewController.h"
-
+#import "GameVisual.h"
+#import "Badge.h"
+#import "Project.h"
 
 @implementation ScoreViewController
 
@@ -18,24 +20,58 @@
 
 - (void)update{
 	scoreLabel.text = [NSString stringWithFormat:@"%d",player.score];
-	
-	resourceScoreLabel.text = [NSString stringWithFormat:@"%d",player.resourceScore];
-	buildScoreLabel.text = [NSString stringWithFormat:@"%d",player.buildScore];
-	
-	roundScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfResource:TokenTypeRound]];
-	rectScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfResource:TokenTypeRect]];
-	squareScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfResource:TokenTypeSquare]];
-	robotScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfRumbleTarget:RumbleTargetTypeRobot]];
-	snakeScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfRumbleTarget:RumbleTargetTypeSnake]];
-	palaceScoreLabel.text = [NSString stringWithFormat:@"%d",[player amountOfRumbleTarget:RumbleTargetTypePalace]];
 
+	[scoreWebView setBackgroundColor:[UIColor clearColor]];
+	[scoreWebView setOpaque:NO];	
+	
+	NSString * htmlString = [self scoreDescription];
+	
+	NSString *path = [[NSBundle mainBundle] bundlePath];
+	NSURL *baseURL = [NSURL fileURLWithPath:path];
+	[scoreWebView loadHTMLString:htmlString baseURL:baseURL];
 	
 }
 
-
-//- (void)viewDidLoad {
-//	((NoteView *)self.view).hasSlidedOut = YES;
-//}
+- (NSString *)scoreDescription{
+	//header
+	NSString * s = 	@"<HEAD>"
+	"<STYLE type='text/css'>"
+ 	"h2 {"
+ 	"	font-family: Palatino-Roman;"
+ 	"	font-size: 20px;"
+	"   margin-top: 4px;"
+	"   margin-bottom: 4px;"	
+	"color: #666;"
+ 	"}"
+ 	
+ 	"p {"
+	"   margin-left: 18px;"
+ 	"	font-family: Thonburi;"
+ 	"	font-size: 18px; "
+	"   margin-top: 4px;"
+	"   margin-bottom: 4px;"	
+	"color: #999;"
+ 	"}"
+	
+ 	".score {"
+	"display: block;"
+	"float: right;"	
+  	"text-align: right;"
+	"color: #4A9586;"
+	"}"
+	
+	"p .score{"
+	"color: #8DC7BB;"	
+	"}"
+	
+	"</STYLE>"
+	"</HEAD>"
+	"<BODY>";
+	s = [s stringByAppendingString:[player scoreDescription]];
+	
+	s = [s stringByAppendingFormat:@"</BODY>"];
+	return s;
+}
 
 
 

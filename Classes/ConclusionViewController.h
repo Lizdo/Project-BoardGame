@@ -11,14 +11,8 @@
 
 
 @interface ConclusionViewController : UIViewController {
-	IBOutlet UILabel * firstPlaceName;
-	IBOutlet UILabel * firstPlaceScore;
-	IBOutlet UILabel * secondPlaceName;
-	IBOutlet UILabel * secondPlaceScore;
-	IBOutlet UILabel * thirdPlaceName;
-	IBOutlet UILabel * thirdPlaceScore;
-	IBOutlet UILabel * fourthPlaceName;
-	IBOutlet UILabel * fourthPlaceScore;
+	
+	IBOutlet UIWebView * scoreWebView;
 	
 	BoardGameViewController * bgvc;
 }

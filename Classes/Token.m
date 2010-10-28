@@ -96,7 +96,7 @@
 	[UIView setAnimationDelegate:self];
 	roundState = [Round sharedInstance].state;
 	moveFlag = flag;
-	if (moveFlag == MoveFlagAINormal || moveFlag == MoveFlagAIRumble || moveFlag == MoveFlagEnterTurn) {
+	if (moveFlag == MoveFlagAINormal || moveFlag == MoveFlagAIRumble || moveFlag == MoveFlagEnterTurn || moveFlag == MoveFlagPlayerRumble) {
 		[UIView setAnimationDidStopSelector:@selector(AImoveComplete)];
 	}
 	self.center = position;
@@ -112,6 +112,7 @@
 			}
 			break;
 		case MoveFlagEnterTurn:
+		case MoveFlagPlayerRumble:
 		default:
 			break;
 	}
