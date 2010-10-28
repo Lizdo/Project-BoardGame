@@ -32,6 +32,24 @@
 	}
 }
 
+- (void)setPickedUp:(BOOL)toPickup{
+	if (pickedUp == toPickup) {
+		return;
+	}
+	
+	//If the value is changed, scale it;
+	pickedUp = toPickup;
+	
+	if (pickedUp) {
+		CGAffineTransform t = self.transform;
+		self.transform = CGAffineTransformScale(t,TokenZoomOutScale,TokenZoomOutScale);
+	}else{
+		CGAffineTransform t = self.transform;
+		self.transform = CGAffineTransformScale(t,1/TokenZoomOutScale,1/TokenZoomOutScale);
+	}
+
+}
+
 - (void)setLocked:(BOOL)newBool{
 	locked = newBool;
 	if (locked) {
@@ -78,7 +96,7 @@
 	[UIView setAnimationDelegate:self];
 	roundState = [Round sharedInstance].state;
 	moveFlag = flag;
-	if (moveFlag == MoveFlagAINormal || moveFlag == MoveFlagAIRumble) {
+	if (moveFlag == MoveFlagAINormal || moveFlag == MoveFlagAIRumble || moveFlag == MoveFlagEnterTurn) {
 		[UIView setAnimationDidStopSelector:@selector(AImoveComplete)];
 	}
 	self.center = position;
@@ -87,10 +105,17 @@
 	 
 - (void)AImoveComplete{
 	[gameLogic triggerEvent:TokenEventDroppedDown withToken:self atPosition:self.center];
-	if (!gameLogic.currentPlayer.isHuman && moveFlag == MoveFlagAINormal) {
-		//exit turn
-		[gameLogic.currentPlayer AImoveComplete];
+	switch (moveFlag) {
+		case MoveFlagAINormal:
+			if (!gameLogic.currentPlayer.isHuman) {
+				[gameLogic.currentPlayer AImoveComplete];
+			}
+			break;
+		case MoveFlagEnterTurn:
+		default:
+			break;
 	}
+
 }
 
 - (void)tokenOnTile:(BOOL)onTile{
@@ -123,7 +148,6 @@
 	self.hasMoved = YES;
 	DebugLog(@"input!");
 	if (player.isHuman || DEBUG_MODE) {
-		pickedUp = YES;
 		[gameLogic triggerEvent:TokenEventPickedUp withToken:self atPosition:self.center];			
 	}
 }
@@ -148,7 +172,6 @@
 		return;
 	}	
 	[gameLogic triggerEvent:TokenEventDroppedDown withToken:self atPosition:self.center];	
-	pickedUp = NO;
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -156,7 +179,6 @@
 		return;
 	}	
 	[gameLogic triggerEvent:TokenEventDroppedDown withToken:self atPosition:self.center];	
-	pickedUp = NO;
 }
 
 - (NSComparisonResult)compare:(Token *)t{

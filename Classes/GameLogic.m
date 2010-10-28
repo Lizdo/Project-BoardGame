@@ -155,17 +155,21 @@ static int tileInfos[18][8] = {
 
 
 - (void)triggerEvent:(TokenEvent)event withToken:(Token *)token atPosition:(CGPoint)point{
-	//Play Sound
+	//Play Sound && Scale Token
 	switch (event) {
 		case TokenEventPickedUp:
 			[[SoundManager sharedInstance] playSoundWithTag:SoundTagPickup];
+			token.pickedUp = YES;
 			break;
 		case TokenEventDroppedDown:
 			[[SoundManager sharedInstance] playSoundWithTag:SoundTagDropDown];
+			token.pickedUp = NO;			
 			break;			
 		default:
 			break;
 	}
+	
+	
 	
 	//Process Tiles in Normal State
 	if (![self isInRumble]) {
@@ -256,7 +260,9 @@ static int tileInfos[18][8] = {
 
 - (void)exitRound{
 	for (Player * p in players) {
-		[p.token moveTo:p.initialTokenPosition withMoveFlag:MoveFlagPlayerNormal];
+		//Hack here to get the scale right.
+		p.token.pickedUp = YES;
+		[p.token moveTo:p.initialTokenPosition withMoveFlag:MoveFlagEnterTurn];
 		[p.token tokenOnTile:NO];	
 	}	
 	for (Tile * t in tiles) {

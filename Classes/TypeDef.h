@@ -67,6 +67,7 @@
 
 // Size & Position
 #define TokenSize 25	//Radius
+#define TokenZoomOutScale 1.3
 #define PlayerTokenSize 50
 #define BadgeSize 30
 #define BadgeInterval 5
@@ -226,7 +227,8 @@ typedef enum{
 	MoveFlagPlayerNormal,
 	MoveFlagPlayerRumble,
 	MoveFlagAINormal,
-	MoveFlagAIRumble
+	MoveFlagAIRumble,
+	MoveFlagEnterTurn,
 }MoveFlag;
 
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);

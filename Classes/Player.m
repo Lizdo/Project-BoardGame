@@ -242,11 +242,7 @@
 }
 
 - (void)addMaximumResourceBadgeWithType:(ResourceType)type{
-	[self addBadgeWithType:type+10];
-}
-
-- (void)addHasRumbleTargetBadgeWithType:(RumbleTargetType)type{
-	[self addBadgeWithType:type+30];
+	[self addBadgeWithType:type];
 }
 
 - (void)addEnoughResourceBadgeWithType:(ResourceType)type{
