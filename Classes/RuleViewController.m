@@ -9,6 +9,7 @@
 #import "RuleViewController.h"
 #import "GameVisual.h"
 #import "GameLogic.h"
+#import "Project.h"
 
 @implementation RuleViewController
 
@@ -16,6 +17,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	tableView.allowsSelection = NO;
+	tableView.sectionHeaderHeight = 20;
 }
 
 
@@ -24,15 +26,39 @@
 #pragma mark -
 #pragma mark Table view data source
 
+// custom view for header. will be adjusted to default or specified header height
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+	UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
+	label.font = [UIFont fontWithName:PrimaryFontName size:20];
+	label.textColor = [UIColor grayColor];
+	label.backgroundColor = [GameVisual colorWithHex:NoteViewBackgroundColor];
+
+	if (section == 0) {
+		label.text = @"Projects";
+	}else {
+		label.text = @"Badges";
+	}
+
+	return label;
+	
+}  
+
+
+
+
 // Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return NumberOfBadgeTypes;
+	if (section == 0) {
+		return NumberOfRumbleTargetTypes;
+	}else {
+		return NumberOfBadgeTypes;
+	}
 }
 
 
@@ -46,19 +72,29 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	// Configure the cell.
-	BadgeType type = BadgeTypes[indexPath.row];	
-	
+	// Configure the cell.	
 	cell.textLabel.font = [UIFont fontWithName:SecondaryFontName size:25];
 	cell.textLabel.textColor = [GameVisual scoreColor];
-	cell.textLabel.text = [NSString stringWithFormat:@"+%d",[GameLogic scoreForBadgeType:type]];
 	
 	cell.detailTextLabel.font = [UIFont fontWithName:SecondaryFontName size:15];
 	cell.detailTextLabel.textColor = [UIColor grayColor];
 	cell.detailTextLabel.numberOfLines = 2;
-	cell.detailTextLabel.text = [GameLogic shortDescriptionForBadgeType:type];	
 	
-	cell.imageView.image = [GameVisual imageForBadgeType:type];	
+	
+	if (indexPath.section == 0) {
+		RumbleTargetType type = indexPath.row;
+		cell.textLabel.text = [NSString stringWithFormat:@"+%d",[Project scoreForRumbleTargetType:type]];
+		cell.detailTextLabel.text = [Project shortDescriptionForRumbleTargetType:type];	
+		cell.imageView.image = [GameVisual imageForRumbleType:type];			
+		
+	}else{
+		//Badge Type is not continuous, so we need to have an array for that
+		BadgeType type = BadgeTypes[indexPath.row];	
+		cell.textLabel.text = [NSString stringWithFormat:@"+%d",[GameLogic scoreForBadgeType:type]];
+		cell.detailTextLabel.text = [GameLogic shortDescriptionForBadgeType:type];	
+		cell.imageView.image = [GameVisual imageForBadgeType:type];	
+	}
+	
 	
     return cell;
 }

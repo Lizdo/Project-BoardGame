@@ -15,9 +15,6 @@
 
 @synthesize player;
 
-
-
-
 - (void)update{
 	scoreLabel.text = [NSString stringWithFormat:@"%d",player.score];
 
@@ -29,6 +26,11 @@
 	NSString *path = [[NSBundle mainBundle] bundlePath];
 	NSURL *baseURL = [NSURL fileURLWithPath:path];
 	[scoreWebView loadHTMLString:htmlString baseURL:baseURL];
+//	
+//	for (id subview in scoreWebView.subviews){
+//		if ([[subview class] isSubclassOfClass: [UIScrollView class]])
+//			((UIScrollView *)subview).bounces = NO;  
+//	}
 	
 }
 

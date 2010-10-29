@@ -96,6 +96,11 @@
 	NSString *path = [[NSBundle mainBundle] bundlePath];
 	NSURL *baseURL = [NSURL fileURLWithPath:path];
 	[scoreWebView loadHTMLString:s baseURL:baseURL];
+	
+	for (id subview in scoreWebView.subviews){
+		if ([[subview class] isSubclassOfClass: [UIScrollView class]])
+			((UIScrollView *)subview).bounces = NO;  
+	}
 	//
 //	fourthPlaceName.text = [[players objectAtIndex:0] name];
 //	thirdPlaceName.text = [[players objectAtIndex:1] name];	

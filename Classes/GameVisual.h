@@ -32,7 +32,7 @@
 
 
 + (UIImage *)imageForResourceType:(ResourceType)aType;
-+ (UIImage *)imageForRumbleType:(RumbleTargetType)aType andPlayerID:(int)anOwnerID;
++ (UIImage *)imageForRumbleType:(RumbleTargetType)aType;
 + (NSString *)imageNameForRumbleType:(RumbleTargetType)aType;
 
 + (UIImage *)imageForBadgeType:(BadgeType)aType;

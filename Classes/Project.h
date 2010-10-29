@@ -37,6 +37,7 @@
 
 + (int)timeNeededForRumbleTargetType:(RumbleTargetType)aType;
 + (int)scoreForRumbleTargetType:(RumbleTargetType)aType;
++ (NSString *)shortDescriptionForRumbleTargetType:(RumbleTargetType)aType;
 
 
 @end

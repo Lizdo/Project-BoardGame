@@ -23,7 +23,7 @@
 
 #define SkipTutorial 1
 
-#define DebugMode 0
+#define DebugMode 1
 
 // Times
 #if DebugMode
@@ -124,6 +124,9 @@
 //  Popup
 #define PopupWidth 200
 #define PopupHeight 75
+
+
+#define NoteViewBackgroundColor 0xF2F2F2
 
 
 typedef enum{

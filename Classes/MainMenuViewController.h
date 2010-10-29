@@ -15,6 +15,7 @@
 	IBOutlet UIButton * threePlayersButton;
 	IBOutlet UIButton * fourPlayersButton;
 	
+	IBOutlet UIButton * tutorialButton;	
 	IBOutlet UIButton * resumeGameButton;
 	
 	Game * game;
@@ -29,7 +30,7 @@
 
 
 - (IBAction) resumeGame;
-
+- (IBAction) showTutorial;
 
 - (void)startGameWithPlayerNumber:(int)playerNumber;
 

@@ -86,7 +86,7 @@
 		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:16];
 		cell.textLabel.textColor = [UIColor grayColor];		
 		cell.textLabel.text = [p description];
-		cell.imageView.image = [GameVisual imageForRumbleType:p.type andPlayerID:player.ID];	
+		cell.imageView.image = [GameVisual imageForRumbleType:p.type];	
 	}
 
     return cell;

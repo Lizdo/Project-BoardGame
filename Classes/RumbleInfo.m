@@ -85,7 +85,7 @@
 
 
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type{
-	UIImageView * icon = [[UIImageView alloc] initWithImage:[GameVisual imageForRumbleType:type andPlayerID:player.ID]];
+	UIImageView * icon = [[UIImageView alloc] initWithImage:[GameVisual imageForRumbleType:type]];
 	[self addSubview:icon];
 	icon.center = p;	
 	icon.hidden = YES;

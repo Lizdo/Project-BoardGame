@@ -108,6 +108,13 @@
 	}
 }
 
++ (NSString *)shortDescriptionForRumbleTargetType:(RumbleTargetType)aType{
+	return [NSString stringWithFormat:@"%@ %d Weeks",
+			[RumbleTarget resourceDescriptionForRumbleTargetType:aType],
+			[Project timeNeededForRumbleTargetType:aType]];
+}
+
+
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeBool:isCompleted forKey:@"isCompleted"];
     [coder encodeInt:type forKey:@"type"];

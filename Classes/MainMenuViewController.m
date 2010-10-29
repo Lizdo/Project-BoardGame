@@ -7,7 +7,7 @@
 //
 
 #import "MainMenuViewController.h"
-
+#import "TutorialViewController.h"
 
 @implementation MainMenuViewController
 
@@ -88,7 +88,11 @@
 }
 
 
-
+- (IBAction) showTutorial{
+	TutorialViewController * tvc = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
+	[self.view addSubview:tvc.view];
+	tvc.view.center = self.view.center;
+}
 
 
 - (void)dealloc {

@@ -38,15 +38,17 @@
 		backgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
 		[self addSubview:backgroundImage];
 
-        endTurnButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+        endTurnButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[self addSubview:endTurnButton];
 		//endTurnButton.center = CGPointMake(100,100);
-		[endTurnButton setImage:[UIImage imageNamed:@"EndTurn.png"] forState:UIControlStateNormal];
+		[endTurnButton setBackgroundImage:[UIImage imageNamed:@"EndTurn.png"] forState:UIControlStateNormal];
+		[endTurnButton setBackgroundImage:[UIImage imageNamed:@"EndTurn_Highlight.png"] forState:UIControlStateHighlighted];
+
         
-        endTurnButton.frame = CGRectMake(390, 70, 50, 50);
+        endTurnButton.frame = CGRectMake(390, 70, 70, 70);
 		[endTurnButton addTarget:self action:@selector(endTurnButtonClicked) forControlEvents:UIControlEventTouchUpInside];
 		
-		toggleAIButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+		toggleAIButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[self addSubview:toggleAIButton];
 		toggleAIButton.frame = CGRectMake(510, 150, 50, 50);
 		[toggleAIButton addTarget:self action:@selector(toggleAIButtonClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -90,7 +92,7 @@
 }
 
 - (UIImageView *)initRumbleIconAt:(CGPoint)p withType:(RumbleTargetType)type{
-	UIImageView * icon = [[UIImageView alloc] initWithImage:[GameVisual imageForRumbleType:type andPlayerID:player.ID]];
+	UIImageView * icon = [[UIImageView alloc] initWithImage:[GameVisual imageForRumbleType:type]];
 	[self addSubview:icon];
 	icon.center = p;	
 	icon.hidden = YES;
@@ -199,9 +201,9 @@
 
 - (void)setToggleAIButtonImage{
 	if (player.isHuman) {
-		[toggleAIButton setImage:[UIImage imageNamed:@"Player.png"] forState:UIControlStateNormal];
+		[toggleAIButton setBackgroundImage:[UIImage imageNamed:@"Player.png"] forState:UIControlStateNormal];
 	}else {
-		[toggleAIButton setImage:[UIImage imageNamed:@"AI.png"] forState:UIControlStateNormal];
+		[toggleAIButton setBackgroundImage:[UIImage imageNamed:@"AI.png"] forState:UIControlStateNormal];
 	}	
 }
 

@@ -454,6 +454,26 @@ static const int DistanceTolerance = 30;
 	}	
 }
 
+
++ (NSString *)resourceDescriptionForRumbleTargetType:(RumbleTargetType)aType{
+	AmountContainer * ac = [AmountContainer emptyAmountContainer];
+	for (int i = aType*10; i < (aType+1)*10; i++){
+		if (rumbleInfo[i][0] >= 0 && rumbleInfo[i][0] < NumberOfTokenTypes) {
+			[ac modifyAmountForIndex:rumbleInfo[i][0] by:1];
+		}
+	}
+	
+	NSString * s = @"";
+	
+	for (int i = 0; i < NumberOfTokenTypes; i++) {
+		s = [s stringByAppendingFormat:@"%@ x %d ", 
+			 [GameLogic descriptionForResourceType:i],
+			 [ac amountForIndex:i]];
+	}
+	return s;
+}
+
+
 - (AmountContainer *)tokenAmount{
 	AmountContainer * ac = [AmountContainer emptyAmountContainer];
 	for (Token * t in tokenPlaceholders) {

@@ -181,12 +181,8 @@
 	return image;	
 }
 
-+ (UIImage *)imageForRumbleType:(RumbleTargetType)aType andPlayerID:(int)anOwnerID{
-	//UIColor * color = [GameVisual colorForPlayerID:anOwnerID];
-	UIColor * color = [UIColor grayColor];
-	UIImage * image = [GameVisual colorizeImage:[UIImage imageNamed:[GameVisual imageNameForRumbleType:aType]] 
-										  color:color];
-	return image;	
++ (UIImage *)imageForRumbleType:(RumbleTargetType)aType{
+	return [UIImage imageNamed:[GameVisual imageNameForRumbleType:aType]];
 }
 
 + (NSString *)imageNameForRumbleType:(RumbleTargetType)aType{

@@ -75,9 +75,9 @@
 - (void)toggleMusic{
 	soundManager.playSound = !soundManager.playSound;
 	if (soundManager.playSound) {
-		[toggleMusicButton setImage:[UIImage imageNamed:@"Sound.png"] forState:UIControlStateNormal];
+		[toggleMusicButton setBackgroundImage:[UIImage imageNamed:@"Sound.png"] forState:UIControlStateNormal];
 	}else {
-		[toggleMusicButton setImage:[UIImage imageNamed:@"NoSound.png"] forState:UIControlStateNormal];
+		[toggleMusicButton setBackgroundImage:[UIImage imageNamed:@"NoSound.png"] forState:UIControlStateNormal];
 	}
 
 }

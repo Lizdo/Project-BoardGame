@@ -62,6 +62,9 @@
 - (void)enableSelection;
 - (AmountContainer *)tokenAmount;
 
++ (NSString *)resourceDescriptionForRumbleTargetType:(RumbleTargetType)aType;
+
+
 #pragma mark -
 #pragma mark AI
 - (CGPoint)emptyPointForToken:(Token *)t;

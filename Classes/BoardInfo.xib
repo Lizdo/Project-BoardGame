@@ -136,7 +136,7 @@
 					<object class="IBUIButton" id="301054967">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{129, 191}, {25, 25}}</string>
+						<string key="NSFrame">{{129, 194}, {25, 25}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="IBUIBackgroundColor" ref="236854597"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -161,11 +161,10 @@
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
-						<object class="NSCustomResource" key="IBUIHighlightedImage" id="282553632">
+						<object class="NSCustomResource" key="IBUINormalBackgroundImage">
 							<string key="NSClassName">NSImage</string>
 							<string key="NSResourceName">Sound.png</string>
 						</object>
-						<reference key="IBUINormalImage" ref="282553632"/>
 					</object>
 					<object class="IBUIButton" id="4514523">
 						<reference key="NSNextResponder" ref="191373211"/>

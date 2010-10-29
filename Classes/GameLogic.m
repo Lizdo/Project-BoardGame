@@ -50,25 +50,24 @@ static GameLogic *sharedInstance = nil;
 //  [Type, x, y, sourceType, sourceAmount, targetType, targetAmount, accumulateRate]
 static int tileInfos[18][8] = {
 	//row 0
-	//{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRound,2,0},
-	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRound,0,1},
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRect,1,0},
-	{TileTypeExchangeResource, 0, 0, ResourceTypeRound,1,ResourceTypeRect,1,0},	
-	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRound,0,1},
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,1,0},
-	{TileTypeBuild, 0, 0, 0,0,ResourceTypeRect,0,0},
+	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRect,0,1},
+	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRect,2,0},
+	{TileTypeExchangeResource, 0, 0, ResourceTypeRound,1,ResourceTypeRect,2,0},	
+	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,1,0},	
+	{TileTypeExchangeResource, 0, 0, ResourceTypeRect,2,ResourceTypeSquare,2,0},	
+	{TileTypeOutsourcing, 0, 0, 0,0,ResourceTypeRect,0,0},
 	//row 1
 	{TileTypeExchangeResource, 0, 0, ResourceTypeRect,1,ResourceTypeRound,4,0},	
 	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRect,0,1},
 	{TileTypeExchangeResource, 0, 0, ResourceTypeSquare,1,ResourceTypeRect,3,0},	
 	{TileTypeBuild, 0, 0, 0,0,ResourceTypeRound,0,0},	
-	{TileTypeExchangeResource, 0, 0, ResourceTypeRound,1,ResourceTypeRect,2,0},	
-	{TileTypeLucky, 0, 0, 0,0,ResourceTypeRect,0,0},
+	{TileTypeExchangeResource, 0, 0, ResourceTypeRect,1,ResourceTypeSquare,2,0},	
+	{TileTypeAnnualParty, 0, 0, 0,0,ResourceTypeRect,0,0},
 	//row 2
 	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeSquare,0,1},
-	{TileTypeBuild, 0, 0, 0,0,ResourceTypeRect,0,0},
-	{TileTypeLucky, 0, 0, 0,0,ResourceTypeRect,0,0},
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRound,1,0},
+	{TileTypeOvertime, 0, 0, 0,0,ResourceTypeRect,0,0},
+	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,3,0},
+	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRound,0,1},
 	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRect,1,0},
 	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,1,0},
 };
