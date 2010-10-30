@@ -16,6 +16,10 @@ typedef enum{
 	SoundTagDropDown,
 	SoundTagPaperFly,
 	SoundTagPaperShort,	
+	SoundTagSlide,
+	SoundTagCoin,
+	SoundTagTape,
+	SoundTagButton,
 }SoundTag;
 
 @interface SoundManager : NSObject{

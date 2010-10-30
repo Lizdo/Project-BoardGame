@@ -43,7 +43,13 @@
 		[scrollView addSubview:imageView];
 
 	}
+	self.view.alpha = 0;
+	
+	[UIView beginAnimations:nil context:nil]; 
+	[UIView setAnimationDuration:RoundIntroFadeTime]; 
+	[UIView setAnimationDelegate:self.view];
 	self.view.alpha = 1;
+	[UIView commitAnimations];
 	
 	if ([Game sharedInstance].running) {
 		[[Game sharedInstance] pause];

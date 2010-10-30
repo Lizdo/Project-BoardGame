@@ -12,6 +12,7 @@
 #import "Player.h"
 #import "Board.h"
 #import "Project.h"
+#import "SoundManager.h"
 
 
 @interface RumbleTarget (Private) 
@@ -371,6 +372,9 @@ static const int DistanceTolerance = 30;
 	//allMatched = YES;
 	//self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
 	DebugLog(@"All Matched");
+	
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagCoin];
+	
 	//[Badge]: First Builder
 	[player addBadgeWithType:BadgeTypeFirstBuilder];
 	

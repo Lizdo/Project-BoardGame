@@ -73,19 +73,23 @@
     
     UITableViewCell *cell = [_tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	// Configure the cell.
+	// Configure the cell.	
+	cell.textLabel.font = [UIFont fontWithName:SecondaryFontName size:25];
+	cell.textLabel.textColor = [GameVisual scoreColor];
+	
+	cell.detailTextLabel.font = [UIFont fontWithName:SecondaryFontName size:15];
+	cell.detailTextLabel.textColor = [UIColor grayColor];
+	cell.detailTextLabel.numberOfLines = 2;
+	
 	if ([player.projects count] < 1) {
-		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:16];
-		cell.textLabel.textColor = [UIColor grayColor];
-		cell.textLabel.text = @"No ongoing projects";
+		cell.detailTextLabel.text = @"No ongoing projects";
 	}else {
 		Project * p = [player.projects objectAtIndex:indexPath.row];
-		cell.textLabel.font = [UIFont fontWithName:PrimaryFontName size:16];
-		cell.textLabel.textColor = [UIColor grayColor];		
-		cell.textLabel.text = [p description];
+		cell.textLabel.text = [NSString stringWithFormat:@"+%d",[Project scoreForRumbleTargetType:indexPath.row]];	
+		cell.detailTextLabel.text = [p description];
 		cell.imageView.image = [GameVisual imageForRumbleType:p.type];	
 	}
 

@@ -21,9 +21,9 @@
 #define SecondaryFontName @"Thonburi"
 #define SecondaryFont "Thonburi"
 
-#define SkipTutorial 1
+#define SkipTutorial 0
 
-#define DebugMode 1
+#define DebugMode 0
 
 // Times
 #if DebugMode

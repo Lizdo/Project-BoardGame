@@ -8,6 +8,7 @@
 
 #import "MainMenuViewController.h"
 #import "TutorialViewController.h"
+#import "SoundManager.h"
 
 @implementation MainMenuViewController
 
@@ -56,6 +57,8 @@
 }
 
 - (void)startGameWithPlayerNumber:(int)playerNumber{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
+	
 	[self.view removeFromSuperview];	
 	[game startWithPlayersNumber:playerNumber];
 }
@@ -83,12 +86,15 @@
 
 
 - (IBAction) resumeGame{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	[self.view removeFromSuperview];		
 	[game load];
 }
 
 
 - (IBAction) showTutorial{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
+
 	TutorialViewController * tvc = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
 	[self.view addSubview:tvc.view];
 	tvc.view.center = self.view.center;

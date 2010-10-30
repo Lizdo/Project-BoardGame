@@ -8,6 +8,7 @@
 
 #import "CurrentPlayerMark.h"
 #import "GameVisual.h"
+#import "SoundManager.h"
 
 @implementation CurrentPlayerMark
 
@@ -38,6 +39,7 @@
 		[UIView setAnimationDidStopSelector:@selector(movementComplete)];
 		self.center = [GameVisual positionForPlayerID:playerID withOffsetFromInfoCenter:CurrentPlayerMarkOffset];
 		self.transform = [GameVisual transformForPlayerID:playerID];
+		[[SoundManager sharedInstance] playSoundWithTag:SoundTagSlide];		
 		[UIView commitAnimations];
 	}else {
 		self.center = [GameVisual positionForPlayerID:playerID withOffsetFromInfoCenter:CurrentPlayerMarkOffset];

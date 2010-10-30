@@ -39,6 +39,18 @@ static SoundManager *sharedInstance = nil;
 		[sounds insertObject:[NSArray arrayWithObjects:@"papershort", @"papershort2", @"papershort3", nil]
 					 atIndex:SoundTagPaperShort];		
 		
+		[sounds insertObject:[NSArray arrayWithObjects:@"slide", nil]
+					 atIndex:SoundTagSlide];		
+		
+		[sounds insertObject:[NSArray arrayWithObjects:@"coin", @"coin2", @"coin3", nil]
+					 atIndex:SoundTagCoin];	
+		
+		[sounds insertObject:[NSArray arrayWithObjects:@"tape", nil]
+					 atIndex:SoundTagTape];
+		
+		[sounds insertObject:[NSArray arrayWithObjects:@"button", nil]
+					 atIndex:SoundTagButton];			
+		
 		playMusic = YES;
 		playSound = YES;
 		

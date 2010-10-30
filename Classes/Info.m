@@ -8,6 +8,7 @@
 
 #import "Info.h"
 #import "GameLogic.h"
+#import "SoundManager.h"
 
 
 @interface Info (Private)
@@ -179,6 +180,7 @@
 	if (player.aiProcessInProgress || player != gameLogic.currentPlayer) {
 		return;
 	}else {
+		[[SoundManager sharedInstance] playSoundWithTag:SoundTagButton];
 		[gameLogic endTurnButtonClicked];
 	}
 
@@ -189,6 +191,7 @@
 	if (player.aiProcessInProgress) {
 		return;
 	}
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagButton];	
 	player.isHuman = !player.isHuman;
 	if (!player.isHuman) {
 		if (player == gameLogic.currentPlayer) {
@@ -200,6 +203,7 @@
 }
 
 - (void)setToggleAIButtonImage{
+	
 	if (player.isHuman) {
 		[toggleAIButton setBackgroundImage:[UIImage imageNamed:@"Player.png"] forState:UIControlStateNormal];
 	}else {
