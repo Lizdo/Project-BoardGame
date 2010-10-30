@@ -20,7 +20,7 @@
 
 @implementation RumbleBoard
 
-@synthesize sharedTokenAmount;
+@synthesize sharedTokenAmount,rumbleView;
 
 static RumbleBoard *sharedInstance = nil;
 
@@ -231,6 +231,13 @@ static RumbleBoard *sharedInstance = nil;
 	countDown.text = [NSString stringWithFormat:@"%1.0f",[rumble timeRemaining]];
 	for (RumbleInfo * info in rumbleInfos){
 		[info update];
+	}
+}
+
+
+- (void)validateRumbleTargetAmount{
+	for (RumbleInfo * ri in rumbleInfos) {
+		[ri validateRumbleTargetAmount];
 	}
 }
 

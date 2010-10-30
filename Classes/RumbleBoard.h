@@ -49,6 +49,7 @@
 }
 
 @property (retain,nonatomic) AmountContainer * sharedTokenAmount;
+@property (readonly,nonatomic) 	ContainerView * rumbleView;
 
 
 + (RumbleBoard*)sharedInstance;
@@ -63,6 +64,8 @@
 - (void)rumbleWithPlayerID:(int)playerID;
 - (void)addSharedTokens;
 - (void)addRumbleToken:(Token *)t;
+
+- (void)validateRumbleTargetAmount;
 
 - (void)enterRumbleAnimDidStop;
 - (void)exitRumbleAnimDidStop;

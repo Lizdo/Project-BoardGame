@@ -145,6 +145,7 @@ static Round *sharedInstance = nil;
 	if (count < MAX_ROUNDS-1){
 		[self enterRound];
 	}else{
+		[gameLogic cleanUpBeforeConclusion];
 		[[Board sharedInstance] enterConclusion];
 	}
 }

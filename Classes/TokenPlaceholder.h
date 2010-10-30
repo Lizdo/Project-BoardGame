@@ -17,7 +17,7 @@
 }
 
 @property (nonatomic, assign) BOOL hasMatch;
-@property (nonatomic, assign) Token * matchedToken;
+@property (nonatomic, retain) Token * matchedToken;
 
 + (id)tokenPlaceholderWithType:(TokenType)aType andPosition:(CGPoint)p;
 - (void)reset;

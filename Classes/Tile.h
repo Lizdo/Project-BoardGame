@@ -20,7 +20,8 @@
 
 	int ID;
 	BOOL isSpecial;
-	
+	BOOL isDisabled;
+
 	ResourceType sourceType;	
 	int sourceAmount;
 	ResourceType targetType;
@@ -39,6 +40,7 @@
 @property (nonatomic, assign) TileType type;
 @property (nonatomic, assign) TileState state;
 @property (nonatomic, assign) BOOL isSpecial;
+@property (nonatomic, assign) BOOL isDisabled;
 
 @property (nonatomic, assign) ResourceType sourceType;
 @property (nonatomic, assign) int sourceAmount;

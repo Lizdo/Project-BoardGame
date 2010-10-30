@@ -32,8 +32,11 @@
 	if (matchedToken) {
 		matchedToken.isMatched = NO;
 	}
+	[matchedToken release];
 	matchedToken = token;
+	[matchedToken retain];
 	matchedToken.isMatched = YES;
+
 	
 }
 
@@ -59,8 +62,9 @@
 	self.hasMatch = NO;
 	if (matchedToken) {
 		[matchedToken removeFromSuperview];
+		[gameLogic.rumbleTokens removeObject:matchedToken];
 	}
-	self.matchedToken = nil;
+	matchedToken = nil;
 }
 
 - (void)remove{
@@ -69,7 +73,7 @@
 		//[matchedToken removeFromSuperview];
 		[matchedToken moveToLastPosition];
 	}
-	self.matchedToken = nil;
+	matchedToken = nil;
 }
 
 @end

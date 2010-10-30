@@ -265,6 +265,9 @@
 		case BadgeTypeFastBuilder:
 			return @"BadgeFastBuilder.png";
 			break;
+		case BadgeTypeAllProjects:
+			return @"BadgeAllProjects.png";
+			break;			
 		case BadgeTypeOneProject:
 			return @"BadgeFirstProject.png";
 			break;		

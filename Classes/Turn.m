@@ -125,6 +125,7 @@ static Turn *sharedInstance = nil;
 		round.moreBuildTime = YES;
 	}else if (selectedTile.type == TileTypeAnnualParty) {
 		round.skipProjectUpdate = YES;
+		selectedTile.isDisabled = YES;
 	}
 	
 	//play some anim then		

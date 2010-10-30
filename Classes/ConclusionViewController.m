@@ -83,7 +83,7 @@
 	
 	"</STYLE>"
 	"</HEAD>"
-	"<BODY  style='background-color: transparent'>";
+	"<BODY  style='background-color: rgba(255, 255, 255, 0.3); border: 1px;'>";
 	
 	for (int i = 0; i<[players count]; i++) {
 		Player * p = [players objectAtIndex:[players count] - i - 1];

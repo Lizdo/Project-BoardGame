@@ -88,9 +88,9 @@
 		cell.detailTextLabel.text = @"No ongoing projects";
 	}else {
 		Project * p = [player.projects objectAtIndex:indexPath.row];
-		cell.textLabel.text = [NSString stringWithFormat:@"+%d",[Project scoreForRumbleTargetType:indexPath.row]];	
+		cell.textLabel.text = [NSString stringWithFormat:@"+%d",[Project scoreForRumbleTargetType:p.type]];	
 		cell.detailTextLabel.text = [p description];
-		cell.imageView.image = [GameVisual imageForRumbleType:p.type];	
+		cell.imageView.image = [GameVisual imageForRumbleType:p.type];
 	}
 
     return cell;
