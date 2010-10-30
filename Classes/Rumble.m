@@ -212,7 +212,7 @@ static Rumble *sharedInstance = nil;
     self.build = [coder decodeBoolForKey:@"build"];	
 	currentTime = [coder decodeFloatForKey:@"currentTime"];
 	buildTime = [coder decodeFloatForKey:@"buildTime"];
-	state = [coder decodeFloatForKey:@"state"];
+	state = [coder decodeIntForKey:@"state"];
 
 	DebugLog(@"Loaded from Save, Rumble Time: %f/%f", currentTime, buildTime);
 	

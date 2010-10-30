@@ -17,7 +17,7 @@
 
 @implementation Tile
 
-@synthesize ID,type,state,sourceType,sourceAmount,targetType,targetAmount,accumulateRate,isSpecial;
+@synthesize ID,type,state,sourceType,sourceAmount,targetType,targetAmount,accumulateRate,isSpecial,isDisabled;
 
 
 
@@ -390,7 +390,7 @@
 					[GameLogic descriptionForResourceType:targetType]];
 			break;
 		case TileTypeAccumulateResource:
-			return [NSString stringWithFormat:@"Get %d %@ this turn, increasing over time.",
+			return [NSString stringWithFormat:@"Get %d %@, increasing over time.",
 					targetAmount,
 					[GameLogic descriptionForResourceType:targetType]];;
 			break;			
@@ -401,13 +401,13 @@
 			return @"Check if you're blessed.";
 			break;
 		case TileTypeOvertime:
-			return @"Extra time for project oppotunity this turn.";
+			return @"Extra time for project build this turn.";
 			break;
 		case TileTypeOutsourcing:
 			return @"More temp guys joining this turn.";
 			break;
 		case TileTypeAnnualParty:
-			return @"Skip all production. Happens once a year.";
+			return @"Skip all production, once a year.";
 			break;			
 		default:
 			break;
@@ -430,6 +430,7 @@
 	
     [coder encodeInt:ID forKey:@"ID"];
 	[coder encodeBool:isSpecial forKey:@"isSpecial"];
+	[coder encodeBool:isDisabled forKey:@"isDisabled"];
 	
     [coder encodeInt:sourceType forKey:@"sourceType"];
     [coder encodeInt:sourceAmount forKey:@"sourceAmount"];	
@@ -450,6 +451,8 @@
     state = [coder decodeIntForKey:@"state"];
 	
     isSpecial = [coder decodeBoolForKey:@"isSpecial"];
+    isDisabled = [coder decodeBoolForKey:@"isDisabled"];
+	
     ID = [coder decodeIntForKey:@"ID"];
 	
     sourceType = [coder decodeIntForKey:@"sourceType"];

@@ -39,6 +39,8 @@
 
 @property (nonatomic,assign) Player * player;
 @property (nonatomic,assign) RumbleTarget * currentRumbleTarget;
+@property (nonatomic,retain) NSMutableArray * rumbleTargets;
+
 
 
 - (void)initGame;
@@ -51,8 +53,9 @@
 - (void)swapRumbleTarget:(BOOL)up;
 - (void)enterRumbleAnimDidStop;
 
-- (void)zoomOut;
+- (void)zoomOutWithAnim:(BOOL)withAnim;
 - (void)selectRumbleTarget:(RumbleTarget *)rt;
+- (void)validateRumbleTargetAmount;
 
 - (void)reset;
 - (void)update;

@@ -32,7 +32,7 @@
 @property (nonatomic,assign) Player * player;
 
 - (id)initWithRumbleTarget:(RumbleTarget *)rt;
-- (void)enterRound;
+- (void)exitRumble;
 - (void)complete;
 
 + (int)timeNeededForRumbleTargetType:(RumbleTargetType)aType;

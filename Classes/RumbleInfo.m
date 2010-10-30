@@ -25,7 +25,7 @@
 
 @implementation RumbleInfo
 
-@synthesize player, currentRumbleTarget;
+@synthesize player, currentRumbleTarget, rumbleTargets;
 
 - (void)setPlayer:(Player *)newPlayer{
 	player = newPlayer;
@@ -41,7 +41,7 @@
 		[self addSubview:backgroundImage];		
 		
 		gameLogic = [GameLogic sharedInstance];
-		rumbleTargets = [[NSMutableArray arrayWithCapacity:0]retain];
+		self.rumbleTargets = [NSMutableArray arrayWithCapacity:0];
 		rumbleAlone = NO;
     }
     return self;
@@ -134,25 +134,20 @@
 		}
 	}
 	
-	AmountContainer * currentAmount = [AmountContainer emptyAmountContainer];
-	[currentAmount addAmount:[RumbleBoard sharedInstance].sharedTokenAmount];
-	[currentAmount addAmount:player.tokenAmounts];
-	
-	for (RumbleTarget * rt in rumbleTargets) {
-		if ([currentAmount greaterOrEqualThan:[rt tokenAmount]]) {
-			rt.isAvailable = YES;
-		}else {
-			rt.isAvailable = NO;
-		}
-
-	}
-	
+	[self validateRumbleTargetAmount];
 	backgroundImage.hidden = NO;
+	
 }
 
 - (void)enterRumbleAnimDidStop{
 	//TODO: Calculate which one to pop, use a random one for the moment
-	[self activateRumbleTargetWithType:0];
+	if (player.isHuman) {
+		[self zoomOutWithAnim:NO];
+	}else {
+		[self activateRumbleTargetWithType:0];
+	}
+
+	//[self activateRumbleTargetWithType:0];
 }
 
 
@@ -239,7 +234,7 @@
 	[self activateRumbleTargetWithType:currentType];
 }
 
-- (void)zoomOut{
+- (void)zoomOutWithAnim:(BOOL)withAnim{
 	[self deactivateCurrentRumbleTarget];
 	currentRumbleTarget = nil;
 	
@@ -254,14 +249,22 @@
 		if (rt!=currentRumbleTarget) {
 			rt.alpha = 0;
 		}
-		[UIView beginAnimations:nil context:nil]; 
-		[UIView setAnimationDuration:SlideOutTime];
-		rt.center = [self positionForRumbleTargetType:rt.type];
-		rt.transform = CGAffineTransformMakeScale(RumbleTargetZoomOutRatio,RumbleTargetZoomOutRatio);		
-		rt.alpha = 1.0;
-		[UIView commitAnimations];		
+		if (withAnim) {
+			[UIView beginAnimations:nil context:nil]; 
+			[UIView setAnimationDuration:SlideOutTime];
+			rt.center = [self positionForRumbleTargetType:rt.type];
+			rt.transform = CGAffineTransformMakeScale(RumbleTargetZoomOutRatio,RumbleTargetZoomOutRatio);		
+			rt.alpha = 1.0;
+			[UIView commitAnimations];	
+		}else {
+			rt.center = [self positionForRumbleTargetType:rt.type];
+			rt.transform = CGAffineTransformMakeScale(RumbleTargetZoomOutRatio,RumbleTargetZoomOutRatio);		
+			rt.alpha = 1.0;
+		}
+		
 	}
-	
+	[[RumbleBoard sharedInstance] addSubview:self];
+
 }
 
 - (CGPoint)positionForRumbleTargetType:(RumbleTargetType)type{
@@ -296,6 +299,8 @@
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagPaperShort];	
 	currentRumbleTarget = rt;
 	[self activateCurrentRumbleTarget];
+	[[RumbleBoard sharedInstance].rumbleView addSubview:self];
+
 }
 
 
@@ -323,6 +328,25 @@
 	}
 	n = CGPointMake(currentPosition.x + TokenSize, currentPosition.y + TokenSize);
 	return 	[self convertPoint:n toView:self.superview];
+}
+
+
+- (void)validateRumbleTargetAmount{
+	AmountContainer * currentAmount = [AmountContainer emptyAmountContainer];
+
+	for (Token * t in gameLogic.rumbleTokens) {
+		if (t.shared || t.player == self.player) {
+			[currentAmount modifyAmountForIndex:t.type by:1];
+		}
+	}
+	
+	for (RumbleTarget * rt in rumbleTargets) {
+		if ([currentAmount greaterOrEqualThan:[rt tokenAmount]]) {
+			rt.isAvailable = YES;
+		}else {
+			rt.isAvailable = NO;
+		}
+	}	
 }
 
 

@@ -187,7 +187,9 @@ static int tileInfos[18][8] = {
 						tile.state = TileStateRejected;
 					}
 				}else {
-					tile.state = TileStateAvailable;
+					if (!tile.isDisabled) {
+						tile.state = TileStateAvailable;
+					}
 				}
 			}
 		}
@@ -316,13 +318,30 @@ static int tileInfos[18][8] = {
 //	}
 //	[rumbleTargets removeAllObjects];
 //	[rumbleTargets release];
+	for (Player * p in players) {
+		[p exitRumble];
+	}	
+	
 	[self calculateScore];
 	[board addBadges];
 	
-	for (Player * p in players) {
-		[p exitRumble];
-	}
 
+
+}
+
+
+- (void)cleanUpBeforeConclusion{
+	//Complete all projects
+	for (Player * p in players) {
+		for (Project * pr in p.projects) {
+			if (!pr.isCompleted) {
+				pr.isCompleted = YES;
+			}
+		}
+	}	
+	
+	[self calculateScore];
+	[board addBadges];
 }
 
 
@@ -447,12 +466,25 @@ static int tileInfos[18][8] = {
 		//Project Number Badge
 		p.rumbleTargetAmounts = [AmountContainer emptyAmountContainer];
 		int projectCount = 0;
+		int projectType[NumberOfRumbleTargetTypes];
 		for (Project * pr in p.projects) {
 			if (pr.isCompleted) {
 				projectCount++;
+				projectType[pr.type] = 1;
 				[p.rumbleTargetAmounts modifyAmountForIndex:pr.type by:1];
 			}
-		}		
+		}
+		
+		//Check All Project Status
+		BOOL allProjectsBuilt = YES;
+		for (int j = 0; j < NumberOfRumbleTargetTypes; j++) {
+			if (projectType[j] != 1) {
+				allProjectsBuilt = NO;
+			}
+		}
+		if (allProjectsBuilt) {
+			[p addBadgeWithType:BadgeTypeAllProjects];
+		}
 
 		//Build Score
 		p.buildScore = 0;
@@ -462,11 +494,11 @@ static int tileInfos[18][8] = {
 		
 
 		
-		if (projectCount >= 7) {
+		if (projectCount >= 13) {
 			[p addBadgeWithType:BadgeTypeSevenProjects];
-		}else if (projectCount >= 5) {
+		}else if (projectCount >= 9) {
 			[p addBadgeWithType:BadgeTypeFiveProjects];
-		}else if (projectCount >= 3) {
+		}else if (projectCount >= 5) {
 			[p addBadgeWithType:BadgeTypeThreeProjects];
 		}else if (projectCount >=1) {
 			[p addBadgeWithType:BadgeTypeOneProject];
@@ -551,34 +583,49 @@ static int tileInfos[18][8] = {
 }
 
 
-- (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p{
-	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
-	if (!rt) {
-		return NO;
-	}	
-	int rtTokens[5] = {0,0,0,0,0};
-	for (TokenPlaceholder * t in rt.tokenPlaceholders) {
-		if (!t.hasMatch) {
-			rtTokens[t.type]++;
-		}
-	}
-	
-	int numTokens[5] = {0,0,0,0,0};
-	for (Token * t in rumbleTokens) {
-		if (t.player == p || t.shared) {
-			if (!t.isMatched) {
-				numTokens[t.type]++;
+- (BOOL)allRumbleTargetsNotUsableForPlayer:(Player *)p{
+	for (RumbleInfo * ri in rumbleInfos) {
+		if (ri.player == p) {
+			for (RumbleTarget * rt in ri.rumbleTargets) {
+				if (rt.isAvailable) {
+					return NO;
+				}
 			}
 		}
 	}
-	
-	for (int i=1;i<4;i++) {
-		if (numTokens[i] < rtTokens[i]) {
-			return NO;
-		}
-	}
-	
 	return YES;
+
+}
+
+- (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p{
+	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
+	return rt.isAvailable;
+//	if (!rt) {
+//		return NO;
+//	}	
+//	int rtTokens[5] = {0,0,0,0,0};
+//	for (TokenPlaceholder * t in rt.tokenPlaceholders) {
+//		if (!t.hasMatch) {
+//			rtTokens[t.type]++;
+//		}
+//	}
+//	
+//	int numTokens[5] = {0,0,0,0,0};
+//	for (Token * t in rumbleTokens) {
+//		if (t.player == p || t.shared) {
+//			if (!t.isMatched) {
+//				numTokens[t.type]++;
+//			}
+//		}
+//	}
+//	
+//	for (int i=1;i<4;i++) {
+//		if (numTokens[i] < rtTokens[i]) {
+//			return NO;
+//		}
+//	}
+//	
+//	return YES;
 }
 
 - (void)swapRumbleTargetForPlayer:(Player *)p{
@@ -656,6 +703,9 @@ static int tileInfos[18][8] = {
 		case BadgeTypeFastBuilder:
 			return 9;
 			break;
+		case BadgeTypeAllProjects:
+			return 16;
+			break;			
 		case BadgeTypeOneProject:
 			return 1;
 			break;		
@@ -700,17 +750,20 @@ static int tileInfos[18][8] = {
 		case BadgeTypeFastBuilder:
 			return @"Build 3+ Projects in 1 Week";
 			break;
+		case BadgeTypeAllProjects:
+			return @"Build all 6 kinds of Projects";
+			break;			
 		case BadgeTypeOneProject:
 			return @"First Project Built";
 			break;		
 		case BadgeTypeThreeProjects:
-			return @"3 Projects Built";
+			return @"5 Projects Built";
 			break;		
 		case BadgeTypeFiveProjects:
-			return @"5 Projects Built";
+			return @"9 Projects Built";
 			break;
 		case BadgeTypeSevenProjects:
-			return @"7 Projects Built";
+			return @"13 Projects Built";
 			break;			
 		default:
 			break;
@@ -743,6 +796,9 @@ static int tileInfos[18][8] = {
 			break;
 		case BadgeTypeFastBuilder:
 			return @"You're fast, lightning fast.";
+			break;
+		case BadgeTypeAllProjects:
+			return @"Experienced in all ways.";
 			break;
 		case BadgeTypeOneProject:
 			return @"First step for everyone.";

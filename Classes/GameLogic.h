@@ -86,6 +86,8 @@
 - (void)exitRumble;
 - (void)exitRumbleAnimDidStop;
 
+- (void)cleanUpBeforeConclusion;
+
 #pragma mark -
 #pragma mark Events
 
@@ -107,6 +109,7 @@
 
 - (Token *)randomRumbleTokenForPlayer:(Player *)p;
 - (CGPoint)randomRumblePositionForPlayer:(Player *)p withToken:(Token *)t;
+- (BOOL)allRumbleTargetsNotUsableForPlayer:(Player *)p;
 - (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p;
 - (void)swapRumbleTargetForPlayer:(Player *)p;
 

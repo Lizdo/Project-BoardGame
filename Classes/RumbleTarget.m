@@ -139,7 +139,7 @@ float distance(CGPoint p1, CGPoint p2){
 	recognizerUp.enabled = NO;	
 	recognizerDown.enabled = NO;
 	recognizerPinch.enabled = NO;
-	[info zoomOut];
+	[info zoomOutWithAnim:YES];
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)sender{
@@ -373,6 +373,7 @@ static const int DistanceTolerance = 30;
 	//self.backgroundColor = [GameVisual rumbleTargetBackgroundColor];
 	DebugLog(@"All Matched");
 	
+	
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagCoin];
 	
 	//[Badge]: First Builder
@@ -383,6 +384,9 @@ static const int DistanceTolerance = 30;
 	[player addProject:p];
 	
 	[self reset];
+	
+	[[RumbleBoard sharedInstance]validateRumbleTargetAmount];
+
 	
 }
 

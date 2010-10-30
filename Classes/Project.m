@@ -38,7 +38,7 @@
 
 
 
-- (void)enterRound{
+- (void)exitRumble{
 	if (timeRemaining > 0 && [Round sharedInstance]) {
 		timeRemaining--;
 		if (timeRemaining == 0) {

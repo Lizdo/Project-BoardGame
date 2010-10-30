@@ -172,9 +172,16 @@
 //   Move to a random position
 
 - (void)rumbleAI{
+	if ([Rumble sharedInstance].timeRemaining <= RumbleWaitTime ) {
+		return;
+	}
 	//Check if is useless
+	if ([gameLogic allRumbleTargetsNotUsableForPlayer:self]) {
+		return;
+	}
+	
 	if (![gameLogic rumbleTargetIsUsableForPlayer:self]) {
-		[self randomWait:@selector(swapRumbleTarget) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
+		[self randomWait:@selector(swapRumbleTarget) andDelay:RumbleWaitSwapTime+(rand()%10)/10-0.5];	
 	}else {
 		[self randomWait:@selector(rumbleMove) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
 
@@ -183,6 +190,7 @@
 
 - (void)swapRumbleTarget{
 	[gameLogic swapRumbleTargetForPlayer:self];
+	[self randomWait:@selector(rumbleAI) andDelay:RumbleWaitSwapTime+(rand()%10)/10-0.5];
 }
 
 - (void)rumbleMove{
@@ -201,7 +209,7 @@
 	if (!CGPointEqualToPoint(targetPosition, CGPointZero)) {
 		[randomToken moveTo:targetPosition withMoveFlag:MoveFlagAIRumble];
 	}
-	[self randomWait:@selector(rumbleMove) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
+	[self randomWait:@selector(rumbleAI) andDelay:RumbleWaitTime+(rand()%10)/10-0.5];	
 
 }
 
@@ -277,7 +285,7 @@
 
 - (void)exitRumble{
 	for (Project * p in projects){
-		[p enterRound];
+		[p exitRumble];
 	}
 	
 	self.lockedAmounts = [AmountContainer emptyAmountContainer];

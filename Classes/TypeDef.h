@@ -30,7 +30,8 @@
 
 #define MoveAnimationTime 0.1
 #define WaitTime 0.2
-#define RumbleWaitTime 2
+#define RumbleWaitTime 1
+#define RumbleWaitSwapTime 0.3
 #define HighlightTime 0.4
 
 #define DefaultRumbleTime 5.0
@@ -45,7 +46,8 @@
 
 #define MoveAnimationTime 0.5
 #define WaitTime 0.5
-#define RumbleWaitTime 2
+#define RumbleWaitTime 1
+#define RumbleWaitSwapTime 0.3
 #define HighlightTime 0.4
 
 #define DefaultRumbleTime 30.0
@@ -193,7 +195,7 @@ typedef enum{
 	RumbleTargetTypeTank,
 }RumbleTargetType;
 
-#define NumberOfBadgeTypes 12
+#define NumberOfBadgeTypes 13
 
 
 // -- Badge Design --
@@ -214,6 +216,7 @@ typedef enum{
 	
 	BadgeTypeFirstBuilder = 50,
 	BadgeTypeFastBuilder = 51,
+	BadgeTypeAllProjects = 52,	
 	
 	BadgeTypeOneProject = 60,
 	BadgeTypeThreeProjects = 61,	

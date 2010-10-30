@@ -23,6 +23,7 @@ const int BadgeTypes[NumberOfBadgeTypes] = {
 
 	BadgeTypeFirstBuilder,
 	BadgeTypeFastBuilder,
+	BadgeTypeAllProjects,
 	
 	BadgeTypeOneProject,
 	BadgeTypeThreeProjects,	
@@ -40,6 +41,7 @@ const int ExclusiveBadgeTypes[NumberOfBadgeTypes] = {
 	-1,	
 	
 	BadgeTypeFirstBuilder,
+	-1,
 	-1,
 	
 	-1,
@@ -60,6 +62,7 @@ const int PermanentBadgeTypes[NumberOfBadgeTypes] = {
 	
 	BadgeTypeFirstBuilder,
 	BadgeTypeFastBuilder,
+	-1,
 	
 	-1,
 	-1,
