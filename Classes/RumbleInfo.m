@@ -144,7 +144,11 @@
 	if (player.isHuman) {
 		[self zoomOutWithAnim:NO];
 	}else {
+<<<<<<< HEAD
 		[self activateRumbleTargetWithType:rand()%NumberOfRumbleTargetTypes];
+=======
+		[self activateRumbleTargetWithType:0];
+>>>>>>> 732de85ae1dadbe9e5557afbeea505b6c4cfbda5
 	}
 
 	//[self activateRumbleTargetWithType:0];
