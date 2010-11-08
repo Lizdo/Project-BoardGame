@@ -237,7 +237,7 @@ static int tileInfos[18][8] = {
 	
 	for (Tile * t in tiles) {
 		if (t.state != TileStateHidden) {
-			[t update];
+			[t enterRound];
 		}
 	}		
 	
@@ -354,6 +354,12 @@ static int tileInfos[18][8] = {
 	turn.selectedTile = nil;
     [board update];
 	[board enterTurn];
+	
+	for (Tile * t in tiles) {
+		if (t.state != TileStateHidden) {
+			[t enterTurn];
+		}
+	}	
 }
 
 
@@ -551,22 +557,51 @@ static int tileInfos[18][8] = {
 
 
 - (Token *)randomRumbleTokenForPlayer:(Player *)p{
-	Token * t;
-	int iterations = 0;
 	if ([rumbleTokens count] == 0) {
 		//Can do nothing when there's no token on the board
 		return nil;
 	}
-	do{
-		t = [rumbleTokens objectAtIndex:rand()%[rumbleTokens count]];
-		iterations ++;
-	}while (((t.player != p && !t.shared) || t.isMatched) && iterations < 30);
 	
-	if (iterations >= 30) {
-		return nil;
+	NSMutableSet * ownToken = [NSMutableSet setWithCapacity:0];
+	NSMutableSet * sharedToken = [NSMutableSet setWithCapacity:0];
+	
+	for (Token * t in rumbleTokens) {
+		if (t.shared) {
+			[sharedToken addObject:t];
+		}else if (t.player == p) {
+			[ownToken addObject:t];
+		}
 	}
 	
-	return t;
+	Token * randomSharedToken;
+	Token * randomOwnToken;	
+	
+	for (Token * t in sharedToken) {
+		if (!t.isMatched && !t.pickedUp) {
+			randomSharedToken = t;
+		}
+	}
+	
+	for (Token * t in ownToken) {
+		if (!t.isMatched && !t.pickedUp) {
+			randomOwnToken = t;
+		}
+	}
+	
+	Token * selectedToken;
+	
+	if (randomSharedToken == nil) {
+		selectedToken = randomOwnToken;
+	}else if (randomOwnToken == nil) {
+		selectedToken = randomSharedToken;
+	}else {
+		//50/50 pick shared token/pick own token		
+		int ran = rand()%100;
+		selectedToken = ran > 50 ? randomOwnToken : randomSharedToken;
+	}
+	
+	return selectedToken;
+
 }
 
 

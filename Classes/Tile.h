@@ -52,7 +52,9 @@
 + (id)tileWithType:(TileType)aType andPosition:(CGPoint)p;
 
 + (id)tileWithInfo:(int *)tileInfo;
-- (void)update;
+- (void)enterRound;
+- (void)enterTurn;
+
 
 - (BOOL)availableForPlayer:(Player *)p;
 - (void)processForPlayer:(Player *)p;

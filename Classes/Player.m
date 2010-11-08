@@ -125,6 +125,11 @@
 
 }
 
+
+- (void)moveTokenToTile:(Tile *)tile{
+	[token moveTo:CGPointMake(tile.center.x + 20, tile.center.y + 10) withMoveFlag:MoveFlagAINormal];
+}
+
 #pragma mark -
 #pragma mark Normal Round AI
 
@@ -157,8 +162,13 @@
 		[self AImoveComplete];
 		return;
 	}
-	aiProcessInProgress = NO;
-	[gameLogic endTurnButtonClicked];
+	if (gameLogic.currentPlayer == self) {
+		aiProcessInProgress = NO;
+		[gameLogic endTurnButtonClicked];
+	}else {
+		return;
+	}
+
 }
 
 

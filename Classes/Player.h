@@ -90,6 +90,8 @@
 
 - (int)amountOfRumbleTarget:(RumbleTargetType)type;
 
+- (void)moveTokenToTile:(Tile *)tile;
+
 - (void)processAI;
 - (void)AImoveComplete;
 - (void)randomWait:(SEL)selector andDelay:(float)delay;

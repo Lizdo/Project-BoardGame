@@ -23,6 +23,8 @@
 
 #define SkipTutorial 0
 
+#define TileTouchSelection 1
+
 #define DebugMode 0
 
 // Times

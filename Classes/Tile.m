@@ -90,10 +90,19 @@
 	return self;
 
 }
-- (void)update{
+
+- (void)enterRound{
 	if (type == TileTypeAccumulateResource) {
 		self.targetAmount += accumulateRate;
 	}
+}
+
+- (void)enterTurn{
+	//rotate to current player
+	[UIView beginAnimations:nil context:nil]; 
+	[UIView setAnimationDuration:SlideOutTime]; 
+	self.transform = [GameVisual transformForPlayerID:gameLogic.currentPlayer.ID];
+	[UIView commitAnimations];
 }
 
 //120 * 100
@@ -311,6 +320,7 @@
 	CGPoint originalCenter = self.center;
 	[self.superview bringSubviewToFront:self];
 	self.center = CGPointMake(1000, 1000);
+	self.transform = [GameVisual transformForPlayerID:gameLogic.currentPlayer.ID];
 	[UIView beginAnimations:nil context:nil];
 	[UIView setAnimationDuration:SlideOutTime];
 	self.center = originalCenter;
@@ -319,6 +329,14 @@
 }
 
 - (void)handleTap{
+	if (TileTouchSelection) {
+		//Touch to move the player token to target position
+		if (gameLogic.currentPlayer.isHuman) {
+			[gameLogic.currentPlayer moveTokenToTile:self];
+		}
+		return;
+	}
+	
 	if (self.state == TileStateHidden) {
 		return;
 	}

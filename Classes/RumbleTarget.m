@@ -306,8 +306,9 @@ static const int DistanceTolerance = 30;
 	//p = [self convertPoint:p fromView:self.superview];
 	for (TokenPlaceholder * placeholder in tokenPlaceholders) {
 		if (!placeholder.hasMatch 
-			&& placeholder.type == t.type
-			&& distance(p, placeholder.center) <= DistanceTolerance * DistanceTolerance) {
+			&& placeholder.type == t.type){
+			//&& distance(p, placeholder.center) <= DistanceTolerance * DistanceTolerance) {
+			//Skip the distance check, just need to drag & drop into the slot
 			placeholder.hasMatch = YES;
 			placeholder.matchedToken = t;
 			[self insertSubview:placeholder atIndex:0];
