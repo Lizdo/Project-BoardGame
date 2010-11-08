@@ -73,6 +73,9 @@ static Turn *sharedInstance = nil;
 			[self waitForInput];
 			break;
 		case TurnStateWaitForInput:
+			state = TurnStateSelectionMade;
+			break;
+		case TurnStateSelectionMade:
 			state = TurnStateConclusion;
 			[self turnCleanup];
 			break;
@@ -106,8 +109,14 @@ static Turn *sharedInstance = nil;
 	}
 }
 
+- (void)inputMade{
+	if (state == TurnStateWaitForInput) {
+		[self gotoNextState];
+	}
+}
+
 - (void)endTurnButtonClicked{
-	if (allowTurnEnd)
+	if (state == TurnStateSelectionMade)
 		[self gotoNextState];
 }
 

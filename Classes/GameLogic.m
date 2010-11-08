@@ -367,6 +367,7 @@ static int tileInfos[18][8] = {
 	turn.selectedTile.state = TileStateDisabled;
 	[turn.selectedTile processForPlayer:self.currentPlayer];
 	[board disableEndTurnButton];
+	[turn inputMade];
 	[self performSelector:@selector(processTile) withObject:self afterDelay:TurnWaitTime];
 }
 

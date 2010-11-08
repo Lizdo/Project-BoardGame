@@ -18,6 +18,7 @@
 typedef enum{
 	TurnStateInit,
 	TurnStateWaitForInput,
+	TurnStateSelectionMade,	
 	TurnStateConclusion,
 	TurnStateBuild,
 }TurnState;
@@ -50,6 +51,7 @@ typedef enum{
 - (void)pause;
 - (void)resume;
 
+- (void)inputMade;
 - (void)endTurnButtonClicked;
 
 - (void)buildComplete;
