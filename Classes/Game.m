@@ -22,6 +22,7 @@
 @synthesize paused, running;
 
 static Game *sharedInstance = nil;
+static int NumberOfPlayers;
 
 - (id)init{
 	if (self = [super init]) {
@@ -37,6 +38,10 @@ static Game *sharedInstance = nil;
 	return self;
 }
 
++ (int)numberOfPlayers{
+	return NumberOfPlayers;
+}
+
 - (void)deviceLocked{
 	[self save];
 	[self pause];
@@ -47,12 +52,6 @@ static Game *sharedInstance = nil;
 		[self resume];
 	}
 }
-
-
-- (void)start{
-	[self startWithPlayersNumber:0];
-}
-
 
 //Pause Logic
 //  if Rumble -> Save Rumble remaining time, pause timer
@@ -80,12 +79,16 @@ static Game *sharedInstance = nil;
 	
 	data = [NSMutableData dataWithContentsOfFile:archivePath];
 	unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+
+	//always init the total player number first
+	NumberOfPlayers = [unarchiver decodeIntForKey:@"NumberOfPlayers"];		
 	
 	gameLogic.round = [unarchiver decodeObjectForKey:@"Round"];
 	gameLogic.turn = [unarchiver decodeObjectForKey:@"Turn"];
 	gameLogic.rumble = [unarchiver decodeObjectForKey:@"Rumble"];
 	gameLogic.players = [unarchiver decodeObjectForKey:@"Players"];	
 	gameLogic.tiles = [unarchiver decodeObjectForKey:@"Tiles"];	
+	
 	
 	[[Round sharedInstance] initGame];
 	[[Turn sharedInstance] initGame];
@@ -121,13 +124,18 @@ static Game *sharedInstance = nil;
 	[archiver encodeObject:gameLogic.players forKey:@"Players"];
 	[archiver encodeObject:gameLogic.tiles forKey:@"Tiles"];
 	
+	[archiver encodeInt:NumberOfPlayers forKey:@"NumberOfPlayers"];
+	
+	
 	[archiver finishEncoding];
 	[data writeToFile:archivePath atomically:YES];
 	[archiver release];	
 	
 }
 
-- (void)startWithPlayersNumber:(int)number{
+- (void)startWithPlayersNumber:(int)number totalPlayerNumber:(int)totalNumber{
+	//always init the total player number first
+	NumberOfPlayers = totalNumber;
 
 	[gameLogic initGameWithPlayerNumber:number];
 	gameLogic.round = [Round sharedInstance];

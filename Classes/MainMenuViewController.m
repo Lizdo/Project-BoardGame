@@ -60,7 +60,7 @@
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	
 	[self.view removeFromSuperview];	
-	[game startWithPlayersNumber:playerNumber];
+	[game startWithPlayersNumber:playerNumber totalPlayerNumber:2];
 }
 
 - (IBAction) playWithOnePlayer{
@@ -98,6 +98,7 @@
 	TutorialViewController * tvc = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
 	[self.view addSubview:tvc.view];
 	tvc.view.center = self.view.center;
+	[tvc autorelease];
 }
 
 

@@ -39,7 +39,7 @@
 		label.text = @"Badges";
 	}
 
-	return label;
+	return [label autorelease];
 	
 }  
 

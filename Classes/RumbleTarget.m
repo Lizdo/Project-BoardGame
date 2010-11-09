@@ -350,9 +350,7 @@ static const int DistanceTolerance = 30;
 - (CGPoint)emptyPointForToken:(Token *)t{
 	for (TokenPlaceholder * placeholder in tokenPlaceholders) {
 		if (!placeholder.hasMatch && placeholder.type == t.type){
-			CGPoint point = [self convertPoint:placeholder.center toView:(UIView *)[RumbleBoard sharedInstance]];
-			DebugLog(@"Original Point: %f, %f\nConverted Point: %f, %f", 
-					 placeholder.center.x, placeholder.center.y, point.x, point.y);
+			CGPoint point = [self convertPoint:placeholder.center toView:[RumbleBoard sharedInstance]];
 			return point;
 		}
 	}

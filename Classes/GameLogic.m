@@ -83,13 +83,30 @@ static int tileInfos[18][8] = {
 	};
 	
 	self.players = [NSMutableArray arrayWithCapacity:0];
-	for (int i=0; i<=3; i++) {
-		Player * p = [[Player alloc]init];
-		p.isHuman = HumanPlayers[playerNumber][i];//NO
-		[players addObject:p];
-		[p initGameWithID:i];
-		[p release];
+	
+	
+	if (playerNumber == [Game numberOfPlayers]) {
+		//all are players
+		for (int i=0; i<[Game numberOfPlayers]; i++) {
+			Player * p = [[Player alloc]init];
+			p.isHuman = YES;
+			[players addObject:p];
+			[p initGameWithID:i];
+			[p release];
+		}
 	}
+	else {
+		//player 0 is the player
+		for (int i=0; i<[Game numberOfPlayers]; i++) {
+			Player * p = [[Player alloc]init];
+			p.isHuman = HumanPlayers[playerNumber][i];//NO
+			[players addObject:p];
+			[p initGameWithID:i];
+			[p release];
+		}
+	}
+
+
 	currentPlayerID = -2;	
 }
 
@@ -242,7 +259,7 @@ static int tileInfos[18][8] = {
 	}		
 	
 	currentPlayerID++;
-	if (currentPlayerID>=4)
+	if (currentPlayerID>=[Game numberOfPlayers])
 		currentPlayerID = 0;
 	
 	for (Player * p in players) {
@@ -348,7 +365,7 @@ static int tileInfos[18][8] = {
 - (void)updateNewTurn{
 	//[currentPlayer.token tokenOnTile:NO];	
 	currentPlayerID++;
-	if (currentPlayerID>=4)
+	if (currentPlayerID>=[Game numberOfPlayers])
 		currentPlayerID = 0;
 	[board disableEndTurnButton];
 	turn.selectedTile = nil;
@@ -457,7 +474,7 @@ static int tileInfos[18][8] = {
 // Max Round/Rect/Square & > 5 = 7
 
 - (void)calculateScore{
-	for (int i = 0; i<4; i++){
+	for (int i = 0; i<[Game numberOfPlayers]; i++){
 		Player * p = [self playerWithID:i];
 		[p removeAllBadges];
 		
@@ -522,7 +539,7 @@ static int tileInfos[18][8] = {
 		}
 	}
 	
-	for (int i = 0; i<4; i++){
+	for (int i = 0; i<[Game numberOfPlayers]; i++){
 		Player * p = [self playerWithID:i];
 		//Badge Score
 		p.badgeScore = 0;
@@ -539,7 +556,7 @@ static int tileInfos[18][8] = {
 
 - (NSArray *)playersWithMaximumResource:(ResourceType)type{
 	int max = 5;
-	for (int i = 0; i<4; i++){
+	for (int i = 0; i<[Game numberOfPlayers]; i++){
 		Player * p = [self playerWithID:i];
 		if ([p amountOfResource:type] > max) {
 			max = [p amountOfResource:type];
@@ -574,8 +591,8 @@ static int tileInfos[18][8] = {
 		}
 	}
 	
-	Token * randomSharedToken;
-	Token * randomOwnToken;	
+	Token * randomSharedToken = nil;
+	Token * randomOwnToken = nil;	
 	
 	for (Token * t in sharedToken) {
 		if (!t.isMatched && !t.pickedUp) {
@@ -636,32 +653,6 @@ static int tileInfos[18][8] = {
 - (BOOL)rumbleTargetIsUsableForPlayer:(Player *)p{
 	RumbleTarget * rt = [self rumbleTargetForPlayer:p];
 	return rt.isAvailable;
-//	if (!rt) {
-//		return NO;
-//	}	
-//	int rtTokens[5] = {0,0,0,0,0};
-//	for (TokenPlaceholder * t in rt.tokenPlaceholders) {
-//		if (!t.hasMatch) {
-//			rtTokens[t.type]++;
-//		}
-//	}
-//	
-//	int numTokens[5] = {0,0,0,0,0};
-//	for (Token * t in rumbleTokens) {
-//		if (t.player == p || t.shared) {
-//			if (!t.isMatched) {
-//				numTokens[t.type]++;
-//			}
-//		}
-//	}
-//	
-//	for (int i=1;i<4;i++) {
-//		if (numTokens[i] < rtTokens[i]) {
-//			return NO;
-//		}
-//	}
-//	
-//	return YES;
 }
 
 - (void)swapRumbleTargetForPlayer:(Player *)p{

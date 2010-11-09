@@ -35,17 +35,15 @@
 	[bgv initGame];
 	
 	
-	if (!SkipMenu) {
-		//Add manu
-		mmv = [[MainMenuViewController alloc]initWithNibName:@"MainMenu" bundle:nil];
-		[bgv addSubview:mmv.view];
-		mmv.view.frame = bgv.bounds;
-		[mmv setValue:game forKey:@"game"];
-		
-		//Add tutorial
-		if (!SkipTutorial) {
-			[self showTutorial];
-		}
+	//Add manu
+	mmv = [[MainMenuViewController alloc]initWithNibName:@"MainMenu" bundle:nil];
+	[bgv addSubview:mmv.view];
+	mmv.view.frame = bgv.bounds;
+	[mmv setValue:game forKey:@"game"];
+	
+	//Add tutorial
+	if (!SkipTutorial) {
+		[self showTutorial];
 	}
 }
 
@@ -60,9 +58,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	if (SkipMenu) {
-		[game start];
-	}
 }
 
 - (void)enterConclusion{

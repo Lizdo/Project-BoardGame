@@ -25,12 +25,11 @@
 
 + (Game*)sharedInstance;
 
-- (void)start;
-
 - (void)pause;
 - (void)resume;
 
-- (void)startWithPlayersNumber:(int)number;
++ (int)numberOfPlayers;
+- (void)startWithPlayersNumber:(int)number totalPlayerNumber:(int)totalNumber;
 
 - (void)save;
 - (void)load;

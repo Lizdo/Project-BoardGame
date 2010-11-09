@@ -168,7 +168,7 @@ static Round *sharedInstance = nil;
 
 //Called by the child turn
 - (void)turnComplete{
-	if (turn.count >= 3)
+	if (turn.count >= [Game numberOfPlayers] - 1)
 		[self gotoNextState];
 	else {
 		[self gotoNextTurn];

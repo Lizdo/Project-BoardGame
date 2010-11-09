@@ -10,22 +10,25 @@
 
 #import "UIView+SaveAnimation.m"
 #import "NSArray+RandomObject.m"
- 
-// Global Switches
-#define NoOwner -1
-#define SkipMenu 0
 
+#pragma mark - 
+#pragma mark Debug Switches
+//Flags for debugging purpose
+
+#define NoOwner -1
+#define SkipTutorial 0
+#define TileTouchSelection 1
+#define DebugMode 0
+
+#pragma mark -
+#pragma mark Static Const
+
+//Fonts
 #define PrimaryFontName @"Palatino-Roman"
 #define PrimaryFont "Palatino-Roman"
 
 #define SecondaryFontName @"Thonburi"
 #define SecondaryFont "Thonburi"
-
-#define SkipTutorial 0
-
-#define TileTouchSelection 1
-
-#define DebugMode 0
 
 // Times
 #if DebugMode
@@ -56,7 +59,6 @@
 #define SlideOutTime 0.5
 #define ZoomOutTime 0.5
 
-
 // Round Intro Time
 #define RoundIntroFadeTime 1.2
 #define RoundIntroOnScreenTime 2.0
@@ -65,9 +67,6 @@
 
 #define TurnWaitTime WaitTime * 4
 #define TokenSpawnInterval 0.2
-
-
-
 
 // Size & Position
 #define TokenSize 25	//Radius
@@ -240,7 +239,6 @@ typedef enum{
 }MoveFlag;
 
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);
-
 
 
 
