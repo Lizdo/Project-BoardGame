@@ -60,7 +60,7 @@
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	
 	[self.view removeFromSuperview];	
-	[game startWithPlayersNumber:playerNumber totalPlayerNumber:2];
+	[game startWithPlayersNumber:playerNumber totalPlayerNumber:4];
 }
 
 - (IBAction) playWithOnePlayer{

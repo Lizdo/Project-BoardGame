@@ -878,6 +878,9 @@ static int tileInfos[18][8] = {
 	if (round.moreBuildTime) {
 		buildTime *= 2;
 	}
+	if (round.count < 3) {
+		buildTime *= 2;
+	}
 	return buildTime;
 }
 

@@ -153,7 +153,7 @@ static Board *sharedInstance = nil;
 }
 
 - (void)enterRound{
-	[currentPlayerMark moveToPlayerWithID:gameLogic.currentPlayer.ID withAnim:NO];
+	//[currentPlayerMark moveToPlayerWithID:gameLogic.currentPlayer.ID withAnim:NO];
 }
 
 

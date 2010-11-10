@@ -350,6 +350,7 @@ static const int DistanceTolerance = 30;
 - (CGPoint)emptyPointForToken:(Token *)t{
 	for (TokenPlaceholder * placeholder in tokenPlaceholders) {
 		if (!placeholder.hasMatch && placeholder.type == t.type){
+			//TODO: Need to handle rotation, buggy when it's rotated
 			CGPoint point = [self convertPoint:placeholder.center toView:[RumbleBoard sharedInstance]];
 			return point;
 		}
