@@ -12,10 +12,6 @@
 @class GameLogic;
 @class Turn;
 
-#define MAX_ROUNDS 15
-
-
-
 @interface Round : NSObject <NSCoding>{
 	int count;
 	RoundState state;

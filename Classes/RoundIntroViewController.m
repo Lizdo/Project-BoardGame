@@ -7,6 +7,7 @@
 //
 
 #import "RoundIntroViewController.h"
+#import "Game.h"
 
 @interface RoundIntroViewController (Private)
 
@@ -43,8 +44,8 @@
 	round = [Round sharedInstance];
 
 	currentRoundLabel.text = [NSString stringWithFormat:@"Week %d Starts...", round.count + 1];
-	roundsRemaingLabel.text = [NSString stringWithFormat:@"%d", MAX_ROUNDS - (round.count + 1)];
-	lastRoundsRemaingLabel.text = [NSString stringWithFormat:@"%d", MAX_ROUNDS - (round.count + 1) + 1];
+	roundsRemaingLabel.text = [NSString stringWithFormat:@"%d", [Game NumberOfRounds] - (round.count + 1)];
+	lastRoundsRemaingLabel.text = [NSString stringWithFormat:@"%d", [Game NumberOfRounds] - (round.count + 1) + 1];
 	
 	lastRoundsRemaingLabel.center = LastRoundsRemaingLabelPosition;
 	roundsRemaingLabel.center = RoundsRemaingLabelPosition;

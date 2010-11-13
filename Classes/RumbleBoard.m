@@ -75,7 +75,7 @@ static RumbleBoard *sharedInstance = nil;
 
 - (void)initGame{	
 	rumbleInfos = [[NSMutableArray arrayWithCapacity:0]retain];
-	for (int i=0; i<[Game numberOfPlayers]; i++) {
+	for (int i=0; i<[Game TotalNumberOfPlayers]; i++) {
 		RumbleInfo * rumbleInfo = [[RumbleInfo alloc] initWithFrame:CGRectMake(0, 0, RumbleInfoWidth, RumbleInfoHeight)];
 		[gameLogic.rumbleInfos addObject:rumbleInfo];
 		rumbleInfo.player = [gameLogic playerWithID:i];

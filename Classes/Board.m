@@ -88,7 +88,7 @@ static Board *sharedInstance = nil;
 
 	infos = [NSMutableArray arrayWithCapacity:0];
 	[infos retain];
-	for (int i=0; i<[Game numberOfPlayers]; i++) {
+	for (int i=0; i<[Game TotalNumberOfPlayers]; i++) {
 		Info * info = [[Info alloc] initWithFrame:CGRectMake(0, 0, 568, 200)];
 		info.player = [gameLogic playerWithID:i];
 //		CGAffineTransform t = info.transform;
@@ -112,7 +112,7 @@ static Board *sharedInstance = nil;
 }
 
 - (void)enableEndTurnButton{
-	for (int i=0;i<[Game numberOfPlayers];i++){
+	for (int i=0;i<[Game TotalNumberOfPlayers];i++){
 		if (i == gameLogic.currentPlayer.ID) {
 			((Info *)[infos objectAtIndex:i]).allowEndTurn = YES;
 		}else {
@@ -122,7 +122,7 @@ static Board *sharedInstance = nil;
 }
 
 - (void)disableEndTurnButton{
-	for (int i=0;i<[Game numberOfPlayers];i++){
+	for (int i=0;i<[Game TotalNumberOfPlayers];i++){
 		((Info *)[infos objectAtIndex:i]).allowEndTurn = NO;		
 	}
 }

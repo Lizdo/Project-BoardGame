@@ -15,8 +15,6 @@
 
 @interface GameLogic (Private)
 - (void)initPlayers:(int)playerNumber;
-- (void)initTiles;
-- (void)addTileWithType:(TileType)aType andPosition:(CGPoint)position;
 - (Tile *)addTileWithInfo:(int *)info;
 - (NSArray *)playersWithMaximumResource:(ResourceType)type;
 
@@ -47,32 +45,6 @@ static GameLogic *sharedInstance = nil;
 	return self;
 }
 
-//  [Type, x, y, sourceType, sourceAmount, targetType, targetAmount, accumulateRate]
-static int tileInfos[18][8] = {
-	//row 0
-	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRect,0,1},
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRect,2,0},
-	{TileTypeExchangeResource, 0, 0, ResourceTypeRound,1,ResourceTypeRect,2,0},	
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,1,0},	
-	{TileTypeExchangeResource, 0, 0, ResourceTypeRect,2,ResourceTypeSquare,2,0},	
-	{TileTypeOutsourcing, 0, 0, 0,0,ResourceTypeRect,0,0},
-	//row 1
-	{TileTypeExchangeResource, 0, 0, ResourceTypeRect,1,ResourceTypeRound,4,0},	
-	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRect,0,1},
-	{TileTypeExchangeResource, 0, 0, ResourceTypeSquare,1,ResourceTypeRect,3,0},	
-	{TileTypeBuild, 0, 0, 0,0,ResourceTypeRound,0,0},	
-	{TileTypeExchangeResource, 0, 0, ResourceTypeRect,1,ResourceTypeSquare,2,0},	
-	{TileTypeAnnualParty, 0, 0, 0,0,ResourceTypeRect,0,0},
-	//row 2
-	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeSquare,0,1},
-	{TileTypeOvertime, 0, 0, 0,0,ResourceTypeRect,0,0},
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,3,0},
-	{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRound,0,1},
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRect,1,0},
-	{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,1,0},
-};
-
-
 - (void)initPlayers:(int)playerNumber{
 	int HumanPlayers[5][4] = {
 		{0,0,0,0},
@@ -85,9 +57,9 @@ static int tileInfos[18][8] = {
 	self.players = [NSMutableArray arrayWithCapacity:0];
 	
 	
-	if (playerNumber == [Game numberOfPlayers]) {
+	if (playerNumber == [Game TotalNumberOfPlayers]) {
 		//all are players
-		for (int i=0; i<[Game numberOfPlayers]; i++) {
+		for (int i=0; i<[Game TotalNumberOfPlayers]; i++) {
 			Player * p = [[Player alloc]init];
 			p.isHuman = YES;
 			[players addObject:p];
@@ -97,7 +69,7 @@ static int tileInfos[18][8] = {
 	}
 	else {
 		//player 0 is the player
-		for (int i=0; i<[Game numberOfPlayers]; i++) {
+		for (int i=0; i<[Game TotalNumberOfPlayers]; i++) {
 			Player * p = [[Player alloc]init];
 			p.isHuman = HumanPlayers[playerNumber][i];//NO
 			[players addObject:p];
@@ -111,23 +83,24 @@ static int tileInfos[18][8] = {
 }
 
 - (void)initTiles{
-	//init tiles
-	for (int i=0;i<6;i++){
-		for (int j=0; j<3;j++) {
-			int x = TileStartingX + j * (TileWidth+TileInterval) + TileWidth/2;
-			int y = TileStartingY + i * (TileHeight+TileInterval) + TileHeight/2;
-			//  [Type, x, y, sourceType, sourceAmount, targetType, targetAmount, accumulateRate]
-			int * tileInfo = tileInfos[i*3+j];
-			tileInfo[1] = x;
-			tileInfo[2] = y;
-			//[self addTileWithType:TileTypeGetResource andPosition:CGPointMake(x, y)];
-			Tile * t = [self addTileWithInfo:tileInfo];
-			t.ID = i*3+j;
-			if(i == 5){
-				[specialTiles addObject:t];
-				t.isSpecial = YES;
-				t.state = TileStateAvailable;
-			}
+	//TODO:Maybe need to re-calculate the position if there's not enough tiles
+	for (Tile * t in tiles){
+		int index = [tiles indexOfObject:t];
+		int col = index%3;
+		int row = (index-col)/3;
+		int x = TileStartingX + col * (TileWidth+TileInterval) + TileWidth/2;
+		int y = TileStartingY + row * (TileHeight+TileInterval) + TileHeight/2;
+		t.center = CGPointMake(x,y);
+		t.ID = index;
+		
+		[board addView:t];
+		t.state = TileStateHidden;
+		
+		//Special Tiles are activated from beginning
+		if (row == 5) {
+			[specialTiles addObject:t];
+			t.isSpecial = YES;
+			t.state = TileStateAvailable;
 		}
 	}
 	
@@ -149,21 +122,6 @@ static int tileInfos[18][8] = {
 	rumbleBoard = [RumbleBoard sharedInstance];
 	[rumbleBoard initGame];
 }
-
-
-- (void)addTileWithType:(TileType)aType andPosition:(CGPoint)position{
-	Tile * tile = [Tile tileWithType:aType andPosition:position];
-	[board addView:tile];
-	[tiles addObject:tile];
-}
-			 
-- (Tile *)addTileWithInfo:(int *)info{
-	 Tile * tile = [Tile tileWithInfo:info];
-	 [board addView:tile];
-	 [tiles addObject:tile];
-	 tile.state = TileStateHidden;
-	 return tile;
- }
 
 			 
 #pragma mark -
@@ -259,7 +217,7 @@ static int tileInfos[18][8] = {
 	}		
 	
 	currentPlayerID++;
-	if (currentPlayerID>=[Game numberOfPlayers])
+	if (currentPlayerID>=[Game TotalNumberOfPlayers])
 		currentPlayerID = 0;
 	
 	for (Player * p in players) {
@@ -365,7 +323,7 @@ static int tileInfos[18][8] = {
 - (void)updateNewTurn{
 	//[currentPlayer.token tokenOnTile:NO];	
 	currentPlayerID++;
-	if (currentPlayerID>=[Game numberOfPlayers])
+	if (currentPlayerID>=[Game TotalNumberOfPlayers])
 		currentPlayerID = 0;
 	[board disableEndTurnButton];
 	turn.selectedTile = nil;
@@ -474,7 +432,7 @@ static int tileInfos[18][8] = {
 // Max Round/Rect/Square & > 5 = 7
 
 - (void)calculateScore{
-	for (int i = 0; i<[Game numberOfPlayers]; i++){
+	for (int i = 0; i<[Game TotalNumberOfPlayers]; i++){
 		Player * p = [self playerWithID:i];
 		[p removeAllBadges];
 		
@@ -539,7 +497,7 @@ static int tileInfos[18][8] = {
 		}
 	}
 	
-	for (int i = 0; i<[Game numberOfPlayers]; i++){
+	for (int i = 0; i<[Game TotalNumberOfPlayers]; i++){
 		Player * p = [self playerWithID:i];
 		//Badge Score
 		p.badgeScore = 0;
@@ -556,7 +514,7 @@ static int tileInfos[18][8] = {
 
 - (NSArray *)playersWithMaximumResource:(ResourceType)type{
 	int max = 5;
-	for (int i = 0; i<[Game numberOfPlayers]; i++){
+	for (int i = 0; i<[Game TotalNumberOfPlayers]; i++){
 		Player * p = [self playerWithID:i];
 		if ([p amountOfResource:type] > max) {
 			max = [p amountOfResource:type];

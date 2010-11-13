@@ -14,6 +14,7 @@
 
 - (void)deviceLocked;
 - (void)deviceUnlocked;
+- (NSMutableArray *)defaultTiles;
 
 @end
 
@@ -22,7 +23,10 @@
 @synthesize paused, running;
 
 static Game *sharedInstance = nil;
+
+static int TotalNumberOfPlayers;
 static int NumberOfPlayers;
+static int NumberOfRounds;
 
 - (id)init{
 	if (self = [super init]) {
@@ -31,15 +35,21 @@ static int NumberOfPlayers;
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillTerminateNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceLocked) name:UIApplicationWillResignActiveNotification object:nil];	
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceUnlocked) name:UIApplicationDidBecomeActiveNotification object:nil];			
-		
-
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceUnlocked) name:UIApplicationDidBecomeActiveNotification object:nil];
 	}
 	return self;
 }
 
-+ (int)numberOfPlayers{
++ (int)TotalNumberOfPlayers{
+	return TotalNumberOfPlayers;
+}
+
++ (int)NumberOfPlayers{
 	return NumberOfPlayers;
+}
+
++ (int)NumberOfRounds{
+	return NumberOfRounds;	
 }
 
 - (void)deviceLocked{
@@ -81,7 +91,7 @@ static int NumberOfPlayers;
 	unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
 
 	//always init the total player number first
-	NumberOfPlayers = [unarchiver decodeIntForKey:@"NumberOfPlayers"];		
+	TotalNumberOfPlayers = [unarchiver decodeIntForKey:@"TotalNumberOfPlayers"];		
 	
 	gameLogic.round = [unarchiver decodeObjectForKey:@"Round"];
 	gameLogic.turn = [unarchiver decodeObjectForKey:@"Turn"];
@@ -123,9 +133,7 @@ static int NumberOfPlayers;
 	[archiver encodeObject:[Rumble sharedInstance] forKey:@"Rumble"];
 	[archiver encodeObject:gameLogic.players forKey:@"Players"];
 	[archiver encodeObject:gameLogic.tiles forKey:@"Tiles"];
-	
-	[archiver encodeInt:NumberOfPlayers forKey:@"NumberOfPlayers"];
-	
+	[archiver encodeInt:TotalNumberOfPlayers forKey:@"TotalNumberOfPlayers"];
 	
 	[archiver finishEncoding];
 	[data writeToFile:archivePath atomically:YES];
@@ -133,14 +141,31 @@ static int NumberOfPlayers;
 	
 }
 
-- (void)startWithPlayersNumber:(int)number totalPlayerNumber:(int)totalNumber{
-	//always init the total player number first
-	NumberOfPlayers = totalNumber;
+//Stuff needs to be extracted
+// Number of Players
+// Total Number of Players
+// Number of Rounds
+// Tiles
+// Winning Condition - TBD
+// Losing Condition - TBD
 
-	[gameLogic initGameWithPlayerNumber:number];
+- (void)startWithOptions:(NSDictionary *)options{
+	NumberOfPlayers = [[options objectForKey:@"NumberOfPlayers"] intValue];
+	TotalNumberOfPlayers = [[options objectForKey:@"TotalNumberOfPlayers"] intValue];
+	if ([options objectForKey:@"NumberOfRounds"] != nil) {
+		NumberOfRounds = [[options objectForKey:@"NumberOfRounds"] intValue];
+	}else {
+		NumberOfRounds = 15;
+	}
+	NSMutableArray * Tiles = [options objectForKey:@"Tiles"];
+	if (Tiles == nil) {
+		Tiles = [self defaultTiles];
+	}
+	gameLogic.tiles = Tiles;
+	[gameLogic initGameWithPlayerNumber:NumberOfPlayers];
 	gameLogic.round = [Round sharedInstance];
 	gameLogic.turn = [Turn sharedInstance];
-	gameLogic.rumble = [Rumble sharedInstance];	
+	gameLogic.rumble = [Rumble sharedInstance];
 	
 	[[Round sharedInstance] initGame];
 	[[Turn sharedInstance] initGame];
@@ -148,7 +173,42 @@ static int NumberOfPlayers;
 	
 	//TODO: Game Init Logic
 	running = YES;
-	[gameLogic.round enterRound];	
+	[gameLogic.round enterRound];		
+	
+}
+
+- (NSMutableArray *)defaultTiles{
+	const int numberOfTiles = 18;
+	int tileInfos[18][8] = {
+		//row 0
+		{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRect,0,1},
+		{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRect,2,0},
+		{TileTypeExchangeResource, 0, 0, ResourceTypeRound,1,ResourceTypeRect,2,0},	
+		{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,1,0},	
+		{TileTypeExchangeResource, 0, 0, ResourceTypeRect,2,ResourceTypeSquare,2,0},	
+		{TileTypeOutsourcing, 0, 0, 0,0,ResourceTypeRect,0,0},
+		//row 1
+		{TileTypeExchangeResource, 0, 0, ResourceTypeRect,1,ResourceTypeRound,4,0},	
+		{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRect,0,1},
+		{TileTypeExchangeResource, 0, 0, ResourceTypeSquare,1,ResourceTypeRect,3,0},	
+		{TileTypeBuild, 0, 0, 0,0,ResourceTypeRound,0,0},	
+		{TileTypeExchangeResource, 0, 0, ResourceTypeRect,1,ResourceTypeSquare,2,0},	
+		{TileTypeAnnualParty, 0, 0, 0,0,ResourceTypeRect,0,0},
+		//row 2
+		{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeSquare,0,1},
+		{TileTypeOvertime, 0, 0, 0,0,ResourceTypeRect,0,0},
+		{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,3,0},
+		{TileTypeAccumulateResource, 0, 0, 0,0,ResourceTypeRound,0,1},
+		{TileTypeGetResource, 0, 0, 0,0,ResourceTypeRect,1,0},
+		{TileTypeGetResource, 0, 0, 0,0,ResourceTypeSquare,1,0},
+	};
+	
+	NSMutableArray * tiles = [NSMutableArray arrayWithCapacity:0];
+	for (int i = 0; i < numberOfTiles; i++) {
+		[tiles addObject:[Tile tileWithInfo:tileInfos[i]]]; 
+	}
+	
+	return tiles;
 }
 
 #pragma mark -

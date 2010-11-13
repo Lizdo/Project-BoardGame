@@ -60,7 +60,9 @@
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	
 	[self.view removeFromSuperview];	
-	[game startWithPlayersNumber:playerNumber totalPlayerNumber:4];
+	[game startWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:
+							[NSNumber numberWithInt:playerNumber], @"NumberOfPlayers",
+							[NSNumber numberWithInt:4], @"TotalNumberOfPlayers",nil]];
 }
 
 - (IBAction) playWithOnePlayer{

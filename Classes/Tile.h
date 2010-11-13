@@ -13,6 +13,16 @@
 #import "Player.h"
 #import "BGPopupController.h"
 
+typedef struct{
+	int type;
+	int x;
+	int y;
+	int sourceType;
+	int sourceAmount;
+	int targetType;
+	int targetAmount;
+	int accumulateRate;
+}TileSetting;
 
 @interface Tile : BGViewWithPopup <NSCoding>{
 	TileType type;
@@ -33,7 +43,6 @@
 	BOOL amountModifyHightlight;
 	
 	int tileBackgroundStyle;
-		
 }
 
 @property (nonatomic, assign) int ID;

@@ -328,7 +328,7 @@
 + (CGPoint)infoCenterForPlayerID:(int)i{
 	float boardWidth = [GameLogic sharedInstance].board.bounds.size.width;
 	float boardHeight = [GameLogic sharedInstance].board.bounds.size.height;
-	if ([Game numberOfPlayers] == 2) {
+	if ([Game TotalNumberOfPlayers] == 2) {
 		i *= 2;
 	}
 	switch (i) {
@@ -354,7 +354,7 @@
 + (CGPoint)rumbleInfoCenterForPlayerID:(int)i{
 	float boardWidth = [GameLogic sharedInstance].board.bounds.size.width;
 	float boardHeight = [GameLogic sharedInstance].board.bounds.size.height;
-	if ([Game numberOfPlayers] == 2) {
+	if ([Game TotalNumberOfPlayers] == 2) {
 		i *= 2;
 	}	
 	switch (i) {
@@ -379,7 +379,7 @@
 
 + (CGPoint)positionForPlayerID:(int)theID withOffsetFromInfoCenter:(CGSize)offset{
 	CGPoint infoCenter = [GameVisual infoCenterForPlayerID:theID];
-	if ([Game numberOfPlayers] == 2) {
+	if ([Game TotalNumberOfPlayers] == 2) {
 		theID *= 2;
 	}	
 	switch (theID) {
@@ -402,7 +402,7 @@
 }
 
 + (CGAffineTransform)transformForPlayerID:(int)theID{
-	if ([Game numberOfPlayers] == 2) {
+	if ([Game TotalNumberOfPlayers] == 2) {
 		theID *= 2;
 	}	
 	return CGAffineTransformMakeRotation(90*theID*PI/180);
@@ -415,7 +415,7 @@
 }
 
 + (UIViewAutoresizing)infoResizingMaskForPlayerID:(int)i{
-	if ([Game numberOfPlayers] == 2) {
+	if ([Game TotalNumberOfPlayers] == 2) {
 		i *= 2;
 	}	
 	switch (i) {

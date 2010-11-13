@@ -28,8 +28,11 @@
 - (void)pause;
 - (void)resume;
 
-+ (int)numberOfPlayers;
-- (void)startWithPlayersNumber:(int)number totalPlayerNumber:(int)totalNumber;
++ (int)TotalNumberOfPlayers;
++ (int)NumberOfPlayers;
++ (int)NumberOfRounds;
+
+- (void)startWithOptions:(NSDictionary *)options;
 
 - (void)save;
 - (void)load;

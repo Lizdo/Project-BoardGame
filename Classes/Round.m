@@ -142,7 +142,7 @@ static Round *sharedInstance = nil;
 - (void)exitRound{
 	DebugLog(@"Exiting Round %d...", count);
 	[gameLogic exitRound];
-	if (count < MAX_ROUNDS-1){
+	if (count < [Game NumberOfRounds]-1){
 		[self enterRound];
 	}else{
 		[gameLogic cleanUpBeforeConclusion];
@@ -168,7 +168,7 @@ static Round *sharedInstance = nil;
 
 //Called by the child turn
 - (void)turnComplete{
-	if (turn.count >= [Game numberOfPlayers] - 1)
+	if (turn.count >= ([Game TotalNumberOfPlayers] - 1))
 		[self gotoNextState];
 	else {
 		[self gotoNextTurn];
