@@ -31,7 +31,7 @@
 	UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
 	label.font = [UIFont fontWithName:PrimaryFontName size:20];
 	label.textColor = [UIColor grayColor];
-	label.backgroundColor = [GameVisual colorWithHex:NoteViewBackgroundColor];
+	label.backgroundColor = [UIColor clearColor];
 
 	if (section == 0) {
 		label.text = @"Projects";

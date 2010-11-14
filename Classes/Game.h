@@ -8,20 +8,24 @@
 
 #import <Foundation/Foundation.h>
 #import "TypeDef.h"
+#import "GameMode.h"
 
 @class GameLogic;
 @class Round;
 @class Turn;
 @class Rumble;
+@class GameMode;
 
 @interface Game : NSObject {
 	GameLogic * gameLogic;
 	BOOL paused;
 	BOOL running;
+	GameMode * gameMode;
 }
 
 @property (readonly) BOOL paused;  //Whether the game is paused
 @property (readonly) BOOL running;  //Whether the game has started (Not in menu)
+@property (retain) GameMode * gameMode;
 
 + (Game*)sharedInstance;
 

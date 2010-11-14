@@ -21,12 +21,12 @@
 }
 
 + (UIColor *)boardBackgroundImage{
-	UIColor * color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background.png"]];
+	UIColor * color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundTile.png"]];
 	return color;
 }
 
 + (UIColor *)rumbleBoardBackgroundImage{
-	UIColor * color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundRumble.png"]];
+	UIColor * color = [UIColor colorWithPatternImage:[UIImage imageNamed:@"RumbleBackgroundTile.png"]];
 	return color;
 }
 
@@ -98,16 +98,16 @@
 	UIColor * color;
 	switch (theID) {
 		case 0:
-			color = [UIColor colorWithRed:0.702 green:0.753 blue:1.000 alpha:1.000];
+			color = [GameVisual colorWithHex:0xC7FFF2];
 			break;
 		case 1:
-			color = [UIColor colorWithRed:1.000 green:0.512 blue:0.211 alpha:1.000];
+			color = [GameVisual colorWithHex:0xC9BBFF];
 			break;
 		case 2:
-			color = [UIColor colorWithRed:0.791 green:1.000 blue:0.253 alpha:1.000];
+			color = [GameVisual colorWithHex:0xFFBBD3];
 			break;
 		case 3:
-			color = [UIColor colorWithRed:1.000 green:0.958 blue:0.709 alpha:1.000];
+			color = [GameVisual colorWithHex:0xFFE6C7];
 			break;			
 		default:
 			color = [UIColor grayColor];
@@ -137,8 +137,12 @@
 			imageName = @"Square";			
 			break;
 	}
-	
-	imageName = [imageName stringByAppendingString:@".png"];
+	if (isPlaceholder) {
+		imageName = [imageName stringByAppendingString:@"Placeholder.png"];
+
+	}else {
+		imageName = [imageName stringByAppendingString:@".png"];
+	}
 	
 	UIImage * image = [GameVisual colorizeImage:[UIImage imageNamed:imageName] color:color];
 	return image;
@@ -154,7 +158,7 @@
 
 
 + (UIImage *)imageForSharedTokenWithType:(TokenType)aType{
-	UIColor * color = [UIColor colorWithRed:1.000 green:0.791 blue:0.893 alpha:1.000];
+	UIColor * color = [GameVisual colorWithHex:0xE0E5CA];
 	NSString * imageName;
 	switch (aType) {
 		case TokenTypePlayer:
@@ -216,13 +220,13 @@
 	NSString * imageName;
 	switch (aType) {
 		case ResourceTypeRect:
-			imageName = @"Rect.png";
+			imageName = @"RectPlaceholder.png";
 			break;
 		case ResourceTypeRound:
-			imageName = @"Round.png";
+			imageName = @"RoundPlaceholder.png";
 			break;
 		case ResourceTypeSquare:
-			imageName = @"Square.png";
+			imageName = @"SquarePlaceholder.png";
 			break;			
 		default:
 			//Change to unknown image

@@ -8,6 +8,7 @@
 
 #import "Game.h"
 #import "GameLogic.h"
+#import "GameMode.h"
 #import "Tile.h"
 
 @interface Game (Private)
@@ -20,7 +21,7 @@
 
 @implementation Game
 
-@synthesize paused, running;
+@synthesize paused, running, gameMode;
 
 static Game *sharedInstance = nil;
 
@@ -152,11 +153,20 @@ static int NumberOfRounds;
 - (void)startWithOptions:(NSDictionary *)options{
 	NumberOfPlayers = [[options objectForKey:@"NumberOfPlayers"] intValue];
 	TotalNumberOfPlayers = [[options objectForKey:@"TotalNumberOfPlayers"] intValue];
+	
 	if ([options objectForKey:@"NumberOfRounds"] != nil) {
 		NumberOfRounds = [[options objectForKey:@"NumberOfRounds"] intValue];
 	}else {
 		NumberOfRounds = 15;
 	}
+	
+	if ([options objectForKey:@"GameMode"] != nil) {
+		self.gameMode = [options objectForKey:@"GameMode"];
+	}else {
+		self.gameMode = [[GameMode alloc]init];
+	}
+
+	
 	NSMutableArray * Tiles = [options objectForKey:@"Tiles"];
 	if (Tiles == nil) {
 		Tiles = [self defaultTiles];

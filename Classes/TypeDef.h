@@ -238,6 +238,12 @@ typedef enum{
 	MoveFlagEnterTurn,
 }MoveFlag;
 
+typedef enum{
+	GameResultContinue,
+	GameResultSuccess,
+	GameResultFailure
+}GameResult;
+
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);
 
 

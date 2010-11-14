@@ -17,6 +17,7 @@
 - (void)roundInit;
 - (void)gotoNextState;
 - (void)roundCleanup;
+- (BOOL)endGame;
 
 @end
 
@@ -65,6 +66,11 @@ static Round *sharedInstance = nil;
 
 
 - (void)roundInit{
+	//Stop update if we goto end game.
+	if ([self endGame]) {
+		return;
+	}	
+	
 	//TODO:play some anim. wait until finish then call gotoNextState
 	[self gotoNextState];
 }
@@ -142,12 +148,36 @@ static Round *sharedInstance = nil;
 - (void)exitRound{
 	DebugLog(@"Exiting Round %d...", count);
 	[gameLogic exitRound];
+	
+	//Stop update if we goto end game.
+	if ([self endGame]) {
+		return;
+	}
+	
 	if (count < [Game NumberOfRounds]-1){
 		[self enterRound];
 	}else{
 		[gameLogic cleanUpBeforeConclusion];
 		[[Board sharedInstance] enterConclusion];
 	}
+}
+
+
+- (BOOL)endGame{
+	GameResult result = [[Game sharedInstance].gameMode validate];
+	switch (result) {
+		case GameResultSuccess:
+			//Show Success
+			return YES;
+			break;
+		case GameResultFailure:
+			//Show Success
+			return YES;
+			break;
+		default:
+			break;
+	}
+	return NO;
 }
 
 #pragma mark -
