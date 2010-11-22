@@ -128,6 +128,10 @@
 
 + (NSString *)descriptionForResourceType:(ResourceType)type;
 
++ (NSString *)titleForRumbleTargetType:(RumbleTargetType)type;
++ (NSString *)descriptionForRumbleTargetType:(RumbleTargetType)type;
+
+
 - (int)numberOfSharedTokens;
 - (float)buildTime;
 

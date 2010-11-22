@@ -29,6 +29,7 @@
 	if ((self = [super init])) {
 		type = aType;
 		targetAmount = amount;
+		roundLimit = limit;
 	}
 	return self;
 }
@@ -46,6 +47,13 @@
 	}	
 	
 	return GameResultContinue;
+}
+
+- (NSString *)description{
+	return [NSString stringWithFormat:@"Collect %d %@ within %d rounds.",
+			targetAmount, 
+			[GameLogic descriptionForResourceType:type],
+			roundLimit];
 }
 
 @end
@@ -80,6 +88,12 @@
 	return GameResultContinue;
 }
 
+- (NSString *)description{
+	return [NSString stringWithFormat:@"Build %@ within %d rounds.",
+			[GameLogic titleForRumbleTargetType:type],
+			roundLimit];
+}
+
 @end
 
 
@@ -109,6 +123,12 @@
 	}
 		
 	return GameResultContinue;
+}
+
+- (NSString *)description{
+	return [NSString stringWithFormat:@"Get %@ Badge within %d rounds.",
+			[GameLogic shortDescriptionForBadgeType:type],
+			roundLimit];
 }
 
 @end

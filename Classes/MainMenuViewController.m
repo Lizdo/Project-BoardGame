@@ -86,6 +86,16 @@
 	[self startGameWithPlayerNumber:0];	
 }
 
+- (IBAction) showChallengeMenu{
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
+	
+	ChallengeMenu * cm = [[ChallengeMenu alloc] initWithNibName:@"ChallengeMenu" bundle:nil];
+	[self.view addSubview:cm.view];
+	cm.view.center = self.view.center;
+	[cm autorelease];
+}
+
+
 
 - (IBAction) resumeGame{
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];

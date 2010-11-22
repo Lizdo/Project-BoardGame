@@ -822,6 +822,62 @@ static GameLogic *sharedInstance = nil;
 }
 
 
+
++ (NSString *)titleForRumbleTargetType:(RumbleTargetType)type{
+	switch (type) {
+		case RumbleTargetTypeSignal:
+			return @"Let's Count 123";
+			break;
+		case RumbleTargetTypeCart:
+			return @"We Race";
+			break;
+		case RumbleTargetTypeTank:
+			return @"Meat Grinder";
+			break;				
+		case RumbleTargetTypeRobot:
+			return @"Little World";
+			break;
+		case RumbleTargetTypeSnake:
+			return @"H.P. 2";
+			break;
+		case RumbleTargetTypePalace:
+			return @"Theme Prison";
+			break;			
+		default:
+			return @"";
+			break;
+	}
+}
+
+
+
++ (NSString *)descriptionForRumbleTargetType:(RumbleTargetType)type{
+	switch (type) {
+		case RumbleTargetTypeSignal:
+			return @"Web-based educational minigame. Small yet beautiful.";
+			break;
+		case RumbleTargetTypeCart:
+			return @"Bring racing to the popular social networks.";
+			break;
+		case RumbleTargetTypeTank:
+			return @"Blood & Gore bring you to the WW2.";
+			break;				
+		case RumbleTargetTypeRobot:
+			return @"Fantasy world city simulation.";
+			break;
+		case RumbleTargetTypeSnake:
+			return @"Sequel to the successful HP1 series.";
+			break;
+		case RumbleTargetTypePalace:
+			return @"You are the boss. 1st ever prison simulation game.";
+			break;			
+		default:
+			return @"";
+			break;
+	}	
+}
+
+
 - (int)numberOfSharedTokens{
 	int numOfTokens = (round.count/3+1) * 2;
 	if (round.moreSharedTokens) {

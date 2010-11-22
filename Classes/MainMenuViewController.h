@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
+#import "ChallengeMenu.h"
 
 @interface MainMenuViewController : UIViewController {
 	IBOutlet UIButton * onePlayerButton;
@@ -31,6 +32,7 @@
 
 - (IBAction) resumeGame;
 - (IBAction) showTutorial;
+- (IBAction) showChallengeMenu;
 
 - (void)startGameWithPlayerNumber:(int)playerNumber;
 
