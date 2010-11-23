@@ -90,9 +90,9 @@
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	
 	ChallengeMenu * cm = [[ChallengeMenu alloc] initWithNibName:@"ChallengeMenu" bundle:nil];
+	[cm setValue:game forKey:@"game"];
 	[self.view addSubview:cm.view];
 	cm.view.center = self.view.center;
-	[cm autorelease];
 }
 
 

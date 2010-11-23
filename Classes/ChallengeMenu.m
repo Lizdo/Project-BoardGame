@@ -7,17 +7,23 @@
 //
 
 #import "ChallengeMenu.h"
+#import "Game.h"
 
 @implementation ChallengeItem
 
-@synthesize ID,mode,button;
+@synthesize ID,mode,button,controller;
 
 + (ChallengeItem *)itemWithID:(int)theID andGameMode:(GameMode *)gameMode{
 	ChallengeItem * b = [[ChallengeItem alloc]init];
 	b.button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 	b.ID = theID;
 	b.mode = gameMode;
-	return b;
+	[b.button addTarget:b action:@selector(handleTap) forControlEvents:UIControlEventTouchUpInside];
+	return b;	
+}
+
+- (void)handleTap{
+	[self.controller startGameWithGameMode:self.mode];
 }
 
 @end
@@ -62,6 +68,7 @@
 	item.button.frame = CGRectMake(0, 0, 500, 50);	
 	item.button.center = CGPointMake(self.view.bounds.size.width/2, ChallengeItemInitY + ChallengeItemIntervalY*i);
 	[item.button setTitle:[mode description] forState:UIControlStateNormal];
+	item.controller = self;
 	[challengeItems addObject:item];
 	[self.view addSubview:item.button];
 }
@@ -97,6 +104,20 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)startGameWithGameMode:(GameMode *)mode{
+	//Start Game With Option
+	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
+	
+	[game startWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:
+							[NSNumber numberWithInt:1], @"NumberOfPlayers",
+							[NSNumber numberWithInt:2],@"TotalNumberOfPlayers",
+							mode,@"GameMode",
+							nil]];
+	
+	//Remove Challenge Menu & Main Menu
+	[self.view.superview removeFromSuperview];
+	[self.view removeFromSuperview];		
+}
 
 - (void)dealloc {
 	[challengeItems removeAllObjects];
