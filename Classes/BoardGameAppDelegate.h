@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TypeDef.h"
+#import <GameKit/GameKit.h>
 
 @class BoardGameViewController;
 
@@ -17,6 +19,8 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet BoardGameViewController *viewController;
+
+- (void)authenticateLocalPlayer;
 
 @end
 

@@ -73,6 +73,11 @@
 	[self.view addSubview:item.button];
 }
 
+- (IBAction)back{
+	[self.view removeFromSuperview];
+}
+
+
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {

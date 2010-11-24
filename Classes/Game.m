@@ -13,8 +13,8 @@
 
 @interface Game (Private)
 
-- (void)deviceLocked;
-- (void)deviceUnlocked;
+- (void)deactivate;
+- (void)activate;
 - (NSMutableArray *)defaultTiles;
 
 @end
@@ -35,8 +35,10 @@ static int NumberOfRounds;
 		gameLogic.game = self;
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillTerminateNotification object:nil];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceLocked) name:UIApplicationWillResignActiveNotification object:nil];	
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceUnlocked) name:UIApplicationDidBecomeActiveNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deactivate) name:UIApplicationWillResignActiveNotification object:nil];	
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activate) name:UIApplicationDidBecomeActiveNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deactivate) name:UIApplicationDidEnterBackgroundNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(activate) name:UIApplicationWillEnterForegroundNotification object:nil];		
 	}
 	return self;
 }
@@ -53,12 +55,12 @@ static int NumberOfRounds;
 	return NumberOfRounds;	
 }
 
-- (void)deviceLocked{
+- (void)deactivate{
 	[self save];
 	[self pause];
 }
 
-- (void)deviceUnlocked{
+- (void)activate{
 	if (self.running) {
 		[self resume];
 	}

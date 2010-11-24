@@ -245,7 +245,7 @@ typedef enum{
 }GameResult;
 
 void CGContextDrawImageInverted(CGContextRef c, CGRect r, CGImageRef image);
-
+BOOL isGameCenterAvailable();
 
 
 

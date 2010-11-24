@@ -38,6 +38,7 @@
 }
 
 //Return to MainMenu
+- (IBAction)back;
 
 //Start Game with GameMode
 - (void)startGameWithGameMode:(GameMode *)mode;
