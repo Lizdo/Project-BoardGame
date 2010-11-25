@@ -27,7 +27,7 @@ static GameLogic *sharedInstance = nil;
 
 @implementation GameLogic
 
-@synthesize players,board,game,round,turn,rumble,currentPlayer,tiles,specialTiles,rumbleTargets,rumbleTokens,rumbleInfos,animationInProgress;
+@synthesize players,board,currentPlayer,tiles,specialTiles,rumbleTargets,rumbleTokens,rumbleInfos,animationInProgress;
 
 #pragma mark -
 #pragma mark Inits
@@ -114,6 +114,11 @@ static GameLogic *sharedInstance = nil;
 	rumbleBoard = [RumbleBoard sharedInstance];
 	[rumbleBoard initGame];
 	
+	game = [Game sharedInstance];
+	round = [Round sharedInstance];
+	turn = [Turn sharedInstance];
+	rumble = [Rumble sharedInstance];
+	
 }
 
 - (void)resumeGame{
@@ -121,6 +126,11 @@ static GameLogic *sharedInstance = nil;
 	[board initGame];
 	rumbleBoard = [RumbleBoard sharedInstance];
 	[rumbleBoard initGame];
+	
+	game = [Game sharedInstance];
+	round = [Round sharedInstance];
+	turn = [Turn sharedInstance];
+	rumble = [Rumble sharedInstance];	
 }
 
 			 
@@ -896,6 +906,28 @@ static GameLogic *sharedInstance = nil;
 		buildTime *= 2;
 	}
 	return buildTime;
+}
+
+- (void)reset{
+	[players removeAllObjects];
+	self.players = nil;
+	
+	[tiles removeAllObjects];
+	self.tiles = nil;
+	
+	[specialTiles removeAllObjects];
+	self.specialTiles = nil;
+	
+	[rumbleTargets removeAllObjects];
+	self.rumbleTargets = nil;
+	
+	[rumbleTokens removeAllObjects];
+	self.rumbleTokens = nil;
+	
+	[rumbleInfos removeAllObjects];
+	self.rumbleInfos = nil;
+	
+	sharedInstance = nil;
 }
 
 

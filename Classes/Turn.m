@@ -41,9 +41,13 @@ static Turn *sharedInstance = nil;
 	return self;
 }
 
++ (void)initWithInstance:(Turn *)instance{
+	sharedInstance = instance; 
+}
+
+
 - (void)initGame{
 	gameLogic = [GameLogic sharedInstance];
-	gameLogic.turn = self;
 	round = [Round sharedInstance];
 	rumble = [Rumble sharedInstance];
 }
@@ -163,6 +167,10 @@ static Turn *sharedInstance = nil;
 	DebugLog(@"Exiting Turn %d...", count);
 	[gameLogic exitTurn];
 	[round turnComplete]; 
+}
+
+- (void)reset{
+	sharedInstance = nil;
 }
 
 #pragma mark -

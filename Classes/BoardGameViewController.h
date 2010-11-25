@@ -31,6 +31,7 @@
 
 - (void)enterConclusion;
 - (void)showTutorial;
+- (void)showMainMenu;
 
 @end
 

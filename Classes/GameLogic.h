@@ -30,10 +30,12 @@
 	
 	Board * board;
 	RumbleBoard * rumbleBoard;
+	
 	Game * game;
 	Round * round;
 	Turn * turn;
 	Rumble * rumble;
+	
 	int currentPlayerID;
 	
 	Player * currentPlayer;
@@ -44,10 +46,6 @@
 
 @property (nonatomic, retain) NSMutableArray * players;
 @property (nonatomic, assign) Board * board;
-@property (nonatomic, assign) Game * game;
-@property (nonatomic, retain) Round * round;
-@property (nonatomic, retain) Turn * turn;
-@property (nonatomic, retain) Rumble * rumble;
 
 @property (readonly, nonatomic) Player * currentPlayer;
 
@@ -135,6 +133,7 @@
 - (int)numberOfSharedTokens;
 - (float)buildTime;
 
+- (void)reset;
 
 //- (Player *)currentPlayer;
 

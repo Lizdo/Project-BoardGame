@@ -41,4 +41,6 @@
 - (void)save;
 - (void)load;
 
+- (void)reset;
+
 @end

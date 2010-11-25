@@ -8,6 +8,11 @@
 
 #import "BoardGameViewController.h"
 
+@interface BoardGameViewController (Private)
+
+@end
+
+
 @implementation BoardGameViewController
 
 
@@ -24,6 +29,10 @@
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
+	[self showMainMenu];
+}
+	
+- (void)showMainMenu{
 
 	game = [Game sharedInstance];
 	

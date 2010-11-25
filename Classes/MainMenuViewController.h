@@ -11,13 +11,8 @@
 #import "ChallengeMenu.h"
 
 @interface MainMenuViewController : UIViewController {
-	IBOutlet UIButton * onePlayerButton;
-	IBOutlet UIButton * twoPlayersButton;
-	IBOutlet UIButton * threePlayersButton;
-	IBOutlet UIButton * fourPlayersButton;
 	
-	IBOutlet UIButton * tutorialButton;	
-	IBOutlet UIButton * resumeGameButton;
+	IBOutlet UIButton * fourPlayerToggleButton;	
 	
 	Game * game;
 }
@@ -27,8 +22,12 @@
 - (IBAction) playWithThreePlayers;
 - (IBAction) playWithFourPlayers;
 
+- (IBAction) playWithAI;
+- (IBAction) playWithHuman;
+
 - (IBAction) aiPlay;
 
+- (IBAction) toggleFourPlayersButton;
 
 - (IBAction) resumeGame;
 - (IBAction) showTutorial;

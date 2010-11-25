@@ -16,7 +16,7 @@
 //Flags for debugging purpose
 
 #define NoOwner -1
-#define SkipTutorial 0
+#define SkipTutorial 1
 #define TileTouchSelection 1
 #define DebugMode 0
 

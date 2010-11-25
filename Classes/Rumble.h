@@ -22,7 +22,6 @@ typedef enum{
 
 @interface Rumble : NSObject <NSCoding>{
 	GameLogic * gameLogic;
-	NSDate * startingTime;
 	
 	NSTimer * timer;
 	
@@ -39,6 +38,9 @@ typedef enum{
 @property (nonatomic,assign) BOOL build;
 
 + (Rumble*)sharedInstance;
++ (void)initWithInstance:(Rumble *)instance;
+
+
 - (void)initGame;
 
 - (void)enterRumble;
@@ -48,6 +50,7 @@ typedef enum{
 
 - (void)pause;
 - (void)resume;
+- (void)reset;
 
 - (void)enterBuild;
 - (void)exitBuild;

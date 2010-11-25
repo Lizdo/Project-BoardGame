@@ -114,6 +114,10 @@
 	
 }
 
+- (IBAction)showMainMenu{
+	[bgvc showMainMenu];
+	[self.view removeFromSuperview];
+}
 
 
 

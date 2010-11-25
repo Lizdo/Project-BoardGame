@@ -39,9 +39,13 @@ static Rumble *sharedInstance = nil;
 	return self;
 }
 
++ (void)initWithInstance:(Rumble *)instance{
+	sharedInstance = instance;
+}
+
+
 - (void)initGame{
 	gameLogic = [GameLogic sharedInstance];
-	gameLogic.rumble = self;
 	round = [Round sharedInstance];
 }
 
@@ -146,10 +150,10 @@ static Rumble *sharedInstance = nil;
 	[[Board sharedInstance] updateRumble];
 }
 
-- (void)dealloc{
-	[startingTime release];
-	[super dealloc];
+- (void)reset{
+	sharedInstance = nil;
 }
+
 
 #pragma mark -
 #pragma mark Singleton methods

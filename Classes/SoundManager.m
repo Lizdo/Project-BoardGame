@@ -76,6 +76,7 @@ static SoundManager *sharedInstance = nil;
 	[p play];
 	
 	[audioPlayers addObject:p];
+	[p autorelease];
 	[self cleanUp];
 
 }
@@ -85,7 +86,7 @@ static SoundManager *sharedInstance = nil;
 	NSMutableSet * playersToDelete = [NSMutableSet setWithCapacity:0];
 	for (AVAudioPlayer * p in audioPlayers) {
 		if (!p.playing) {
-			[p release];
+//			[p release];
 			[playersToDelete addObject:p];
 		}
 	}

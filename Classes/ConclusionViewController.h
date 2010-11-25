@@ -17,4 +17,6 @@
 	BoardGameViewController * bgvc;
 }
 
+- (IBAction)showMainMenu;
+
 @end

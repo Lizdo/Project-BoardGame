@@ -36,12 +36,15 @@ static Round *sharedInstance = nil;
 	return self;
 }
 
++ (void)initWithInstance:(Round *)instance{
+	sharedInstance = instance;
+}
+
 #pragma mark -
 #pragma mark Round Logic
 
 - (void)initGame{
 	gameLogic = [GameLogic sharedInstance];
-	gameLogic.round = self;
 	turn = [Turn sharedInstance];
 	rumble = [Rumble sharedInstance];		
 }
@@ -204,6 +207,10 @@ static Round *sharedInstance = nil;
 		[self gotoNextTurn];
 	}
 
+}
+
+- (void)reset{
+	sharedInstance = nil;
 }
 
 #pragma mark -

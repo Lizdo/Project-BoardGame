@@ -32,7 +32,6 @@ static int NumberOfRounds;
 - (id)init{
 	if (self = [super init]) {
 		gameLogic = [GameLogic sharedInstance];
-		gameLogic.game = self;
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(save) name:UIApplicationWillTerminateNotification object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deactivate) name:UIApplicationWillResignActiveNotification object:nil];	
@@ -96,12 +95,12 @@ static int NumberOfRounds;
 	//always init the total player number first
 	TotalNumberOfPlayers = [unarchiver decodeIntForKey:@"TotalNumberOfPlayers"];		
 	
-	gameLogic.round = [unarchiver decodeObjectForKey:@"Round"];
-	gameLogic.turn = [unarchiver decodeObjectForKey:@"Turn"];
-	gameLogic.rumble = [unarchiver decodeObjectForKey:@"Rumble"];
+	[Round initWithInstance:[unarchiver decodeObjectForKey:@"Round"]];
+	[Turn initWithInstance:[unarchiver decodeObjectForKey:@"Turn"]];
+	[Rumble initWithInstance:[unarchiver decodeObjectForKey:@"Rumble"]];
+	
 	gameLogic.players = [unarchiver decodeObjectForKey:@"Players"];	
 	gameLogic.tiles = [unarchiver decodeObjectForKey:@"Tiles"];	
-	
 	
 	[[Round sharedInstance] initGame];
 	[[Turn sharedInstance] initGame];
@@ -175,9 +174,6 @@ static int NumberOfRounds;
 	}
 	gameLogic.tiles = Tiles;
 	[gameLogic initGameWithPlayerNumber:NumberOfPlayers];
-	gameLogic.round = [Round sharedInstance];
-	gameLogic.turn = [Turn sharedInstance];
-	gameLogic.rumble = [Rumble sharedInstance];
 	
 	[[Round sharedInstance] initGame];
 	[[Turn sharedInstance] initGame];
@@ -185,7 +181,7 @@ static int NumberOfRounds;
 	
 	//TODO: Game Init Logic
 	running = YES;
-	[gameLogic.round enterRound];		
+	[[Round sharedInstance] enterRound];		
 	
 }
 
@@ -222,6 +218,15 @@ static int NumberOfRounds;
 	
 	return tiles;
 }
+
+- (void)reset{
+	[[GameLogic sharedInstance] reset];
+	[[Round sharedInstance] reset];
+	[[Turn sharedInstance] reset];
+	[[Rumble sharedInstance] reset];
+	sharedInstance = nil;
+}
+
 
 #pragma mark -
 #pragma mark Singleton methods

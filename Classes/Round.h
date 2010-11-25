@@ -35,6 +35,8 @@
 
 
 + (Round*)sharedInstance;
++ (void)initWithInstance:(Round *)instance;
+
 - (void)initGame;
 
 //Called by Game Object
@@ -43,6 +45,7 @@
 
 - (void)pause;
 - (void)resume;
+- (void)reset;
 
 //Called by Turn Object
 - (void)turnStart;

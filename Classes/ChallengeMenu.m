@@ -19,7 +19,7 @@
 	b.ID = theID;
 	b.mode = gameMode;
 	[b.button addTarget:b action:@selector(handleTap) forControlEvents:UIControlEventTouchUpInside];
-	return b;	
+	return [b autorelease];	
 }
 
 - (void)handleTap{

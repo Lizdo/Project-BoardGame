@@ -43,6 +43,8 @@ typedef enum{
 @property (nonatomic, assign) Tile * selectedTile;
 
 + (Turn*)sharedInstance;
++ (void)initWithInstance:(Turn *)instance;
+
 - (void)initGame;
 
 - (void) enterTurn;
@@ -50,6 +52,7 @@ typedef enum{
 
 - (void)pause;
 - (void)resume;
+- (void)reset;
 
 - (void)inputMade;
 - (void)endTurnButtonClicked;

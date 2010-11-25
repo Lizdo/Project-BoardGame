@@ -59,10 +59,15 @@
 - (void)startGameWithPlayerNumber:(int)playerNumber{
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	
-	[self.view removeFromSuperview];	
+	[self.view removeFromSuperview];
+
+	int totalPlayerNumber = fourPlayerToggleButton.selected ? 4 : 2;
+	
+	playerNumber = MIN(playerNumber, totalPlayerNumber);
+	
 	[game startWithOptions:[NSDictionary dictionaryWithObjectsAndKeys:
 							[NSNumber numberWithInt:playerNumber], @"NumberOfPlayers",
-							[NSNumber numberWithInt:4], @"TotalNumberOfPlayers",nil]];
+							[NSNumber numberWithInt:totalPlayerNumber], @"TotalNumberOfPlayers",nil]];
 }
 
 - (IBAction) playWithOnePlayer{
@@ -75,10 +80,23 @@
 
 - (IBAction) playWithThreePlayers{
 	[self startGameWithPlayerNumber:3];
-	
 }
 
 - (IBAction) playWithFourPlayers{
+	[self startGameWithPlayerNumber:4];
+}
+
+
+- (IBAction) toggleFourPlayersButton{
+	[fourPlayerToggleButton setSelected:!fourPlayerToggleButton.selected];
+}
+
+- (IBAction) playWithAI{
+	[self startGameWithPlayerNumber:1];
+}
+
+- (IBAction) playWithHuman{
+	//Player number will be capped by total player number
 	[self startGameWithPlayerNumber:4];
 }
 
@@ -89,7 +107,7 @@
 - (IBAction) showChallengeMenu{
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	
-	ChallengeMenu * cm = [[ChallengeMenu alloc] initWithNibName:@"ChallengeMenu" bundle:nil];
+	ChallengeMenu * cm = [[[ChallengeMenu alloc] initWithNibName:@"ChallengeMenu" bundle:nil]autorelease];
 	[cm setValue:game forKey:@"game"];
 	[self.view addSubview:cm.view];
 	cm.view.center = self.view.center;
