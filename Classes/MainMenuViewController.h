@@ -9,13 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 #import "ChallengeMenu.h"
+@class TutorialViewController;
 
 @interface MainMenuViewController : UIViewController {
 	
 	IBOutlet UIButton * fourPlayerToggleButton;	
 	
+	ChallengeMenu * cm;
+	TutorialViewController * tvc;
+	
 	Game * game;
 }
+
+@property (nonatomic, retain) ChallengeMenu * cm;
+@property (nonatomic, retain) TutorialViewController * tvc;
 
 - (IBAction) playWithOnePlayer;
 - (IBAction) playWithTwoPlayers;

@@ -12,6 +12,8 @@
 
 @implementation MainMenuViewController
 
+@synthesize tvc,cm;
+
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -107,7 +109,7 @@
 - (IBAction) showChallengeMenu{
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 	
-	ChallengeMenu * cm = [[[ChallengeMenu alloc] initWithNibName:@"ChallengeMenu" bundle:nil]autorelease];
+	self.cm = [[[ChallengeMenu alloc] initWithNibName:@"ChallengeMenu" bundle:nil]autorelease];
 	[cm setValue:game forKey:@"game"];
 	[self.view addSubview:cm.view];
 	cm.view.center = self.view.center;
@@ -125,7 +127,7 @@
 - (IBAction) showTutorial{
 	[[SoundManager sharedInstance] playSoundWithTag:SoundTagTape];
 
-	TutorialViewController * tvc = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
+	self.tvc = [[TutorialViewController alloc] initWithNibName:@"TutorialView" bundle:nil];
 	[self.view addSubview:tvc.view];
 	tvc.view.center = self.view.center;
 	[tvc autorelease];
