@@ -19,6 +19,10 @@
 	return GameResultContinue;
 }
 
+- (NSString *)description{
+	return @"";
+}
+
 @end
 
 

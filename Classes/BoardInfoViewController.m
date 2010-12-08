@@ -57,17 +57,21 @@
 }
 
 - (NSString *)roundInfo{
-	NSString * info = [NSString stringWithFormat:@"Work hour this week: %2.0f\nAvailable helpers: %d",
+	NSMutableString * info = [NSMutableString stringWithFormat:@"Work hour this week: %2.0f\nAvailable helpers: %d",
 					   [gameLogic buildTime], [gameLogic numberOfSharedTokens]];
 	if (round.moreSharedTokens) {
-		[info stringByAppendingFormat:@"\nOutsourcing week!"];
+		[info appendFormat:@"\nOutsourcing week!"];
 	}
 	if (round.skipProjectUpdate) {
-		[info stringByAppendingFormat:@"\nAnual Party!"];
+		[info appendFormat:@"\nAnual Party!"];
 	}
 	if (round.moreBuildTime) {
-		[info stringByAppendingFormat:@"Overtime week!"];
-	}	
+		[info appendFormat:@"\nOvertime week!"];
+	}
+	
+	NSString * gameModeDescription = [[Game sharedInstance].gameMode description];
+	[info appendFormat:@"\n%@", gameModeDescription];
+	
 	return info;
 }
 

@@ -164,7 +164,7 @@ static int NumberOfRounds;
 	if ([options objectForKey:@"GameMode"] != nil) {
 		self.gameMode = [options objectForKey:@"GameMode"];
 	}else {
-		self.gameMode = [[GameMode alloc]init];
+		self.gameMode = [[[GameMode alloc]init]autorelease];
 	}
 
 	

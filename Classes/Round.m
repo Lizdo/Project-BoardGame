@@ -171,10 +171,12 @@ static Round *sharedInstance = nil;
 	switch (result) {
 		case GameResultSuccess:
 			//Show Success
+			DebugLog(@"Objective Complete...");
 			return YES;
 			break;
 		case GameResultFailure:
-			//Show Success
+			//Show Failure
+			DebugLog(@"Objective Failed...");			
 			return YES;
 			break;
 		default:
