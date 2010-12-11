@@ -15,7 +15,8 @@
 
 
 @interface GameMode : NSObject {
-	
+	int type;
+	int roundLimit;
 }
 
 - (GameResult)validate;
@@ -25,9 +26,7 @@
 #pragma mark CollectResource
 
 @interface GameModeCollectResource:GameMode{
-	ResourceType type;
 	int targetAmount;
-	int roundLimit;	
 }
 
 - (id)initWithResourceType:(ResourceType)atype targetAmount:(int)amount andRoundLimit:(int)limit;
@@ -37,8 +36,6 @@
 #pragma mark BuildProject
 
 @interface GameModeBuildProject:GameMode{
-	RumbleTargetType type;
-	int roundLimit;
 }
 
 - (id)initWithRumbleTargetType:(ResourceType)atype andRoundLimit:(int)limit;
@@ -48,8 +45,7 @@
 #pragma mark GetBadge
 
 @interface GameModeGetBadge:GameMode{
-	BadgeType type;
-	int roundLimit;
+
 }
 
 - (id)initWithBadgeType:(BadgeType)atype andRoundLimit:(int)limit;

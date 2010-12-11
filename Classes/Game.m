@@ -102,6 +102,8 @@ static int NumberOfRounds;
 	gameLogic.players = [unarchiver decodeObjectForKey:@"Players"];	
 	gameLogic.tiles = [unarchiver decodeObjectForKey:@"Tiles"];	
 	
+	self.gameMode = [unarchiver decodeObjectForKey:@"gameMode"];	
+	
 	[[Round sharedInstance] initGame];
 	[[Turn sharedInstance] initGame];
 	[[Rumble sharedInstance] initGame];	
@@ -135,6 +137,7 @@ static int NumberOfRounds;
 	[archiver encodeObject:[Rumble sharedInstance] forKey:@"Rumble"];
 	[archiver encodeObject:gameLogic.players forKey:@"Players"];
 	[archiver encodeObject:gameLogic.tiles forKey:@"Tiles"];
+	[archiver encodeObject:self.gameMode forKey:@"gameMode"];	
 	[archiver encodeInt:TotalNumberOfPlayers forKey:@"TotalNumberOfPlayers"];
 	
 	[archiver finishEncoding];

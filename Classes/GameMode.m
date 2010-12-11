@@ -23,6 +23,22 @@
 	return @"";
 }
 
+#pragma mark -
+#pragma mark Serialization
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeInt:type forKey:@"type"];
+    [coder encodeInt:roundLimit forKey:@"roundLimit"];	
+}
+
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+    type = [coder decodeIntForKey:@"type"];
+	roundLimit = [coder decodeIntForKey:@"roundLimit"];
+    return self;
+}
+
 @end
 
 
@@ -58,6 +74,21 @@
 			targetAmount, 
 			[GameLogic descriptionForResourceType:type],
 			roundLimit];
+}
+
+#pragma mark -
+#pragma mark Serialization
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[super encodeWithCoder:coder];
+    [coder encodeInt:targetAmount forKey:@"targetAmount"];
+}
+
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+	targetAmount = [coder decodeIntForKey:@"targetAmount"];
+    return self;
 }
 
 @end
