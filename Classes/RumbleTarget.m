@@ -41,7 +41,7 @@ float distance(CGPoint p1, CGPoint p2){
 - (void)setType:(RumbleTargetType)t{
 	type = t;
 	nameLabel.text = [self title];
-	timeLabel.text = [NSString stringWithFormat:@"%dWeeks",[Project timeNeededForRumbleTargetType:type]];
+	timeLabel.text = [NSString stringWithFormat:@"%d Weeks",[Project timeNeededForRumbleTargetType:type]];
 	scoreLabel.text = [NSString stringWithFormat:@"%d",RumbleTargetScoreModifier[t]];
 }
 
@@ -65,30 +65,30 @@ float distance(CGPoint p1, CGPoint p2){
 		recognizerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]; 
 		[self addGestureRecognizer:recognizerTap];
 
-		scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-20, 110)];
-		scoreLabel.font = [UIFont fontWithName:PrimaryFontName size:100];
+		scoreLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, frame.size.width-20, 90)];
+		scoreLabel.font = [UIFont fontWithName:SecondaryFontName size:100];
 		scoreLabel.opaque = NO;
 		scoreLabel.backgroundColor = nil;
 		scoreLabel.textAlignment = UITextAlignmentRight;
-		scoreLabel.textColor = [GameVisual colorWithHex:0xCCCCCC];
+		scoreLabel.textColor = LightColor;
 		scoreLabel.adjustsFontSizeToFitWidth = YES;
 		[self addSubview:scoreLabel];			
 		
 		nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, frame.size.height-60, frame.size.width-20, 50)];
-		nameLabel.font = [UIFont fontWithName:PrimaryFontName size:28];
+		nameLabel.font = [UIFont fontWithName:SecondaryFontName size:28];
 		nameLabel.opaque = NO;
 		nameLabel.backgroundColor = nil;
 		nameLabel.textAlignment = UITextAlignmentCenter;
-		nameLabel.textColor = [GameVisual colorWithHex:0x585858];
+		nameLabel.textColor = SecondaryColor;
 		nameLabel.adjustsFontSizeToFitWidth = YES;
 		[self addSubview:nameLabel];	
 		
 		timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, frame.size.width-10, 30)];
-		timeLabel.font = [UIFont fontWithName:PrimaryFontName size:20];
+		timeLabel.font = [UIFont fontWithName:SecondaryFontName size:20];
 		timeLabel.opaque = NO;
 		timeLabel.backgroundColor = nil;
 		timeLabel.textAlignment = UITextAlignmentLeft;
-		timeLabel.textColor = [GameVisual colorWithHex:0x585858];
+		timeLabel.textColor = SecondaryColor;
 		[self addSubview:timeLabel];
 		
 		

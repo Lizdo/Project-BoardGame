@@ -98,16 +98,16 @@
 	UIColor * color;
 	switch (theID) {
 		case 0:
-			color = [GameVisual colorWithHex:0xC7FFF2];
+			color = [UIColor colorWithHex:0xC7FFF2];
 			break;
 		case 1:
-			color = [GameVisual colorWithHex:0xC9BBFF];
+			color = [UIColor colorWithHex:0xC9BBFF];
 			break;
 		case 2:
-			color = [GameVisual colorWithHex:0xFFBBD3];
+			color = [UIColor colorWithHex:0xFFBBD3];
 			break;
 		case 3:
-			color = [GameVisual colorWithHex:0xFFE6C7];
+			color = [UIColor colorWithHex:0xFFE6C7];
 			break;			
 		default:
 			color = [UIColor grayColor];
@@ -158,7 +158,7 @@
 
 
 + (UIImage *)imageForSharedTokenWithType:(TokenType)aType{
-	UIColor * color = [GameVisual colorWithHex:0xE0E5CA];
+	UIColor * color = [UIColor colorWithHex:0xE0E5CA];
 	NSString * imageName;
 	switch (aType) {
 		case TokenTypePlayer:
@@ -317,15 +317,10 @@
     return newImage;
 }
 
-+ (UIColor *)colorWithHex:(int)hex{
-	float r = ( hex >> 16 ) & 0xFF;
-	float g = ( hex >> 8 ) & 0xFF;
-	float b = hex & 0xFF;
-	return [UIColor colorWithRed:r/255 green:g/255 blue:b/255 alpha:1];
-}
+
 
 + (UIColor *)scoreColor{
-	return [GameVisual colorWithHex:0x50BAB7];
+	return [UIColor colorWithHex:0x50BAB7];
 }
 
 

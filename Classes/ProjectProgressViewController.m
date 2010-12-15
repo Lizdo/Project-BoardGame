@@ -81,7 +81,7 @@
 	cell.textLabel.textColor = [GameVisual scoreColor];
 	
 	cell.detailTextLabel.font = [UIFont fontWithName:SecondaryFontName size:15];
-	cell.detailTextLabel.textColor = [UIColor grayColor];
+	cell.detailTextLabel.textColor = LightColor;
 	cell.detailTextLabel.numberOfLines = 2;
 	
 	if ([player.projects count] < 1) {

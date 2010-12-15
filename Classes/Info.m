@@ -105,7 +105,7 @@
 	count.font = [UIFont fontWithName:PrimaryFontName size:30];
 	count.opaque = NO;
 	count.backgroundColor = nil;
-	count.textColor = [GameVisual colorWithHex:0x585858];
+	count.textColor = [UIColor colorWithHex:0x585858];
 	[self addSubview:count];
 	return count;
 }

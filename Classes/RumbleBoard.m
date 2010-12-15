@@ -42,12 +42,12 @@ static RumbleBoard *sharedInstance = nil;
 		countDown = [[UILabel alloc] initWithFrame:r];
 		countDown.opaque = NO;
 		countDown.backgroundColor = nil;
-		countDown.font = [UIFont fontWithName:PrimaryFontName size:150];
-		countDown.textColor = [GameVisual colorWithHex:0x585858];
+		countDown.font = [UIFont fontWithName:SecondaryFontName size:150];
+		countDown.textColor = SecondaryColor;
 		countDown.textAlignment = UITextAlignmentCenter;
 		countDown.baselineAdjustment = UIBaselineAdjustmentAlignCenters;
-		countDown.shadowColor = [UIColor whiteColor];
-		countDown.shadowOffset = CGSizeMake(1, 2);
+		countDown.shadowColor = LightColor;
+		countDown.shadowOffset = CGSizeMake(1, 1);
 		
 		self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 		

@@ -137,7 +137,7 @@
 				CGImageRef image = [GameVisual imageForResourceType:targetType].CGImage;
 				CGContextDrawImageInverted(c,r,image);
 				
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				//Accumulate
 				char buffer[50] = "Pool";
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
@@ -161,7 +161,7 @@
 			}
 			case TileTypeBuild:
 			{
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				char buffer[50] = "Build";
 				CGContextSelectFont(c, SecondaryFont, 30.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
@@ -186,7 +186,7 @@
 				//rotate the arrow
 				CGContextDrawImageInverted(c,r,image);	
 				
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
 				CGContextSetTextDrawingMode(c, kCGTextFill);
 				
@@ -214,7 +214,7 @@
 				CGImageRef image = [GameVisual imageForResourceType:targetType].CGImage;
 				CGContextDrawImageInverted(c,r,image);
 				
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				//Accumulate
 				char buffer[50] = "x";
 				CGContextSelectFont(c, SecondaryFont, 30.0, kCGEncodingMacRoman);
@@ -230,7 +230,7 @@
 			}
 			case TileTypeLucky:
 			{
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				char buffer[50] = "Lucky";
 				CGContextSelectFont(c, SecondaryFont, 20.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
@@ -240,7 +240,7 @@
 			}
 			case TileTypeAnnualParty:
 			{
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				char buffer[50] = "Annual Party";
 				CGContextSelectFont(c, SecondaryFont, 18.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
@@ -250,7 +250,7 @@
 			}
 			case TileTypeOutsourcing:
 			{
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				char buffer[50] = "Outsourcing";
 				CGContextSelectFont(c, SecondaryFont, 20.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));
@@ -260,7 +260,7 @@
 			}
 			case TileTypeOvertime:
 			{
-				CGContextSetFillColorWithColor(c, [UIColor grayColor].CGColor);
+				CGContextSetFillColorWithColor(c, SecondaryColor.CGColor);
 				char buffer[50] = "Overtime";
 				CGContextSelectFont(c, SecondaryFont, 20.0, kCGEncodingMacRoman);
 				CGContextSetTextMatrix(c, CGAffineTransformMakeScale(1.0, -1.0));

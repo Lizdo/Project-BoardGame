@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="23"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -65,8 +65,8 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<object class="NSFont" key="IBUIFont" id="445862345">
-							<string key="NSName">Palatino-Roman</string>
+						<object class="NSFont" key="IBUIFont" id="280430902">
+							<string key="NSName">HelveticaNeue</string>
 							<double key="NSSize">18</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -99,7 +99,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="445862345"/>
+						<reference key="IBUIFont" ref="280430902"/>
 						<string key="IBUITitleShadowOffset">{0, 1}</string>
 						<string key="IBUINormalTitle">vs. AI</string>
 						<reference key="IBUIHighlightedTitleColor" ref="363889199"/>
@@ -117,7 +117,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="445862345"/>
+						<reference key="IBUIFont" ref="280430902"/>
 						<string key="IBUITitleShadowOffset">{0, 1}</string>
 						<string key="IBUINormalTitle">vs. Human</string>
 						<reference key="IBUIHighlightedTitleColor" ref="363889199"/>
@@ -129,13 +129,13 @@
 					<object class="IBUIButton" id="944027231">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">319</int>
-						<string key="NSFrame">{{637, 917}, {111, 67}}</string>
+						<string key="NSFrame">{{633, 917}, {120, 67}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="445862345"/>
+						<reference key="IBUIFont" ref="280430902"/>
 						<string key="IBUITitleShadowOffset">{0, 1}</string>
 						<string key="IBUINormalTitle">AI</string>
 						<reference key="IBUIHighlightedTitleColor" ref="363889199"/>
@@ -156,7 +156,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="445862345"/>
+						<reference key="IBUIFont" ref="280430902"/>
 						<string key="IBUITitleShadowOffset">{0, 1}</string>
 						<string key="IBUINormalTitle">Tutorial</string>
 						<reference key="IBUIHighlightedTitleColor" ref="363889199"/>
@@ -168,13 +168,13 @@
 					<object class="IBUIButton" id="794099586">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">319</int>
-						<string key="NSFrame">{{250, 633}, {267, 70}}</string>
+						<string key="NSFrame">{{250, 628}, {267, 80}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<reference key="IBUIFont" ref="445862345"/>
+						<reference key="IBUIFont" ref="280430902"/>
 						<string key="IBUITitleShadowOffset">{0, 1}</string>
 						<string key="IBUINormalTitle">Resume</string>
 						<reference key="IBUIHighlightedTitleColor" ref="363889199"/>
@@ -820,7 +820,7 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{260, 63}</string>
 				<string>{120, 60}</string>
-				<string>{768, 1024}</string>
+				<string>{768, 1004}</string>
 				<string>{80, 80}</string>
 				<string>{80, 80}</string>
 				<string>{80, 80}</string>

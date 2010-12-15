@@ -60,7 +60,7 @@
 					<object class="IBUILabel" id="383462061">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{225, 10}, {61, 44}}</string>
+						<string key="NSFrame">{{225, 10}, {66, 44}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -69,22 +69,23 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<string key="IBUIText">Rules</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Palatino-Roman</string>
+							<string key="NSName">HelveticaNeue</string>
 							<double key="NSSize">24</double>
 							<int key="NSfFlags">16</int>
 						</object>
 						<object class="NSColor" key="IBUITextColor">
 							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MC4zMzMzMzMzMzMzAA</bytes>
+							<bytes key="NSWhite">MC41AA</bytes>
 						</object>
 						<nil key="IBUIHighlightedColor"/>
 						<object class="NSColor" key="IBUIShadowColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MQA</bytes>
+							<int key="NSColorSpace">1</int>
+							<bytes key="NSRGB">MC44Nzg3ODc4Nzg4IDAuODc4Nzg3ODc4OCAwLjg3ODc4Nzg3ODgAA</bytes>
 						</object>
 						<string key="IBUIShadowOffset">{1, 1}</string>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
+						<bool key="IBUIEnabled">NO</bool>
 						<int key="IBUITextAlignment">1</int>
 					</object>
 					<object class="IBUITableView" id="819950065">
@@ -216,7 +217,7 @@
 					<string>RuleViewController</string>
 					<string>UIResponder</string>
 					<string>NoteView</string>
-					<string>{{442, 233}, {314, 200}}</string>
+					<string>{{200, 651}, {314, 200}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

@@ -54,7 +54,7 @@
 	if ([Game sharedInstance].running) {
 		[[Game sharedInstance] pause];
 	}	
-	//scrollView.backgroundColor = [GameVisual colorWithHex:0xEEEEEE];
+	//scrollView.backgroundColor = [UIColor colorWithHex:0xEEEEEE];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {

@@ -10,6 +10,8 @@
 
 #import "UIView+SaveAnimation.m"
 #import "NSArray+RandomObject.m"
+#import "UIColor+Hex.m"
+
 
 #pragma mark - 
 #pragma mark Debug Switches
@@ -24,11 +26,15 @@
 #pragma mark Static Const
 
 //Fonts
-#define PrimaryFontName @"Palatino-Roman"
-#define PrimaryFont "Palatino-Roman"
+#define PrimaryFontName @"HelveticaNeue-Bold"
+#define PrimaryFont "HelveticaNeue-Bold"
 
-#define SecondaryFontName @"Thonburi"
-#define SecondaryFont "Thonburi"
+#define SecondaryFontName @"HelveticaNeue"
+#define SecondaryFont "HelveticaNeue"
+
+#define PrimaryColor [UIColor colorWithHex:0x1A1A1A]
+#define SecondaryColor [UIColor colorWithHex:0x666666]
+#define LightColor [UIColor colorWithHex:0xB3B3B3]
 
 // Times
 #if DebugMode

@@ -29,8 +29,8 @@
 // custom view for header. will be adjusted to default or specified header height
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 	UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 25)];
-	label.font = [UIFont fontWithName:PrimaryFontName size:20];
-	label.textColor = [UIColor grayColor];
+	label.font = [UIFont fontWithName:SecondaryFontName size:20];
+	label.textColor = SecondaryColor;
 	label.backgroundColor = [UIColor clearColor];
 
 	if (section == 0) {
@@ -77,7 +77,7 @@
 	cell.textLabel.textColor = [GameVisual scoreColor];
 	
 	cell.detailTextLabel.font = [UIFont fontWithName:SecondaryFontName size:15];
-	cell.detailTextLabel.textColor = [UIColor grayColor];
+	cell.detailTextLabel.textColor = LightColor;
 	cell.detailTextLabel.numberOfLines = 2;
 	
 	

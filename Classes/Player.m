@@ -331,7 +331,7 @@
 	//Resources
 	s = [s stringByAppendingFormat:@"<H2>Resources<span class = 'score'>%d</span></H2>", resourceScore];
 	for (int i = 0; i<NumberOfTokenTypes; i++) {
-		s = [s stringByAppendingFormat:@"<p><strong>%@</strong>: %d x %d<span class = 'score'>%d</span></p>",
+		s = [s stringByAppendingFormat:@"<p>%@: %d x %d<span class = 'score'>%d</span></p>",
 			 [GameLogic descriptionForResourceType:i], 
 			 [self amountOfResource:i], 
 			 TokenScoreModifier[i],

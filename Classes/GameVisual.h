@@ -44,7 +44,6 @@
 + (UIImage *)rumbleInfoBackgroundForPlayerID:(int)playerID;
 
 + (UIColor *)scoreColor;
-+ (UIColor *)colorWithHex:(int)hex;
 
 + (CGPoint)infoCenterForPlayerID:(int)theID;
 + (CGPoint)rumbleInfoCenterForPlayerID:(int)i;

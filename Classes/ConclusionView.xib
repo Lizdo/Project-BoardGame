@@ -71,7 +71,7 @@
 					<object class="IBUILabel" id="220147776">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{209, 75}, {350, 81}}</string>
+						<string key="NSFrame">{{209, 75}, {350, 89}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -80,7 +80,7 @@
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<string key="IBUIText">Scoring</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Palatino-Roman</string>
+							<string key="NSName">HelveticaNeue-Light</string>
 							<double key="NSSize">72</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -545,7 +545,7 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="NS.key.0">Default.png</string>
-			<string key="NS.object.0">{768, 1024}</string>
+			<string key="NS.object.0">{768, 1004}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">132</string>
 	</data>
