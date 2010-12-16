@@ -87,6 +87,7 @@
 
 - (void)enterConclusion;
 
+- (void)reset;
 
 - (UIInterfaceOrientation)interfaceOrientation;
 

@@ -32,6 +32,7 @@
 - (void)enterConclusion;
 - (void)showTutorial;
 - (void)showMainMenu;
+- (void)restart;
 
 @end
 

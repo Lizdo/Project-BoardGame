@@ -420,6 +420,11 @@ static Board *sharedInstance = nil;
 	}
 }
 
+- (void)reset{
+	sharedInstance = nil;
+	[self dealloc];
+}
+
 
 - (void)dealloc {
 	[infoView release];

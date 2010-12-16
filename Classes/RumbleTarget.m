@@ -311,7 +311,8 @@ static const int DistanceTolerance = 30;
 			//Skip the distance check, just need to drag & drop into the slot
 			placeholder.hasMatch = YES;
 			placeholder.matchedToken = t;
-			[self insertSubview:placeholder atIndex:0];
+			//Drop at index 3, above all the labels
+			[self insertSubview:placeholder atIndex:3];
 			t.center = [self convertPoint:placeholder.center toView:self.superview.superview];
 			t.transform = CGAffineTransformConcat(self.superview.transform, placeholder.transform);
 			//Change the draw order to avoid mistakes

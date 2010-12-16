@@ -160,7 +160,9 @@ static int NumberOfRounds;
 	
 	if ([options objectForKey:@"NumberOfRounds"] != nil) {
 		NumberOfRounds = [[options objectForKey:@"NumberOfRounds"] intValue];
-	}else {
+	}else if (DebugMode) {
+		NumberOfRounds = 3;
+	}else{
 		NumberOfRounds = 15;
 	}
 	

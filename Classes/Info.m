@@ -89,6 +89,9 @@
 	[self setToggleAIButtonImage];
 	self.allowEndTurn = NO;
 	
+	svc.player = self.player;
+	pvc.player = self.player;
+	
 	backgroundImage.image = [GameVisual infoBackgroundForPlayerID:player.ID];
 }
 
@@ -146,14 +149,7 @@
 }
 
 - (void)update{
-	if (svc.player == nil) {
-		svc.player = self.player;
-	}
 	[svc update];
-	
-	if (pvc.player == nil) {
-		pvc.player = self.player;
-	}
 	[pvc update];
 	
 	if (gameLogic.currentPlayer == self.player) {

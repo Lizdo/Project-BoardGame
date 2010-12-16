@@ -152,6 +152,13 @@
 }
 */
 
+- (void)reset{
+	[board removeFromSuperview];
+	[rumbleBoard removeFromSuperview];
+	[board reset];
+	[rumbleBoard reset];
+}
+
 
 
 - (void)dealloc {

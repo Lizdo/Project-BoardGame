@@ -26,11 +26,18 @@
 	NSString *path = [[NSBundle mainBundle] bundlePath];
 	NSURL *baseURL = [NSURL fileURLWithPath:path];
 	[scoreWebView loadHTMLString:htmlString baseURL:baseURL];
-//	
-//	for (id subview in scoreWebView.subviews){
-//		if ([[subview class] isSubclassOfClass: [UIScrollView class]])
-//			((UIScrollView *)subview).bounces = NO;  
-//	}
+
+	for (UIView* subView in [scoreWebView subviews])
+    {
+        if ([subView isKindOfClass:[UIScrollView class]]) {
+            for (UIView* shadowView in [subView subviews])
+            {
+                if ([shadowView isKindOfClass:[UIImageView class]]) {
+                    [shadowView setHidden:YES];
+                }
+            }
+        }
+    }
 	
 }
 

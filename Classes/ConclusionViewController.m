@@ -9,6 +9,7 @@
 #import "ConclusionViewController.h"
 #import "GameLogic.h"
 #import "Game.h"
+#import "BoardGameViewController.h"
 
 
 @implementation ConclusionViewController
@@ -98,10 +99,19 @@
 	NSURL *baseURL = [NSURL fileURLWithPath:path];
 	[scoreWebView loadHTMLString:s baseURL:baseURL];
 	
-	for (id subview in scoreWebView.subviews){
-		if ([[subview class] isSubclassOfClass: [UIScrollView class]])
-			((UIScrollView *)subview).bounces = NO;  
-	}
+	
+	for (UIView* subView in [scoreWebView subviews])
+    {
+        if ([subView isKindOfClass:[UIScrollView class]]) {
+            for (UIView* shadowView in [subView subviews])
+            {
+                if ([shadowView isKindOfClass:[UIImageView class]]) {
+                    [shadowView setHidden:YES];
+                }
+            }
+        }
+    }
+	
 	//
 //	fourthPlaceName.text = [[players objectAtIndex:0] name];
 //	thirdPlaceName.text = [[players objectAtIndex:1] name];	
@@ -116,7 +126,7 @@
 }
 
 - (IBAction)showMainMenu{
-	[bgvc showMainMenu];
+	[bgvc restart];
 	[self.view removeFromSuperview];
 }
 

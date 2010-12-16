@@ -259,6 +259,10 @@ static RumbleBoard *sharedInstance = nil;
 	}
 }
 
+- (void)reset{
+	sharedInstance = nil;
+	[self dealloc];
+}
 
 - (void)dealloc {
 	[rumbleInfos release];

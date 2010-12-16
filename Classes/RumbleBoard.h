@@ -70,6 +70,6 @@
 - (void)enterRumbleAnimDidStop;
 - (void)exitRumbleAnimDidStop;
 
-
+- (void)reset;
 
 @end

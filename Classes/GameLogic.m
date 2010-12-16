@@ -77,7 +77,8 @@ static GameLogic *sharedInstance = nil;
 			[p release];
 		}
 	}
-
+	
+	DebugLog (@"Retain count for p0 is: %d", [[players objectAtIndex:0] retainCount]);
 
 	currentPlayerID = -2;	
 }

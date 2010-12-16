@@ -31,6 +31,12 @@
 - (void)loadView {
 	[self showMainMenu];
 }
+
+- (void)restart{
+	[bgv reset];
+	[game reset];
+	[self showMainMenu];
+}
 	
 - (void)showMainMenu{
 

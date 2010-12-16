@@ -26,4 +26,6 @@
 - (void)enterRumble;
 - (void)exitRumble;
 
+- (void)reset;
+
 @end
